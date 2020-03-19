@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuidesTable extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,9 @@ class CreateGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('guides', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('id_card');
-            $table->string('fontsize');
-            $table->datetime('pass_time');
-            $table->boolean('pass')->default(false);
-            $table->integer('photo');
-            $table->integer('schedule_id');
-            $table->integer('user_id');
+            $table->integer('attraction_id');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ class CreateGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guides');
+        Schema::dropIfExists('videos');
     }
 }

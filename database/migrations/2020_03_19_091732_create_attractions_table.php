@@ -15,6 +15,12 @@ class CreateAttractionsTable extends Migration
     {
         Schema::create('attractions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('flim_route');
+            $table->text('name');
+            $table->integer('photo_route');
+            $table->text('location');
+            $table->text('text');
+            $table->integer('guide_id');
             $table->timestamps();
         });
     }
