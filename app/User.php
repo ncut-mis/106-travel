@@ -37,5 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function members()
+    {
+        //一對一
+        return $this->hasOne(Member::class);
+    }
+    public function guides()
+    {
+        //一對一
+        return $this->hasOne(Guide::class);
+    }
+    public function bosss()
+    {
+        //一對一
+        return $this->hasOne(Boss::class);
+    }
 
 }
