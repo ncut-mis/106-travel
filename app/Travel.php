@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Travel extends Model
 {
     public function member()
@@ -14,5 +15,6 @@ class Travel extends Model
     public function schedule()
     {
         return $this->hasMany(Schedule::class);
-    }
+}
+
 }
