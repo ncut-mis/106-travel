@@ -16,3 +16,6 @@ Route::auth();
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('index', ['as' => 'index',   'uses' => 'IndexController@index']);
+
+Route::get('/index', 'IndexController@index');
