@@ -16,10 +16,10 @@ class CreateTravelsTable extends Migration
         Schema::create('travels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->date('travel_date');
-            $table->date('end_date');
-            $table->integer('total');
-            $table->integer('passenger_id');
+            $table->datetime('travel_date');
+            $table->datetime('end_date');
+            $table->integer('total')->default(0);
+            $table->integer('member_id');
             $table->timestamps();
         });
     }

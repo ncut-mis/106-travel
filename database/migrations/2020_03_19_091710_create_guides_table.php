@@ -17,10 +17,9 @@ class CreateGuidesTable extends Migration
             $table->bigIncrements('id');
             $table->string('id_card');
             $table->string('fontsize');
-            $table->datetime('pass_time');
+            $table->datetime('pass_time')->nullable();
             $table->boolean('pass')->default(false);
-            $table->integer('photo');
-            $table->integer('schedule_id');
+            $table->string('photo');
             $table->integer('user_id');
             $table->timestamps();
         });

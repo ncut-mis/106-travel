@@ -16,6 +16,12 @@ Route::auth();
 Route::get('/', function () {
     return view('welcome');
 });
+
 //Route::get('index', ['as' => 'index',   'uses' => 'IndexController@index']);
 
 Route::get('/index', 'IndexController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/travel','TravelController@index');
+

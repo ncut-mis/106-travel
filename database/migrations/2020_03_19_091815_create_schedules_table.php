@@ -18,7 +18,7 @@ class CreateSchedulesTable extends Migration
             $table->text('region');
             $table->dateTime('travel_time');
             $table->dateTime('end_time');
-            $table->integer('content');
+            $table->text('content');
             $table->integer('cost');
             $table->integer('guide_id');
             $table->integer('travel_id');

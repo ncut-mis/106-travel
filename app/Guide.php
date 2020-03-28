@@ -21,4 +21,8 @@ class Guide extends Model
     {
         return $this->hasMany(Attraction::class);
     }
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
