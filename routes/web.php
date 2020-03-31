@@ -18,4 +18,8 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
+//測試
 Route::get('/travel','TravelController@index');
+
+//
+
