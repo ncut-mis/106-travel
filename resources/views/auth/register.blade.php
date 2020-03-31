@@ -39,15 +39,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
 
-                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('sex') }}</label>
+                        <div class="form-group row">
+                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sex" type="text" class="form-control @error('sex') is-invalid @enderror" name="sex" value="{{ old('sex') }}" required autocomplete="sex" autofocus>
-
-                                @error('sex')
-                                <span class="invalid-feedback" role="alert">
+                                <select id="sex" name="sex" class="form-control @error('sex') is-invalid @enderror" type="text">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                    <select>
+                                        @error('sex')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -84,6 +86,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
