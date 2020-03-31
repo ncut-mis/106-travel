@@ -40,17 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('電話') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="date" class="form-control @error('phone') is-invalid @enderror" name="phone"  required autocomplete="phone">
-
-                                @error('phone')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                </span>
-
+                            
                             <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('sex') }}</label>
 
                             <div class="col-md-6">
