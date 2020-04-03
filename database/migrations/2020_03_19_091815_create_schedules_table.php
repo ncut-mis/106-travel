@@ -16,11 +16,11 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('region');
-            $table->dateTime('travel_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->text('content');
-            $table->integer('cost');
-            $table->integer('guide_id');
+            $table->integer('cost')->nullable();
+            $table->integer('guide_id')->nullable();
             $table->integer('travel_id');
             $table->timestamps();
         });
