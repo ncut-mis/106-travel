@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.test')
 
 @section('content')
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">修改基本資料</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -13,8 +13,12 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
-                        You are logged in!
+                            <table width="300" border="1">
+                                　<tr>
+                                    　<td>123</td>
+                                    　<td>這裡是第二個欄位</td>
+                                    　</tr>
+                            </table>
                     </div>
                 </div>
             </div>

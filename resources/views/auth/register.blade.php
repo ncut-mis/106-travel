@@ -39,15 +39,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
 
-                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('sex') }}</label>
+                        <div class="form-group row">
+                            <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sex" type="text" class="form-control @error('sex') is-invalid @enderror" name="sex" value="{{ old('sex') }}" required autocomplete="sex" autofocus>
-
-                                @error('sex')
-                                <span class="invalid-feedback" role="alert">
+                                <select id="sex" name="sex" class="form-control @error('sex') is-invalid @enderror" type="text">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                    <select>
+                                        @error('sex')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -85,6 +87,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -105,6 +108,23 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="type" name="type" class="form-control @error('type') is-invalid @enderror" type="text">
+                                    <option value="會員">會員</option>
+                                    <option value="導遊">導遊</option>
+                                    <select>
+                                        @error('type')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                         </div>
 
                         <div class="form-group row mb-0">
