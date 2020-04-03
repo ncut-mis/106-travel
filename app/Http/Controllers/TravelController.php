@@ -18,7 +18,7 @@ class TravelController extends Controller
         $q=1;
 //        foreach ($a as $a){
 //            $b=$travels->schedule->id;
-
+//
 //        }
         $c=Travel::find(1)->schedule;
             dd($c);

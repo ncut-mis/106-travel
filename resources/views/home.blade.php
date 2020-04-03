@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +59,7 @@
                     <a class="nav-link" href="{{ url('index') }}">修改基本資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="{{ url('travel') }}">規劃旅遊</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="portfolio.html">Portfolio</a>
@@ -79,7 +76,7 @@
                                                      document.getElementById('logout-form').submit();">
                         登出<span class="caret"></span>
                     </a>
-                    
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
