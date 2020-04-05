@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('/index', 'IndexController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/home', 'HomeController@index')->name('home1');
 
 //測試
 Route::get('/travel','TravelController@index');
