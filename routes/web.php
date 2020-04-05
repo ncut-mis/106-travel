@@ -20,9 +20,10 @@ Route::get('/', function () {
 //Route::get('index', ['as' => 'index',   'uses' => 'IndexController@index']);
 
 Route::get('/index', 'IndexController@index');
+Route::get('/schedule', 'ScheduleController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'HomeController@index')->name('home1');
+Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
 
 //測試
 Route::get('/travel','TravelController@index');

@@ -26,5 +26,16 @@ class TravelController extends Controller
 
 
     }
+    public function destroy()
+    {
+//        Travel::destroy();
+//        return redirect('/travel');
+
+    }
+    public function update()
+    {
+
+
+    }
 
 }
