@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    public function travel()
+    public function travels()
     {
         return $this->belongsTo(Travel::class);
     }
 
-    public function guide()
+    public function guides()
     {
         return $this->belongsTo(Guide::class);
     }

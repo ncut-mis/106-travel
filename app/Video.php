@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     //
-    public function attraction()
+    public function attractions()
     {
         return $this->belongsTo(Attraction::class);
     }
