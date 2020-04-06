@@ -26,3 +26,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //測試
 Route::get('/travel','TravelController@index');
+
+
+//導遊新增專長景點
+Route::get('/attractions', 'AttractionController@index');
+Route::get('/attraction', 'AttractionController@create');
+Route::post('/attraction', 'AttractionController@store');
+Route::delete('/attraction/{attraction}', 'AttractionController@destroy');

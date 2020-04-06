@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attraction extends Model
 {
-    public function guide()
+    public function guides()
     {
         return $this->belongsTo(Guide::class);
     }
-    public function photo()
+    public function photos()
     {
         //一對多
         return $this->hasMany(Photo::class);
     }
-    public function video()
+    public function videos()
     {
         //一對多
         return $this->hasMany(Video::class);
