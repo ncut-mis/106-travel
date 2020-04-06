@@ -14,13 +14,14 @@ class TravelController extends Controller
     public function index()
     {
         $travels=Travel::orderBy('id','ASC')->get();
-        $a=Auth::user()->members->travels;
-        $q=1;
+//        $a=Auth::user()->members->travels;
+//        $q=1;
+//        dd($a);
 //        foreach ($a as $a){
-//            $b=$travels->schedule->id;
-//
+//            $b=$travels->id;
 //        }
-        $c=Travel::find(1)->schedule;
+//        dd($b);
+//        $c=Travel::find(1)->schedule;
         $data=['travels'=>$travels];
         return view('travel',$data);
 
