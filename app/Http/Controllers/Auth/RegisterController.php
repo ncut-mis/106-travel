@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'phone'=> ['required', 'string', 'min:6', 'max:10'],
             'birthday'=> ['required', 'string' ],
             'sex'=> ['required', 'string', 'max:255'],
+            'type'=> ['required', 'string', 'max:255'],
 
         ]);
     }
@@ -74,6 +75,7 @@ class RegisterController extends Controller
             'phone'=> $data['phone'],
             'birthday'=> $data['birthday'],
             'sex'=> $data['sex'],
+            'type'=> $data['type'],
         ]);
     }
 }

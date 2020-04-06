@@ -1,21 +1,20 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title  -->
-    <title>Sonar - Photography Template</title>
+<!-- Title  -->
+<title>Sonar - Photography Template</title>
 
-    <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+<!-- Favicon  -->
+<link rel="icon" href="img/core-img/favicon.ico">
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="style.css">
+<!-- Style CSS -->
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -62,7 +61,7 @@
                     <a class="nav-link" href="{{ url('index') }}">修改基本資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="{{ url('travel') }}">規劃旅遊</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="portfolio.html">Portfolio</a>
@@ -80,9 +79,15 @@
                         登出<span class="caret"></span>
                     </a>
 
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
 
                 </li>
             </ul>
