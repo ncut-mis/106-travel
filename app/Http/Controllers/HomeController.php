@@ -28,10 +28,10 @@ class HomeController extends Controller
 //        $a=Auth::user()->type;
 ////        dd($a);
          if(Auth::user()->type==1)
-             return view('home');
+             return view('mhome');
         else if(Auth::user()->type==2)
             //記得修改index路游為導遊登入後頁面
-        return view('index');
+        return view('ghome');
         else
             //記得修改index路游為業者登入後頁面
             return view('index');
