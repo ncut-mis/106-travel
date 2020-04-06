@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">修改基本資料</div>
+                    <div class="card-header">修改行程</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -16,7 +16,7 @@
                             <table width="300" border="1">
                                 　<tr>
                                     　<td>123</td>
-                                    　<td>這裡是第二個欄位</td>
+                                    　<td>321</td>
                                     　</tr>
                             </table>
                     </div>
