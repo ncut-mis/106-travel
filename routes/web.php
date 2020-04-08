@@ -20,6 +20,7 @@ Route::get('/', function () {
 //Route::get('index', ['as' => 'index',   'uses' => 'IndexController@index']);
 
 Route::get('/index', 'IndexController@index');
+Route::post('/index', 'IndexController@update')->name('store');
 Route::get('/schedule', 'ScheduleController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
