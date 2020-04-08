@@ -28,8 +28,10 @@ Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
 //測試
 Route::get('/travel','TravelController@index');
 
+//導遊編輯基本資料
+Route::get('/guide', 'GuideController@edit');
 
-//導遊新增專長景點
+//導遊編輯專長景點
 Route::get('/attractions', 'AttractionController@index');
 Route::get('/attraction', 'AttractionController@create');
 Route::post('/attraction', 'AttractionController@store');

@@ -30,8 +30,12 @@ class HomeController extends Controller
          if(Auth::user()->type==1)
              return view('mhome');
         else if(Auth::user()->type==2)
+        {
+            $a=Auth::user();
+            return view('ghome',[ 'a' => $a]);
+        }
             //記得修改index路游為導遊登入後頁面
-        return view('ghome');
+
         else
             //記得修改index路游為業者登入後頁面
             return view('index');
