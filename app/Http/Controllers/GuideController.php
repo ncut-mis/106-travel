@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
-use App\User;
+use App\Guide;
+use App\Attraction;
 
-
-class IndexController extends Controller
+class GuideController extends Controller
 {
     public function index()
     {
         $a=Auth::user();
-
-        return view('index',['a1'=>$a]);
+        return view('guide',['a'=>$a]);
     }
-    public function update(Request $request)
+    public function edit(Request $request)
     {
         $b = User::where('id', $request->input("update_id"))->first();
 
@@ -26,7 +26,6 @@ class IndexController extends Controller
         $b->phone = $request->input("update_phone");
         $b->save();
 
-        return redirect('/index');
+        return redirect('/guide');
     }
 }
-

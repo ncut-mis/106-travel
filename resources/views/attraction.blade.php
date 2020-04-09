@@ -1,29 +1,48 @@
-<header class="masthead">
-    <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-            <h1 class="text-uppercase text-white font-weight-bold">
+@extends('layouts.test')
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover" >
-    <thead>
-    <tr>
-        <th width="100"  style="text-align: center"><font color="white" >編號</font></th>
-        <th width="100"  style="text-align: center"><font color="white">名稱</font></th>
-        <th width="200"  style="text-align: center"><font color="white">出遊日期</font></th>
-        <th width="200"  style="text-align: center"><font color="white">導遊費用</font></th>
-        <th width="100"  style="text-align: center"><font color="white">備註</font></th>
-    </tr>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">導遊專長景點</div>
 
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+    @endif
+                            <form class="form-horizontal" action="{{ route('store') }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$a->id}}>
+                                <div  class="form-group" >
+                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="update_email" name="update_email" value={{$a->name}}>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="pwd">姓名:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="update_name" name="update_name"  value={{$a->location}}>
+                                    </div>
+                                </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="pwd">生日:</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="update_birthday" name="update_birthday"  value={{$a->text}}>
+                                    </div>
+                                </div>
 
-@foreach($attractions as $attractions)
-    <tr>
-        <td>{{$attractions->id}}</td>
-        <td>{{$attractions->name}}</td>
+                                <button type="submit" class="btn btn-default">儲存</button>
+                            </form>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </tr>
-@endforeach
-
+@endsection
