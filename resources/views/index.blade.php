@@ -14,12 +14,6 @@
                             </div>
                         @endif
 
-                            <table width="300" border="1">
-                                　<tr>
-                                    　<td>Auth::user()</td>
-                                    　<td>這裡是第二個欄位</td>
-                                    　</tr>
-                            </table>
 
 
                             <form class="form-horizontal" action="{{ route('store') }}" method="POST">

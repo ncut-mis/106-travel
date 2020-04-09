@@ -29,11 +29,14 @@ Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
 //測試
 Route::get('/travel','TravelController@index');
 
-//導遊編輯基本資料
-Route::get('/guide', 'GuideController@edit');
+//導遊顯示基本資料
+Route::get('/guide', 'GuideController@index');
+//導遊修改基本資料
+Route::post('/guide', 'GuideController@edit')->name('store');
 
-//導遊編輯專長景點
+//導遊顯示自己所有專長景點
 Route::get('/attractions', 'AttractionController@index');
+
 Route::get('/attraction', 'AttractionController@create');
 Route::post('/attraction', 'AttractionController@store');
 Route::delete('/attraction/{attraction}', 'AttractionController@destroy');

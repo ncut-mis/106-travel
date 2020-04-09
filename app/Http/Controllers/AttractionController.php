@@ -24,15 +24,7 @@ class AttractionController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-        ]);
 
-        $request->guide()->attractions()->create([
-            'name' => $request->name,
-        ]);
-
-        return redirect('/attractions');
     }
 
     public function index()
@@ -42,11 +34,8 @@ class AttractionController extends Controller
 
         $a = Auth::user()->guides->attractions;
 
-
-dd($a);
-
      //   $data=['attractions'=>$attractions];
 
-      //  return view('attraction',$data);
+        return view('attraction',$a);
     }
 }
