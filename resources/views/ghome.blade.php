@@ -61,7 +61,7 @@
                     <a class="nav-link" href="{{ url('guide') }}">修改基本資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('attractions') }}">編輯專長景點</a>
+                    <a class="nav-link" href="{{ route('attractions.index') }}">編輯專長景點</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="portfolio.html">查詢帶團歷史紀錄</a>

@@ -7,6 +7,8 @@ use App\Guide;
 use App\Attraction;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class AttractionController extends Controller
 {
@@ -15,27 +17,32 @@ class AttractionController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request)
-    {
-//        $attractions = Attraction::where('attraction_id', $request->attraction()->id)->get();
 
-        return view('attraction');
-    }
 
     public function store(Request $request)
     {
+        $a['name']=$request->input('name');
+        $a['location']=$request->input('location');
+        $a['content']=$request->input('content');
+        $a['guide_id']=auth()->user()->id;
 
+        DB::insert('insert into attractions(name,location,content,guide_id) values (?,?,?,?)',
+            [$a['name'],$a['location'],$a['content'],$a['guide_id']]);
+
+        return redirect()->route('attractions.index');
     }
-
     public function index()
     {
+        return view('attractions.index');
+    }
 
-//        $attractions=Attraction::orderBy('id','DESC')->get();
+    public function create()
+    {
+    return view('attractions.create');
+    }
 
-        $a = Auth::user()->guides->attractions;
-
-     //   $data=['attractions'=>$attractions];
-
-        return view('attraction',$a);
+    public function edit(Request $request)
+    {
+        return view('/attractions.edit');
     }
 }

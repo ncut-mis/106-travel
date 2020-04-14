@@ -16,7 +16,7 @@
 
 
 
-                        <form class="form-horizontal" action="{{ route('store') }}" method="POST">
+                        <form class="form-horizontal" action="{{ route('edit') }}" method="POST">
                             {{ csrf_field() }}
                             <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$a->id}}>
                             <div  class="form-group" >

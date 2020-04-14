@@ -20,4 +20,13 @@ class Attraction extends Model
         //一對多
         return $this->hasMany(Video::class);
     }
+    protected  $fillable=[
+        'name',
+        'location',
+        'content',
+        'is_feature',
+    ];
+
+    protected $table='attractions';
+
 }
