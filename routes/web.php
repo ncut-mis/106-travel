@@ -44,5 +44,7 @@ Route::post('attractions/store', 'AttractionController@store')->name('attraction
 Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.show');
 //導遊修改專長景點
 Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
+//導遊儲存修改好的專長景點
+Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
 //導遊刪除專長景點
-Route::delete('attractions/{attraction}', 'AttractionController@destroy');
+Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');

@@ -2,11 +2,12 @@
     <div class="row">
         <div class="col-12">
             <h2>新增專長景點</h2>
-            <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
+            <a href="{{url('attractions.index')}}" class="btn btn-secondary btn-sm">返回</a>
         </div>
         <div class="col-12">
-            <form method="post" action="{{route('attractions.store')}}">
+            <form method="post" action="{{route('attractions.update',$attraction->id)}}">
                 @csrf
+                {{ method_field('PATCH') }}
                 <div class="form-group">
                     <label for="name">景點名稱</label>
                     <input type="text" class="form-control" name="name" id="name" value="{{$attraction->name}}">
