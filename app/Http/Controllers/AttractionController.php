@@ -24,16 +24,33 @@ class AttractionController extends Controller
         $a['name']=$request->input('name');
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
+        $a['created_at']=now();
+        $a['updated_at']=now();
         $a['guide_id']=auth()->user()->id;
 
-        DB::insert('insert into attractions(name,location,content,guide_id) values (?,?,?,?)',
-            [$a['name'],$a['location'],$a['content'],$a['guide_id']]);
+        DB::insert('insert into attractions(name,location,content,guide_id,created_at,updated_at) values (?,?,?,?,?,?)',
+            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['created_at'],$a['updated_at']]);
 
         return redirect()->route('attractions.index');
     }
     public function index()
     {
-        return view('attractions.index');
+        $attractions=DB::select('select * from attractions order by id DESC ');
+        $data=[
+            'attractions'=>$attractions,
+        ];
+        return view('attractions.index',$data);
+    }
+
+    public function show($id)
+    {
+       $attraction = DB::select('select * from attractions where id=?',[$id]);
+
+       $data=[
+           'attraction'=>$attraction[0],
+       ];
+
+       return view('attractions.show',$data);
     }
 
     public function create()
@@ -41,8 +58,13 @@ class AttractionController extends Controller
     return view('attractions.create');
     }
 
-    public function edit(Request $request)
+    public function edit($id)
     {
-        return view('/attractions.edit');
+        $attraction = DB::select('select * from attractions where id=?',[$id]);
+        $data=[
+            'attraction'=>$attraction[0],
+        ];
+
+        return view('attractions.edit',$data);
     }
 }

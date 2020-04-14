@@ -43,6 +43,6 @@ Route::post('attractions/store', 'AttractionController@store')->name('attraction
 //秀出指定的專長景點
 Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.show');
 //導遊修改專長景點
-Route::post('attraction/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
-
-//Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
+Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
+//導遊刪除專長景點
+Route::delete('attractions/{attraction}', 'AttractionController@destroy');
