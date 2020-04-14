@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/index', 'IndexController@index');
 Route::post('/index', 'IndexController@update')->name('store');
-Route::get('/schedule', 'ScheduleController@update');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
@@ -35,3 +35,9 @@ Route::get('/attractions', 'AttractionController@index');
 Route::get('/attraction', 'AttractionController@create');
 Route::post('/attraction', 'AttractionController@store');
 Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
+
+//會員行程規劃
+Route::get('schedules', 'ScheduleController@index')->name('schedules.index');
+Route::get('schedules/create', 'ScheduleController@create')->name('schedules.create');
+Route::post('schedules/store', 'ScheduleController@store')->name('schedules.store');
+

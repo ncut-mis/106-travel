@@ -15,4 +15,14 @@ class Schedule extends Model
     {
         return $this->belongsTo(Guide::class);
     }
+    protected  $fillable=[
+        'region',
+        'start',
+        'end',
+        'content',
+        'cost',
+        'is_feature',
+    ];
+
+    protected $table='schedules';
 }
