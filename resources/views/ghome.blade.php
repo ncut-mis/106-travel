@@ -8,7 +8,7 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title  -->
-<title>Sonar - Photography Template</title>
+<title>1234</title>
 
 <!-- Favicon  -->
 <link rel="icon" href="img/core-img/favicon.ico">
@@ -48,7 +48,7 @@
     </div>
     <!-- Logo Area -->
     <div class="logo-area">
-        <a href="index.html">Sonar</a>
+        <font color="white" size="25" >歡迎{{$a->name}}</font>
     </div>
     <!-- Nav -->
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
@@ -58,20 +58,15 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('index') }}">修改基本資料</a>
+                    <a class="nav-link" href="{{ url('guide') }}">修改基本資料</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('travel') }}">規劃旅遊</a>
+                    <a class="nav-link" href="{{ route('attractions.index') }}">編輯專長景點</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="portfolio.html">查詢帶團歷史紀錄</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
+
                 <li class="nav-item dropdown">
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();

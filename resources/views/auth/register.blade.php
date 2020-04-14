@@ -115,8 +115,8 @@
 
                             <div class="col-md-6">
                                 <select id="type" name="type" class="form-control @error('type') is-invalid @enderror" type="text">
-                                    <option value=1>會員</option>
-                                    <option value=2>導遊</option>
+                                    <option value=會員>會員</option>
+                                    <option value=導遊>導遊</option>
                                     <select>
                                         @error('type')
                                         <span class="invalid-feedback" role="alert">

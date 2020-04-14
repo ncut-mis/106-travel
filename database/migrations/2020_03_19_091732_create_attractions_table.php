@@ -17,8 +17,8 @@ class CreateAttractionsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->text('location');
-            $table->text('text');
-            $table->integer('guide_id');
+            $table->text('content');
+            $table->unsignedBigInteger('guide_id');
             $table->timestamps();
         });
     }

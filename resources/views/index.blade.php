@@ -14,6 +14,8 @@
                             </div>
                         @endif
 
+
+
                             <form class="form-horizontal" action="{{ route('store') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$a1->id}}>
@@ -53,6 +55,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">儲存</button>
                             </form>
+
                     </div>
                 </div>
             </div>
