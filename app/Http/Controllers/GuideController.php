@@ -12,8 +12,8 @@ class GuideController extends Controller
 {
     public function index()
     {
-        $a=Auth::user();
-        return view('guide',['a'=>$a]);
+        $a2=Auth::user();
+        return view('guide',['a2'=>$a2]);
     }
     public function edit(Request $request)
     {

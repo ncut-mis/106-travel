@@ -30,7 +30,7 @@ class TravelController extends Controller
 
     }
     public function destroy(Request $request)
-    { 
+    {
         $deleteRow = Travel::where('id', $request->input("delete_id"))->delete();
 //        $deleteCus = Schedule::where('travel_id', $request->input("delete_id"))->delete();
         return redirect('/travel');
