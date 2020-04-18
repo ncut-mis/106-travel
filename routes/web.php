@@ -11,6 +11,8 @@
 |
 */
 //認證登入
+use App\Http\Controllers\TravelController;
+
 Route::auth();
 
 Route::get('/', function () {
@@ -24,10 +26,23 @@ Route::post('/index', 'IndexController@update')->name('store');
 Route::get('/schedule', 'ScheduleController@update');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
+//Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
 
 //測試
-Route::get('/travel','TravelController@index');
+Route::get('/travel','TravelController@index')->name('travel');
+
+//新增旅遊計畫
+Route::post('travel/store','TravelController@store')->name('travel.store');
+//刪除旅遊計畫
+//Route::delete('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
+Route::post('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
+
+//Route::delete('travel/destroy', 'TravelController@destroy')->name('travel.destroy');
+
+//修改旅遊計畫
+Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit']);
+
+
 
 //導遊顯示基本資料
 Route::get('/guide', 'GuideController@index');
@@ -40,3 +55,4 @@ Route::get('/attractions', 'AttractionController@index');
 Route::get('/attraction', 'AttractionController@create');
 Route::post('/attraction', 'AttractionController@store');
 Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
+
