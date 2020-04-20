@@ -8,6 +8,7 @@ use App\Travel;
 use App\Schedule;
 use App\Member;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class TravelController extends Controller
 {
@@ -26,6 +27,16 @@ class TravelController extends Controller
         return view('travel',$data);
 
 
+    }
+    public function show($id)
+    {
+        $travel = DB:: select ('select * from travels where id=?',[$id]);
+
+        $data=[
+            'travel'=>$travel[0],
+        ];
+
+        return view('travels.show',$data);
     }
     public function destroy()
     {

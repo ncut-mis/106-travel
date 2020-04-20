@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\travels;
+use App\guides;
 
 class Schedule extends Model
 {
@@ -24,5 +26,5 @@ class Schedule extends Model
         'is_feature',
     ];
 
-    protected $table='schedules';
+    //protected $table='schedules';
 }

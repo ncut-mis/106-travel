@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //Route::get('index', ['as' => 'index',   'uses' => 'IndexController@index']);
-
+//會員修改基本資料
 Route::get('/index', 'IndexController@index');
 Route::post('/index', 'IndexController@update')->name('store');
 
@@ -43,12 +43,21 @@ Route::get('/attraction', 'AttractionController@create');
 Route::post('/attraction', 'AttractionController@store');
 Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
 
-//會員行程規劃
-Route::get('schedules', 'ScheduleController@index')->name('schedules.index');
-Route::get('schedules/create', 'ScheduleController@create')->name('schedules.create');
+//顯示所有會員行程規劃
+Route::post('/schedules', 'ScheduleController@index')->name('schedules.index');
+Route::get('/reschedules/{id}', 'ScheduleController@reindex')->name('schedules.reindex');
+Route::get('travels/{id}', 'TravelController@show')->name('travels.show');
+//會員新增行程
+Route::get('schedules/create/{id}', 'ScheduleController@create')->name('schedules.create');
 Route::post('schedules/store', 'ScheduleController@store')->name('schedules.store');
+//會員編輯行程
+Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
+Route::post('schedules/update','ScheduleController@update')->name('schedules.update');
+//會員刪除行程
+Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
 
 
+//導遊新增專長景點
 Route::get('attractions/create', 'AttractionController@create')->name('attractions.create');
 //導遊儲存專長景點
 Route::post('attractions/store', 'AttractionController@store')->name('attractions.store');

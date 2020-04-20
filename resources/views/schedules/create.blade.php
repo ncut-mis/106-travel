@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <h2>新增行程</h2>
-                <a href="{{url('schedules')}}" class="btn btn-secondary btn-sm">返回</a>
+                <a href="{{route('schedules.reindex',$cc)}}" class="btn btn-secondary btn-sm">返回</a>
             </div>
             <div class="col-12">
                 <form method="post" action="{{route('schedules.store')}}">
@@ -35,8 +35,6 @@
                     </div>
                     <br>
                     <br>
-
-
                     <button type="submit" class="btn btn-primary btn-sm">儲存</button>
                 </form>
 
