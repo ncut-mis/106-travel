@@ -67,4 +67,20 @@ class AttractionController extends Controller
 
         return view('attractions.edit',$data);
     }
+
+    public function update(Request $request, $id)
+    {
+        $a['name']=$request->input('name');
+        $a['location']=$request->input('location');
+        $a['content']=$request->input('content');
+        DB::update('update attractions set name=?,location=?,content=? where id=?',
+            [$a['name'],$a['location'],$a['content'],$id]);
+
+        return redirect()->route('attractions.index');
+    }
+    public function destroy($id)
+    {
+        DB::delete('delete from attractions where id=?', [$id]);
+        return redirect()->route('attractions.index');
+    }
 }

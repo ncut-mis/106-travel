@@ -14,7 +14,8 @@ class TravelController extends Controller
 {
     public function index()
     {
-        $travels=Travel::orderBy('id','ASC')->get();
+//        $travels=Travel::orderBy('id','ASC')->get();
+        $travels=Auth::user()->members->travels;
 //        $a=Auth::user()->members->travels;
 //        $q=1;
 //        dd($a);
@@ -28,6 +29,7 @@ class TravelController extends Controller
 
 
     }
+
     public function show($id)
     {
         $travel = DB:: select ('select * from travels where id=?',[$id]);
@@ -38,16 +40,52 @@ class TravelController extends Controller
 
         return view('travels.show',$data);
     }
-    public function destroy()
-    {
-//        Travel::destroy();
-//        return redirect('/travel');
 
+
+    public function destroy(Request $request)
+    {
+        $deleteRow = Travel::where('id', $request->input("delete_id"))->delete();
+//        $deleteCus = Schedule::where('travel_id', $request->input("delete_id"))->delete();
+        return redirect('/travel');
+    }
+    public function edit(Request $request)
+
+    {
+
+
+        $travel = Travel::where('id', $request->input("update_id"))->first();
+        $travel->name = $request->input("update_name");
+        $travel->start = $request->input("update_start");
+        $travel->end = $request->input("update_end");
+        $travel->save();
+        return redirect('/travel');
     }
     public function update()
     {
 
 
+    }
+    public function store(Request $request)
+    {
+//        $lastid=0;
+//        $userlast = Travel()::SELECT('id')->orderBy('id', 'desc')->first();
+//        if($userlast==""){
+//            $lastid=0;
+//        }else{
+//            $lastid=$userlast->id;
+//        }
+//        $a['id']=$lastid+1;
+        $a['name']=$request->input('name');
+        $a['start']=$request->input('start');
+        $a['end']=$request->input('end');
+        $a['total']=0;
+        $a['pay']=0;
+        $a['member_id']=auth()->user()->id;
+
+        DB::insert('insert into travels(name,start,end,total,pay,member_id) values (?,?,?,?,?,?)',
+            [$a['name'],$a['start'],$a['end'],$a['total'],$a['pay'],$a['member_id']]);
+
+        return redirect()->route('travel');
     }
 
 }

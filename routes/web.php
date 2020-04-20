@@ -11,6 +11,8 @@
 |
 */
 //認證登入
+use App\Http\Controllers\TravelController;
+
 Route::auth();
 
 Route::get('/', function () {
@@ -24,14 +26,38 @@ Route::post('/index', 'IndexController@update')->name('store');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
+//Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
 
 //測試
-Route::get('/travel','TravelController@index');
+Route::get('/travel','TravelController@index')->name('travel');
+
+//新增旅遊計畫
+Route::post('travel/store','TravelController@store')->name('travel.store');
+//刪除旅遊計畫
+//Route::delete('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
+Route::post('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
+
+//Route::delete('travel/destroy', 'TravelController@destroy')->name('travel.destroy');
+
+//修改旅遊計畫
+Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit']);
+
+
 
 //導遊顯示基本資料
 Route::get('guide', 'GuideController@index');
 //導遊修改基本資料
+
+Route::post('/guide', 'GuideController@edit')->name('store');
+
+//導遊顯示自己所有專長景點
+Route::get('/attractions', 'AttractionController@index');
+
+Route::get('/attraction', 'AttractionController@create');
+Route::post('/attraction', 'AttractionController@store');
+Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
+
+
 Route::post('guide', 'GuideController@edit')->name('edit');
 
 //導遊目前所有專長景點
@@ -65,6 +91,12 @@ Route::post('attractions/store', 'AttractionController@store')->name('attraction
 Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.show');
 //導遊修改專長景點
 Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
+//導遊儲存修改好的專長景點
+Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
 //導遊刪除專長景點
+
 Route::delete('attractions/{attraction}', 'AttractionController@destroy');
+
+Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');
+
 
