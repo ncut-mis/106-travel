@@ -50,14 +50,6 @@ Route::get('guide', 'GuideController@index');
 
 Route::post('/guide', 'GuideController@edit')->name('store');
 
-//導遊顯示自己所有專長景點
-Route::get('/attractions', 'AttractionController@index');
-
-Route::get('/attraction', 'AttractionController@create');
-Route::post('/attraction', 'AttractionController@store');
-Route::delete('/attraction/{attraction}', 'AttractionController@destroy');
-
-
 Route::post('guide', 'GuideController@edit')->name('edit');
 
 //導遊目前所有專長景點
@@ -93,10 +85,11 @@ Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.s
 Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
 //導遊儲存修改好的專長景點
 Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
+//導遊暫停專長景點
+Route::get('attractions/stop/{id}', 'AttractionController@stop')->name('attractions.stop');
 //導遊刪除專長景點
-
-Route::delete('attractions/{attraction}', 'AttractionController@destroy');
-
 Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');
+//導遊啟用專長景點
+Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
 
 

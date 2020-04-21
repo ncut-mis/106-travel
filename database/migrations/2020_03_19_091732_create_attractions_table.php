@@ -18,6 +18,8 @@ class CreateAttractionsTable extends Migration
             $table->text('name');
             $table->text('location');
             $table->text('content');
+            $table->integer('price');
+            $table->integer('status')->default("0");
             $table->unsignedBigInteger('guide_id');
             $table->timestamps();
         });

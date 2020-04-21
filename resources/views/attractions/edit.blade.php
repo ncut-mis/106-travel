@@ -1,8 +1,11 @@
+@extends('layouts.guide')
+
+@section('content')
 <div class="content">
     <div class="row">
         <div class="col-12">
             <h2>新增專長景點</h2>
-            <a href="{{url('attractions.index')}}" class="btn btn-secondary btn-sm">返回</a>
+            <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
         </div>
         <div class="col-12">
             <form method="post" action="{{route('attractions.update',$attraction->id)}}">
@@ -26,6 +29,16 @@
                 </div>
                 <br>
                 <br>
+                <div class="form-group">
+                    <label for="price">價錢</label>
+                    <input type="text" class="form-control" name="price" id="price" value="{{$attraction->price}}">
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="files">附件</label>
+                    <input type="file" class="form-group" name="files[]" id="files" multiple>
+                </div>
 
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>
             </form>

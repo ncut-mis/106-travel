@@ -24,23 +24,58 @@ class AttractionController extends Controller
         $a['name']=$request->input('name');
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
+        $a['guide_id']=auth()->user()->id;
+        $a['price']=$request->input('price');
+
         $a['created_at']=now();
         $a['updated_at']=now();
-        $a['guide_id']=auth()->user()->id;
 
-        DB::insert('insert into attractions(name,location,content,guide_id,created_at,updated_at) values (?,?,?,?,?,?)',
-            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['created_at'],$a['updated_at']]);
+
+        DB::insert('insert into attractions(name,location,content,guide_id,price,created_at,updated_at) values (?,?,?,?,?,?,?)',
+            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['price'],$a['created_at'],$a['updated_at']]);
+
+//        $camip = new camip; camip資料表   新增的
+//        $att_id=Attraction::where('id', $id)->first();  修改
+//        $camip->id = $request->input("inputcamid");  inputcamid是textbox的id 或name
+//        $camip->name = $request->input("inputcamname");  前面的->是欄位
+//        $camip->ip = trim($request->input("inputcamip"));//
+//        $camip->picsite = 'campic/'.$request->input("inputcamid").'.jpg';
+//        $camip->status = '已儲存';
+//        $camip->save();
+
+//        //把資料表內的資料抓出來
+//        $camall=array();
+//        $camall = camip::all();
+
+
+
 
         return redirect()->route('attractions.index');
     }
     public function index()
     {
+
+
         $attractions=DB::select('select * from attractions order by id DESC ');
+
         $data=[
             'attractions'=>$attractions,
         ];
         return view('attractions.index',$data);
+
+
     }
+
+//    public function status()
+//    {
+//        $attractions=DB::select('select * from attractions where status="0" ');
+//        $a=[
+//            'attractions'=>$attractions,
+//        ];
+//        return view('attractions.index',$a);
+//
+//
+//    }
 
     public function show($id)
     {
@@ -83,4 +118,37 @@ class AttractionController extends Controller
         DB::delete('delete from attractions where id=?', [$id]);
         return redirect()->route('attractions.index');
     }
+    public function stop($id)
+    {
+        $att_id=Attraction::where('id', $id)->first();
+        $att_id->status =0;
+        $att_id->save();
+
+        $attractions=DB::select('select * from attractions order by id DESC ');
+
+        $data=[
+            'attractions'=>$attractions,
+        ];
+        return view('attractions.index',$data);
+    }
+    public function start()
+    {
+        //
+    }
+    public function open($id)
+    {
+        $att_id=Attraction::where('id', $id)->first();
+        $att_id->status = 1;
+        $att_id->save();
+
+        $attractions=DB::select('select * from attractions order by id DESC ');
+
+        $data=[
+            'attractions'=>$attractions,
+        ];
+        return view('attractions.index',$data);
+
+
+    }
+
 }

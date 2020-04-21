@@ -1,3 +1,6 @@
+@extends('layouts.guide')
+
+@section('content')
 
 <div class="content">
     <div class="row">
@@ -19,7 +22,10 @@
                         地點
                     </th>
                     <th>
-                        內容
+                        價格
+                    </th>
+                    <th>
+                        狀態
                     </th>
                 </tr>
                 </thead>
@@ -36,7 +42,17 @@
                             {{$attraction->location}}
                         </td>
                         <td>
-                            {{$attraction->content}}
+                            {{$attraction->price}}
+                        </td>
+                        <td>
+                            @if($attraction->status== "0")
+                                未啟用
+                            @elseif($attraction->status== "1")
+                                啟用
+                            @endif
+
+
+
                         </td>
 
                     </tr>

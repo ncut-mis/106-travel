@@ -1,4 +1,4 @@
-
+<head>
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="description" content="">
@@ -54,9 +54,6 @@
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('guide') }}">修改基本資料</a>
                 </li>
@@ -64,7 +61,10 @@
                     <a class="nav-link" href="{{ route('attractions.index') }}">編輯專長景點</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">查詢帶團歷史紀錄</a>
+                    <a class="nav-link" href="">顯示目前被預約行程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">查詢帶團歷史紀錄</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -106,15 +106,11 @@
                 <div class="menu-area d-flex justify-content-between">
                     <!-- Logo Area  -->
                     <div class="logo-area">
-                        <a href="index.html">Sonar</a>
+                        <a href="index.html">{{$a->name}}首頁</a>
                     </div>
 
                     <div class="menu-content-area d-flex align-items-center">
 
-                        <div class="header-social-area d-flex align-items-center">
-                            <a  href="{{(route('register'))}}" title="註冊">註冊</a>
-
-                        </div>
                         <span class="navbar-toggler-icon" id="menuIcon"></span>
                     </div>
                 </div>
