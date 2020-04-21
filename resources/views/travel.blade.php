@@ -29,9 +29,18 @@
                                     <td>{{$travels->end}}</td>
                                 <td>{{$travels->total}}元</td>
                                 <td>
+
+                                    <form action="{{route('schedules.index')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
+
+                                        <button type="submit" class="btn btn-danger">修改行程</button>
+                                    </form>
+
                                     <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
                                         修改旅遊
                                     </button>
+
                                         /
                                         <button type="button" class="deleteSelect btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
                                             刪除旅遊

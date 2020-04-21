@@ -29,6 +29,19 @@ class TravelController extends Controller
 
 
     }
+
+    public function show($id)
+    {
+        $travel = DB:: select ('select * from travels where id=?',[$id]);
+
+        $data=[
+            'travel'=>$travel[0],
+        ];
+
+        return view('travels.show',$data);
+    }
+
+
     public function destroy(Request $request)
     {
         $deleteRow = Travel::where('id', $request->input("delete_id"))->delete();
@@ -36,6 +49,7 @@ class TravelController extends Controller
         return redirect('/travel');
     }
     public function edit(Request $request)
+
     {
         $travel = Travel::where('id', $request->input("update_id"))->first();
         $travel->name = $request->input("update_name");
