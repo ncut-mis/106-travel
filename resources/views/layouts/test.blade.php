@@ -23,8 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ '個人' }}
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    {{ '回首頁' }}
                 </a>
             </div>
         </nav>
