@@ -17,7 +17,7 @@ class IndexController extends Controller
     }
     public function update(Request $request)
     {
-        $b = User::where('id', $request->input("update_id"))->first();
+        $b = User::where('id', $request->input("id"))->first();
 
         $b->email = $request->input("update_email");
         $b->name = $request->input("update_name");
