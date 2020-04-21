@@ -53,9 +53,6 @@
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('index') }}">修改基本資料</a>
                 </li>
