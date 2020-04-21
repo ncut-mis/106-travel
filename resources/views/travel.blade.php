@@ -15,6 +15,7 @@
                             <th width="100"  style="text-align: center"><font color="white" >編號</font></th>
                             <th width="100"  style="text-align: center"><font color="white">名稱</font></th>
                             <th width="200"  style="text-align: center"><font color="white">出遊日期</font></th>
+                            <th width="200"  style="text-align: center"><font color="white">回家日期</font></th>
                             <th width="200"  style="text-align: center"><font color="white">導遊費用</font></th>
                             <th width="100"  style="text-align: center"><font color="white">操作鈕</font></th>
                         </tr>
@@ -24,7 +25,8 @@
                                 <tr>
                                 <td>{{$travels->id}}</td>
                                 <td>{{$travels->name}}</td>
-                                <td>{{$travels->start}}~{{$travels->end}}</td>
+                                    <td>{{$travels->start}}</td>
+                                    <td>{{$travels->end}}</td>
                                 <td>{{$travels->total}}元</td>
                                 <td>
                                     <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
@@ -113,15 +115,10 @@
                         <input type="text" class="form-control" name="update_name" id="update_name"   title="輸入名稱">
 
                         <label >出遊日期</label>
-                            <label for="name" class="col-md-4 col-form-label text-md-right"></label>
-                            <div class="col-md-6">
-                                <input id="start" type="date" class="form-control " name="update_start" value="">
-                            </div>
+                        <input id="update_start" type="date" class="form-control " name="update_start" >
                         <label >結束日期</label>
-                        <label for="name" class="col-md-4 col-form-label text-md-right"></label>
-                        <div class="col-md-6">
-                            <input id="end" type="date" class="form-control " name="update_end" value="">
-                        </div>
+
+                            <input id="update_end" type="text" class="form-control " name="update_end" >
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -141,12 +138,15 @@
                 // get the current row
                 var currentRow=$(this).closest("tr");
                 var col0=currentRow.find("td:eq(0)").html();
-                var col5=currentRow.find("td:eq(5)").html();
+                var col1=currentRow.find("td:eq(1)").html();
+                var col2=currentRow.find("td:eq(2)").html();
+                var col3=currentRow.find("td:eq(3)").html();
 
 
                 $('#update_id').val(col0.trim());
-                $('#update_end').val(col5.trim());
-
+                $('#update_name').val(col1.trim());
+                $('#update_start').val(col2.trim());
+                $('#update_end').val(col3.trim());
             });
         });
     </script>

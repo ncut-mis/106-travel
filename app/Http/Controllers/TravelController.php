@@ -37,8 +37,6 @@ class TravelController extends Controller
     }
     public function edit(Request $request)
     {
-
-
         $travel = Travel::where('id', $request->input("update_id"))->first();
         $travel->name = $request->input("update_name");
         $travel->start = $request->input("update_start");
