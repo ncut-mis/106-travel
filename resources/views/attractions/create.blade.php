@@ -1,3 +1,6 @@
+@extends('layouts.guide')
+
+@section('content')
 <div class="content">
     <div class="row">
         <div class="col-12">
@@ -25,7 +28,16 @@
                 </div>
                 <br>
                 <br>
-
+                <div class="form-group">
+                    <label for="price">價格</label>
+                    <input type="text" class="form-control" name="price" id="price" value="">
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="files">附件</label>
+                    <input type="file" class="form-group" name="files[]" id="files" multiple>
+                </div>
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>
             </form>
 

@@ -24,6 +24,8 @@ class Attraction extends Model
         'name',
         'location',
         'content',
+        'price',
+        'status',
         'is_feature',
     ];
 

@@ -46,5 +46,13 @@ Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.s
 Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
 //導遊儲存修改好的專長景點
 Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
+//導遊暫停專長景點
+Route::get('attractions/stop/{id}', 'AttractionController@stop')->name('attractions.stop');
+//導遊啟用專長景點
+Route::get('attractions/start', 'AttractionController@start')->name('attractions.start');
 //導遊刪除專長景點
 Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');
+////導遊新增狀態
+//Route::get('attractions/status', 'AttractionController@status')->name('attractions.status');
+Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
+
