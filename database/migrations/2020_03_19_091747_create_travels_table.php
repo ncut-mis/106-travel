@@ -16,8 +16,8 @@ class CreateTravelsTable extends Migration
         Schema::create('travels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->datetime('start');
-            $table->datetime('end');
+            $table->date('start');
+            $table->date('end');
             $table->integer('total')->default(0);
             $table->integer('pay')->default(0);
             $table->integer('member_id');

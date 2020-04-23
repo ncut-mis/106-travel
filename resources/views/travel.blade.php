@@ -12,7 +12,6 @@
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-                            <th> <font color="white">編號</font></th>
                             <th ><font color="white">名稱</font></th>
                             <th ><font color="white">出遊日期</font></th>
                             <th ><font color="white">回家日期</font></th>
@@ -25,7 +24,6 @@
                         <tbody id="Mytable">
                             @foreach($chgpage as $travels)
                                 <tr>
-                                <td>{{$travels->id}}</td>
                                 <td>{{$travels->name}}</td>
                                     <td>{{$travels->start}}</td>
                                     <td>{{$travels->end}}</td>
@@ -124,8 +122,6 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <label>旅遊編號</label>
-                        <input type="text" class="form-control" name="update_id" id="update_id"   value="0">
                         <label >名稱</label>
                         <input type="text" class="form-control" name="update_name" id="update_name"   title="輸入名稱">
 
@@ -133,7 +129,7 @@
                         <input id="update_start" type="date" class="form-control " name="update_start" >
                         <label >結束日期</label>
 
-                            <input id="update_end" type="text" class="form-control " name="update_end" >
+                            <input id="update_end" type="date" class="form-control " name="update_end"  >
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -152,14 +148,11 @@
             $("#Mytable").on('click','.btnSelect',function(){
                 // get the current row
                 var currentRow=$(this).closest("tr");
-                var col0=currentRow.find("td:eq(0)").html();
-                var col1=currentRow.find("td:eq(1)").html();
-                var col2=currentRow.find("td:eq(2)").html();
-                var col3=currentRow.find("td:eq(3)").html();
+                var col1=currentRow.find("td:eq(0)").html();
+                var col2=currentRow.find("td:eq(1)").html();
+                var col3=currentRow.find("td:eq(2)").html();
 
 
-
-                $('#update_id').val(col0.trim())
                 $('#update_name').val(col1.trim());
                 $('#update_start').val(col2.trim());
                 $('#update_end').val(col3.trim());
