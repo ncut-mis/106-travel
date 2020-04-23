@@ -77,7 +77,8 @@ class ScheduleController extends Controller
         //dd($b1);
         //$b=Travel::schedules;
         $b=Schedule::find($request->input('update_id'));
-        $data=['b1'=>$b];
+       $data=['b1'=>$b];
+
         return view('schedules.edit',$data);
     }
 
@@ -89,7 +90,15 @@ class ScheduleController extends Controller
         $b->end = $request->input("update_end");
         $b->content = $request->input("update_content");
         $b->save();
-        return redirect()->route('schedules.index');
+
+        $b =Schedule::where('id', $request->input("update_id"))->first();
+        $travel_id=$b->travel_id;
+     //   dd($travel_id);
+        $b=Travel::find($travel_id)->schedules;
+        $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
+        $data=['b1'=>$b,'cc'=>$cc];
+
+        return view('schedules.index',$data);
     }
     public function destroy(request $request)
     {
