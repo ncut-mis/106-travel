@@ -54,7 +54,7 @@ class ScheduleController extends Controller
 
         return view('schedules.create',$data);
     }
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $a['region']=$request->input('region');
         $a['start']=$request->input('start');
@@ -62,11 +62,14 @@ class ScheduleController extends Controller
         $a['content']=$request->input('content');
         $a['cost']=Null;
         $a['guide_id']=Null;
-        $a['travel_id']=auth()->user()->id;
+        $a['travel_id']=$id;
+
         DB::insert('insert into schedules(region,start,end,content,cost,guide_id,travel_id) values (?,?,?,?,?,?,?)',
             [$a['region'],$a['start'],$a['end'],$a['content'],$a['cost'],$a['guide_id'],$a['travel_id']]);
-
-        return redirect()->route('schedules.index');
+        $b=Travel::find($id)->schedules;
+        $cc=($id);
+        $data=['b1'=>$b,'cc'=>$cc];
+        return view('schedules.index',$data);
     }
     public function edit(request $request)
     {
@@ -74,7 +77,8 @@ class ScheduleController extends Controller
         //dd($b1);
         //$b=Travel::schedules;
         $b=Schedule::find($request->input('update_id'));
-        $data=['b1'=>$b];
+       $data=['b1'=>$b];
+
         return view('schedules.edit',$data);
     }
 
@@ -86,7 +90,15 @@ class ScheduleController extends Controller
         $b->end = $request->input("update_end");
         $b->content = $request->input("update_content");
         $b->save();
-        return redirect()->route('schedules.index');
+
+        $b =Schedule::where('id', $request->input("update_id"))->first();
+        $travel_id=$b->travel_id;
+     //   dd($travel_id);
+        $b=Travel::find($travel_id)->schedules;
+        $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
+        $data=['b1'=>$b,'cc'=>$cc];
+
+        return view('schedules.index',$data);
     }
     public function destroy(request $request)
     {
