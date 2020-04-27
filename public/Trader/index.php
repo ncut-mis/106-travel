@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>平台業者畫面</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
+<body class = "bgc">
     
-<div style = "height:50px;width:100%;background-color : black;margin-bottom:20px;color:white;padding:10px;text-align:center"><h3>平台業者</h3></div>
+<?php require_once 'php/menu.php'?>
+
 <div class="container">
-    <div class="row align-items-center text-center ">
-        <div class="col-12"><a  class="btn btn-primary" href="b1.php">查詢每筆交易紀錄</a></div></br></br></br>
-        <div class="col-12"><a  class="btn btn-secondary" href="b2.php">導遊審核</a></div></br></br></br>
+
+
+    <!-- <div class="row align-items-center text-center ">
+        <div class="col-12"><a  class="btn btn-primary" href="b1.php">導遊審核</a></div></br></br></br>
+        <div class="col-12"><a  class="btn btn-secondary" href="b2.php">查詢每筆交易紀錄</a></div></br></br></br>
         <div class="col-12"><a  class="btn btn-success" href="b3.php">黑名單</a></div></br></br></br>
         <div class="col-12"><a  class="btn btn btn-danger" href="b4.php">營收監控</a></div></br></br></br>
         <div class="col-12"><a  class="btn btn-info" href="b5.php">內部資訊監控</a></div></br></br></br>
         
-    </div>
+    </div> -->
 </div>
 
 
