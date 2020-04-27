@@ -23,9 +23,10 @@
                 <div class="card-header">
                 </div>
                 <div class="card-body">
+
                     {{$attraction->content}}
                 </div>
-                <div class="card-body">
+
 
                 </div>
             </div>

@@ -7,6 +7,7 @@
         <div class="col-12">
             <h2>導遊目前景點總覽</h2>
             <a href="{{route('attractions.create')}}" class="btn btn-success btn-sm">新增專長景點</a>
+            <a href="{{ url('home') }}" class="btn btn-primary btn-sm">返回</a>
         </div>
         <div class="col-12">
             <table class="table table-hover">
