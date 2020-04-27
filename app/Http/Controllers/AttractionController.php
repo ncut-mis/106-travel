@@ -40,7 +40,7 @@ class AttractionController extends Controller
 
 //        $camip = new camip; camip資料表   新增的
 //        $att_id=Attraction::where('id', $id)->first();  修改
-//        $camip->id = $request->input("inputcamid");  inputcamid是textbox的id 或name
+//        $camip->id = $request->input("inputcamid);  inputcamid是textbox的id 或name"
 //        $camip->name = $request->input("inputcamname");  前面的->是欄位
 //        $camip->ip = trim($request->input("inputcamip"));//
 //        $camip->picsite = 'campic/'.$request->input("inputcamid").'.jpg';

@@ -60,7 +60,7 @@ Route::get('/reschedules/{id}', 'ScheduleController@reindex')->name('schedules.r
 Route::get('travels/{id}', 'TravelController@show')->name('travels.show');
 //會員新增行程
 Route::get('schedules/create/{id}', 'ScheduleController@create')->name('schedules.create');
-Route::post('schedules/store', 'ScheduleController@store')->name('schedules.store');
+Route::post('schedules/store/{id}', 'ScheduleController@store')->name('schedules.store');
 //會員編輯行程
 Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
 Route::post('schedules/update','ScheduleController@update')->name('schedules.update');

@@ -12,22 +12,23 @@
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-                            <th width="100"  style="text-align: center"><font color="white" >編號</font></th>
-                            <th width="100"  style="text-align: center"><font color="white">名稱</font></th>
-                            <th width="200"  style="text-align: center"><font color="white">出遊日期</font></th>
-                            <th width="200"  style="text-align: center"><font color="white">回家日期</font></th>
-                            <th width="200"  style="text-align: center"><font color="white">導遊費用</font></th>
-                            <th width="100"  style="text-align: center"><font color="white">操作鈕</font></th>
+                            <th ><font color="white">名稱</font></th>
+                            <th ><font color="white">出遊日期</font></th>
+                            <th ><font color="white">回家日期</font></th>
+                            <th ><font color="white">導遊費用</font></th>
+                            <th><font color="white">開始規劃</font></th>
+                            <th><font color="white">操作鈕</font></th>
+
                         </tr>
                         </thead>
                         <tbody id="Mytable">
-                            @foreach($travels as $travels)
+                            @foreach($chgpage as $travels)
                                 <tr>
-                                <td>{{$travels->id}}</td>
                                 <td>{{$travels->name}}</td>
                                     <td>{{$travels->start}}</td>
                                     <td>{{$travels->end}}</td>
                                 <td>{{$travels->total}}元</td>
+
                                 <td>
 
                                     <form action="{{route('schedules.index')}}" method="post">
@@ -37,20 +38,23 @@
                                         <button type="submit" class="btn btn-danger">修改行程</button>
                                     </form>
 
-                                    <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-                                        修改旅遊
-                                    </button>
+
+                                </td>
+
+                                    <td> <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+                                            修改旅遊
+                                        </button>
 
                                         /
                                         <button type="button" class="deleteSelect btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
                                             刪除旅遊
-                                        </button>
-                                </td>
+                                        </button></td>
                                 </tr>
 
                             @endforeach
                             </tbody>
                      </table>
+                      {{$chgpage->links()}}
                             </div>
                             </div>
                      </div>
@@ -104,7 +108,7 @@
         </div>
 
 
-//修改部分
+{{--//修改部分--}}
 <!--'修改'彈出視窗的內容 Modal -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -118,8 +122,6 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <label>旅遊編號</label>
-                        <input type="text" class="form-control" name="update_id" id="update_id"   value="0">
                         <label >名稱</label>
                         <input type="text" class="form-control" name="update_name" id="update_name"   title="輸入名稱">
 
@@ -127,7 +129,7 @@
                         <input id="update_start" type="date" class="form-control " name="update_start" >
                         <label >結束日期</label>
 
-                            <input id="update_end" type="text" class="form-control " name="update_end" >
+                            <input id="update_end" type="date" class="form-control " name="update_end"  >
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -146,13 +148,11 @@
             $("#Mytable").on('click','.btnSelect',function(){
                 // get the current row
                 var currentRow=$(this).closest("tr");
-                var col0=currentRow.find("td:eq(0)").html();
-                var col1=currentRow.find("td:eq(1)").html();
-                var col2=currentRow.find("td:eq(2)").html();
-                var col3=currentRow.find("td:eq(3)").html();
+                var col1=currentRow.find("td:eq(0)").html();
+                var col2=currentRow.find("td:eq(1)").html();
+                var col3=currentRow.find("td:eq(2)").html();
 
 
-                $('#update_id').val(col0.trim());
                 $('#update_name').val(col1.trim());
                 $('#update_start').val(col2.trim());
                 $('#update_end').val(col3.trim());
@@ -160,7 +160,7 @@
         });
     </script>
 
-    //修改部分
+{{--    //修改部分--}}
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

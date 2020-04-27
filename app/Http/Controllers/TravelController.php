@@ -16,6 +16,7 @@ class TravelController extends Controller
     {
 //        $travels=Travel::orderBy('id','ASC')->get();
         $travels=Auth::user()->members->travels;
+        $chgpage=Auth::user()->members->travels()->paginate(2);
 //        $a=Auth::user()->members->travels;
 //        $q=1;
 //        dd($a);
@@ -24,7 +25,7 @@ class TravelController extends Controller
 //        }
 //        dd($b);
 //        $c=Travel::find(1)->schedule;
-        $data=['travels'=>$travels];
+        $data=['travels'=>$travels,'chgpage'=>$chgpage];
         return view('travel',$data);
 
 
