@@ -91,4 +91,5 @@ Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attract
 
 Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
 
-
+//下載專長景點
+Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
