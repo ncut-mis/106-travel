@@ -26,8 +26,11 @@
 
                     {{$attraction->content}}
                 </div>
-
-
+                <div class="card-footer">
+                    附件:<br>
+                    @foreach($files as $file)
+                        <a href="{{route('attractions.download',['id'=>$attraction->id,'filename'=>$file])}}"> {{$file}}</a>><br>
+                        @endforeach
                 </div>
             </div>
         </div>

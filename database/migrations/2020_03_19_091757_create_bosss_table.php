@@ -15,7 +15,8 @@ class CreateBosssTable extends Migration
     {
         Schema::create('bosss', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }

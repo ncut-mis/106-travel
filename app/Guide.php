@@ -26,5 +26,10 @@ class Guide extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function guide_audit()
+    {
+        return $this->hasMany(Guide_audit::class);
+    }
+
 
 }
