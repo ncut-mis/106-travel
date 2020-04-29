@@ -24,7 +24,7 @@ class IndexController extends Controller
         $b->phone = $request->input("update_phone");
         $b->save();
 
-        return redirect('/index');
+        return redirect('home');
     }
 }
 

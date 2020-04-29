@@ -67,6 +67,11 @@ Route::post('schedules/update','ScheduleController@update')->name('schedules.upd
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
 
+
+
+//會員媒合導遊
+Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');
 //導遊新增專長景點
