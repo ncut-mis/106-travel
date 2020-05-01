@@ -88,7 +88,7 @@ class AttractionController extends Controller
     {
        $attraction = DB::select('select * from attractions where id=?',[$id]);
 
-        $b = Attraction::SELECT('id')->orderBy('id', 'desc')->first();
+        $b = Attraction::where('id', $id)->first();
        $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
        $data=[
