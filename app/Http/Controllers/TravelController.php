@@ -84,7 +84,9 @@ class TravelController extends Controller
                     foreach($schedules as $schedule) {
                          $Travels->schedules()->create(($schedule));
                     };
-                     $start++;
+                $start = strtotime($start);
+                $start = strtotime("+1 day",$start);
+                $start= date("Y-m-d",$start);
              }
 
         return redirect('/travel');
@@ -137,8 +139,14 @@ class TravelController extends Controller
         foreach($schedules as $schedule) {
             $Travels->schedules()->create(($schedule));
         };
-        $start++;
+
+            $start = strtotime($start);
+            $start = strtotime("+1 day",$start);
+            $start= date("Y-m-d",$start);
+
+
         }
+
         return redirect()->route('travel');
     }
 

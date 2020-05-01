@@ -8,7 +8,7 @@
                         <thead>
                         <tr>
 
-                            <th>名稱</th>
+                            <th>&nbsp;&nbsp;名稱</th>
                             <th>出遊日期</th>
                             <th>回家日期</th>
                             <th>導遊費用</th>
@@ -25,31 +25,14 @@
                                         <input type = "hidden" id = "name" name = "name" value = "{{$travels->name}}">
                                         <input type = "hidden" id = "start" name = "start" value = "{{$travels->start}}">
                                         <input type = "hidden" id = "end" name = "end" value = "{{$travels->end}}">
-                                        <button type="submit" class="btn btn-danger">{{$travels->name}}</button>
+                                        <button type="submit" class="btn btn-link"><font color="blue">{{$travels->name}}</font></button>
                                     </form></td>
                                     <td>{{$travels->start}}</td>
                                     <td>{{$travels->end}}</td>
                                 <td>{{$travels->total}}元</td>
-
-                                <td>
-
-                                    <form action="{{route('schedules.index')}}" method="post">
-                                        {{ csrf_field() }}
-                                        <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
-                                        <input type = "hidden" id = "name" name = "name" value = "{{$travels->name}}">
-                                        <input type = "hidden" id = "start" name = "start" value = "{{$travels->start}}">
-                                        <input type = "hidden" id = "end" name = "end" value = "{{$travels->end}}">
-                                        <button type="submit" class="btn btn-danger">修改行程</button>
-                                    </form>
-
-
-                                </td>
-
                                     <td> <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
                                             修改旅遊
                                         </button>
-
-
                                         <button type="button" class="deleteSelect btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
                                             刪除旅遊
                                         </button></td>
@@ -128,8 +111,7 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <label >編號</label>
-                        <input type="text" class="form-control" name="update_id" id="update_id"    readonly="readonly">
+                        <input style="display:none" type="text" class="form-control" name="update_id" id="update_id"    >
                         <label >名稱</label>
                         <input type="text" class="form-control" name="update_name" id="update_name"   >
 
@@ -157,13 +139,13 @@
             $("#Mytable").on('click','.btnSelect',function(){
                 // get the current row
                 var currentRow=$(this).closest("tr");
+                var col5=currentRow.find("td:eq(5)").html();
                 var col6=currentRow.find("td:eq(6)").html();
-                var col7=currentRow.find("td:eq(7)").html();
                 var col1=currentRow.find("td:eq(1)").html();
                 var col2=currentRow.find("td:eq(2)").html();
 
-                $('#update_id').val(col6.trim());
-                $('#update_name').val(col7.trim());
+                $('#update_id').val(col5.trim());
+                $('#update_name').val(col6.trim());
                 $('#update_start').val(col1.trim());
                 $('#update_end').val(col2.trim());
             });
@@ -205,9 +187,9 @@
                 // get the current row
                 var currentRow=$(this).closest("tr");
 
-                var col6=currentRow.find("td:eq(6)").html();
+                var col5=currentRow.find("td:eq(5)").html();
 
-                $('#delete_id').val(col6.trim());
+                $('#delete_id').val(col5.trim());
             });
         });
     </script>
