@@ -2,28 +2,23 @@
 
 @section('test')
 <!-- 資料表-->
-<header class="masthead">
-        <div class="row h-100 align-items-center justify-content-center text-center">
-            <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
+
+                            <div >
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-                            <th ><font color="white">名稱</font></th>
-                            <th ><font color="white">出遊日期</font></th>
-                            <th ><font color="white">回家日期</font></th>
-                            <th ><font color="white">導遊費用</font></th>
-                            <th><font color="white">開始規劃</font></th>
-                            <th><font color="white">操作鈕</font></th>
+                            <th>編號</th>
+                            <th>名稱</th>
+                            <th>出遊日期</th>
+                            <th>回家日期</th>
+                            <th>導遊費用</th>
 
                         </tr>
                         </thead>
                         <tbody id="Mytable">
                             @foreach($chgpage as $travels)
                                 <tr>
+                                    <td>{{$travels->id}}</td>
                                 <td>{{$travels->name}}</td>
                                     <td>{{$travels->start}}</td>
                                     <td>{{$travels->end}}</td>
@@ -34,7 +29,9 @@
                                     <form action="{{route('schedules.index')}}" method="post">
                                         {{ csrf_field() }}
                                         <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
-
+                                        <input type = "hidden" id = "name" name = "name" value = "{{$travels->name}}">
+                                        <input type = "hidden" id = "start" name = "start" value = "{{$travels->start}}">
+                                        <input type = "hidden" id = "end" name = "end" value = "{{$travels->end}}">
                                         <button type="submit" class="btn btn-danger">修改行程</button>
                                     </form>
 
@@ -45,7 +42,7 @@
                                             修改旅遊
                                         </button>
 
-                                        /
+
                                         <button type="button" class="deleteSelect btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
                                             刪除旅遊
                                         </button></td>
@@ -122,8 +119,10 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
+                        <label >編號</label>
+                        <input type="text" class="form-control" name="update_id" id="update_id"    readonly="readonly">
                         <label >名稱</label>
-                        <input type="text" class="form-control" name="update_name" id="update_name"   title="輸入名稱">
+                        <input type="text" class="form-control" name="update_name" id="update_name"   >
 
                         <label >出遊日期</label>
                         <input id="update_start" type="date" class="form-control " name="update_start" >
@@ -135,6 +134,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">修改</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -148,11 +148,12 @@
             $("#Mytable").on('click','.btnSelect',function(){
                 // get the current row
                 var currentRow=$(this).closest("tr");
-                var col1=currentRow.find("td:eq(0)").html();
-                var col2=currentRow.find("td:eq(1)").html();
-                var col3=currentRow.find("td:eq(2)").html();
+                var col0=currentRow.find("td:eq(0)").html();
+                var col1=currentRow.find("td:eq(1)").html();
+                var col2=currentRow.find("td:eq(2)").html();
+                var col3=currentRow.find("td:eq(3)").html();
 
-
+                $('#update_id').val(col0.trim());
                 $('#update_name').val(col1.trim());
                 $('#update_start').val(col2.trim());
                 $('#update_end').val(col3.trim());
