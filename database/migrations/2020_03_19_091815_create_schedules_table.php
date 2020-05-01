@@ -15,10 +15,10 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('region');
+            $table->text('region')->nullable();
             $table->date('start');
             $table->date('end');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->integer('cost')->default(0);
             $table->integer('guide_id')->nullable();
             $table->integer('travel_id');
