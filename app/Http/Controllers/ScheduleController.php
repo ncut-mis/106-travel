@@ -95,6 +95,7 @@ dd($request->input("id"));
         $b->region = $request->input("update_region");
 //        $b->start = $request->input("update_start");
 //        $b->end = $request->input("update_end");
+        $b->name = $request->input("update_name");
         $b->content = $request->input("update_content");
         $b->save();
 

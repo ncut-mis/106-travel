@@ -8,6 +8,7 @@ use App\Attraction;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use http\Env\Response;
 
 
 class AttractionController extends Controller
@@ -26,13 +27,16 @@ class AttractionController extends Controller
         $a['content']=$request->input('content');
         $a['guide_id']=auth()->user()->id;
         $a['price']=$request->input('price');
-
         $a['created_at']=now();
         $a['updated_at']=now();
 
 
+
         DB::insert('insert into attractions(name,location,content,guide_id,price,created_at,updated_at) values (?,?,?,?,?,?,?)',
             [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['price'],$a['created_at'],$a['updated_at']]);
+
+        $b = Attraction::SELECT('id')->orderBy('id', 'desc')->first();
+
 
 //        $camip = new camip; camip資料表   新增的
 //        $att_id=Attraction::where('id', $id)->first();  修改
@@ -47,6 +51,19 @@ class AttractionController extends Controller
 //        $camall=array();
 //        $camall = camip::all();
 
+//處理檔案上傳
+        if ($request->hasFile('files')) {
+                $files = $request->file('files');
+                foreach($files as $file){
+                    $info = [
+                        'mime-type' => $file->getMimeType(),
+                        'original_filename' => $file->getClientOriginalName(),
+                        'extension' => $file->getClientOriginalExtension(),
+                        'size' => $file->getClientSize(),
+                    ];
+                    $file->storeAs('public/attractions/'.$b->id, $info['original_filename']);
+                }
+        }
 
 
 
@@ -66,23 +83,17 @@ class AttractionController extends Controller
 
     }
 
-//    public function status()
-//    {
-//        $attractions=DB::select('select * from attractions where status="0" ');
-//        $a=[
-//            'attractions'=>$attractions,
-//        ];
-//        return view('attractions.index',$a);
-//
-//
-//    }
 
     public function show($id)
     {
        $attraction = DB::select('select * from attractions where id=?',[$id]);
 
+        $b = Attraction::where('id', $id)->first();
+       $files = get_files(storage_path('app/public/attractions/'.$b->id));
+
        $data=[
            'attraction'=>$attraction[0],
+           'files' =>$files,
        ];
 
        return view('attractions.show',$data);
@@ -150,5 +161,12 @@ class AttractionController extends Controller
 
 
     }
+
+    public function download($id,$filename)
+    {
+        $file = storage_path('app/public/attractions/'.$id."/".$filename);
+        return response()->download($file);
+    }
+
 
 }

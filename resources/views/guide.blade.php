@@ -7,6 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">修改基本資料</div>
+                    <a href="{{ url('home') }}" class="btn btn-primary btn-sm">返回</a>
 
                     <div class="card-body">
                         @if (session('status'))

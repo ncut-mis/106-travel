@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Attraction extends Model
 {
     public function guides()
-    {
-        return $this->belongsTo(Guide::class);
-    }
+{
+    return $this->belongsTo(Guide::class);
+}
     public function photos()
     {
         //一對多
