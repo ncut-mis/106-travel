@@ -19,7 +19,6 @@ class CreateSchedulesTable extends Migration
             $table->date('start');
             $table->date('end');
             $table->text('content')->nullable();
-            $table->text('region');
             $table->text('name');
             $table->integer('cost')->default(0);
             $table->integer('guide_id')->nullable();

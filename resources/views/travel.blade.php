@@ -7,7 +7,7 @@
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-                            <th>編號</th>
+
                             <th>名稱</th>
                             <th>出遊日期</th>
                             <th>回家日期</th>
@@ -18,8 +18,15 @@
                         <tbody id="Mytable">
                             @foreach($chgpage as $travels)
                                 <tr>
-                                    <td>{{$travels->id}}</td>
-                                <td>{{$travels->name}}</td>
+
+                                <td><form action="{{route('schedules.index')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
+                                        <input type = "hidden" id = "name" name = "name" value = "{{$travels->name}}">
+                                        <input type = "hidden" id = "start" name = "start" value = "{{$travels->start}}">
+                                        <input type = "hidden" id = "end" name = "end" value = "{{$travels->end}}">
+                                        <button type="submit" class="btn btn-danger">{{$travels->name}}</button>
+                                    </form></td>
                                     <td>{{$travels->start}}</td>
                                     <td>{{$travels->end}}</td>
                                 <td>{{$travels->total}}元</td>
@@ -46,6 +53,8 @@
                                         <button type="button" class="deleteSelect btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
                                             刪除旅遊
                                         </button></td>
+                                    <td  style="display:none">{{$travels->id}}</td>
+                                    <td  style="display:none">{{$travels->name}}</td>
                                 </tr>
 
                             @endforeach
@@ -148,15 +157,15 @@
             $("#Mytable").on('click','.btnSelect',function(){
                 // get the current row
                 var currentRow=$(this).closest("tr");
-                var col0=currentRow.find("td:eq(0)").html();
+                var col6=currentRow.find("td:eq(6)").html();
+                var col7=currentRow.find("td:eq(7)").html();
                 var col1=currentRow.find("td:eq(1)").html();
                 var col2=currentRow.find("td:eq(2)").html();
-                var col3=currentRow.find("td:eq(3)").html();
 
-                $('#update_id').val(col0.trim());
-                $('#update_name').val(col1.trim());
-                $('#update_start').val(col2.trim());
-                $('#update_end').val(col3.trim());
+                $('#update_id').val(col6.trim());
+                $('#update_name').val(col7.trim());
+                $('#update_start').val(col1.trim());
+                $('#update_end').val(col2.trim());
             });
         });
     </script>
@@ -196,9 +205,9 @@
                 // get the current row
                 var currentRow=$(this).closest("tr");
 
-                var col0=currentRow.find("td:eq(0)").html();
+                var col6=currentRow.find("td:eq(6)").html();
 
-                $('#delete_id').val(col0.trim());
+                $('#delete_id').val(col6.trim());
             });
         });
     </script>
