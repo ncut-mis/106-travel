@@ -51,8 +51,4 @@
 <script src="{{ asset('js/plugins/morris/morris.min.js') }}"></script>
 <script src="{{ asset('js/plugins/morris/morris-data.js') }}"></script>
 @yield('test')
-<!-- Footer-->
-<footer class="bg-light py-5">
-    <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
-</footer>
 </html>

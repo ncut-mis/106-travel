@@ -18,18 +18,6 @@
                     <br>
                     <br>
                     <div class="form-group">
-                        <label for="start">出發時間</label>
-                        <input type="datetime-local" class="form-control" name="start" id="start" value="">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="form-group">
-                        <label for="end">結束時間</label>
-                        <input type="datetime-local" class="form-control" name="end" id="end" value="">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="form-group">
                         <label for="content">內容描述</label>
                         <input type="text" class="form-control" name="content" id="content" value="">
                     </div>
