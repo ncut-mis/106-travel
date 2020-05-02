@@ -81,8 +81,8 @@ dd($request->input("id"));
         $b=Schedule::find($request->input('update_id'));
         $name=($request->input('name'));
         $start=($request->input('start'));
-
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start];
+        $region=$b->region;
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'region'=>$region];
 
         return view('schedules.edit',$data);
     }
@@ -99,7 +99,7 @@ dd($request->input("id"));
         $b->content = $request->input("update_content");
         $b->save();
 
-        $b =Schedule::where('id', $request->input("update_id"))->first();
+         $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
      //   dd($travel_id);
         $b=Travel::find($travel_id)->schedules;

@@ -13,7 +13,7 @@
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_region" name="update_region"  value={{$start}} readonly="readonly" >
+                <input type="text" class="form-control" id="update_region" name="update_region"  value={{$b1->start}} readonly="readonly" >
             </div>
         </div>
 
@@ -45,12 +45,16 @@
                 <option value="連江縣">連江縣</option>
             </select>
         </div>
+        @if($region == NUll)
+        @else
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目前選擇的旅遊區域為:</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" readonly="readonly"  value={{$b1->region}}>
             </div>
         </div>
+        @endif
+
         <div  class="form-group" >
             <label class="control-label col-sm-2" >旅遊地點:</label>
             <div class="col-sm-10">
