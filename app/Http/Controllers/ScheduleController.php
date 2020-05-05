@@ -9,6 +9,7 @@ use App\Travel;
 use App\Schedule;
 use App\Member;
 use Auth;
+use App\Attraction;
 use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
@@ -81,8 +82,8 @@ dd($request->input("id"));
         $b=Schedule::find($request->input('update_id'));
         $name=($request->input('name'));
         $start=($request->input('start'));
-        $region=$b->region;
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'region'=>$region];
+        $match_id= $request->input("match_id");
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id];
 
         return view('schedules.edit',$data);
     }
@@ -93,13 +94,17 @@ dd($request->input("id"));
         $start=($request->input('start'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $b->region = $request->input("update_region");
-//        $b->start = $request->input("update_start");
-//        $b->end = $request->input("update_end");
         $b->name = $request->input("update_name");
         $b->content = $request->input("update_content");
+        $b->breakfast = $request->input("update_breakfast");
+        $b->lunch = $request->input("update_lunch");
+        $b->dinner = $request->input("update_dinner");
+        $b->traffic = $request->input("update_traffic");
+        $b->room = $request->input("update_room");
+        $b->guide_id=$request->input("update_guide_id");
         $b->save();
 
-         $b =Schedule::where('id', $request->input("update_id"))->first();
+        $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
      //   dd($travel_id);
         $b=Travel::find($travel_id)->schedules;

@@ -66,11 +66,14 @@ Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
 Route::post('schedules/update','ScheduleController@update')->name('schedules.update');
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
-
-
-
+//會員觀看導遊的詳細資料
+Route::get('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
+Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 //會員媒合導遊
 Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+Route::get('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+//會員觀看導遊的詳細資料之返回鈕
+Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('scheduleguides.reindex');
 
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');

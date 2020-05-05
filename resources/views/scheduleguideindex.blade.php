@@ -21,7 +21,13 @@
                                     {{$attraction->location}}
                                 </td>
                                     <td>
-                                        <a href="{{route('attractions.show',$attraction->id)}}">{{$attraction->name}} </a>
+                                        <form action="{{ route('scheduleguides.show',$attraction->id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+                                            <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+                                            <button type="submit" class="btn btn-success" name="id" id="id">{{$attraction->name}}</button>
+                                        </form>
+
                                     </td>
                                     <td>
                                         {{$attraction->price}}
@@ -43,6 +49,12 @@
                 @endforeach
                 </tbody>
             </table>
+    <form action="{{route('schedules.edit',$schedule_id)}}" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+        <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+        <button type="submit" class="btn btn-danger">返回</button>
+    </form>
         </div>
     </div>
 </div>
