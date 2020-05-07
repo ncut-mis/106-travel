@@ -27,13 +27,13 @@ class AttractionController extends Controller
         $a['content']=$request->input('content');
         $a['guide_id']=auth()->user()->id;
         $a['price']=$request->input('price');
-        $a['created_at']=now();
-        $a['updated_at']=now();
+//        $a['created_at']=now();
+//        $a['updated_at']=now();
 
+        Attraction::create($a);
 
-
-        DB::insert('insert into attractions(name,location,content,guide_id,price,created_at,updated_at) values (?,?,?,?,?,?,?)',
-            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['price'],$a['created_at'],$a['updated_at']]);
+//       // DB::insert('insert into attractions(name,location,content,guide_id,price,created_at,updated_at) values (?,?,?,?,?,?,?)',
+//            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['price'],$a['created_at'],$a['updated_at']]);
 
         $b = Attraction::SELECT('id')->orderBy('id', 'desc')->first();
 
@@ -73,8 +73,8 @@ class AttractionController extends Controller
     {
 
 
-        $attractions=DB::select('select * from attractions order by id DESC ');
-
+        //$attractions=DB::select('select * from attractions order by id DESC ');
+        $attractions=Attraction::orderBy('id','DESC')->paginate(2);
         $data=[
             'attractions'=>$attractions,
         ];
@@ -84,15 +84,15 @@ class AttractionController extends Controller
     }
 
 
-    public function show($id)
+    public function show(Attraction $attraction)
     {
-       $attraction = DB::select('select * from attractions where id=?',[$id]);
+       //$attraction = DB::select('select * from attractions where id=?',[$id]);
 
-        $b = Attraction::where('id', $id)->first();
+        $b = Attraction::orderBy('id', 'DESC')->first();
        $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
        $data=[
-           'attraction'=>$attraction[0],
+           'attraction'=>$attraction,
            'files' =>$files,
        ];
 
@@ -104,29 +104,31 @@ class AttractionController extends Controller
     return view('attractions.create');
     }
 
-    public function edit($id)
+    public function edit(Attraction $attraction)
     {
-        $attraction = DB::select('select * from attractions where id=?',[$id]);
+       // $attraction = DB::select('select * from attractions where id=?',[$id]);
         $data=[
-            'attraction'=>$attraction[0],
+            'attraction'=>$attraction,
         ];
 
         return view('attractions.edit',$data);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Attraction $attraction)
     {
         $a['name']=$request->input('name');
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
-        DB::update('update attractions set name=?,location=?,content=? where id=?',
-            [$a['name'],$a['location'],$a['content'],$id]);
-
+        $a['price']=$request->input('price');
+//        DB::update('update attractions set name=?,location=?,content=?,price=? where id=?',
+//            [$a['name'],$a['location'],$a['content'],$a['price'],$id]);
+        $attraction->update($a);
         return redirect()->route('attractions.index');
     }
-    public function destroy($id)
+    public function destroy(Attraction $attraction)
     {
-        DB::delete('delete from attractions where id=?', [$id]);
+       // DB::delete('delete from attractions where id=?', [$id]);
+        $attraction->delete();
         return redirect()->route('attractions.index');
     }
     public function stop($id)
@@ -135,29 +137,17 @@ class AttractionController extends Controller
         $att_id->status =0;
         $att_id->save();
 
-        $attractions=DB::select('select * from attractions order by id DESC ');
 
-        $data=[
-            'attractions'=>$attractions,
-        ];
-        return view('attractions.index',$data);
+        return redirect('attractions');
     }
-    public function start()
-    {
-        //
-    }
+
     public function open($id)
     {
         $att_id=Attraction::where('id', $id)->first();
         $att_id->status = 1;
         $att_id->save();
 
-        $attractions=DB::select('select * from attractions order by id DESC ');
-
-        $data=[
-            'attractions'=>$attractions,
-        ];
-        return view('attractions.index',$data);
+        return redirect('attractions');
 
 
     }

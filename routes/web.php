@@ -82,22 +82,19 @@ Route::get('attractions/create', 'AttractionController@create')->name('attractio
 //導遊儲存專長景點
 Route::post('attractions/store', 'AttractionController@store')->name('attractions.store');
 //秀出指定的專長景點
-Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.show');
+Route::get('attractions/{attraction}', 'AttractionController@show')->name('attractions.show');
 //導遊修改專長景點
-Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
+Route::get('attractions/{attraction}/edit', 'AttractionController@edit')->name('attractions.edit');
 //導遊儲存修改好的專長景點
-Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
+Route::patch('attractions/{attraction}', 'AttractionController@update')->name('attractions.update');
 //導遊暫停專長景點
 Route::get('attractions/stop/{id}', 'AttractionController@stop')->name('attractions.stop');
 //導遊啟用專長景點
-Route::get('attractions/start', 'AttractionController@start')->name('attractions.start');
-//導遊刪除專長景點
-
-Route::delete('attractions/{attraction}', 'AttractionController@destroy');
-
-Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');
-
 Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
+//導遊刪除專長景點
+Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name('attractions.destroy');
+
+
 
 //下載專長景點
 Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');

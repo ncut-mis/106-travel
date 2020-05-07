@@ -26,6 +26,7 @@ class Attraction extends Model
         'content',
         'price',
         'status',
+        'guide_id',
         'is_feature',
     ];
 
