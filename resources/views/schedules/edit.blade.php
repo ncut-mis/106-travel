@@ -9,6 +9,7 @@
         <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$b1->id}}>
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
+        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期:</label>
             <div class="col-sm-10">

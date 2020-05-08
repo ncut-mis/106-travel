@@ -23,6 +23,7 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
+
         $name=($request->input("name"));
         $start=($request->input("start"));
         $end=($request->input("end"));
@@ -87,7 +88,20 @@ dd($request->input("id"));
         $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
 
         return view('schedules.edit',$data);
-    }
+    } public function reedit(request $request)
+{
+
+    //dd($b1);
+    //$b=Travel::schedules;
+    $b=Schedule::find($request->input('schedule'));
+    $name=($request->input('name'));
+    $start=($request->input('start'));
+    $match_id= $request->input("match_id");
+    $travel_id=$request->input("travel_id");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+
+    return view('schedules.edit',$data);
+}
 
     public function update(request $request)
     {
@@ -110,7 +124,7 @@ dd($request->input("id"));
 
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
         return view('schedules.index',$data);
     }

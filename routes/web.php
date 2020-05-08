@@ -72,7 +72,11 @@ Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('schedu
 //會員媒合導遊
 Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
 Route::get('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+//會員觀看所有媒合到的導遊之返回鈕
+Route::post('schedules/reedit','ScheduleController@reedit')->name('schedules.reedit');
 //會員觀看導遊的詳細資料之返回鈕
+Route::post('/rescheduleguides/index2', 'ScheduleGuideController@index2')->name('scheduleguides.index2');
+//會員按下媒合導遊鈕
 Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('scheduleguides.reindex');
 //會員取消媒合導遊
 Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');

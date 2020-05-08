@@ -4,7 +4,7 @@
 <div class="content">
     <div class="row">
         <div class="col-12">
-            <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
+            <form action="{{route('scheduleguides.index2',$schedule_id)}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
                 <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
