@@ -25,6 +25,8 @@
                                             {{ csrf_field() }}
                                             <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
                                             <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+                                            <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+                                            <input type = "hidden" id = "schedule" name = "schedule" value ={{$schedule->id}}>
                                             <button type="submit" class="btn btn-success" name="id" id="id">{{$attraction->name}}</button>
                                         </form>
 
