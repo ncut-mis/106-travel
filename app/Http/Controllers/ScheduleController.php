@@ -30,7 +30,8 @@ class ScheduleController extends Controller
 
         $cc=($request->input("id"));
         $travel_id=($request->input("id"));
-        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name];
+        $total=($request->input("total"));
+        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
 
         return view('schedules.index',$data);
     }
