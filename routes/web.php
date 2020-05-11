@@ -67,6 +67,7 @@ Route::post('schedules/update','ScheduleController@update')->name('schedules.upd
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
 
+
 //確認旅遊規劃
 Route::post('confirm','ConfirmController@index')->name('confirm.index');
 //會員取消旅遊規劃
@@ -79,8 +80,20 @@ Route::post('history/store','historyController@store')->name('history.store');
 Route::post('confirm/edit','ConfirmController@edit')->name('confirm.edit');
 
 
+//會員觀看導遊的詳細資料
+Route::get('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
+Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 //會員媒合導遊
 Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+Route::get('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+//會員觀看所有媒合到的導遊之返回鈕
+Route::post('schedules/reedit','ScheduleController@reedit')->name('schedules.reedit');
+//會員觀看導遊的詳細資料之返回鈕
+Route::post('/rescheduleguides/index2', 'ScheduleGuideController@index2')->name('scheduleguides.index2');
+//會員按下媒合導遊鈕
+Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('scheduleguides.reindex');
+//會員取消媒合導遊
+Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');
 
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');
@@ -89,22 +102,18 @@ Route::get('attractions/create', 'AttractionController@create')->name('attractio
 //導遊儲存專長景點
 Route::post('attractions/store', 'AttractionController@store')->name('attractions.store');
 //秀出指定的專長景點
-Route::get('attractions/{id}', 'AttractionController@show')->name('attractions.show');
+Route::get('attractions/{attraction}', 'AttractionController@show')->name('attractions.show');
 //導遊修改專長景點
-Route::get('attractions/{id}/edit', 'AttractionController@edit')->name('attractions.edit');
+Route::get('attractions/{attraction}/edit', 'AttractionController@edit')->name('attractions.edit');
 //導遊儲存修改好的專長景點
-Route::patch('attractions/{id}', 'AttractionController@update')->name('attractions.update');
+Route::patch('attractions/{attraction}', 'AttractionController@update')->name('attractions.update');
 //導遊暫停專長景點
 Route::get('attractions/stop/{id}', 'AttractionController@stop')->name('attractions.stop');
 //導遊啟用專長景點
-Route::get('attractions/start', 'AttractionController@start')->name('attractions.start');
-//導遊刪除專長景點
-
-Route::delete('attractions/{attraction}', 'AttractionController@destroy');
-
-Route::delete('attractions/{id}', 'AttractionController@destroy')->name('attractions.destroy');
-
 Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
+//導遊刪除專長景點
+Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name('attractions.destroy');
+
 
 //下載專長景點
 Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');

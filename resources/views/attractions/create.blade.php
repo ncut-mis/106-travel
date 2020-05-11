@@ -47,9 +47,10 @@
                 </div>
                 <br>
                 <br>
-                <div class="form-inline">
+                <div class="form-group">
                     <label for="content">內容</label>
-                    <input type="text" class="form-control form-control-lg "  name="content" id="content"  value="">
+{{--                    <input type="text" class="form-control"  name="content" id="content"  value="">--}}
+                    <textarea rows="5" type="text" name="content" id="content"  class="form-control" cols="20"></textarea>
                 </div>
                 <br>
                 <br>

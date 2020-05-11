@@ -15,13 +15,20 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('region')->nullable();
+            $table->text('region')->nullable();//縣市
             $table->date('start');
             $table->date('end');
-            $table->text('content')->nullable();
-            $table->text('name');
+            $table->text('content')->nullable();//內容描述
+            $table->text('name')->nullable();//景點名稱
+            $table->text('room')->nullable();
+            $table->text('breakfast')->nullable();
+            $table->text('lunch')->nullable();
+            $table->text('dinner')->nullable();
+            $table->text('going')->nullable();//出發地點
+            $table->text('arriving')->nullable();//目的地
+            $table->text('traffic')->nullable();
             $table->integer('cost')->default(0);
-            $table->integer('guide_id')->nullable();
+            $table->text('guide_id')->nullable();
             $table->integer('travel_id');
             $table->timestamps();
         });

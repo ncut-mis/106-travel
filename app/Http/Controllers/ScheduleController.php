@@ -9,6 +9,7 @@ use App\Travel;
 use App\Schedule;
 use App\Member;
 use Auth;
+use App\Attraction;
 use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
@@ -22,6 +23,7 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
+
         $name=($request->input("name"));
         $start=($request->input("start"));
         $end=($request->input("end"));
@@ -82,11 +84,25 @@ dd($request->input("id"));
         $b=Schedule::find($request->input('update_id'));
         $name=($request->input('name'));
         $start=($request->input('start'));
-        $region=$b->region;
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'region'=>$region];
+        $match_id= $request->input("match_id");
+        $travel_id=$request->input("travel_id");
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
 
         return view('schedules.edit',$data);
-    }
+    } public function reedit(request $request)
+{
+
+    //dd($b1);
+    //$b=Travel::schedules;
+    $b=Schedule::find($request->input('schedule'));
+    $name=($request->input('name'));
+    $start=($request->input('start'));
+    $match_id= $request->input("match_id");
+    $travel_id=$request->input("travel_id");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+
+    return view('schedules.edit',$data);
+}
 
     public function update(request $request)
     {
@@ -94,18 +110,22 @@ dd($request->input("id"));
         $start=($request->input('start'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $b->region = $request->input("update_region");
-//        $b->start = $request->input("update_start");
-//        $b->end = $request->input("update_end");
         $b->name = $request->input("update_name");
         $b->content = $request->input("update_content");
+        $b->breakfast = $request->input("update_breakfast");
+        $b->lunch = $request->input("update_lunch");
+        $b->dinner = $request->input("update_dinner");
+        $b->traffic = $request->input("update_traffic");
+        $b->room = $request->input("update_room");
+        $b->guide_id=$request->input("update_guide_id");
         $b->save();
 
-         $b =Schedule::where('id', $request->input("update_id"))->first();
+        $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
-     //   dd($travel_id);
+
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
         return view('schedules.index',$data);
     }
@@ -119,4 +139,21 @@ dd($request->input("id"));
 
         return view('schedules.index',$data);
     }
+    public function matchcancel(request $request)
+{
+    //這是將導遊id變為空值的步驟
+    $schedule= Schedule::where('id', $request->input("id"))->first();
+    $schedule->guide_id="";
+    $schedule->save();
+    //這是重新抓取頁面的值
+    $b=Schedule::find($request->input('id'));
+    $name=($request->input('name'));
+    $start=($request->input('start'));
+    $match_id= $request->input("match_id");
+    $travel_id=$request->input("travel_id");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+
+    return view('schedules.edit',$data);
+
+}
 }

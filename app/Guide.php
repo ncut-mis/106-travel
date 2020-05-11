@@ -30,6 +30,9 @@ class Guide extends Model
     {
         return $this->hasMany(Guide_audit::class);
     }
+    protected $fillable = [
+        'id_card', 'fontsize', 'pass_time','pass','photo','user_id'
+    ];
 
 
 }

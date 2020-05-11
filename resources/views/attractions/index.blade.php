@@ -28,6 +28,9 @@
                     <th>
                         狀態
                     </th>
+                    <th>
+                        預約
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,15 +54,20 @@
                             @elseif($attraction->status== "1")
                                 啟用
                             @endif
-
-
-
+                        </td>
+                        <td>
+                            @if($attraction->reservation== "")
+                                未預約
+                            @elseif($attraction->reservation== "1")
+                                預約中
+                            @endif
                         </td>
 
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{$attractions->links()}}
         </div>
     </div>
 </div>
