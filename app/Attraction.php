@@ -27,6 +27,7 @@ class Attraction extends Model
         'price',
         'status',
         'guide_id',
+        'reservation',
         'is_feature',
     ];
 

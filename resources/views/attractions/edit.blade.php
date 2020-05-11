@@ -48,9 +48,10 @@
                 </div>
                 <br>
                 <br>
-                <div class="form-inline ">
+                <div class="form-group ">
                     <label for="content">內容</label>
-                    <input type="text" class="form-control " name="content" id="content" value="{{$attraction->content}}">
+{{--                    //<input type="text" class="form-control " name="content" id="content" value="{{$attraction->content}}">--}}
+                    <textarea rows="5" type="text" name="content" id="content"  class="form-control" cols="20"  >{{$attraction->content}}</textarea>
                 </div>
                 <br>
                 <br>

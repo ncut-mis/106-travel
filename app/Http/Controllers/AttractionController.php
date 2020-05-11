@@ -74,7 +74,7 @@ class AttractionController extends Controller
 
 
         //$attractions=DB::select('select * from attractions order by id DESC ');
-        $attractions=Attraction::orderBy('id','DESC')->paginate(2);
+        $attractions=Attraction::orderBy('id','DESC')->paginate(3);
         $data=[
             'attractions'=>$attractions,
         ];
