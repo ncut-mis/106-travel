@@ -60,7 +60,7 @@
                     <a class="nav-link" href="{{ url('travel') }}">規劃旅遊</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="{{ url('history') }}">旅遊歷史記錄</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>

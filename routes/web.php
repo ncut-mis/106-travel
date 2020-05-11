@@ -66,6 +66,20 @@ Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
 Route::post('schedules/update','ScheduleController@update')->name('schedules.update');
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
+
+
+//確認旅遊規劃
+Route::post('confirm','ConfirmController@index')->name('confirm.index');
+//會員取消旅遊規劃
+Route::post('travel/cancel','TravelController@cancel')->name('travel.cancel');
+//旅遊歷史記錄
+Route::get('history','historyController@index')->name('history');
+//複製旅遊歷史記錄
+Route::post('history/store','historyController@store')->name('history.store');
+//確認旅遊規劃-付款
+Route::post('confirm/edit','ConfirmController@edit')->name('confirm.edit');
+
+
 //會員觀看導遊的詳細資料
 Route::get('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
