@@ -9,6 +9,7 @@
         <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$b1->id}}>
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
+        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期:</label>
             <div class="col-sm-10">
@@ -108,12 +109,25 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
+
         <button type="submit" class="btn btn-default">儲存</button>
     </form>
+    @if($b1->guide_id != "")
+        <label class="">目前已有媒合導遊</label>
+
+
+        <form action="{{route('schedules.matchcancel')}}" method="post">
+            {{ csrf_field() }}
+            <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
+            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+            <button type="submit" class="btn btn-danger">取消媒合的導遊</button>
+        </form>
+    @endif
+
     <form action="{{route('scheduleguides.index')}}" method="post">
         {{ csrf_field() }}
         <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
-
+        <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
         <button type="submit" class="btn btn-danger">媒合導遊</button>
     </form>
 

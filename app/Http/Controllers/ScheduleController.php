@@ -23,6 +23,7 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
+
         $name=($request->input("name"));
         $start=($request->input("start"));
         $end=($request->input("end"));
@@ -83,10 +84,24 @@ dd($request->input("id"));
         $name=($request->input('name'));
         $start=($request->input('start'));
         $match_id= $request->input("match_id");
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id];
+        $travel_id=$request->input("travel_id");
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
 
         return view('schedules.edit',$data);
-    }
+    } public function reedit(request $request)
+{
+
+    //dd($b1);
+    //$b=Travel::schedules;
+    $b=Schedule::find($request->input('schedule'));
+    $name=($request->input('name'));
+    $start=($request->input('start'));
+    $match_id= $request->input("match_id");
+    $travel_id=$request->input("travel_id");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+
+    return view('schedules.edit',$data);
+}
 
     public function update(request $request)
     {
@@ -106,10 +121,10 @@ dd($request->input("id"));
 
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
-     //   dd($travel_id);
+
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
         return view('schedules.index',$data);
     }
@@ -123,4 +138,21 @@ dd($request->input("id"));
 
         return view('schedules.index',$data);
     }
+    public function matchcancel(request $request)
+{
+    //這是將導遊id變為空值的步驟
+    $schedule= Schedule::where('id', $request->input("id"))->first();
+    $schedule->guide_id="";
+    $schedule->save();
+    //這是重新抓取頁面的值
+    $b=Schedule::find($request->input('id'));
+    $name=($request->input('name'));
+    $start=($request->input('start'));
+    $match_id= $request->input("match_id");
+    $travel_id=$request->input("travel_id");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+
+    return view('schedules.edit',$data);
+
+}
 }
