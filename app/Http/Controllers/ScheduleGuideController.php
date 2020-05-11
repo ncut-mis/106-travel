@@ -33,7 +33,6 @@ class ScheduleGuideController extends Controller
     {
         $schedule= Schedule::where('id', $request->input("schedule_id"))->first();
         $schedule_region=$schedule->region;
-        $schedule_id=$schedule->id;
         $schedule_name=$schedule->name;
         $schedule_id=($request->input("id"));
 
@@ -56,8 +55,11 @@ class ScheduleGuideController extends Controller
     $attraction=DB::select('select * from attractions order by id DESC ');
 
     $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
+    $attraction_id->reservation=1;
+    $schedule->attraction_id=$request->input("attraction_id");
+    $attraction_id->save();
+    $reservation=$attraction_id->reservation;
     $guide_id=$attraction_id->guide_id;
-
     $travel_id=$request->input("travel_id");
     $travel=Travel::where('id', $request->input("travel_id"))->first();
     $travel_name=$travel->name;
@@ -65,13 +67,15 @@ class ScheduleGuideController extends Controller
     $schedule->guide_id=$request->input("match_id");
     $schedule->save();
     $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
-        ,'guide_id'=>$guide_id, 'travel_id' =>$travel_id,'name'=>$travel_name,'b1'=>$schedule,'start'=>$travel_start];
+        ,'guide_id'=>$guide_id, 'travel_id' =>$travel_id,'name'=>$travel_name,'b1'=>$schedule,'start'=>$travel_start,'attraction_id'=>$attraction_id,
+        'reservation'=>$reservation];
 
 
     return view('schedules.edit',$data);
 }
     public function show(request $request,$id)
     {
+        $guide_name=Auth::User();
 
         $travel_id=$request->input("travel_id");
         $schedule= Schedule::where('id', $request->input("schedule"))->first();
@@ -79,12 +83,13 @@ class ScheduleGuideController extends Controller
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
         $attraction=Attraction::where('id', $request->input("attraction_id"))->first();
+        $reservation=$attraction->reservation;
         $guide_id=$attraction->guide_id;
         $b = Attraction::where('id', $id)->first();
         $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
-                ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule];
+                ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation];
 
 
 

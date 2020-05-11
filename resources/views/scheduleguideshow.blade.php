@@ -26,10 +26,11 @@
                     附件:<br>
                     @foreach($files as $file)
                         <a href="{{route('attractions.download',['id'=>$attraction->id,'filename'=>$file])}}"> {{$file}}</a>><br>
-                        @endforeach
+                    @endforeach
                 </div>
                 <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
                     {{ csrf_field() }}
+                    <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
                     <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
                     <input type="hidden" class="form-control" id="match_id" name="match_id" value={{$guide_id}}>
                     <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>

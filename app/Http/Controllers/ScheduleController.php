@@ -77,15 +77,14 @@ dd($request->input("id"));
     }
     public function edit(request $request)
     {
-
-        //dd($b1);
         //$b=Travel::schedules;
         $b=Schedule::find($request->input('update_id'));
         $name=($request->input('name'));
         $start=($request->input('start'));
         $match_id= $request->input("match_id");
         $travel_id=$request->input("travel_id");
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,
+        ];
 
         return view('schedules.edit',$data);
     } public function reedit(request $request)
@@ -143,7 +142,19 @@ dd($request->input("id"));
     //這是將導遊id變為空值的步驟
     $schedule= Schedule::where('id', $request->input("id"))->first();
     $schedule->guide_id="";
+
+    //將專長景點的id找到後把專長景點內的判斷式設為空值
+    $attraction_id=$schedule->attraction_id;
+    $attraction=Attraction::where('id',$attraction_id)->first();
+    $attraction->reservation="";
+    $schedule->attraction_id="";
     $schedule->save();
+    $attraction->save();
+    //將專長景點的預約資料變為空值
+//    $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
+////    dd($attraction_id);
+////    $attraction_id->reservation="";
+////    $attraction_id->save();
     //這是重新抓取頁面的值
     $b=Schedule::find($request->input('id'));
     $name=($request->input('name'));
