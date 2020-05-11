@@ -60,6 +60,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$attractions->links()}}
         </div>
     </div>
 </div>
