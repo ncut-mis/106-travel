@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-inline">
                     <label for="name">景點名稱</label>
-                    <input type="text" class="form-control" name="name" id="name" value="">
+                    <input type="text" class="form-control" name="name" id="name"  placeholder="台中市一中街" value="">
                 </div>
                 <br>
                 <br>
@@ -56,7 +56,7 @@
                 <br>
                 <div class="form-inline">
                     <label for="price">價格</label>
-                    <input type="text" class="form-control" name="price" id="price" value="">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="2500" value="">
                 </div>
                 <br>
                 <br>
