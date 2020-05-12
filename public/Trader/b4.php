@@ -89,16 +89,16 @@ $dates = region($_GET['region']);
                 <table class=" table table-hover  shadow-lg ">
                     <thead>
                         <tr>
-                        <th scope="col">id</th>
+                        <th scope="col">導遊id</th>
                         <th scope="col">地區</th>
                         <th scope="col">內容</th>                   
                         <th scope="col">花費</th>
                         <th scope="col">訂房</th>
                         <th scope="col">交通</th>
-                        <th scope="col">導遊編號</th>
                         <th scope="col">行程表</th>
                         <th scope="col">開始</th>
                         <th scope="col">結束</th>
+                        <th scope="col">地圖</th>
                         
                         </tr>
                     </thead>
@@ -106,16 +106,16 @@ $dates = region($_GET['region']);
                     <?php if(!empty($dates))
                 foreach ($dates as $Schedules):?>
                 <tr>
-                <th scope="row"><?php echo $Schedules['id'] ; ?></th>
+                <th scope="row"><a id="get_guide" href="#&id=<?php echo $Schedules['guide_id'] ; ?>"><?php echo $Schedules['guide_id'] ; ?></a></th>
                 <td><?php echo $Schedules['region'] ; ?></td>
                 <td><?php echo $Schedules['content'] ; ?></td>
                 <td><?php echo $Schedules['cost'] ; ?></td>
                 <td><?php echo $Schedules['room'] ; ?></td>
                 <td><?php echo $Schedules['traffic'] ; ?></td>
-                <td><a id="get_guide" href="#&id=<?php echo $Schedules['guide_id'] ; ?>"><?php echo $Schedules['guide_id'] ; ?></a> </td>
                 <td><?php echo $Schedules['travel_id'] ; ?></td>
                 <td><?php echo $Schedules['start'] ; ?></td>
                 <td><?php echo $Schedules['end'] ; ?></td>
+                <td><a href="http://www.google.com.tw/maps/search/<?php echo $Schedules['region'] ; ?>" target="_blank"><img width ="50" height="50" src="pic/google.jpg" alt="圖片壞了"></a></td>
                 </tr>
                 <?php endforeach; ?>
                     </tbody>

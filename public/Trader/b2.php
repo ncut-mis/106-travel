@@ -20,10 +20,10 @@ $dates = get_Schedules();
     <div class="container-fluit bg-white">
         <div class="row">
             <div class="col-12 mt-3 border border-dark">
-            <table class=" table table-hover  shadow-lg ">
+            <table class=" table table-hover  shadow-lg text-center ">
                 <thead>
                     <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">交易紀錄編號</th>
                     <th scope="col">地區</th>
                     <th scope="col">內容</th>                   
                     <th scope="col">花費</th>
