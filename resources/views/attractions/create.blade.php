@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-inline">
                     <label for="name">景點名稱</label>
-                    <input type="text" class="form-control" name="name" id="name" value="">
+                    <input type="text" class="form-control" name="name" id="name"  placeholder="台中市一中街" value="">
                 </div>
                 <br>
                 <br>
@@ -47,15 +47,16 @@
                 </div>
                 <br>
                 <br>
-                <div class="form-inline">
+                <div class="form-group">
                     <label for="content">內容</label>
-                    <input type="text" class="form-control form-control-lg "  name="content" id="content"  value="">
+{{--                    <input type="text" class="form-control"  name="content" id="content"  value="">--}}
+                    <textarea rows="5" type="text" name="content" id="content"  class="form-control" cols="20"></textarea>
                 </div>
                 <br>
                 <br>
                 <div class="form-inline">
                     <label for="price">價格</label>
-                    <input type="text" class="form-control" name="price" id="price" value="">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="2500" value="">
                 </div>
                 <br>
                 <br>

@@ -16,7 +16,11 @@ class TravelController extends Controller
     {
 //        $travels=Travel::orderBy('id','ASC')->get();
         $travels=Auth::user()->members->travels;
-        $chgpage=Auth::user()->members->travels()->paginate(15);
+        $travels1=Auth::user()->members->travels;
+        $chgpage=Auth::user()->members->travels()->paginate(3);
+        $chgpage1=Auth::user()->members->travels()->paginate(3);
+        $today = date('Y-m-d') ;
+
 //        $a=Auth::user()->members->travels;
 //        $q=1;
 //        dd($a);
@@ -25,7 +29,7 @@ class TravelController extends Controller
 //        }
 //        dd($b);
 //        $c=Travel::find(1)->schedule;
-        $data=['travels'=>$travels,'chgpage'=>$chgpage];
+        $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1];
         return view('travel',$data);
 
 
@@ -148,6 +152,13 @@ class TravelController extends Controller
         }
 
         return redirect()->route('travel');
+    }
+    public function cancel(Request $request)
+    {
+        $canceltravel= Travel::find($request->input("cancel_id"));
+        $canceltravel->pay=0;
+        $canceltravel->save();
+        return redirect('/travel');
     }
 
 }

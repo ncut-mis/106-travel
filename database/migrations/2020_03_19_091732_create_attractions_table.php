@@ -20,6 +20,7 @@ class CreateAttractionsTable extends Migration
             $table->text('content');
             $table->integer('price');
             $table->integer('status')->default("0");
+            $table->text('reservation')->nullable();
             $table->unsignedBigInteger('guide_id');
             $table->timestamps();
         });

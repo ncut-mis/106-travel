@@ -68,14 +68,34 @@ Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
 Route::post('schedules/update','ScheduleController@update')->name('schedules.update');
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
+
+
+//確認旅遊規劃
+Route::post('confirm','ConfirmController@index')->name('confirm.index');
+//會員取消旅遊規劃
+Route::post('travel/cancel','TravelController@cancel')->name('travel.cancel');
+//旅遊歷史記錄
+Route::get('history','historyController@index')->name('history');
+//複製旅遊歷史記錄
+Route::post('history/store','historyController@store')->name('history.store');
+//確認旅遊規劃-付款
+Route::post('confirm/edit','ConfirmController@edit')->name('confirm.edit');
+
+
 //會員觀看導遊的詳細資料
 Route::get('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 //會員媒合導遊
 Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
 Route::get('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
+//會員觀看所有媒合到的導遊之返回鈕
+Route::post('schedules/reedit','ScheduleController@reedit')->name('schedules.reedit');
 //會員觀看導遊的詳細資料之返回鈕
+Route::post('/rescheduleguides/index2', 'ScheduleGuideController@index2')->name('scheduleguides.index2');
+//會員按下媒合導遊鈕
 Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('scheduleguides.reindex');
+//會員取消媒合導遊
+Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');
 
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');
@@ -95,7 +115,6 @@ Route::get('attractions/stop/{id}', 'AttractionController@stop')->name('attracti
 Route::get('attractions_open/{id}', 'AttractionController@open')->name('attractions.open');
 //導遊刪除專長景點
 Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name('attractions.destroy');
-
 
 
 //下載專長景點

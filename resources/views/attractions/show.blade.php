@@ -21,18 +21,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
+                    內容
                 </div>
                 <div class="card-body">
-
                     {{$attraction->content}}
                 </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        圖片
+                    </div>
+                    <img class="card-img-bottom" src="{{asset('storage/picture.png')}}" alt="">
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        影片
+                    </div>
+                    <img class="card-img-bottom" src="..." alt="">
+                </div>
+
                 <div class="card-footer">
                     附件:<br>
                     @foreach($files as $file)
                         <a href="{{route('attractions.download',['id'=>$attraction->id,'filename'=>$file])}}"> {{$file}}</a>><br>
-                        @endforeach
+                    @endforeach
                 </div>
-            </div>
         </div>
     </div>
 </div>
