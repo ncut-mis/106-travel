@@ -27,6 +27,8 @@ Route::post('/index', 'IndexController@update')->name('store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
+//跳轉平台業者畫面
+//Route::get('/thome','ThomeController@index')->name('thome');
 
 //測試
 Route::get('/travel','TravelController@index')->name('travel');

@@ -2,7 +2,7 @@
 require_once 'php/db_connection.php';
 require_once 'php/sql.php';
 
-$dates = get_guides();
+$dates = get_pass1();
 /*echo "所有導遊資料"."<br>";
 print_r($dates);
 echo "<br>"."最後一筆導遊資料"."<br>";
@@ -27,7 +27,7 @@ $pass0 = get_pass0();
         <div class="row d-flex justify-content-center">
             <div class=" col-sm-8">
         <div class="list-group list-group-horizontal ">
-             <a href="#list-one" class="list-group-item " data-toggle="list"><h4 >所有導遊資訊</h4></a>
+             <a href="#list-one" class="list-group-item " data-toggle="list"><h4 >已審核導遊</h4></a>
              <a href="#list-two" class="list-group-item " data-toggle="list"><h4 >未審核導遊</h4></a>
              <a href="#list-three" class="list-group-item " data-toggle="list"><h4 >黑名單</h4></a>
              
@@ -38,21 +38,21 @@ $pass0 = get_pass0();
          <table class="table table-striped text-center shadow-lg ">
              <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">照片</th>
+                    <th scope="col">暱稱</th>
+                    <th scope="col">頭貼</th>
                     <th scope="col">身分證</th>
-                    <th scope="col">created_at</th>
-                    <th scope="col">pass</th>
+                    <th scope="col">審核通過時間</th>
+                    <th scope="col">狀態</th>
                 </tr>
              </thead>
             <tbody>
             <?php if(!empty($dates))
              foreach ($dates as $guides):?>
             <tr>
-            <th scope="row"><?php echo $guides['id'] ; ?></th>
+            <th scope="row"><?php echo $guides['name'] ; ?></th>
             <td><img style="width:100px;height:100px" src="<?php echo $guides['photo'] ; ?>" alt=""></td>
             <td><?php echo $guides['id_card'] ; ?></td>
-            <td><?php echo $guides['created_at'] ; ?></td>
+            <td><?php echo $guides['updated_at'] ; ?></td>
             <td><?php if($guides['pass']=="1") echo "<font color = green >已通過</font>"; else echo "<font color = red >未通過</font>"; ?></td>
             </tr>
 
@@ -65,10 +65,10 @@ $pass0 = get_pass0();
          <table class="table table-striped text-center">
              <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">id_card</th>
-                    <th scope="col">pass</th>
-                    <th scope="col">created_at</th>
+                    <th scope="col">暱稱</th>
+                    <th scope="col">頭貼</th>
+                    <th scope="col">身分證</th>
+                    <th scope="col">創建時間</th>
                     <th scope="col">操作</th>
                 </tr>
              </thead>
@@ -76,9 +76,9 @@ $pass0 = get_pass0();
             <?php if(!empty($pass0))
              foreach ($pass0 as $i):?>
             <tr>
-            <th scope="row"><?php echo $i['id'] ; ?></th>
+            <th scope="row"><?php echo $i['name'] ; ?></th>
+            <td><img style="width:100px;height:100px" src="<?php echo $i['photo'] ; ?>" alt=""></td>
             <td><?php echo $i['id_card'] ; ?></td>
-            <td><?php echo $i['pass'] ; ?></td>
             <td><?php echo $i['created_at'] ; ?></td>
             <td><a class="btn btn-outline-danger" href="b1v.php?id=<?php echo $i['id'];?>" role="button">審核</a></td>
             </tr>
