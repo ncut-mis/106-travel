@@ -35,7 +35,13 @@ class HomeController extends Controller
             return view('ghome',[ 'a' => $a]);
         }
 
-        else
-            return view('index');
+        else if (Auth::user()->type=="平台業者")
+        {
+            return view('thome');
+            //header("localhost:8000/Trader/index.php");
+        }
+
+        //else
+            //return view('index');
     }
 }

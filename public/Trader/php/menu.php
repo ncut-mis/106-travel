@@ -45,10 +45,10 @@ $file_name =  basename($file_path);
         <a class="nav-link <?php  echo ($index==2)?"active":""; ?> " href="b2.php">查詢每筆交易紀錄</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#" >營收監控</a>
+        <a class="nav-link <?php  echo ($index==3)?"active":""; ?>" href="b3.php" >營運統計</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#" >內部資訊監控</a>
+        <a class="nav-link <?php  echo ($index==4)?"active":""; ?>" href="b4.php?region=" >內部監控</a>
       </li>
     </ul>
   </div>

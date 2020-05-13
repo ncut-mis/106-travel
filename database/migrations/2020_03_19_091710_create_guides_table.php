@@ -15,11 +15,11 @@ class CreateGuidesTable extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('id_card');
-            $table->string('fontsize');
-            $table->datetime('pass_time')->nullable();
+            $table->string('id_card');//身分證
+            $table->string('name');//導遊暱稱
+            $table->string('photo');//大頭貼
             $table->boolean('pass')->default(false);
-            $table->string('photo');
+            $table->datetime('pass_time')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });
