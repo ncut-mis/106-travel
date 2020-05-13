@@ -67,7 +67,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$attractions->links()}}
+{{--            {{$attractions->links()}}--}}
         </div>
     </div>
 </div>

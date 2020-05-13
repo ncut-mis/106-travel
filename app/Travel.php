@@ -17,6 +17,17 @@ class Travel extends Model
     public function schedules()
     {
         return $this->hasMany(Schedule::class);
-}
+    }
+    protected  $fillable=[
+        'name',
+        'start',
+        'end',
+        'total',
+        'pay',
+        'member_id',
+    ];
+
+    protected $table='travels';
+
 
 }

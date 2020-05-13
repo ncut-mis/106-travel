@@ -117,3 +117,8 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 //下載專長景點
 Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
+
+//顯示上傳的圖片
+//Route::get('img/{file_path}', 'AttractionController@getImg')->name('img');
+
+
