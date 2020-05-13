@@ -74,6 +74,8 @@ Route::post('confirm','ConfirmController@index')->name('confirm.index');
 Route::post('travel/cancel','TravelController@cancel')->name('travel.cancel');
 //旅遊歷史記錄
 Route::get('history','historyController@index')->name('history');
+//旅遊歷史記錄查看行程
+Route::post('history/show','historyController@show')->name('history.show');
 //複製旅遊歷史記錄
 Route::post('history/store','historyController@store')->name('history.store');
 //確認旅遊規劃-付款

@@ -20,7 +20,7 @@ class HistoryController extends Controller
         $chgpage=Auth::user()->members->travels()->paginate(2);
         $today = date('Y-m-d') ;
         $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today];
-        return view('history',$data);
+        return view('history.index',$data);
     }
     public function store(Request $request)
     {
@@ -72,4 +72,20 @@ class HistoryController extends Controller
         }
         return redirect()->route('travel');
     }
+    public function show(Request $request)
+    {
+        $name=($request->input("name"));
+        $start=($request->input("start"));
+        $end=($request->input("end"));
+        $date=floor((strtotime($end)-strtotime($start))/86400+1);
+        $b=Travel::find($request->input("id"))->schedules;
+
+        $cc=($request->input("id"));
+        $travel_id=($request->input("id"));
+        $total=($request->input("total"));
+        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
+
+        return view('history.show',$data);
+    }
 }
+
