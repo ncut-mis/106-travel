@@ -2,12 +2,15 @@
 
 @section('content')
 
-<div class="content">
-    <div class="row">
-        <div class="col-12">
-            <h2>導遊目前景點總覽</h2>
-            <a href="{{route('attractions.create')}}" class="btn btn-success btn-sm">新增專長景點</a>
-            <a href="{{ url('home') }}" class="btn btn-primary btn-sm">返回</a>
+    <div class="content">
+        <div class="row">
+            <div class="col-12">
+                <h2>顯示目前被預約行程</h2>
+                <a href="{{url('home')}}" class="btn btn-secondary btn-sm">返回</a>
+            </div>
+
+
+
         </div>
         <div class="col-12">
             <table class="table table-hover">
@@ -28,13 +31,13 @@
                     <th>
                         狀態
                     </th>
-                    <th>
-                        預約
-                    </th>
+
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($attractions as $attraction)
+                @foreach($attraction as $attraction)
+
+
                     <tr>
                         <td>
                             {{$attraction->created_at}}
@@ -55,19 +58,16 @@
                                 啟用
                             @endif
                         </td>
-                        <td>
-                            @if($attraction->reservation== "")
-                                未預約
-                            @elseif($attraction->reservation== "1")
-                                預約中
-                            @endif
-                        </td>
+
 
                     </tr>
-                    @endforeach
+
+
+                @endforeach
                 </tbody>
             </table>
-{{--            {{$attractions->links()}}--}}
-        </div>
     </div>
-</div>
+
+
+
+

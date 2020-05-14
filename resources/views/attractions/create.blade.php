@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-inline">
                     <label for="name">景點名稱</label>
-                    <input type="text" class="form-control" name="name" id="name" value="">
+                    <input type="text" class="form-control" name="name" id="name"  placeholder="台中市一中街" value="">
                 </div>
                 <br>
                 <br>
@@ -56,13 +56,45 @@
                 <br>
                 <div class="form-inline">
                     <label for="price">價格</label>
-                    <input type="text" class="form-control" name="price" id="price" value="">
+                    <input type="text" class="form-control" name="price" id="price" placeholder="2500" value="">
                 </div>
                 <br>
                 <br>
                 <div class="form-group">
                     <label for="files">附件</label>
-                    <input type="file" class="form-group" name="files[]" id="files" multiple>
+{{--                    <input type="file" class="form-group" name="files[]" id="files" multiple>--}}
+
+                    <input type="file" id="collection" multiple="multiple" /><br/>
+                    <output id="image_output"></output>
+
+                    <script language="javascript">
+
+                        if ( window.FileReader ) {
+
+                            document.getElementById("collection").onchange = function(){
+
+                                for (var i=0, file; file=this.files[i]; i++) {
+                                    var reader = new FileReader();
+                                    reader.onloadend = (function(file){
+                                        return function(){
+
+                                            var image = new Image();
+                                            image.height = 100;
+                                            image.title = file.name;
+                                            image.src = /^image/.test(file.type)
+                                                ? this.result
+                                                : "http://i.stack.imgur.com/t9QlH.png";
+
+                                            document.getElementById('image_output').appendChild( image );
+                                        }
+                                    })(file);
+                                    reader.readAsDataURL( file );
+                                }
+                            }
+                        }
+
+                    </script>
+
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>
             </form>

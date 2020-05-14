@@ -27,6 +27,8 @@ Route::post('/index', 'IndexController@update')->name('store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/travel', 'TravelController@destroy')->name('travel.destroy');
+//跳轉平台業者畫面
+//Route::get('/thome','ThomeController@index')->name('thome');
 
 //測試
 Route::get('/travel','TravelController@index')->name('travel');
@@ -41,18 +43,6 @@ Route::post('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelCon
 
 //修改旅遊計畫
 Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit']);
-
-
-
-//導遊顯示基本資料
-Route::get('guide', 'GuideController@index');
-//導遊修改基本資料
-
-Route::post('/guide', 'GuideController@edit')->name('store');
-
-
-Route::post('guide', 'GuideController@edit')->name('edit');
-
 
 //顯示所有會員行程規劃
 Route::post('/schedules', 'ScheduleController@index')->name('schedules.index');
@@ -119,3 +109,17 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 //下載專長景點
 Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
+
+//顯示上傳的圖片
+//Route::get('img/{file_path}', 'AttractionController@getImg')->name('img');
+
+//導遊顯示基本資料
+Route::get('guide', 'GuideController@index');
+//導遊修改基本資料
+Route::post('/guide', 'GuideController@edit')->name('store');
+Route::post('guide', 'GuideController@edit')->name('edit');
+
+//導遊顯示目前被預約景點
+Route::get('reservation', 'ReservationController@index')->name('reservation.index');
+
+
