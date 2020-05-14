@@ -28,6 +28,7 @@ class HomeController extends Controller
 //        $a=Auth::user()->type;
 ////        dd($a);
          if(Auth::user()->type=="會員")
+
              return view('mhome');
         else if(Auth::user()->type=="導遊")
         {
