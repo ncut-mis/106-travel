@@ -158,6 +158,7 @@ class TravelController extends Controller
         $canceltravel= Travel::find($request->input("cancel_id"));
         $canceltravel->pay=0;
         $canceltravel->save();
+//        $cancelschedulesguid=Schedule::where('travel_id',$request->input("cancel_id")->update(['guides'=>'']));
         return redirect('/travel');
     }
 
