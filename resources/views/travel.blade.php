@@ -9,9 +9,17 @@
 <style>
     .div-a{ float:left;width:49%;border:1px}
     .div-b{ float:right;}
+    .div-c{ float:right;}
+
 </style>
 <div class="div-a"><b><font size="12">規劃中</font></b></div>
 <div class="div-b">
+    <form  action="{{route('home')}}" method="get">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-info">回首頁</button>
+    </form>
+</div>
+<div class="div-c">
     <form  action="{{route('history')}}" method="get">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-danger">旅遊歷史記錄</button>
@@ -133,13 +141,13 @@
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('出遊日期:') }}</label>
                     <div class="col-md-6">
-                        <input id="start" type="date" class="form-control " name="start" value="">
+                        <input id="start" type="date" class="form-control " name="start" value="" min="{{$today}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('結束日期:') }}</label>
                     <div class="col-md-6">
-                        <input id="end" type="date" class="form-control " name="end" value="">
+                        <input id="end" type="date" class="form-control " name="end" value="" min="{{$today}}">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -277,9 +285,9 @@
 <div>
     <label></label>
     <br>
-    <label>退還:</label>
+    <label>將退還:</label>
     <input  type="text" class="form-control" name="cancel_doller" id="cancel_doller"  readonly >
-    <lavel>元(20%將當作手續費而不退回)</lavel>
+    <lavel>元(20%將當作手續費而不退回，並且將取消媒合的導遊)</lavel>
 </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
