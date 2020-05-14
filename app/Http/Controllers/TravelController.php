@@ -33,7 +33,7 @@ class TravelController extends Controller
 //        }
 //        dd($b);
 //        $c=Travel::find(1)->schedule;
-        dd($travels);
+//dd($travels);
         $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1];
         return view('travel',$data);
 
@@ -81,7 +81,7 @@ class TravelController extends Controller
             $Travels->end=$request->input('update_end');
             $Travels->total=0;
             $Travels->pay=0;
-            $Travels->member_id=auth()->user()->id;
+            $Travels->member_id=auth()->user()->members->id;
             $Travels->save();
 
             for($i=0;$i<$date;$i++) {
@@ -136,7 +136,7 @@ class TravelController extends Controller
         $Travels->end=$request->input('end');
         $Travels->total=0;
         $Travels->pay=0;
-        $Travels->member_id=auth()->user()->id;
+        $Travels->member_id=auth()->user()->members->id;
         $Travels->save();
 
         for($i=0;$i<$date;$i++) {

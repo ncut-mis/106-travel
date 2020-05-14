@@ -95,6 +95,7 @@ class AttractionController extends Controller
 
         $b = Attraction::orderBy('id', 'DESC')->first();
 
+        //要在cmder輸入
        $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
        $data=[

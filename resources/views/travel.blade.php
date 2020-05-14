@@ -21,7 +21,6 @@
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-
                             <th>&nbsp;&nbsp;名稱</th>
                             <th>出遊日期</th>
                             <th>回家日期</th>
@@ -149,7 +148,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 
 {{--//修改部分--}}

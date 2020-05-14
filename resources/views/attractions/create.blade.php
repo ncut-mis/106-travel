@@ -62,7 +62,39 @@
                 <br>
                 <div class="form-group">
                     <label for="files">附件</label>
-                    <input type="file" class="form-group" name="files[]" id="files" multiple>
+{{--                    <input type="file" class="form-group" name="files[]" id="files" multiple>--}}
+
+                    <input type="file" id="collection" multiple="multiple" /><br/>
+                    <output id="image_output"></output>
+
+                    <script language="javascript">
+
+                        if ( window.FileReader ) {
+
+                            document.getElementById("collection").onchange = function(){
+
+                                for (var i=0, file; file=this.files[i]; i++) {
+                                    var reader = new FileReader();
+                                    reader.onloadend = (function(file){
+                                        return function(){
+
+                                            var image = new Image();
+                                            image.height = 100;
+                                            image.title = file.name;
+                                            image.src = /^image/.test(file.type)
+                                                ? this.result
+                                                : "http://i.stack.imgur.com/t9QlH.png";
+
+                                            document.getElementById('image_output').appendChild( image );
+                                        }
+                                    })(file);
+                                    reader.readAsDataURL( file );
+                                }
+                            }
+                        }
+
+                    </script>
+
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>
             </form>

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\schedules;
 use App\members;
+use auth;
 
 
 class Travel extends Model
