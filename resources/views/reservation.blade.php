@@ -9,15 +9,13 @@
                 <a href="{{url('home')}}" class="btn btn-secondary btn-sm">返回</a>
             </div>
 
-
-
         </div>
         <div class="col-12">
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>
-                        發表時間
+                        預約時間
                     </th>
                     <th>
                         景點名稱
@@ -29,21 +27,20 @@
                         價格
                     </th>
                     <th>
-                        狀態
+                        會員姓名
                     </th>
 
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($attraction as $attraction)
-
-
+                    @if($attraction->reservation=='1' && $attraction->status=='1')
                     <tr>
                         <td>
                             {{$attraction->created_at}}
                         </td>
                         <td>
-                            <a href="{{route('attractions.show',$attraction->id)}}">{{$attraction->name}} </a>
+                            {{$attraction->name}}
                         </td>
                         <td>
                             {{$attraction->location}}
@@ -52,17 +49,11 @@
                             {{$attraction->price}}
                         </td>
                         <td>
-                            @if($attraction->status== "0")
-                                未啟用
-                            @elseif($attraction->status== "1")
-                                啟用
-                            @endif
+                            {{$attraction->member_name}}
                         </td>
 
-
                     </tr>
-
-
+                    @endif
                 @endforeach
                 </tbody>
             </table>

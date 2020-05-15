@@ -16,9 +16,11 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $attraction=Attraction::where('reservation','1')->get();
 
+        $attraction=Auth::user()->guides->attractions;
 
+        //$attraction1=Attraction::where('reservation','1')->get();
+        //$attraction2=Attraction::where('status','1')->get();
 
         $data=[
             'attraction'=>$attraction,

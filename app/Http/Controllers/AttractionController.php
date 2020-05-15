@@ -26,7 +26,7 @@ class AttractionController extends Controller
         $a['name']=$request->input('name');
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
-        $a['guide_id']=auth()->user()->id;
+        $a['guide_id']=auth()->user()->guides->id;
         $a['price']=$request->input('price');
 //        $a['created_at']=now();
 //        $a['updated_at']=now();
@@ -91,8 +91,8 @@ class AttractionController extends Controller
 
     public function show(Attraction $attraction)
     {
-       //$attraction = DB::select('select * from attractions where id=?',[$id]);
 
+        $attraction = Attraction::orderBy('id', 'DESC')->first();
         $b = Attraction::orderBy('id', 'DESC')->first();
 
         //要在cmder輸入
@@ -100,6 +100,7 @@ class AttractionController extends Controller
 
        $data=[
            'attraction'=>$attraction,
+
            'files' =>$files,
        ];
 
