@@ -31,7 +31,7 @@
                     <div class="card-header">
                         圖片
                     </div>
-                    <img class="card-img-bottom" src="{{asset('storage/picture.png')}}" alt="">
+                    <img class="card-img-bottom" src="" alt="">
                 </div>
 
                 <div class="card">

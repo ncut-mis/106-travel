@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\schedules;
 use App\members;
+use auth;
 
 
 class Travel extends Model
@@ -17,6 +18,17 @@ class Travel extends Model
     public function schedules()
     {
         return $this->hasMany(Schedule::class);
-}
+    }
+    protected  $fillable=[
+        'name',
+        'start',
+        'end',
+        'total',
+        'pay',
+        'member_id',
+    ];
+
+    protected $table='travels';
+
 
 }

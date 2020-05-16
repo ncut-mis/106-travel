@@ -44,18 +44,6 @@ Route::post('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelCon
 //修改旅遊計畫
 Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit']);
 
-
-
-//導遊顯示基本資料
-Route::get('guide', 'GuideController@index');
-//導遊修改基本資料
-
-Route::post('/guide', 'GuideController@edit')->name('store');
-
-
-Route::post('guide', 'GuideController@edit')->name('edit');
-
-
 //顯示所有會員行程規劃
 Route::post('/schedules', 'ScheduleController@index')->name('schedules.index');
 Route::get('/reschedules/{id}', 'ScheduleController@reindex')->name('schedules.reindex');
@@ -76,6 +64,8 @@ Route::post('confirm','ConfirmController@index')->name('confirm.index');
 Route::post('travel/cancel','TravelController@cancel')->name('travel.cancel');
 //旅遊歷史記錄
 Route::get('history','historyController@index')->name('history');
+//旅遊歷史記錄查看行程
+Route::post('history/show','historyController@show')->name('history.show');
 //複製旅遊歷史記錄
 Route::post('history/store','historyController@store')->name('history.store');
 //確認旅遊規劃-付款
@@ -119,3 +109,17 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 //下載專長景點
 Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
+
+//顯示上傳的圖片
+//Route::get('img/{file_path}', 'AttractionController@getImg')->name('img');
+
+//導遊顯示基本資料
+Route::get('guide', 'GuideController@index');
+//導遊修改基本資料
+Route::post('/guide', 'GuideController@edit')->name('store');
+Route::post('guide', 'GuideController@edit')->name('edit');
+
+//導遊顯示目前被預約景點
+Route::get('reservation', 'ReservationController@index')->name('reservation.index');
+
+

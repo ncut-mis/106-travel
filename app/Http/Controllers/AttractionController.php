@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use http\Env\Response;
+use Illuminate\Support\Facades\File;
 
 
 class AttractionController extends Controller
@@ -25,7 +26,7 @@ class AttractionController extends Controller
         $a['name']=$request->input('name');
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
-        $a['guide_id']=auth()->user()->id;
+        $a['guide_id']=auth()->user()->guides->id;
         $a['price']=$request->input('price');
 //        $a['created_at']=now();
 //        $a['updated_at']=now();
@@ -74,7 +75,11 @@ class AttractionController extends Controller
 
 
         //$attractions=DB::select('select * from attractions order by id DESC ');
-        $attractions=Attraction::orderBy('id','DESC')->paginate(3);
+        //$attractions=Attraction::orderBy('id','DESC')->paginate(3);
+
+        $attractions=Auth::user()->guides->attractions;
+
+
         $data=[
             'attractions'=>$attractions,
         ];
@@ -86,13 +91,16 @@ class AttractionController extends Controller
 
     public function show(Attraction $attraction)
     {
-       //$attraction = DB::select('select * from attractions where id=?',[$id]);
 
+        $attraction = Attraction::orderBy('id', 'DESC')->first();
         $b = Attraction::orderBy('id', 'DESC')->first();
+
+        //要在cmder輸入
        $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
        $data=[
            'attraction'=>$attraction,
+
            'files' =>$files,
        ];
 
@@ -123,6 +131,24 @@ class AttractionController extends Controller
 //        DB::update('update attractions set name=?,location=?,content=?,price=? where id=?',
 //            [$a['name'],$a['location'],$a['content'],$a['price'],$id]);
         $attraction->update($a);
+
+        $b = Attraction::SELECT('id')->orderBy('id', 'desc')->first();
+
+        //處理檔案上傳
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            foreach($files as $file){
+                $info = [
+                    'mime-type' => $file->getMimeType(),
+                    'original_filename' => $file->getClientOriginalName(),
+                    'extension' => $file->getClientOriginalExtension(),
+                    'size' => $file->getClientSize(),
+                ];
+                $file->storeAs('public/attractions/'.$b->id, $info['original_filename']);
+            }
+        }
+
+
         return redirect()->route('attractions.index');
     }
     public function destroy(Attraction $attraction)
@@ -157,6 +183,17 @@ class AttractionController extends Controller
         $file = storage_path('app/public/attractions/'.$id."/".$filename);
         return response()->download($file);
     }
+
+    public function getImg($file_path)
+    {
+        $file_path = str_replace('&','/',$file_path); //斜線不可以在URL中傳
+        $file = File::get($file_path);
+        $type = File::mimeType($file_path);
+
+        return response($file)->header("Content-Type", $type);
+
+    }
+
 
 
 }

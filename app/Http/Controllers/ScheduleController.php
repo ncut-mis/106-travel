@@ -148,14 +148,14 @@ dd($request->input("id"));
     $attraction_id=$schedule->attraction_id;
     $attraction=Attraction::where('id',$attraction_id)->first();
     $attraction->reservation="";
+    $attraction->member_name="";
     $schedule->attraction_id="";
     $schedule->save();
     $attraction->save();
-    //將專長景點的預約資料變為空值
-//    $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
-////    dd($attraction_id);
-////    $attraction_id->reservation="";
-////    $attraction_id->save();
+    //將專長景點的預約資料 $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
+    //////    dd($attraction_id);
+    //////    $attraction_id->reservation="";變為空值
+//   ////    $attraction_id->save();
     //這是重新抓取頁面的值
     $b=Schedule::find($request->input('id'));
     $name=($request->input('name'));

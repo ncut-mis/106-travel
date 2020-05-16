@@ -61,7 +61,7 @@
                     <a class="nav-link" href="{{ route('attractions.index') }}">編輯專長景點</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">顯示目前被預約行程</a>
+                    <a class="nav-link" href="{{ route('reservation.index') }}">顯示目前被預約行程</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">查詢帶團歷史紀錄</a>

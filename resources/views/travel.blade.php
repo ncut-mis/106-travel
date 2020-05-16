@@ -9,9 +9,17 @@
 <style>
     .div-a{ float:left;width:49%;border:1px}
     .div-b{ float:right;}
+    .div-c{ float:right;}
+
 </style>
 <div class="div-a"><b><font size="12">規劃中</font></b></div>
 <div class="div-b">
+    <form  action="{{route('home')}}" method="get">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-info">回首頁</button>
+    </form>
+</div>
+<div class="div-c">
     <form  action="{{route('history')}}" method="get">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-danger">旅遊歷史記錄</button>
@@ -21,7 +29,6 @@
                     <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
-
                             <th>&nbsp;&nbsp;名稱</th>
                             <th>出遊日期</th>
                             <th>回家日期</th>
@@ -70,7 +77,7 @@
         </div>
 
 
-<div class="div-a"><b><font size="12">進行中</font></b></div>
+<div class="div-a"><b><font size="12">確認的旅遊記劃</font></b></div>
 <table class="table table-bordered table-hover" >
     <thead>
     <tr>
@@ -94,7 +101,8 @@
                             <input type = "hidden" id = "end" name = "end" value = "{{$travels1->end}}">
                             <input type = "hidden" id = "total" name = "total" value = "{{$travels1->total}}">
                             <button type="submit" class="btn btn-link"><font color="blue">{{$travels1->name}}</font></button>
-                        </form></td>
+                        </form>
+                    </td>
                     <td>{{$travels1->start}}</td>
                     <td>{{$travels1->end}}</td>
                     <td>{{$travels1->total}}元</td>
@@ -104,6 +112,7 @@
                     <td  style="display:none">{{$travels1->id}}</td>
                     <td  style="display:none">{{$travels1->name}}</td>
                 <td style="display:none">{{$travels1->pay}}</td>
+                <td style="display:none">{{$travels1->total}}</td>
             </tr>
         @endif
         @endforeach
@@ -132,13 +141,13 @@
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('出遊日期:') }}</label>
                     <div class="col-md-6">
-                        <input id="start" type="date" class="form-control " name="start" value="">
+                        <input id="start" type="date" class="form-control " name="start" value="" min="{{$today}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('結束日期:') }}</label>
                     <div class="col-md-6">
-                        <input id="end" type="date" class="form-control " name="end" value="">
+                        <input id="end" type="date" class="form-control " name="end" value="" min="{{$today}}">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -149,7 +158,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 
 {{--//修改部分--}}
@@ -272,7 +281,14 @@
                     <label >確定取消該旅遊</label>
                     <input style="display:none" type="text" class="form-control" name="cancel_name" id="cancel_name" readonly >
                     <input style="display:none" type="text" class="form-control " name="cancel_pay" id="cancel_pay"  readonly>
-
+                    <input style="display:none" type="text" class="form-control " name="cancel_start" id="cancel_start"  readonly>
+<div>
+    <label></label>
+    <br>
+    <label>將退還:</label>
+    <input  type="text" class="form-control" name="cancel_doller" id="cancel_doller"  readonly >
+    <lavel>元(20%將當作手續費而不退回，並且將取消媒合的導遊)</lavel>
+</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                         <button type="submit" class="btn btn-primary">確認取消</button>
@@ -292,13 +308,17 @@
         $("#Mytable1").on('click','.btnSelect',function(){
             // get the current row
             var currentRow=$(this).closest("tr");
+            var col1=currentRow.find("td:eq(1)").html();
             var col5=currentRow.find("td:eq(5)").html();
             var col6=currentRow.find("td:eq(6)").html();
             var col7=currentRow.find("td:eq(7)").html();
+            var col8=currentRow.find("td:eq(8)").html();
 
+            $('#cancel_start').val(col1.trim());
             $('#cancel_id').val(col5.trim());
             $('#cancel_name').val(col6.trim());
             $('#cancel_pay').val(col7.trim());
+            $('#cancel_doller').val(col8.trim()*0.8);
         });
     });
 </script>

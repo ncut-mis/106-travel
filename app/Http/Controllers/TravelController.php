@@ -15,6 +15,10 @@ class TravelController extends Controller
     public function index()
     {
 //        $travels=Travel::orderBy('id','ASC')->get();
+
+//        $travels=Auth::user()->members;
+//        $travels = Travel::orderBy('id', 'DESC')->get();
+
         $travels=Auth::user()->members->travels;
         $travels1=Auth::user()->members->travels;
         $chgpage=Auth::user()->members->travels()->paginate(3);
@@ -29,6 +33,7 @@ class TravelController extends Controller
 //        }
 //        dd($b);
 //        $c=Travel::find(1)->schedule;
+//dd($travels);
         $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1];
         return view('travel',$data);
 
@@ -76,7 +81,7 @@ class TravelController extends Controller
             $Travels->end=$request->input('update_end');
             $Travels->total=0;
             $Travels->pay=0;
-            $Travels->member_id=auth()->user()->id;
+            $Travels->member_id=auth()->user()->members->id;
             $Travels->save();
 
             for($i=0;$i<$date;$i++) {
@@ -131,7 +136,7 @@ class TravelController extends Controller
         $Travels->end=$request->input('end');
         $Travels->total=0;
         $Travels->pay=0;
-        $Travels->member_id=auth()->user()->id;
+        $Travels->member_id=auth()->user()->members->id;
         $Travels->save();
 
         for($i=0;$i<$date;$i++) {
@@ -158,6 +163,11 @@ class TravelController extends Controller
         $canceltravel= Travel::find($request->input("cancel_id"));
         $canceltravel->pay=0;
         $canceltravel->save();
+        $cancelschedules=Schedule::where('travel_id',$request->input("cancel_id"))->get();
+        foreach($cancelschedules as $cancelschedules) {
+            $cancelschedules->guide_id ='';
+            $cancelschedules->save();
+        }
         return redirect('/travel');
     }
 

@@ -24,7 +24,7 @@
                 <tr>
                     @if(strtotime($today)>strtotime($travels->start))
 
-                    <td><form action="{{route('schedules.index')}}" method="post">
+                    <td><form action="{{route('history.show')}}" method="post">
                             {{ csrf_field() }}
                             <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
                             <input type = "hidden" id = "name" name = "name" value = "{{$travels->name}}">

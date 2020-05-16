@@ -54,7 +54,9 @@ class ScheduleGuideController extends Controller
     $schedule_name=$schedule->name;
     $attraction=DB::select('select * from attractions order by id DESC ');
 
+    $member_name=Auth::User()->name;
     $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
+    $attraction_id->member_name=$member_name;
     $attraction_id->reservation=1;
     $schedule->attraction_id=$request->input("attraction_id");
     $attraction_id->save();
@@ -76,7 +78,6 @@ class ScheduleGuideController extends Controller
     public function show(request $request,$id)
     {
         $guide_name=Auth::User();
-
         $travel_id=$request->input("travel_id");
         $schedule= Schedule::where('id', $request->input("schedule"))->first();
         $schedule_id=$schedule->id;
