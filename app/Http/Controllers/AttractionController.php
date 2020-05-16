@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use http\Env\Response;
-use Illuminate\Support\Facades\File;
+use App\File;
 
 
 class AttractionController extends Controller
@@ -66,12 +66,23 @@ class AttractionController extends Controller
                 }
         }
 
+        $files = $request->file('file');
+        foreach ($files as $file){
+            File::create([
+                'title'=>$file->getClientOriginalName(),
+                'description'=>'',
+                'path'=>$file->store('storage')
+            ]);
+
+        }
 
 
-        return redirect()->route('attractions.index');
+
+        return redirect()->route('attractions.index')->with('success','上傳成功');
     }
     public function index()
     {
+        $files=File::orderBy('created_at','DESC')->paginate(30);
 
 
         //$attractions=DB::select('select * from attractions order by id DESC ');
@@ -81,7 +92,7 @@ class AttractionController extends Controller
 
 
         $data=[
-            'attractions'=>$attractions,
+            'attractions'=>$attractions,'files'=>$files
         ];
         return view('attractions.index',$data);
 
@@ -91,15 +102,20 @@ class AttractionController extends Controller
 
     public function show(Attraction $attraction)
     {
+        $attraction_id=$attraction->id;
+
 
         $attraction = Attraction::orderBy('id', 'DESC')->first();
+
         $b = Attraction::orderBy('id', 'DESC')->first();
 
+        $files=File::orderBy('created_at','DESC')->paginate(30);
+
         //要在cmder輸入
-       $files = get_files(storage_path('app/public/attractions/'.$b->id));
+       //$files = get_files(storage_path('app/public/attractions/'.$b->id));
 
        $data=[
-           'attraction'=>$attraction,
+           'attraction'=>$attraction,'attraction_id'=>$attraction_id,
 
            'files' =>$files,
        ];

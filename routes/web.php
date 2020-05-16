@@ -12,6 +12,7 @@
 */
 //認證登入
 use App\Http\Controllers\TravelController;
+use Illuminate\Support\Facades\Route;
 
 Route::auth();
 
@@ -108,7 +109,7 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 
 //下載專長景點
-Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
+//Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
 
 //顯示上傳的圖片
 //Route::get('img/{file_path}', 'AttractionController@getImg')->name('img');
@@ -122,4 +123,8 @@ Route::post('guide', 'GuideController@edit')->name('edit');
 //導遊顯示目前被預約景點
 Route::get('reservation', 'ReservationController@index')->name('reservation.index');
 
-
+Route::get('/file','FileController@index')->name('view.file');
+Route::get('/file/upload','FileController@create')->name('form.file');
+Route::post('/file/upload','FileController@store')->name('upload.file');
+Route::delete('/file/{id}','FileController@destroy')->name('delete.file');
+Route::get('/file/download/{id}','FileController@show')->name('download.file');

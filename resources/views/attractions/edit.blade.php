@@ -63,7 +63,14 @@
                 <br>
                 <div class="form-group">
                     <label for="files">附件</label>
-                    <input type="file" class="form-group" name="files[]" id="files" multiple>
+
+{{--                        <form action="{{route('upload.file')}}" method="post" enctype="multipart/form-data">--}}
+{{--                            @csrf--}}
+{{--                            <div class="form-group">--}}
+{{--                                <input type="file" name="file">--}}
+{{--                            </div>--}}
+{{--                            <button type="submit" class="btn btn-primary">上傳</button>--}}
+{{--                        </form>--}}
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>
