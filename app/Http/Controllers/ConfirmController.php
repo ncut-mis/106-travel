@@ -24,8 +24,10 @@ class ConfirmController extends Controller
     public function edit(Request $request)
 
     {
+        $today= date ("Y-m-d H:i:s" , mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'))) ;
         $needconfirmtravel=Travel::find($request->input('travel_id'));
         $needconfirmtravel->pay=1;
+        $needconfirmtravel->paytime=$today;
         $needconfirmtravel->save();
         return redirect('/travel');
     }
