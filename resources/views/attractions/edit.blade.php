@@ -8,7 +8,7 @@
             <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
         </div>
         <div class="col-12">
-            <form method="post" action="{{route('attractions.update',$attraction->id)}}" enctype="multipart/form-data" >
+            <form method="post" action="{{route('attractions.update',$attraction->id)}}"   enctype="multipart/form-data" >
                 @csrf
                 {{ method_field('PATCH') }}
                 <div class="form-inline">
@@ -63,14 +63,9 @@
                 <br>
                 <div class="form-group">
                     <label for="files">附件</label>
-
-{{--                        <form action="{{route('upload.file')}}" method="post" enctype="multipart/form-data">--}}
-{{--                            @csrf--}}
-{{--                            <div class="form-group">--}}
-{{--                                <input type="file" name="file">--}}
-{{--                            </div>--}}
-{{--                            <button type="submit" class="btn btn-primary">上傳</button>--}}
-{{--                        </form>--}}
+                    <div class="form-group">
+                        <input type="file" name="file[]" multiple>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-sm">儲存</button>

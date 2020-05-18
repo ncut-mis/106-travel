@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
+    protected $table='files';
+
+    public function attractions()
+    {
+        return $this->belongsTo(Attraction::class);
+    }
     protected $fillable=[
-        'title','description','path','is_feature',
+        'title','description','path','attraction_id','is_feature',
     ];
 }

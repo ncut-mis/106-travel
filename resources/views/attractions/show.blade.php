@@ -32,7 +32,10 @@
                         圖片
                     </div>
                     <div class="row">
+
                         @foreach($files as $file)
+
+
                             <div class="col-md-4">
                                 <div class="card">
                                     <img class="card-img-top" src="{{Storage::url($file->path)}}">
@@ -48,7 +51,9 @@
                                     </div>
                                 </div>
                             </div>
+
                         @endforeach
+
                     </div>
 
                 </div>
@@ -60,9 +65,6 @@
 
                 </div>
 
-                <div class="card-footer">
-                    附件:<br>
-                </div>
         </div>
     </div>
 </div>

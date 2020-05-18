@@ -8,7 +8,7 @@
             <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
         </div>
         <div class="col-12">
-            <form method="post" action="{{route('attractions.store')}}"  action="{{route('upload.file')}}" enctype="multipart/form-data" >
+            <form method="post" action="{{route('attractions.store')}}"  enctype="multipart/form-data" >
                 @csrf
                 <div class="form-inline">
                     <label for="name">景點名稱</label>
@@ -67,13 +67,13 @@
                         <div class="form-group">
                             <input type="file" name="file[]" multiple>
                         </div>
-                        <button type="submit" class="btn btn-primary">上傳</button>
-                        <a href="{{route('view.file')}}" class="btn btn-success">返回</a>
+                        <button type="submit" class="btn btn-primary" name="create_button" id="create_button" value="">儲存</button>
+
 
                 </div>
 
 
-                <button type="submit" class="btn btn-primary btn-sm">儲存</button>
+
             </form>
 
         </div>

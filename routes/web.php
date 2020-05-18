@@ -107,13 +107,6 @@ Route::get('attractions_open/{id}', 'AttractionController@open')->name('attracti
 //導遊刪除專長景點
 Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name('attractions.destroy');
 
-
-//下載專長景點
-//Route::get('download/{id}/{filename}', 'AttractionController@download')->name('attractions.download');
-
-//顯示上傳的圖片
-//Route::get('img/{file_path}', 'AttractionController@getImg')->name('img');
-
 //導遊顯示基本資料
 Route::get('guide', 'GuideController@index');
 //導遊修改基本資料
