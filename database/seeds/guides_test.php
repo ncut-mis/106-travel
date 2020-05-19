@@ -47,32 +47,44 @@ class guides_test extends Seeder
             [
                 'guide_id' => 1,
                 'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證明.jpg',
                 'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
                 'video_intro' => '我的影片',
-                'motive' => '想賺錢'
+                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
+
+雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
+
+另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
                
             ],
             [
                 'guide_id' => 2,
                 'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證明.jpg',
                 'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
                 'video_intro' => '我的影片',
-                'motive' => '想賺錢'
+                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
+
+雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
+
+另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
             ],
             [
                 'guide_id' => 3,
                 'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證明.jpg',
                 'video_intro' => '我的影片',
                 'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
-                'motive' => '想賺錢'
+                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
+
+雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
+
+另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
             ],
             [
                 'guide_id' => 1,
                 'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證照.jpg',
                 'video_intro' => '',
                 'video' =>'',
                 'motive' => ''
@@ -81,7 +93,7 @@ class guides_test extends Seeder
             [
                 'guide_id' => 2,
                 'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證照.jpg',
                 'video_intro' => '',
                 'video' =>'',
                 'motive' => ''
@@ -89,7 +101,7 @@ class guides_test extends Seeder
             [
                 'guide_id' => 3,
                 'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照'.rand(1,3).'.jpg',
+                'license' => 'mb_pic/證照.jpg',
                 'video_intro' => '',
                 'video' =>'',
                 'motive' => ''
@@ -140,7 +152,90 @@ class guides_test extends Seeder
             ],
             
             
-            
         ]);
+
+
+        DB::table('travels') -> insert([
+            [
+                'start' => '2020/02/10',
+                'end' => '2020/02/21',
+                'name' => 'test',
+                'total' => 15263,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/02/15',
+            ],
+            
+            [
+                'start' => '2020/02/11',
+                'end' => '2020/02/13',
+                'name' => 'test',
+                'total' => 200,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/02/18',
+            ],
+
+            [
+                'start' => '2020/02/18',
+                'end' => '2020/02/27',
+                'name' => 'test',
+                'total' => 2000,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/02/15',
+            ],
+           
+            [
+                'start' => '2020/02/15',
+                'end' => '2020/02/23',
+                'name' => 'test',
+                'total' => 36200,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/02/16',
+            ],
+
+            [
+                'start' => '2020/05/20',
+                'end' => '2020/05/23',
+                'name' => 'test',
+                'total' => 5000,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/05/20',
+            ],
+
+            [
+                'start' => '2020/05/15',
+                'end' => '2020/05/21',
+                'name' => 'test',
+                'total' => 7800,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/05/15',
+            ],
+
+            [
+                'start' => '2020/05/15',
+                'end' => '2020/05/17',
+                'name' => 'test',
+                'total' => 3000,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/05/15',
+            ],
+
+            [
+                'start' => '2020/05/26',
+                'end' => '2020/05/26',
+                'name' => 'test',
+                'total' => 800,
+                'pay' => 1,
+                'member_id' => 1,
+                'paytime' =>'2020/05/26',
+            ],
+            ]);
+            
     }
 }
