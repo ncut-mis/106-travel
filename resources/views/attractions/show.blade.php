@@ -31,22 +31,39 @@
                     <div class="card-header">
                         圖片
                     </div>
-                    <img class="card-img-bottom" src="" alt="">
+                    <div class="row">
+
+                        @foreach($files as $file)
+
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="{{Storage::url($file->path)}}">
+                                    <div class="card-body">
+                                        <strong class="card-title">{{$file->title}}</strong>
+                                        <p class="card-text">{{$file->created_at->diffForHumans()}}</p>
+                                        <form action="{{route('delete.file',$file->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" name="delete_button" id="delete_button" value="{{$attraction_id}}">刪除</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                    </div>
+
                 </div>
 
                 <div class="card">
                     <div class="card-header">
                         影片
                     </div>
-                    <img class="card-img-bottom" src="..." alt="">
+
                 </div>
 
-                <div class="card-footer">
-                    附件:<br>
-                    @foreach($files as $file)
-                        <a href="{{route('attractions.download',['id'=>$attraction->id,'filename'=>$file])}}"> {{$file}}</a>><br>
-                    @endforeach
-                </div>
         </div>
     </div>
 </div>

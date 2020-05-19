@@ -8,7 +8,7 @@
             <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
         </div>
         <div class="col-12">
-            <form method="post" action="{{route('attractions.store')}}" enctype="multipart/form-data" >
+            <form method="post" action="{{route('attractions.store')}}"  enctype="multipart/form-data" >
                 @csrf
                 <div class="form-inline">
                     <label for="name">景點名稱</label>
@@ -64,39 +64,16 @@
                     <label for="files">附件</label>
 {{--                    <input type="file" class="form-group" name="files[]" id="files" multiple>--}}
 
-                    <input type="file" id="collection" multiple="multiple" /><br/>
-                    <output id="image_output"></output>
+                        <div class="form-group">
+                            <input type="file" name="file[]" multiple>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="create_button" id="create_button" value="">儲存</button>
 
-                    <script language="javascript">
-
-                        if ( window.FileReader ) {
-
-                            document.getElementById("collection").onchange = function(){
-
-                                for (var i=0, file; file=this.files[i]; i++) {
-                                    var reader = new FileReader();
-                                    reader.onloadend = (function(file){
-                                        return function(){
-
-                                            var image = new Image();
-                                            image.height = 100;
-                                            image.title = file.name;
-                                            image.src = /^image/.test(file.type)
-                                                ? this.result
-                                                : "http://i.stack.imgur.com/t9QlH.png";
-
-                                            document.getElementById('image_output').appendChild( image );
-                                        }
-                                    })(file);
-                                    reader.readAsDataURL( file );
-                                }
-                            }
-                        }
-
-                    </script>
 
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">儲存</button>
+
+
+
             </form>
 
         </div>
