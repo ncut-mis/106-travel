@@ -74,7 +74,7 @@ class AttractionController extends Controller
     }
     public function index()
     {
-                
+
         $attractions=auth()->user()->guides->attractions;
 
         $data=[
@@ -90,7 +90,7 @@ class AttractionController extends Controller
     {
         $attraction_id=$attraction->id;
 
-        $attraction = Attraction::orderBy('id', 'DESC')->first();
+        $attraction = Attraction::Where('id',$attraction_id)->first();
 
 
 
@@ -134,6 +134,23 @@ class AttractionController extends Controller
 //        DB::update('update attractions set name=?,location=?,content=?,price=? where id=?',
 //            [$a['name'],$a['location'],$a['content'],$a['price'],$id]);
         $attraction->update($a);
+
+        $attraction_last= Attraction::orderBy('id', 'DESC')->first();
+        $attraction_id=$attraction_last->id;
+
+        $files = $request->file('file');
+        //$b['attraction_id']=auth()->user()->guides->id;
+
+
+        foreach ($files as $file) {
+            File::create([
+                'title' => $file->getClientOriginalName(),
+                'description' => '',
+                'attraction_id' => $attraction_id,
+                'path' => $file->store('storage')
+            ]);
+        }
+
 
         return redirect()->route('attractions.index');
     }

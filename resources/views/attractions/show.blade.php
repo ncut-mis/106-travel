@@ -46,7 +46,6 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger" name="delete_button" id="delete_button" value="{{$attraction_id}}">刪除</button>
-                                            <a href="{{route('download.file',$file->id)}}" class="btn btn-primary">下載</a>
                                         </form>
                                     </div>
                                 </div>

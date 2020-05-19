@@ -120,4 +120,4 @@ Route::get('/file','FileController@index')->name('view.file');
 Route::get('/file/upload','FileController@create')->name('form.file');
 Route::post('/file/upload','FileController@store')->name('upload.file');
 Route::delete('/file/{id}','FileController@destroy')->name('delete.file');
-Route::get('/file/download/{id}','FileController@show')->name('download.file');
+Route::get('/file/download/{id}','AttractionController@show')->name('download.file');
