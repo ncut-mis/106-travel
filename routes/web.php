@@ -110,14 +110,19 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 //導遊顯示基本資料
 Route::get('guide', 'GuideController@index');
 //導遊修改基本資料
-Route::post('/guide', 'GuideController@edit')->name('store');
 Route::post('guide', 'GuideController@edit')->name('edit');
+
+
 
 //導遊顯示目前被預約景點
 Route::get('reservation', 'ReservationController@index')->name('reservation.index');
-
+Route::post('/file/update','FileController@update_descr')->name('update.file');
 Route::get('/file','FileController@index')->name('view.file');
 Route::get('/file/upload','FileController@create')->name('form.file');
 Route::post('/file/upload','FileController@store')->name('upload.file');
-Route::delete('/file/{id}','FileController@destroy')->name('delete.file');
+Route::post('/files/{id}','FileController@destroy')->name('delete.file');//放在最下面，不然會跟file/後面的字重疊
 Route::get('/file/download/{id}','AttractionController@show')->name('download.file');
+
+
+
+
