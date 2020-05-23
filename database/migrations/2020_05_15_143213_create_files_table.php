@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuidesAuditTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateGuidesAuditTable extends Migration
      */
     public function up()
     {
-        Schema::create('guides_audit', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('license_intro')->nullable();//證照簡介
-            $table->string('license')->nullable();//圖片路徑
-            $table->text('motive')->nullable(); ;//應徵動機
-            $table->integer('guide_id');
+            $table->string('title');
+            $table->string('description');
+            $table->integer('attraction_id');
+            $table->string('path');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateGuidesAuditTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guides_audit');
+        Schema::dropIfExists('files');
     }
 }

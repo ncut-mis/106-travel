@@ -20,7 +20,7 @@ class CreateTravelsTable extends Migration
             $table->date('end');
             $table->integer('total')->default(0);
             $table->integer('pay')->default(0);
-            $table->dateTime('paytime')->nullable();
+            $table->date('paytime')->nullable();
             $table->integer('member_id');
             $table->timestamps();
         });

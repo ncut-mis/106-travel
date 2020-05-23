@@ -13,21 +13,49 @@
             </form>
             <h2>{{$attraction->name}}</h2>
 
-        </div>
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                </div>
-                <div class="card-body">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            內容
+                        </div>
+                        <div class="card-body">
+                            {{$attraction->content}}
+                        </div>
 
-                    {{$attraction->content}}
-                </div>
-                <div class="card-footer">
-                    附件:<br>
-                    @foreach($files as $file)
-                        <a href="{{route('attractions.download',['id'=>$attraction->id,'filename'=>$file])}}"> {{$file}}</a>><br>
-                    @endforeach
-                </div>
+                        <div class="card">
+                            <div class="card-header">
+                                圖片
+                            </div>
+                            <div class="row">
+
+                                @foreach($files as $file)
+
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img class="card-img-top" width="200" height="300" src="{{Storage::url($file->path)}}">
+
+                                            <div class="card-body">
+                                                <strong class="card-title"> <?php echo str_replace(".jpg","",$file->title);?> </strong>
+                                                <p class="card-text">{{$file->created_at->diffForHumans()}}</p>
+                                            <!-- <form action="{{route('delete.file',$file->id)}}" name="pay" id="pay" method="post"> -->
+                                                <form action="{{route('delete.file',$file->id)}}"  method="post">
+                                                    @csrf
+                                                    <textarea rows="3" type="text" name="content" id="content"  class="form-control" readonly="readonly" cols="20">{{$file->description}}</textarea>
+                                                    <input type = "hidden" id = "file_id" name = "file_id" value = "{{$file->id}}">
+
+                                                </form>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+
+                            </div>
+
+                        </div>
                 <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
                     {{ csrf_field() }}
                     <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">

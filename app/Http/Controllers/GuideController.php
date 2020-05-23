@@ -26,6 +26,6 @@ class GuideController extends Controller
         $b->phone = $request->input("update_phone");
         $b->save();
 
-        return redirect('/guide');
+        return redirect('/home');
     }
 }

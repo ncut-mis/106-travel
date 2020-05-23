@@ -37,7 +37,7 @@
                             {{$attraction->created_at}}
                         </td>
                         <td>
-                            <a href="{{route('attractions.show',$attraction->id)}}">{{$attraction->name}} </a>
+                            <a href="{{route('attractions.show',$attraction->id)}}" >{{$attraction->name}} </a>
                         </td>
                         <td>
                             {{$attraction->location}}
