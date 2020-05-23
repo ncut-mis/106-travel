@@ -67,7 +67,7 @@ Route::get('history','historyController@index')->name('history');
 //旅遊歷史記錄查看行程
 Route::post('history/show','historyController@show')->name('history.show');
 //複製旅遊歷史記錄
-Route::post('history/store','historyController@store')->name('history.store');
+Route::post('history/create','historyController@create')->name('history.create');
 //確認旅遊規劃-付款
 Route::post('confirm/edit','ConfirmController@edit')->name('confirm.edit');
 
