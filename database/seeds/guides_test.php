@@ -48,8 +48,6 @@ class guides_test extends Seeder
                 'guide_id' => 1,
                 'license_intro' => '我的旅遊照片',
                 'license' => 'mb_pic/證明.jpg',
-                'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
-                'video_intro' => '我的影片',
                 'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
 
 雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
@@ -61,8 +59,6 @@ class guides_test extends Seeder
                 'guide_id' => 2,
                 'license_intro' => '我的旅遊照片',
                 'license' => 'mb_pic/證明.jpg',
-                'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
-                'video_intro' => '我的影片',
                 'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
 
 雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
@@ -73,9 +69,7 @@ class guides_test extends Seeder
                 'guide_id' => 3,
                 'license_intro' => '我的旅遊照片',
                 'license' => 'mb_pic/證明.jpg',
-                'video_intro' => '我的影片',
-                'video' => 'https://www.youtube.com/embed/qWAcofzfEak',
-                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
+                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作
 
 雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
 
@@ -85,8 +79,6 @@ class guides_test extends Seeder
                 'guide_id' => 1,
                 'license_intro' => '我的證照',
                 'license' => 'mb_pic/證照.jpg',
-                'video_intro' => '',
-                'video' =>'',
                 'motive' => ''
                
             ],
@@ -94,16 +86,12 @@ class guides_test extends Seeder
                 'guide_id' => 2,
                 'license_intro' => '我的證照',
                 'license' => 'mb_pic/證照.jpg',
-                'video_intro' => '',
-                'video' =>'',
                 'motive' => ''
             ],
             [
                 'guide_id' => 3,
                 'license_intro' => '我的證照',
                 'license' => 'mb_pic/證照.jpg',
-                'video_intro' => '',
-                'video' =>'',
                 'motive' => ''
             ],
             
