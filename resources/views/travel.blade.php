@@ -34,6 +34,7 @@
                             <th>回家日期</th>
                             <th>導遊費用</th>
 
+
                         </tr>
                         </thead>
                         <tbody id="Mytable">
@@ -93,7 +94,7 @@
     @foreach($travels1 as $travels1)
         <tr>
             @if(strtotime($today)<strtotime($travels1->start)&&$travels1->pay==1)
-                    <td><form action="{{route('schedules.index')}}" method="post">
+                    <td><form action="{{route('schedules.show')}}" method="post">
                             {{ csrf_field() }}
                             <input type = "hidden" id = "id" name = "id" value = "{{$travels1->id}}">
                             <input type = "hidden" id = "name" name = "name" value = "{{$travels1->name}}">
