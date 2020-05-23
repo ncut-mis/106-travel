@@ -14,11 +14,12 @@ class ConfirmController extends Controller
 {
     public function index(Request $request)
     {
+        $sum_total=$request->input("sum_total");
         $travel_id=($request->input("travel_id"));
         $name=($request->input("name"));
         $start=($request->input("start"));
         $total=($request->input("total"));
-        $data=['travel_id'=>$travel_id,'name'=>"$name",'start'=>"$start",'total'=>"$total"];
+        $data=['travel_id'=>$travel_id,'name'=>"$name",'start'=>"$start",'total'=>"$total",'sum_total'=>$sum_total];
             return view('confirm',$data);
     }
     public function edit(Request $request)

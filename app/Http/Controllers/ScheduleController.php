@@ -110,12 +110,13 @@ dd($request->input("id"));
     {
         $name=($request->input('name'));
         $start=($request->input('start'));
-        $total=($request->input('total'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
-        $b->region = $request->input("update_region");
+        $b->region = $request->input("select_region");
         $b->name = $request->input("update_name");
         $b->content = $request->input("update_content");
         $b->breakfast = $request->input("update_breakfast");
+        $b->going= $request->input("update_going");
+        $b->arriving = $request->input("update_arriving");
         $b->lunch = $request->input("update_lunch");
         $b->dinner = $request->input("update_dinner");
         $b->traffic = $request->input("update_traffic");
@@ -128,7 +129,7 @@ dd($request->input("id"));
 
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'total'=>$total];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
         return view('schedules.index',$data);
     }
@@ -166,8 +167,7 @@ dd($request->input("id"));
     $start=($request->input('start'));
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $total=$request->input("total");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total];
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,];
 
     return view('schedules.edit',$data);
 
@@ -189,8 +189,7 @@ dd($request->input("id"));
         $b=Travel::find($request->input("id"))->schedules;
         $cc=($request->input("id"));
         $travel_id=($request->input("id"));
-        $total=($request->input("total"));
-        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
+        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,];
 
         return view('schedules.show',$data);
     }

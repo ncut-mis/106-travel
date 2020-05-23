@@ -28,7 +28,6 @@
                                             <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
                                             <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                                             <input type = "hidden" id = "schedule" name = "schedule" value ={{$schedule->id}}>
-                                            <input type = "hidden" id = "total" name = "total" value = {{$total}}>
                                             <input type = "hidden" id = "name" name = "name" value = {{$name}}>
                                             <button type="submit" class="btn btn-success" name="id" id="id">{{$attraction->name}}</button>
                                         </form>
@@ -61,6 +60,7 @@
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
         <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
         <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+        <input type = "hidden" id = "total" name = "total" value = {{$total}}>
         <button type="submit" class="btn btn-danger">返回</button>
     </form>
         </div>
