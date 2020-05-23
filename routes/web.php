@@ -57,6 +57,8 @@ Route::post('schedules/edit','ScheduleController@edit')->name('schedules.edit');
 Route::post('schedules/update','ScheduleController@update')->name('schedules.update');
 //會員刪除行程
 Route::post('schedules/destroy','ScheduleController@destroy')->name('schedules.destroy');
+//會員觀看進行中的旅遊規劃
+Route::post('schedules/show','ScheduleController@show')->name('schedules.show');
 
 
 //確認旅遊規劃

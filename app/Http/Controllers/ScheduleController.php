@@ -85,7 +85,6 @@ dd($request->input("id"));
         $match_id= $request->input("match_id");
         $travel_id=$request->input("travel_id");
         $total=$request->input("total");
-
         $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total
 
         ];
@@ -167,9 +166,32 @@ dd($request->input("id"));
     $start=($request->input('start'));
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+    $total=$request->input("total");
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total];
 
     return view('schedules.edit',$data);
 
 }
+    public function show(Request $request)
+    {
+//        $schedules=Schedule::orderBy('id','ASC')->get();
+        //     $a=Auth::user()->members->travels;
+//      dd($a);
+//        foreach ($a as $a){
+//            $b=$schedules;
+//            dd($b);
+//        }
+
+        $name=($request->input("name"));
+        $start=($request->input("start"));
+        $end=($request->input("end"));
+        $date=floor((strtotime($end)-strtotime($start))/86400+1);
+        $b=Travel::find($request->input("id"))->schedules;
+        $cc=($request->input("id"));
+        $travel_id=($request->input("id"));
+        $total=($request->input("total"));
+        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
+
+        return view('schedules.show',$data);
+    }
 }
