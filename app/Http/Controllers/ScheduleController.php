@@ -84,7 +84,8 @@ dd($request->input("id"));
         $start=($request->input('start'));
         $match_id= $request->input("match_id");
         $travel_id=$request->input("travel_id");
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,
+        $total=$request->input("total");
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total
         ];
 
         return view('schedules.edit',$data);
@@ -96,9 +97,10 @@ dd($request->input("id"));
     $b=Schedule::find($request->input('schedule'));
     $name=($request->input('name'));
     $start=($request->input('start'));
+    $total=$request->input("total");
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id];
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total];
 
     return view('schedules.edit',$data);
 }

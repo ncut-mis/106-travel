@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -84,11 +85,12 @@ class ScheduleGuideController extends Controller
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
         $attraction=Attraction::where('id', $request->input("attraction_id"))->first();
+        $attraction_id=$attraction->id;
         $reservation=$attraction->reservation;
         $guide_id=$attraction->guide_id;
         $b = Attraction::where('id', $id)->first();
-        $files = get_files(storage_path('app/public/attractions/'.$b->id));
 
+        $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
                 ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation];
 
