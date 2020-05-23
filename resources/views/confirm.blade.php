@@ -16,7 +16,7 @@
         <div  class="form-group" >
             <label class="control-label col-sm-2" >費用為:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_total" name="update_total" style="width:1550px; height:50px;" readonly="readonly"  value={{$total}}>
+                <input type="text" class="form-control" id="update_total" name="update_total" style="width:1550px; height:50px;" readonly="readonly"  value={{$sum_total}}>
             </div>
         </div>
         <div  class="form-group" >

@@ -18,7 +18,8 @@
 {{--    </div>--}}
 {{--    <div class="col1"><span>11</span></div>--}}
 {{--    <div class="col1"><span>11</span></div>--}}
-
+<?php $sum_total=0;
+?>
 <div class=out1 style='text-align:center'><font size="7">
         <b>{{$name}}</b>
     </font>
@@ -46,6 +47,7 @@
                                     <div style="display:none">
                                     </div>
                                 @foreach($b1 as $b1)
+                                    <?php  $sum_total=$sum_total+$b1->cost; ?>
                                 <tr>
                                     <td>{{$b1->start}}</td>
                                     <td>{{$b1->region}}</td>
@@ -68,6 +70,7 @@
                                             <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
                                             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
 {{--                                            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">--}}
+
 {{--                                            <input type = "hidden" id = "region" name = "region" value = "{{$region}}">--}}
 
                                             <button type="submit" class="btn btn-success" name="id" id="id">編輯</button>
@@ -86,11 +89,12 @@
                         </table>
                         <form action="{{ route('confirm.index') }}" method="POST">
                             {{ csrf_field() }}
+
                             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
                             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
                             <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
                             <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
-{{--                            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">--}}
+                            <input type = "hidden" id = "sum_total" name = "sum_total" value = "{{$sum_total}}">
                             <button type="submit" class="btn btn-danger" name="id" id="id">確認旅遊規劃</button>
                         </form>
                     </div>

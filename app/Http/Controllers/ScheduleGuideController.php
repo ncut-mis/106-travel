@@ -25,8 +25,9 @@ class ScheduleGuideController extends Controller
         $total=$request->input('total');
         $attraction=DB::select('select * from attractions order by id DESC ');
         $travel_id=$request->input("travel_id");
+        $name=$request->input('name');
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,
-            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'total'=>$total];
+            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'total'=>$total,'name'=>$name];
         return view('scheduleguideindex',$data);
 
     }
@@ -82,7 +83,7 @@ class ScheduleGuideController extends Controller
         $guide_name=Auth::User();
         $travel_id=$request->input("travel_id");
         $total=$request->input('$total');
-        dd($total);
+        $name=$request->input('$name');
         $schedule= Schedule::where('id', $request->input("schedule"))->first();
         $schedule_id=$schedule->id;
         $schedule_region=$schedule->region;

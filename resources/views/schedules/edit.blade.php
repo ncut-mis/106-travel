@@ -10,17 +10,16 @@
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
-        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_region" name="update_region" style="width:120px; height:50px;"  value={{$b1->start}} readonly="readonly" >
+                <input type="text" class="form-control" id="update_start" name="update_start" style="width:120px; height:50px;"  value={{$b1->start}} readonly="readonly" >
             </div>
         </div>
 
         <div class="form-group">
             <label for="location">旅遊區域:</label>
-            <select type="text" class="selectpicker" name="update_region" id="update_region" style="width:100px; height:50px;" value="">
+            <select type="text" class="selectpicker" name="select_region" id="select_region" style="width:100px; height:50px;" value="">
                 <option value="基隆市">基隆市</option>
                 <option value="台北市">台北市</option>
                 <option value="新北市">新北市</option>
@@ -51,7 +50,7 @@
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目前選擇的旅遊區域為:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_name" name="update_name" style="width:100px; height:50px;" readonly="readonly"  value={{$b1->region}}>
+                <input type="text" class="form-control" id="update_region" name="update_region" style="width:100px; height:50px;" readonly="readonly"  value={{$b1->region}}>
             </div>
         </div>
         @endif
@@ -90,13 +89,13 @@
         <div  class="form-group" >
             <label class="control-label col-sm-2" >出發地點:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>
+                <input type="text" class="form-control" id="update_going" name="update_going" style="width:1550px; height:50px;" value={{$b1->name}}>
             </div>
         </div>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目的地:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>
+                <input type="text" class="form-control" id="update_arriving" name="update_arriving" style="width:1550px; height:50px;" value={{$b1->name}}>
             </div>
         </div>
         <div class="form-group">
@@ -123,6 +122,7 @@
             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
             <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
             <button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
+
         </form>
     @else
         <form action="{{route('scheduleguides.index')}}" method="post">
@@ -133,7 +133,6 @@
         </form>
 
     @endif
-
 
 
 
