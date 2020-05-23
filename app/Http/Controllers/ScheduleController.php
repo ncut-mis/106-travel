@@ -84,7 +84,8 @@ dd($request->input("id"));
         $start=($request->input('start'));
         $match_id= $request->input("match_id");
         $travel_id=$request->input("travel_id");
-        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,
+        $total=$request->input("total");
+        $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total,
         ];
 
         return view('schedules.edit',$data);
@@ -107,6 +108,7 @@ dd($request->input("id"));
     {
         $name=($request->input('name'));
         $start=($request->input('start'));
+        $total=($request->input('total'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $b->region = $request->input("update_region");
         $b->name = $request->input("update_name");
@@ -124,7 +126,7 @@ dd($request->input("id"));
 
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'total'=>$total];
 
         return view('schedules.index',$data);
     }

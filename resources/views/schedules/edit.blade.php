@@ -109,7 +109,7 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
-
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <button type="submit" class="btn btn-default">儲存</button>
     </form>
     @if($b1->guide_id != "")
