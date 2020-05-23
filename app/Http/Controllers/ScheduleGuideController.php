@@ -69,6 +69,7 @@ class ScheduleGuideController extends Controller
     $travel_name=$travel->name;
     $travel_start=$travel->start;
     $schedule->guide_id=$request->input("match_id");
+    $schedule->cost=$attraction_id->price;
     $schedule->save();
     $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
         ,'guide_id'=>$guide_id, 'travel_id' =>$travel_id,'name'=>$travel_name,'b1'=>$schedule,'start'=>$travel_start,'attraction_id'=>$attraction_id,

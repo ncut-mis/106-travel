@@ -109,11 +109,6 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
-
-        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
-
-
-
         <button type="submit" class="btn btn-default">儲存</button>
     </form>
     @if($b1->guide_id != "")
@@ -128,8 +123,6 @@
 
             <button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
 
-            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
-            <button type="submit" class="btn btn-danger">取消媒合的導遊</button>
 
         </form>
     @else
@@ -141,14 +134,3 @@
         </form>
 
     @endif
-
-
-
-
-    <form action="{{route('scheduleguides.index')}}" method="post">
-        {{ csrf_field() }}
-        <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
-        <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-        <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
-        <button type="submit" class="btn btn-danger">媒合導遊</button>
-    </form>
