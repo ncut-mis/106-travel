@@ -69,6 +69,8 @@
                                             <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
                                             <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
                                             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+{{--                                            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">--}}
+
 {{--                                            <input type = "hidden" id = "region" name = "region" value = "{{$region}}">--}}
 
                                             <button type="submit" class="btn btn-success" name="id" id="id">編輯</button>
