@@ -17,9 +17,7 @@ class CreateGuidesAuditTable extends Migration
             $table->bigIncrements('id');
             $table->string('license_intro')->nullable();//證照簡介
             $table->string('license')->nullable();//圖片路徑
-            $table->string('video_intro')->nullable();//影片簡介
-            $table->string('video')->nullable();//影片路徑
-            $table->text('motive')->nullable(); ;//假如沒有圖片,影片的話
+            $table->text('motive')->nullable(); ;//應徵動機
             $table->integer('guide_id');
         });
     }
