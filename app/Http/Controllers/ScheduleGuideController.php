@@ -22,11 +22,11 @@ class ScheduleGuideController extends Controller
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
         $schedule_id=($request->input("id"));
-
+        $total=$request->input('total');
         $attraction=DB::select('select * from attractions order by id DESC ');
         $travel_id=$request->input("travel_id");
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,
-            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule];
+            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'total'=>$total];
         return view('scheduleguideindex',$data);
 
     }
@@ -80,6 +80,8 @@ class ScheduleGuideController extends Controller
     {
         $guide_name=Auth::User();
         $travel_id=$request->input("travel_id");
+        $total=$request->input('$total');
+        dd($total);
         $schedule= Schedule::where('id', $request->input("schedule"))->first();
         $schedule_id=$schedule->id;
         $schedule_region=$schedule->region;
@@ -88,11 +90,13 @@ class ScheduleGuideController extends Controller
         $attraction_id=$attraction->id;
         $reservation=$attraction->reservation;
         $guide_id=$attraction->guide_id;
+
         $b = Attraction::where('id', $id)->first();
 
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
-                ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation];
+                ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation,
+            'total'=>$total];
 
 
 

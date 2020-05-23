@@ -10,6 +10,7 @@
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期:</label>
             <div class="col-sm-10">
@@ -86,18 +87,18 @@
             </div>
         </div>
 
-{{--        <div  class="form-group" >--}}
-{{--            <label class="control-label col-sm-2" >出發地點:</label>--}}
-{{--            <div class="col-sm-10">--}}
-{{--                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>--}}
-{{--            </div>--}}
-{{--        </div>
-{{--        <div  class="form-group" >--}}
-{{--            <label class="control-label col-sm-2" >目的地:</label>--}}
-{{--            <div class="col-sm-10">--}}
-{{--                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <div  class="form-group" >
+            <label class="control-label col-sm-2" >出發地點:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>
+            </div>
+        </div>
+        <div  class="form-group" >
+            <label class="control-label col-sm-2" >目的地:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="update_name" name="update_name" style="width:1550px; height:50px;" value={{$b1->name}}>
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">內容描述:</label>
             <div class="col-sm-10">
@@ -109,7 +110,7 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
-        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
+
         <button type="submit" class="btn btn-default">儲存</button>
     </form>
     @if($b1->guide_id != "")
@@ -119,6 +120,7 @@
             {{ csrf_field() }}
             <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
             <button type="submit" class="btn btn-danger">取消媒合的導遊</button>
         </form>
     @endif
@@ -127,6 +129,7 @@
         {{ csrf_field() }}
         <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
         <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <button type="submit" class="btn btn-danger">媒合導遊</button>
     </form>
 
