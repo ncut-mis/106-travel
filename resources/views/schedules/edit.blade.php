@@ -55,7 +55,7 @@
         </div>
         @endif
 {{--        google地圖--}}
-        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1872629.7674644934!2d120.6786654!3d23.5511977!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1588430013281!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+{{--        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1872629.7674644934!2d120.6786654!3d23.5511977!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1588430013281!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>--}}
 
         <div  class="form-group" >
             <label class="control-label col-sm-2" >景點:</label>
@@ -109,7 +109,7 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
-        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
+{{--        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">--}}
         <button type="submit" class="btn btn-default">儲存</button>
     </form>
     @if($b1->guide_id != "")
@@ -119,14 +119,17 @@
             {{ csrf_field() }}
             <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-            <button type="submit" class="btn btn-danger">取消媒合的導遊</button>
+            <button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
         </form>
+    @else
+        <form action="{{route('scheduleguides.index')}}" method="post">
+            {{ csrf_field() }}
+            <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
+            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+            <button type="submit" class="btn btn-danger">媒合導遊</button>
+        </form>
+
     @endif
 
-    <form action="{{route('scheduleguides.index')}}" method="post">
-        {{ csrf_field() }}
-        <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
-        <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-        <button type="submit" class="btn btn-danger">媒合導遊</button>
-    </form>
+
 
