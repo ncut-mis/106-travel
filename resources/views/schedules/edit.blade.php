@@ -123,14 +123,12 @@
             {{ csrf_field() }}
             <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-<<<<<<< HEAD
+
             <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
-=======
 
             <button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
 
             <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
->>>>>>> da9b6fd0c616a6fecc00c662a051a1290f4f3575
             <button type="submit" class="btn btn-danger">取消媒合的導遊</button>
 
         </form>
