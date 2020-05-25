@@ -37,14 +37,14 @@ class ScheduleGuideController extends Controller
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
         $schedule_id=($request->input("id"));
-
+        $name=$request->input('name');
         $travel_id=$request->input("travel_id");
 
 
         $attraction=DB::select('select * from attractions order by id DESC ');
 
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,
-            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'schedule_id'=>$schedule_id];
+            'schedule_id'=>$schedule_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'schedule_id'=>$schedule_id,'name'=>$name];
         return view('scheduleguideindex',$data);
 
     }
@@ -71,9 +71,10 @@ class ScheduleGuideController extends Controller
     $schedule->guide_id=$request->input("match_id");
     $schedule->cost=$attraction_id->price;
     $schedule->save();
+    $name=$request->input('name');
     $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
         ,'guide_id'=>$guide_id, 'travel_id' =>$travel_id,'name'=>$travel_name,'b1'=>$schedule,'start'=>$travel_start,'attraction_id'=>$attraction_id,
-        'reservation'=>$reservation];
+        'reservation'=>$reservation,'name'=>$name];
 
 
     return view('schedules.edit',$data);
@@ -83,7 +84,7 @@ class ScheduleGuideController extends Controller
         $guide_name=Auth::User();
         $travel_id=$request->input("travel_id");
         $total=$request->input('$total');
-        $name=$request->input('$name');
+        $name=$request->input('name');
         $schedule= Schedule::where('id', $request->input("schedule"))->first();
         $schedule_id=$schedule->id;
         $schedule_region=$schedule->region;
@@ -98,7 +99,7 @@ class ScheduleGuideController extends Controller
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
                 ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation,
-            'total'=>$total];
+            'total'=>$total,'name'=>$name];
 
 
 

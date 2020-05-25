@@ -155,6 +155,7 @@ dd($request->input("id"));
     $attraction->reservation="";
     $attraction->member_name="";
     $schedule->attraction_id="";
+    $schedule->cost=0;
     $schedule->save();
     $attraction->save();
     //將專長景點的預約資料 $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();

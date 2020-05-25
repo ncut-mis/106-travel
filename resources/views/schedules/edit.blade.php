@@ -130,6 +130,7 @@
             {{ csrf_field() }}
             <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
             <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
             <button type="submit" class="btn btn-danger">媒合導遊</button>
         </form>
 
