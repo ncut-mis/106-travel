@@ -24,7 +24,7 @@ class HistoryController extends Controller
     }
     public function create(Request $request)
     {
-        
+
         $datecontnow=0;
         $datecontre=0;
         $i=0;
@@ -75,9 +75,7 @@ class HistoryController extends Controller
             $Schedules=new \App\Schedule();
             $Schedules->start=$start;
             $Schedules->end=$start;
-            
             $Travels->save();
-               echo "123";//這邊要改
            }
            if($task==NULL && $i>=$datecontnow)
            {
@@ -100,7 +98,20 @@ class HistoryController extends Controller
                {
                    break;
                }
+
        }
+       for($z=$i;$i<$datecontnow;$i++) {
+           $Schedules = new \App\Schedule();
+           $Schedules->start = $start;
+           $Schedules->end = $start;
+           $Schedules->travel_id = $travels_id11;
+           $Schedules->save();
+           $start = strtotime($start);
+           $start = strtotime("+1 day",$start);
+           $start= date("Y-m-d",$start);
+
+       }
+
 
 
 
