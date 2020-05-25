@@ -32,7 +32,6 @@
                                 <th>出遊日期</th>
                                 <th>區域</th>
                                 <th>景點</th>
-                                <th>導遊費用</th>
                                 <th>飯店</th>
                                 <th>早餐</th>
                                 <th>午餐</th>
@@ -41,6 +40,7 @@
                                 <th>目的地</th>
                                 <th>交通</th>
                                 <th>內容</th>
+                                <th>導遊費用</th>
                                 <th>操作鈕</th>
                             </tr>
                             </thead>
@@ -52,7 +52,6 @@
                                     <td>{{$b1->start}}</td>
                                     <td>{{$b1->region}}</td>
                                     <td>{{$b1->name}}</td>
-                                    <td>{{$b1->cost}}</td>
                                     <td>{{$b1->room}}</td>
                                     <td>{{$b1->breakfast}}</td>
                                     <td>{{$b1->lunch}}</td>
@@ -61,7 +60,7 @@
                                     <td>{{$b1->arriving}}</td>
                                     <td>{{$b1->traffic}}</td>
                                     <td>{{$b1->content}}</td>
-
+                                    <td>{{$b1->cost}}</td>
                                     <td>
                                         <form action="{{ route('schedules.edit') }}" method="POST">
                                             {{ csrf_field() }}
