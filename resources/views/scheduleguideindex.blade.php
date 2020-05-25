@@ -13,7 +13,8 @@
         </thead>
 
                 @foreach($attraction as $attraction)
-                            @if($attraction->location == $schedule_region && strstr($attraction->name,$schedule_name) && $attraction->status ==1)
+                            @if($attraction->location == $schedule_region && strstr($attraction->name,$schedule_name)
+                                && $attraction->status ==1 && $attraction->member_name=="")
                                 <tr>
                                 <td>
                                     {{$attraction->created_at}}
