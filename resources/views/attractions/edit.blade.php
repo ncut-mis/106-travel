@@ -11,7 +11,7 @@
             <form method="post" action="{{route('attractions.update',$attraction->id)}}"   enctype="multipart/form-data" >
                 @csrf
                 {{ method_field('PATCH') }}
-                <div class="form-inline">
+                <div class="form-group">
                     <label for="name">景點名稱</label>
                     <input type="text" class="form-control" name="name" id="name" value="{{$attraction->name}}">
                 </div>
@@ -19,7 +19,7 @@
                 <br>
                 <div class="form-group">
                     <label for="location">地點</label>
-                    <select type="text" class="selectpicker" name="location" id="location" value="" >
+                    <select type="text" class="selectpicker" name="location" id="location" value="{{$attraction->location}}" >
                         class="selectpicker">
                         <option value="基隆市">基隆市</option>
                         <option value="台北市">台北市</option>
@@ -32,7 +32,7 @@
                         <option value="彰化縣">彰化縣</option>
                         <option value="南投縣">南投縣</option>
                         <option value="雲林縣">雲林縣</option>
-                        <option value="嘉義市">嘉義市</option>
+                        <option value="嘉 義市">嘉義市</option>
                         <option value="嘉義縣">嘉義縣</option>
                         <option value="台南市">台南市</option>
                         <option value="高雄市">高雄市</option>
@@ -62,7 +62,33 @@
                 <br>
                 <br>
                 <div class="form-group">
-                    <label for="files">附件</label>
+                    <label for="files">影片上傳</label>
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="utf-8">
+                        <script>
+                            function myFunction(){
+                                alert("進入Youtube→上方網址=後面的值複製起來→貼上到欄位");
+                            }
+                        </script>
+                    </head>
+                    <body>
+
+                    <input type="button" onclick="myFunction()" value="如何複製Youtube影片網址" />
+
+                    </body>
+                    </html>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="video_path" id="video_path"  value="{{$attraction->video_path}}">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="files">圖片上傳</label>
                     <div class="form-group">
                         <input type="file" name="file[]" multiple>
                     </div>
@@ -73,4 +99,7 @@
 
         </div>
     </div>
+
 </div>
+
+

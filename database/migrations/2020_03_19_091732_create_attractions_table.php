@@ -22,6 +22,7 @@ class CreateAttractionsTable extends Migration
             $table->integer('status')->default("0");
             $table->text('reservation')->nullable();
             $table->text('member_name')->nullable();
+            $table->string('video_path')->nullable();
             $table->unsignedBigInteger('guide_id');
             $table->timestamps();
         });

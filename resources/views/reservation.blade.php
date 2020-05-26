@@ -15,9 +15,6 @@
                 <thead>
                 <tr>
                     <th>
-                        預約時間
-                    </th>
-                    <th>
                         景點名稱
                     </th>
                     <th>
@@ -36,9 +33,6 @@
                 @foreach($attraction as $attraction)
                     @if($attraction->reservation=='1' && $attraction->status=='1')
                     <tr>
-                        <td>
-                            {{$attraction->created_at}}
-                        </td>
                         <td>
                             {{$attraction->name}}
                         </td>

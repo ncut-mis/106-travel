@@ -11,4 +11,8 @@ class Video extends Model
     {
         return $this->belongsTo(Attraction::class);
     }
+
+    protected $fillable=[
+        'attraction_id','path',
+    ];
 }
