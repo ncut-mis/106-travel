@@ -8,6 +8,7 @@
                 {{ csrf_field() }}
                 <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
                 <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+                <input type = "hidden" id = "name" name = "name" value = {{$name}}>
                 <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                 <button type="submit" class="btn btn-danger">返回</button>
             </form>
@@ -21,7 +22,12 @@
                         <div class="card-body">
                             {{$attraction->content}}
                         </div>
-
+                        <div class="card-header">
+                            導遊費用
+                        </div>
+                        <div class="card-body">
+                            新台幣 ${{$attraction->price}} 元
+                        </div>
                         <div class="card">
                             <div class="card-header">
                                 圖片
@@ -56,6 +62,7 @@
                             </div>
 
                         </div>
+
                 <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
                     {{ csrf_field() }}
                     <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
@@ -64,6 +71,7 @@
                     <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
                     <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                     <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
+                    <input type = "hidden" id = "name" name = "name" value = {{$name}}>
                     <button type="submit" class="btn btn-danger">媒合導遊</button>
                 </form>
             </div>

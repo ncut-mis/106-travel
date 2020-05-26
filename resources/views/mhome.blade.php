@@ -61,13 +61,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('history') }}">旅遊歷史記錄</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
                 <li class="nav-item dropdown">
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();

@@ -37,7 +37,7 @@
                     @if($attraction->reservation=='1' && $attraction->status=='1')
                     <tr>
                         <td>
-                            {{$attraction->created_at}}
+                            {{123}}
                         </td>
                         <td>
                             {{$attraction->name}}

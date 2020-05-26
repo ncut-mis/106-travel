@@ -28,6 +28,7 @@ class CreateSchedulesTable extends Migration
             $table->text('arriving')->nullable();//目的地
             $table->text('traffic')->nullable();
             $table->integer('cost')->default(0);
+            $table->datetime('match_time')->nullable();
             $table->text('guide_id')->nullable();
             $table->text('attraction_id')->nullable();
             $table->integer('travel_id');

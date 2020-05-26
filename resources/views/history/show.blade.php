@@ -46,22 +46,13 @@
                 <tr>
                     <td>{{$b1->start}}</td>
                     <td>{{$b1->region}}</td>
+                    <td>{{$b1->name}}</td>
+                    <td>{{$b1->room}}</td>
+                    <td>{{$b1->breakfast}}</td>
+                    <td>{{$b1->lunch}}</td>
+                    <td>{{$b1->dinner}}</td>
+                    <td>{{$b1->traffic}}</td>
                     <td>{{$b1->content}}</td>
-                    <td></td>
-
-                    <td>
-                        <form action="{{ route('schedules.edit') }}" method="POST">
-                            {{ csrf_field() }}
-                            <input type = "hidden" id = "update_id" name = "update_id" value = "{{$b1->id}}">
-                            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
-                            <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
-                            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-
-                        </form>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td>{{$b1->cost}}</td>
                     </td>
                 </tr>
