@@ -111,10 +111,19 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 //導遊顯示基本資料
 Route::get('guide', 'GuideController@index');
+//上傳導遊資料頁面
+Route::get('upload/index','UploadController@index')->name('upload.index');
+Route::Post('upload/index','UploadController@index')->name('upload.index');
+//儲存上傳導遊資料
+Route::Post('upload','UploadController@upload')->name('upload');
 //導遊修改基本資料
 Route::post('guide', 'GuideController@edit')->name('edit');
 
 
+
+
+//導遊啟用專長景點
+//Route::get('Thome', 'AttractionController@open')->name('attractions.open');
 
 //導遊顯示目前被預約景點
 Route::get('reservation', 'ReservationController@index')->name('reservation.index');

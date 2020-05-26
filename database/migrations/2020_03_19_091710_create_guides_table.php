@@ -20,6 +20,8 @@ class CreateGuidesTable extends Migration
             $table->string('photo');//大頭貼
             $table->boolean('pass')->default(false);
             $table->datetime('pass_time')->nullable();
+            $table->text('motive');
+            $table->string('license');
             $table->integer('user_id');
             $table->timestamps();
         });

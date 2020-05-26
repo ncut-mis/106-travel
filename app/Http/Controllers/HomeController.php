@@ -33,6 +33,12 @@ class HomeController extends Controller
         else if(Auth::user()->type=="導遊")
         {
             $a=Auth::user();
+            return view('fhome',[ 'a' => $a]);
+        }
+
+        else if(Auth::guides()->pass==1)
+        {
+            $a=Auth::user();
             return view('ghome',[ 'a' => $a]);
         }
 
