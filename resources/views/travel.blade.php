@@ -176,7 +176,9 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <input style="display:none" type="text" class="form-control" name="update_id" id="update_id"    >
+                        <input type = "hidden" id = "getstart" name = "getstart" value = "">
+                        <input type = "hidden" id = "getend" name = "getend" value = "">
+                        <input  type="hidden" class="form-control" name="update_id" id="update_id"    >
                         <label >名稱</label>
                         <input type="text" class="form-control" name="update_name" id="update_name"   >
 
@@ -212,8 +214,8 @@
 
                 $('#update_id').val(col5.trim());
                 $('#update_name').val(col6.trim());
-                $('#update_start').val(col1.trim());
-                $('#update_end').val(col2.trim());
+                $('#getstart').val(col1.trim());
+                $('#getend').val(col2.trim());
             });
         });
     </script>

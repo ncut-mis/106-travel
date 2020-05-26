@@ -61,43 +61,121 @@ class TravelController extends Controller
     public function edit(Request $request)
 
     {
-        //修改不動到日期
-//        if($start=$request->input("update_update") && $end=$request->input("update_end")) {
-//            $travel = Travel::where('id', $request->input("update_id"))->first();
-//            $travel->name = $request->input("update_name");
-//            $travel->start = $request->input("update_start");
-//            $travel->end = $request->input("update_end");
-//            $travel->save();
-//        }
+        $datecontnow=0;
+        $datecontre=0;
+        $i=0;
+        $task2_travel_id=0;
             //刪掉修改後的Schedules及travel，並加入修改後的日期Travel,Schedules
-            $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
-            $deltravel = Travel::where('id', $request->input("update_id"))->delete();
-            $Travels=new \App\Travel();
-            $start=($request->input("update_start"));
-            $end=($request->input("update_end"));
-            $date=floor((strtotime($end)-strtotime($start))/86400+1);
-            $Travels->name=$request->input('update_name');
-            $Travels->start=$request->input('update_start');
-            $Travels->end=$request->input('update_end');
-            $Travels->total=0;
-            $Travels->pay=0;
-            $Travels->member_id=auth()->user()->members->id;
-            $Travels->save();
+//            $Travels=new \App\Travel();
+//            $start=($request->input("update_start"));
+//            $end=($request->input("update_end"));
+//            $date=floor((strtotime($end)-strtotime($start))/86400+1);
+//            $Travels->name=$request->input('update_name');
+//            $Travels->start=$request->input('update_start');
+//            $Travels->end=$request->input('update_end');
+//            $Travels->total=0;
+//            $Travels->pay=0;
+//            $Travels->member_id=auth()->user()->members->id;
+//            $Travels->save();
+//
+//            for($i=0;$i<$date;$i++) {
+//                $schedules = [
+//                     [
+//                    'start' => $start,'end'=>$start]
+//                    ];
+//
+//                    foreach($schedules as $schedule) {
+//                         $Travels->schedules()->create(($schedule));
+//                    };
+//                $start = strtotime($start);
+//                $start = strtotime("+1 day",$start);
+//                $start= date("Y-m-d",$start);
+//             }
+        $start=$request->input('update_start');//start是現在天數
+        $end=$request->input('update_end');//end是現在天數
+        //新增旅遊
+        $Travels=new \App\Travel();
+        $Travels->name=$request->input('update_name');
+        $Travels->start=$request->input('update_start');
+        $Travels->end=$request->input('update_end');
+        $Travels->total=0;
+        $Travels->pay=0;
+        $Travels->member_id=auth()->user()->id;
+        $Travels->save();
+        $travels=Travel::orderBy('id', 'desc')->first();
+        $travels_id_new=$travels->id;
+        $cont=0;
+        $start1=($request->input("getstart"));//start1是之前天數
+        $end1=($request->input("getend"));//end1是之前天數
+        $date=floor((strtotime($end1)-strtotime($start1))/86400+1);//之前的天數總和
+        $datecontre=floor((strtotime($end1)-strtotime($start1))/86400+1);//之前的天數總和
+        $datecontnow=floor((strtotime($end)-strtotime($start))/86400+1);//現在的天數總和
+        $travels_id=$request->input('update_id');
+        $schedules1=Schedule::where('travel_id',$travels_id)->get();
 
-            for($i=0;$i<$date;$i++) {
-                $schedules = [
-                     [
-                    'start' => $start,'end'=>$start]
-                    ];
+        $task = $schedules1->first();//抓第一筆資料
 
-                    foreach($schedules as $schedule) {
-                         $Travels->schedules()->create(($schedule));
-                    };
-                $start = strtotime($start);
-                $start = strtotime("+1 day",$start);
-                $start= date("Y-m-d",$start);
-             }
 
+        $newTask = $task->replicate();//複製
+        $newTask->start=$request->input("update_start");
+        $newTask->end=$request->input("update_start");
+        $newTask->travel_id=$travels_id_new;
+        $newTask->save();//儲存
+
+        $cont++;
+        while(true) {  //後面資料
+            $i++;//迴圈跑完後+1 EX. 當第二列跑完後i=2
+            $start = strtotime($start);
+            $start = strtotime("+1 day",$start);
+            $start= date("Y-m-d",$start);
+
+            $task2_id = $task->id + 1;//下一列的id
+
+            $task = Schedule::find($task2_id);//下一列的scheduls
+            if($task==NULL && $i<$datecontnow)
+            {
+                $Schedules=new \App\Schedule();
+                $Schedules->start=$start;
+                $Schedules->end=$start;
+                $Travels->save();
+            }
+            if($task==NULL && $i>=$datecontnow)
+            {
+                break;
+            }
+            if($task!=NULL) {
+                $task2_travel_id = $task->travel_id;//下一列的travel_id
+            }
+
+            if ($task2_travel_id == $travels_id &&$cont<=$date && $i<$datecontnow &&$task!=NULL)
+            {
+                $newTask1 = $task->replicate();//複製該行
+                $newTask1->start=$start;
+                $newTask1->end=$start;//這邊要改
+                $newTask1->travel_id=$travels_id_new;
+                $newTask1->save();//儲存
+                $cont++;
+            }
+            else
+            {
+                break;
+            }
+
+        }
+
+        for($i;$i<$datecontnow;$i++) {
+            $Schedules = new \App\Schedule();
+            $Schedules->start = $start;
+            $Schedules->end = $start;
+            $Schedules->travel_id = $travels_id_new;
+            $Schedules->save();
+            $start = strtotime($start);
+            $start = strtotime("+1 day",$start);
+            $start= date("Y-m-d",$start);
+
+        }
+//        $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
+//        $deltravel = Travel::where('id', $request->input("update_id"))->delete();
         return redirect('/travel');
     }
     public function update()
