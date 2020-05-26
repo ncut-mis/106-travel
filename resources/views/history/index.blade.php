@@ -23,7 +23,7 @@
             <tbody id="Mytable100" name="Mytable100">
             @foreach($travels as $travels)
                 <tr>
-                    @if(strtotime($today)>strtotime($travels->start)&&$travels->pay==1)
+                    @if(strtotime($today)>strtotime($travels->start)&&$travels->pay==1 )
 
                     <td><form action="{{route('history.show')}}" method="post">
                             {{ csrf_field() }}

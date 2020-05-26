@@ -18,6 +18,7 @@
 {{--    </div>--}}
 {{--    <div class="col1"><span>11</span></div>--}}
 {{--    <div class="col1"><span>11</span></div>--}}
+
 <?php $sum_total=0;
 ?>
 <div class=out1 style='text-align:center'><font size="7">

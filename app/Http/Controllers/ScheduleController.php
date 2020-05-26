@@ -12,6 +12,7 @@ use App\Member;
 use Auth;
 use App\Attraction;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -24,7 +25,6 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
-
         $name=($request->input("name"));
         $start=($request->input("start"));
         $end=($request->input("end"));
@@ -157,6 +157,7 @@ dd($request->input("id"));
     $attraction->member_name="";
     $schedule->attraction_id="";
     $schedule->cost=0;
+    $schedule->match_time=NULL;
     $schedule->save();
     $attraction->save();
     //將專長景點的預約資料 $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
