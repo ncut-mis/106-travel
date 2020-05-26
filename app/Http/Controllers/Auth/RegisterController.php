@@ -43,7 +43,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -52,10 +52,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone'=> ['required', 'string', 'min:6', 'max:10'],
-            'birthday'=> ['required', 'string' ],
-            'sex'=> ['required', 'string', 'max:255'],
-            'type'=> ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'min:6', 'max:10'],
+            'birthday' => ['required', 'string'],
+            'sex' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', 'max:255'],
 
         ]);
     }
@@ -63,19 +63,34 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phone'=> $data['phone'],
-            'birthday'=> $data['birthday'],
-            'sex'=> $data['sex'],
-            'type'=> $data['type'],
-        ]);
+
+        $cont = NuLL;
+        $Users = new\App\User();
+        $Users->name = $data['name'];
+        $Users->email = $data['email'];
+        $Users->password = Hash::make($data['password']);
+        $Users->phone = $data['phone'];
+        $Users->birthday = $data['birthday'];
+        $Users->sex = $data['sex'];
+        $Users->type = $data['type'];
+        $Users->save();
+
+        if ($data['type'] == "會員") {
+            $users = [
+                [
+                    'cont' => $cont]
+            ];
+            foreach ($users as $users) {
+                $Users->members()->create(($users));
+
+            }
+            return $Users;
+        }
+
     }
 }

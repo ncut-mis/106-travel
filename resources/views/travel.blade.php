@@ -42,7 +42,7 @@
 {{--規劃中表格--}}
                                     @foreach($travels as $travels)
                                 <tr>
-                                    @if(strtotime($today)<strtotime($travels->start)&&$travels->pay==0)
+                                    @if(strtotime($today)<=strtotime($travels->start)&&$travels->pay==0)
                                 <td><form action="{{route('schedules.index')}}" method="post">
                                         {{ csrf_field() }}
                                         <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
@@ -93,7 +93,7 @@
     <tbody id="Mytable1">
     @foreach($travels1 as $travels1)
         <tr>
-            @if(strtotime($today)<strtotime($travels1->start)&&$travels1->pay==1)
+            @if(strtotime($today)<=strtotime($travels1->start)&&$travels1->pay==1)
                     <td><form action="{{route('schedules.show')}}" method="post">
                             {{ csrf_field() }}
                             <input type = "hidden" id = "id" name = "id" value = "{{$travels1->id}}">
@@ -176,7 +176,9 @@
                 <form action="{{ route('travel.edit') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <input style="display:none" type="text" class="form-control" name="update_id" id="update_id"    >
+                        <input type = "hidden" id = "getstart" name = "getstart" value = "">
+                        <input type = "hidden" id = "getend" name = "getend" value = "">
+                        <input  type="hidden" class="form-control" name="update_id" id="update_id"    >
                         <label >名稱</label>
                         <input type="text" class="form-control" name="update_name" id="update_name"   >
 
@@ -212,8 +214,8 @@
 
                 $('#update_id').val(col5.trim());
                 $('#update_name').val(col6.trim());
-                $('#update_start').val(col1.trim());
-                $('#update_end').val(col2.trim());
+                $('#getstart').val(col1.trim());
+                $('#getend').val(col2.trim());
             });
         });
     </script>
