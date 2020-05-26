@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -50,12 +51,13 @@ class ScheduleGuideController extends Controller
     }
     public function reindex(Request $request)
 {
+
+    $nowtime=Carbon::now();
     $schedule= Schedule::where('id', $request->input("schedule_id"))->first();
     $schedule_id=$schedule->id;
     $schedule_region=$schedule->region;
     $schedule_name=$schedule->name;
     $attraction=DB::select('select * from attractions order by id DESC ');
-
     $member_name=Auth::User()->name;
     $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
     $attraction_id->member_name=$member_name;
@@ -70,6 +72,7 @@ class ScheduleGuideController extends Controller
     $travel_start=$travel->start;
     $schedule->guide_id=$request->input("match_id");
     $schedule->cost=$attraction_id->price;
+    $schedule->match_time=$nowtime;
     $schedule->save();
     $name=$request->input('name');
     $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id

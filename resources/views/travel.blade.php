@@ -78,7 +78,7 @@
         </div>
 
 
-<div class="div-a"><b><font size="12">確認的旅遊記劃</font></b></div>
+<div class="div-a"><b><font size="12">確認的旅遊計畫</font></b></div>
 <table class="table table-bordered table-hover" >
     <thead>
     <tr>

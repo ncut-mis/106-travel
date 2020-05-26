@@ -90,6 +90,9 @@ Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('sched
 //會員取消媒合導遊
 Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');
 
+//會員觀看進行中的專長景點
+Route::post('schedules/attraction','ScheduleController@attraction')->name('schedules.attraction');
+
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');
 //導遊新增專長景點
