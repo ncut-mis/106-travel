@@ -42,7 +42,7 @@
 {{--規劃中表格--}}
                                     @foreach($travels as $travels)
                                 <tr>
-                                    @if(strtotime($today)<strtotime($travels->start)&&$travels->pay==0)
+                                    @if(strtotime($today)<=strtotime($travels->start)&&$travels->pay==0)
                                 <td><form action="{{route('schedules.index')}}" method="post">
                                         {{ csrf_field() }}
                                         <input type = "hidden" id = "id" name = "id" value = "{{$travels->id}}">
@@ -93,7 +93,7 @@
     <tbody id="Mytable1">
     @foreach($travels1 as $travels1)
         <tr>
-            @if(strtotime($today)<strtotime($travels1->start)&&$travels1->pay==1)
+            @if(strtotime($today)<=strtotime($travels1->start)&&$travels1->pay==1)
                     <td><form action="{{route('schedules.show')}}" method="post">
                             {{ csrf_field() }}
                             <input type = "hidden" id = "id" name = "id" value = "{{$travels1->id}}">
