@@ -33,6 +33,7 @@ class Attraction extends Model
         'status',
         'guide_id',
         'reservation',
+        'video_path',
         'is_feature',
     ];
 

@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use http\Env\Response;
 use App\File;
+use App\Video;
 
 
 class AttractionController extends Controller
@@ -28,13 +29,13 @@ class AttractionController extends Controller
         $a['content']=$request->input('content');
         $a['guide_id']=auth()->user()->guides->id;
         $a['price']=$request->input('price');
+        $a['video_path']=$request->input('video_path');
 //        $a['created_at']=now();
 //        $a['updated_at']=now();
 
         Attraction::create($a);
 
-//        $b['attraction_id']=auth()->user()->guides->attractions->id;
-//        File::create($b);
+
 
 //       // DB::insert('insert into attractions(name,location,content,guide_id,price,created_at,updated_at) values (?,?,?,?,?,?,?)',
 //            [$a['name'],$a['location'],$a['content'],$a['guide_id'],$a['price'],$a['created_at'],$a['updated_at']]);
@@ -58,14 +59,15 @@ class AttractionController extends Controller
         $files = $request->file('file');
         //$b['attraction_id']=auth()->user()->guides->id;
 
-
-        foreach ($files as $file){
-            File::create([
-                'title'=>$file->getClientOriginalName(),
-                'description'=>'',
-                'attraction_id'=>$attraction_id,
-                'path'=>$file->store('storage')
-            ]);
+        if (is_array($files) || is_object($files)) {
+            foreach ($files as $file) {
+                File::create([
+                    'title' => $file->getClientOriginalName(),
+                    'description' => '',
+                    'attraction_id' => $attraction_id,
+                    'path' => $file->store('storage')
+                ]);
+            }
         }
 
 
@@ -74,8 +76,8 @@ class AttractionController extends Controller
     }
     public function index()
     {
+        $attractions=auth()->user()->guides->attractions->sortByDesc('id');
 
-        $attractions=auth()->user()->guides->attractions;
 
         $data=[
             'attractions'=>$attractions
@@ -131,6 +133,7 @@ class AttractionController extends Controller
         $a['location']=$request->input('location');
         $a['content']=$request->input('content');
         $a['price']=$request->input('price');
+        $a['video_path']=$request->input('video_path');
 //        DB::update('update attractions set name=?,location=?,content=?,price=? where id=?',
 //            [$a['name'],$a['location'],$a['content'],$a['price'],$id]);
         $attraction->update($a);
@@ -140,15 +143,15 @@ class AttractionController extends Controller
 
         $files = $request->file('file');
         //$b['attraction_id']=auth()->user()->guides->id;
-
-
-        foreach ($files as $file) {
-            File::create([
-                'title' => $file->getClientOriginalName(),
-                'description' => '',
-                'attraction_id' => $attraction_id,
-                'path' => $file->store('storage')
-            ]);
+        if (is_array($files) || is_object($files)) {
+            foreach ($files as $file) {
+                File::create([
+                    'title' => $file->getClientOriginalName(),
+                    'description' => '',
+                    'attraction_id' => $attraction_id,
+                    'path' => $file->store('storage')
+                ]);
+            }
         }
 
 
