@@ -113,6 +113,8 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 Route::get('guide', 'GuideController@index');
 //導遊修改基本資料
 Route::post('guide', 'GuideController@edit')->name('edit');
+//導遊查看歷史紀錄
+Route::get('ghistory','GhistoryController@index')->name('ghistory.index');
 
 
 

@@ -19,11 +19,14 @@ class ReservationController extends Controller
 
         $attraction=Auth::user()->guides->attractions;
 
+//        $schedule_match=Auth::user()->members->travels;
+
+
         //$attraction1=Attraction::where('reservation','1')->get();
         //$attraction2=Attraction::where('status','1')->get();
 
         $data=[
-            'attraction'=>$attraction,
+            'attraction'=>$attraction
         ];
 
 
