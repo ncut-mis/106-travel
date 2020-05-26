@@ -4,6 +4,7 @@
 <div class="content">
     <div class="row">
         <div class="col-12">
+            <h2>{{$attraction->name}}</h2>
             <form action="{{route('scheduleguides.index2',$schedule_id)}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
@@ -12,31 +13,51 @@
                 <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                 <button type="submit" class="btn btn-danger">返回</button>
             </form>
-            <h2>{{$attraction->name}}</h2>
 
+            <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"></a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guide_name">導遊姓名</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fat">簡介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guide_price">導遊費用</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mdo">行程介紹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#video">影片</a>
+                    </li>
+                </ul>
+            </nav>
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            內容
+                        <div class="card-header" id="guide_name">
+                            導遊姓名
+                        </div>
+
+                        <div class="card-header" id="fat">
+                            簡介
                         </div>
                         <div class="card-body">
                             {{$attraction->content}}
                         </div>
-                        <div class="card-header">
+                        <div class="card-header" id="guide_price">
                             導遊費用
                         </div>
                         <div class="card-body">
                             新台幣 ${{$attraction->price}} 元
                         </div>
                         <div class="card">
-                            <div class="card-header">
-                                圖片
+                            <div class="card-header" id="mdo">
+                                行程介紹
                             </div>
                             <div class="row">
-
                                 @foreach($files as $file)
-
-
                                     <div class="col-md-4">
                                         <div class="card">
                                             <img class="card-img-top" width="200" height="300" src="{{Storage::url($file->path)}}">
@@ -62,7 +83,12 @@
                             </div>
 
                         </div>
-
+                        <div class="card">
+                            <div class="card-header" id="video">
+                                影片
+                            </div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                 <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
                     {{ csrf_field() }}
                     <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
@@ -72,7 +98,7 @@
                     <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                     <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
                     <input type = "hidden" id = "name" name = "name" value = {{$name}}>
-                    <button type="submit" class="btn btn-danger">媒合導遊</button>
+                    <center><button type="submit" class="btn btn-danger">媒合導遊</button></center>
                 </form>
             </div>
         </div>

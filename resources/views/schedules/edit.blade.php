@@ -1,5 +1,6 @@
 @extends('layouts.test')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class=out1 style='text-align:center'><font size="7">
             <b>{{$name}}</b>
         </font>
@@ -45,19 +46,49 @@
             </select>
         </div>
 
+
+{{--        <div class="dropdown" id="sec">--}}
+{{--            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                Dropdown button--}}
+{{--            </button>--}}
+{{--            <div class="dropdown-menu"  name="select_region1" id="select_region1" aria-labelledby="dropdownMenuButton">--}}
+{{--                <a class="dropdown-item" href="#">基隆市</a>--}}
+{{--                <a class="dropdown-item" href="#">台北市</a>--}}
+{{--                <a class="dropdown-item" href="#">Something else here</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+{{--        <script type="text/javascript">--}}
+{{--            //alert("hello")--}}
+{{--            $(document).ready(function()--}}
+{{--            {--}}
+{{--                     //var i = $('dropdown-menu a').click(function () {--}}
+{{--                    // var text =$(this).text()--}}
+{{--                     //$('#update_region').text(text)--}}
+{{--                     //alert(text)--}}
+
+
+{{--            });--}}
+
+{{--        </script>--}}
+
+
+
         @if($b1->region == NUll)
         @else
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目前選擇的旅遊區域為:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_region" name="update_region" style="width:100px; height:50px;" readonly="readonly"  value={{$b1->region}}>
+
+               <input type="text" class="form-control" id="update_region" name="update_region" style="width:100px; height:50px;" readonly="readonly"  value={{$b1->region}}>
             </div>
         </div>
         @endif
 {{--        google地圖--}}
 {{--        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1872629.7674644934!2d120.6786654!3d23.5511977!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1588430013281!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>--}}
 
-        <div  class="form-group" >
+            <div  class="form-group" >
             <label class="control-label col-sm-2" >景點:</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="update_name" name="update_name" style="width:600px; height:50px;" value={{$b1->name}}>
@@ -135,3 +166,4 @@
         </form>
 
     @endif
+
