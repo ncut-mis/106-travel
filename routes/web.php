@@ -117,6 +117,9 @@ Route::get('guide', 'GuideController@index');
 //上傳導遊資料頁面
 Route::get('upload/index','UploadController@index')->name('upload.index');
 Route::Post('upload/index','UploadController@index')->name('upload.index');
+//上傳帶團經驗頁面
+Route::get('upload2/index','UploadController@index2')->name('upload2.index');
+Route::Post('upload2/index','UploadController@index2')->name('upload2.index');
 //儲存上傳導遊資料
 Route::Post('upload','UploadController@upload')->name('upload');
 //導遊修改基本資料
