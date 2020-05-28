@@ -174,8 +174,8 @@ class TravelController extends Controller
             $start= date("Y-m-d",$start);
 
         }
-//        $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
-//        $deltravel = Travel::where('id', $request->input("update_id"))->delete();
+       $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
+       $deltravel = Travel::where('id', $request->input("update_id"))->delete();
         return redirect('/travel');
     }
     public function update()

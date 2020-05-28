@@ -216,6 +216,8 @@
                 $('#update_name').val(col6.trim());
                 $('#getstart').val(col1.trim());
                 $('#getend').val(col2.trim());
+                $('#update_start').val(col1.trim());
+                $('#update_end').val(col2.trim());
             });
         });
     </script>
