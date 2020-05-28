@@ -54,7 +54,6 @@
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
-            {{$a->name}}
                     <form class="form-horizontal" action="{{ route('upload.index') }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  >
