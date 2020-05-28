@@ -58,7 +58,8 @@
                     <form class="form-horizontal" action="{{ route('upload.index') }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  >
-                                    <input type="hidden" class="form-control" id="name" value={{$a->name}} name="user_name"  >
+                                    <input type="hidden" class="form-control" id="user_name" value={{$a->name}} name="user_name"  >
+                                    <input type="hidden" class="form-control" id="a" value={{$a}} name="a"  >
                                     <button type="submit" class="btn btn-link text-white ">導遊證照審核</button><br>
 
                     </form>
