@@ -29,18 +29,14 @@ class UploadController extends Controller
         $a=Auth::user();
         $id_card =$request->input("id_card");
         $fontsize =$request->input("fontsize");
-<<<<<<< HEAD
-=======
         $photo =$request->input("photo");
         $license =$request->input("license");
         $photo_name =$request->input("photo_name");
         $license_name =$request->input("license_name");
->>>>>>> 1c5db9f6e14e70fc0231f0848cca6ba331a6a6f9
         $motive =$request->input("motive");
         $guide = Guide::where('user_id',$user_id)->first();
         $guide->id_card =$id_card;
         $guide->fontsize =$fontsize;
-//        $guide->name =$user_name;
         $guide->photo ='../106-project2/public/storage/'.$request->file('photo')->store('image');//存檔&上傳檔名
         $guide->license ='../106-project2/public/storage/'.$request->file('license')->store('image');
         $guide->motive =$motive;
