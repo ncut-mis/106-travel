@@ -30,7 +30,8 @@ class HomeController extends Controller
          if(Auth::user()->type=="會員")
 
              return view('mhome');
-        else if(Auth::user()->guides->pass==1)
+
+        else if(Auth::user()->guides->pass=="1")
         {
             $a=Auth::user();
             return view('ghome',[ 'a' => $a]);
@@ -38,7 +39,7 @@ class HomeController extends Controller
         else if(Auth::user()->guides->pass==0)
         {
             $a=Auth::user();
-            return view('mhome',[ 'a' => $a]);
+            return view('fhome',[ 'a' => $a]);
         }
 
         else if (Auth::user()->type=="平台業者")
