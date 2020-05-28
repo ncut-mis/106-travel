@@ -14,11 +14,19 @@
                             </div>
                         @endif
 
+<<<<<<< HEAD
 
                             <form class="form-horizontal" action="{{ route('upload') }}" enctype="multipart/form-data" method="POST">
+=======
+
+                            <form class="form-horizontal" action="{{ route('upload') }}" enctype="multipart/form-data"  method="POST">
+>>>>>>> 6f2ca423fd88feb32cc86e31e0db0bbf7e0a6c82
                                 {{ csrf_field() }}
                                 <input type="hidden" class="form-control" id="upload_id" name="upload_id" value = {{$user_id}} >
                                 <input type="hidden" class="form-control" id="user_name" name="user_name" value = {{$user_name}} >
+                                <input type="hidden" class="form-control" id="photo_name" name="photo_name" value = "" >
+                                <input type="hidden" class="form-control" id="license_name" name="license_name" value = "" >
+
                                     <div  class="form-group" >
                                         <label class="control-label col-sm-2" for="id_card">身分證</label>
                                         <div class="col-sm-10">
@@ -66,11 +74,22 @@
 <script>
     $(document).ready(function () {
         $("#photo").on("change", function () {
-           var form_data = new FormData();
+            var i = $(this).val();
+            str = i.split("\\")
+            file_name = str[str.length - 1];
+           $('#photo_name').attr("value", file_name);
+        });
 
            form_data_append("file",$(this)[0].files[0]);
 
+        $("#license").on("change", function () {
+            var i = $(this).val();
+            str = i.split("\\")
+            file_name = str[str.length - 1];
+           $('#license_name').attr("value", file_name);
         });
+
+
     });
 
 

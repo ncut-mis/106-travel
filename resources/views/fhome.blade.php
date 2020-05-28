@@ -54,12 +54,22 @@
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
+
                     <form class="form-horizontal" action="{{ route('upload.index') }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  >
                                     <input type="hidden" class="form-control" id="name" value={{$a->name}} name="user_name"  >
-                                    <button type="submit" class="btn btn-link ">導遊證照審核</button>
+                                    <button type="submit" class="btn btn-link text-white ">導遊證照審核</button><br>
+
                     </form>
+
+                    <form class="form-horizontal" action="{{ route('upload2.index') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  > >
+                                    <button type="submit" class="btn btn-link text-white ">帶團經驗</button><br>
+
+                    </form>
+
                 <li class="nav-item dropdown">
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
