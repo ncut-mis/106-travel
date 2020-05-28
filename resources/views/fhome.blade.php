@@ -51,6 +51,7 @@
         <font color="white" size="25" >歡迎{{$a->name}}</font>
     </div>
     <!-- Nav -->
+    <?php if(isset($text)) echo $text; ?>
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
@@ -60,7 +61,7 @@
                                     <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  >
                                     <input type="hidden" class="form-control" id="user_name" value={{$a->name}} name="user_name"  >
                                     <input type="hidden" class="form-control" id="a" value={{$a}} name="a"  >
-                                    <button type="submit" class="btn btn-link text-white ">導遊證照審核</button><br>
+                                    <button type="submit" name="t1" class="btn btn-link text-white ">導遊證照審核</button><br>
 
                     </form>
 

@@ -51,7 +51,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" for="motive">應徵動機</label>
                                     <div class="col-sm-10">
-                                        <textarea name="motive"  cols="60" rows="6"></textarea >
+                                        <textarea name="motive"  cols="60" rows="6">{{$guide->motive}}</textarea >
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-default">上傳</button>

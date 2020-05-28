@@ -13,7 +13,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form class="form-horizontal"  enctype="multipart/form-data" method="POST">
+                        <form class="form-horizontal" action="{{ route('experience') }}" enctype="multipart/form-data" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" class="form-control" id="upload_id" name="upload_id" value = {{$user_id}} > 
 
@@ -33,7 +33,7 @@
                                     </div> 
 
                                     <div  class="form-group" >
-                                        <label class="control-label col-sm-2" for="image_title">內容</label>
+                                        <label class="control-label col-sm-2" for="image_concent">內容</label>
                                         <div class="col-sm-10">
                                         <textarea name="image_concent" id="image_concent" cols="60" rows="6"></textarea>
                                         </div>
@@ -47,14 +47,14 @@
                                     </div> 
 
                                     <div  class="form-group" >
-                                        <label class="control-label col-sm-4" for="fontsize">帶團影片</label>
+                                        <label class="control-label col-sm-4" for="video">帶團影片</label>
                                         <div class="col-sm-8">
                                             <input  type="file" id="video"  name="video">
                                         </div>
                                     </div> 
 
                                     <div  class="form-group" >
-                                        <label class="control-label col-sm-2" for="video_title">影片內容</label>
+                                        <label class="control-label col-sm-2" for="video_concent">影片內容</label>
                                         <div class="col-sm-10">
                                         <textarea name="video_concent" id="video_concent" cols="60" rows="6"></textarea>
                                         </div>
@@ -73,20 +73,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#photo").on("change", function () {
-            var i = $(this).val();
-            str = i.split("\\")
-            file_name = str[str.length - 1];
-           $('#photo_name').attr("value", file_name);
-        });
-
-        $("#license").on("change", function () {
-            var i = $(this).val();
-            str = i.split("\\")
-            file_name = str[str.length - 1];
-           $('#license_name').attr("value", file_name);
-        });
-
+      
 
     });
 

@@ -15,18 +15,20 @@ class CreateGuidesTable extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');//導遊暱稱
-            $table->string('id_card');//身分證
-            $table->string('fontsize');//導遊暱稱
-            $table->string('photo');//大頭貼
-            $table->string('id_card')->nullable();//身分證
-            $table->string('fontsize')->nullable();//
-            $table->string('photo')->nullable();//大頭貼
+            $table->string('photo')->nullable();
+            $table->string('id_card')->nullable();
+            $table->string('fontsize')->nullable();
             $table->boolean('pass')->default(false);
             $table->datetime('pass_time')->nullable();
             $table->text('motive')->nullable();
             $table->string('license')->nullable();
             $table->integer('user_id');
+            $table->string('image_title')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_content')->nullable();
+            $table->string('video_title')->nullable();
+            $table->string('video')->nullable();
+            $table->string('video_content')->nullable();
             $table->timestamps();
         });
     }

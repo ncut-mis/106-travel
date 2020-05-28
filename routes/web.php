@@ -122,6 +122,8 @@ Route::get('upload2/index','UploadController@index2')->name('upload2.index');
 Route::Post('upload2/index','UploadController@index2')->name('upload2.index');
 //儲存上傳導遊資料
 Route::Post('upload','UploadController@upload')->name('upload');
+//儲存帶團導遊資料
+Route::Post('upload2','UploadController@upload2')->name('experience');
 //導遊修改基本資料
 Route::post('guide', 'GuideController@edit')->name('edit');
 //導遊查看歷史紀錄
