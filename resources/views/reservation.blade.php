@@ -33,11 +33,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($attraction as $attraction)
+                @foreach($attraction as $attraction )
                     @if($attraction->reservation=='1' && $attraction->status=='1')
                     <tr>
                         <td>
-                            {{123}}
+                            @foreach($schedule_match as $schedule )
+                                @if($schedule->attraction_id==$attraction->id)
+                                    {{$schedule->match_time}}
+                                @endif
+                            @endforeach
+
                         </td>
                         <td>
                             {{$attraction->name}}

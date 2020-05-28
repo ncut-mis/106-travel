@@ -30,13 +30,13 @@ class HomeController extends Controller
          if(Auth::user()->type=="會員")
 
              return view('mhome');
-        else if(Auth::user()->type=="導遊")
+        else if(Auth::user()->type=="導遊" && Auth::user()->guides->pass=="0")
         {
             $a=Auth::user();
             return view('fhome',[ 'a' => $a]);
         }
 
-        else if(Auth::guides()->pass==1)
+        else if(Auth::user()->guides->pass=="1")
         {
             $a=Auth::user();
             return view('ghome',[ 'a' => $a]);
