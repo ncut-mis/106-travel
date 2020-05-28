@@ -26,9 +26,6 @@ class UploadController extends Controller
         $user_name =$request->input("user_name");
         $id_card =$request->input("id_card");
         $fontsize =$request->input("fontsize");
-        $photo_name =$request->input("photo_name");
-        dd($photo_name);
-        $license_name =$request->input("license_name");
         $motive =$request->input("motive");
         $guide = Guide::where('user_id',$user_id)->first();
         $guide->id_card =$id_card;
