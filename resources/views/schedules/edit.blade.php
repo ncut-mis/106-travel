@@ -46,32 +46,14 @@
                 <option value="連江縣">連江縣</option>
             </select>
         </div>
-
-
-{{--        <div class="dropdown" id="sec">--}}
-{{--            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                Dropdown button--}}
-{{--            </button>--}}
-{{--            <div class="dropdown-menu"  name="select_region1" id="select_region1" aria-labelledby="dropdownMenuButton">--}}
-{{--                <a class="dropdown-item" href="#">基隆市</a>--}}
-{{--                <a class="dropdown-item" href="#">台北市</a>--}}
-{{--                <a class="dropdown-item" href="#">Something else here</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-
         <script type="text/javascript">
-            //alert("hello")
+            //將下拉式選單的值抓出並顯示在inupt中
             $(document).ready(function() {
                 var i = $('#select_region').change(function () {
                     $text=$('#select_region').val();
-                    //var text = $(this).text()
                     document.getElementById("update_region").value=$text
-                    //alert($text)
-
                 })});
         </script>
-
             <div  class="form-group" >
                 <label class="control-label col-sm-2" >目前選擇的旅遊區域為:</label>
                 <div class="col-sm-10">
@@ -79,7 +61,7 @@
                 </div>
             </div>
         <script type="text/javascript">
-            //取值
+            //取值再設值
             $(document).ready(function() {
 
                     $(".click").click(function(){
@@ -87,20 +69,7 @@
                         $("#select_region").val($("#update_region").val())
                 })
             });
-
-
         </script>
-{{--        <script type="text/javascript">--}}
-{{--            //設值--}}
-{{--            $(document).ready(function() {--}}
-
-{{--                $(".click").click(function(){--}}
-{{--                    ($("#update_region").val(#update_region));--}}
-{{--                })--}}
-{{--            });--}}
-
-
-{{--        </script>--}}
 {{--        google地圖--}}
 {{--        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1872629.7674644934!2d120.6786654!3d23.5511977!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1588430013281!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>--}}
 
@@ -136,13 +105,13 @@
         <div  class="form-group" >
             <label class="control-label col-sm-2" >出發地點:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_going" name="update_going" style="width:1550px; height:50px;" value={{$b1->name}}>
+                <input type="text" class="form-control" id="update_going" name="update_going" style="width:1550px; height:50px;" value={{$b1->going}}>
             </div>
         </div>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目的地:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_arriving" name="update_arriving" style="width:1550px; height:50px;" value={{$b1->name}}>
+                <input type="text" class="form-control" id="update_arriving" name="update_arriving" style="width:1550px; height:50px;" value={{$b1->arriving}}>
             </div>
         </div>
         <div class="form-group">
@@ -156,7 +125,17 @@
                 <input type="hidden" class="form-control" id="update_guide_id" name="update_guide_id" style="width:1550px; height:100px;" value={{$b1->guide_id}}>
             </div>
         </div>
-        <button type="submit" class="click">儲存</button>
+        <button type="submit" name="store" class="click">儲存</button>
+
+    </form>
+    <form action="{{route('schedules.reindex')}}" method="get">
+        {{ csrf_field() }}
+        <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$b1->id}}>
+        <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
+        <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
+        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+
+        <button type="submit" class="btn btn-danger">返回</button>
     </form>
     @if($b1->guide_id != "")
         <label class="">目前已有媒合導遊</label>
@@ -169,17 +148,40 @@
             <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
 
             <button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
-
-
         </form>
     @else
-        <form action="{{route('scheduleguides.index')}}" method="post">
-            {{ csrf_field() }}
-            <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
-            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
-            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
-            <button type="submit" class="btn btn-danger">媒合導遊</button>
-        </form>
+        @if($b1->name == NUll || $b1->region==NUll)
+            <form onclick="return false" id="form1" name="form1"  action="{{route('scheduleguides.index')}}" method="post">
+                {{ csrf_field() }}
+                <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
+                <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+                <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
+                <input type="submit" class="btn btn-danger" name="match" id="match" value="媒合導遊">
+            </form>
+            <script>
+                $(document).ready(function(){
+                    $("#match").click(function(){
+                        if($("#update_region").val()==""){
+                            alert("請先選擇縣市");
+                            eval("document.form1['update_region'].focus()");
+                        }else if($("#update_name").val()==""){
+                            alert("請先填寫景點");
+                            eval("document.form1['update_name'].focus()");
+                        }else{
+                            alert("請先按下儲存");
+                        }
+                    })
+                })
+            </script>
+            @else
+                <form  id="form1" name="form1"  action="{{route('scheduleguides.index')}}" method="post">
+                    {{ csrf_field() }}
+                    <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
+                    <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+                    <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
+                    <input type="submit" class="btn btn-danger" name="match" id="match" value="媒合導遊">
+                </form>
+            @endif
 
     @endif
 
