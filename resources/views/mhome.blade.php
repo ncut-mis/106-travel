@@ -7,7 +7,7 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title  -->
-<title>Sonar - Photography Template</title>
+<title>自助旅行</title>
 
 <!-- Favicon  -->
 <link rel="icon" href="img/core-img/favicon.ico">
@@ -47,7 +47,7 @@
     </div>
     <!-- Logo Area -->
     <div class="logo-area">
-        <a href="index.html">Sonar</a>
+        <a href="index.html">歡迎</a>
     </div>
     <!-- Nav -->
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
@@ -100,7 +100,7 @@
                 <div class="menu-area d-flex justify-content-between">
                     <!-- Logo Area  -->
                     <div class="logo-area">
-                        <a href="index.html">Sonar</a>
+                        <a href="index.html"></a>
                     </div>
 
                     <div class="menu-content-area d-flex align-items-center">
@@ -119,7 +119,7 @@
 <section class="hero-area">
     <div class="hero-slides owl-carousel">
         <!-- Single Hero Slide -->
-        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/bg-img/slide1.jpg);">
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/bg-img/new-8view-01.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-end">
                     <div class="col-12">
