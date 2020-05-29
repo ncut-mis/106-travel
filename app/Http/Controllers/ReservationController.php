@@ -23,15 +23,15 @@ class ReservationController extends Controller
 
 
 
-        $schedule_match=DB::select('select match_time,attraction_id from schedules order by id ASC ');
-
+        $schedule_match=DB::select('select  start,attraction_id from schedules order by id ASC ');
+        $today = date('Y-m-d') ;
         //dd($schedule_match);
 
         //$attraction1=Attraction::where('reservation','1')->get();
         //$attraction2=Attraction::where('status','1')->get();
 
         $data=[
-            'attraction'=>$attraction,'schedule_match'=>$schedule_match
+            'attraction'=>$attraction,'schedule_match'=>$schedule_match,'today'=>$today
         ];
 
 
