@@ -244,6 +244,8 @@ class TravelController extends Controller
         $cancelschedules=Schedule::where('travel_id',$request->input("cancel_id"))->get();
         foreach($cancelschedules as $cancelschedules) {
             $cancelschedules->guide_id ='';
+            $cancelschedules->cost=0;
+            $cancelschedules->match_time=NULL;
             $cancelschedules->save();
         }
         return redirect('/travel');

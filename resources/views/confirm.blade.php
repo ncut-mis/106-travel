@@ -25,6 +25,7 @@
                 {{ csrf_field() }}
 <form>
               <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+              <input type = "hidden" id = "total" name = "total" value = "{{$sum_total}}">
             &emsp;&emsp;<input  class="control-label" type="radio" name="paymethods" value="paypal">paypal
             &emsp;&emsp;<input  class="control-label" type="radio" name="paymethods" value="line pay">line pay
             &emsp;&emsp;<input  class="control-label" type="radio" name="paymethods" value="SmilePay">SmilePay
