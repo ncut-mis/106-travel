@@ -5,7 +5,7 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th >建立日期</th>
+            <th >導遊姓名</th>
             <th >旅遊區域</th>
             <th >景點名稱<br>(點選查看詳細資訊)</th>
             <th >導遊費用</th>
@@ -17,7 +17,7 @@
                                 && $attraction->status ==1 && $attraction->member_name=="")
                                 <tr>
                                 <td>
-                                    {{$attraction->created_at}}
+                                    {{$attraction->guide_id}}
                                 </td>
                                 <td>
                                     {{$attraction->location}}

@@ -18,7 +18,6 @@ class ScheduleGuideController extends Controller
 {
     public function index(Request $request)
     {
-
         $schedule= Schedule::where('id', $request->input("id"))->first();
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
@@ -99,10 +98,17 @@ class ScheduleGuideController extends Controller
 
         $b = Attraction::where('id', $id)->first();
 
+        $user_name=DB::select('select  id,name from users');
+        $guide_name=DB::select('select  id,user_id from guides');
+        $attraction_name=DB::select('select  id,guide_id from attractions');
+        $schedules_name=DB::select('select  id,attraction_id from schedules');
+
+
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
                 ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation,
-            'total'=>$total,'name'=>$name];
+            'total'=>$total,'name'=>$name,'$user_name'=>$user_name,'guide_name'=>$guide_name,'attraction_name'=>$attraction_name,
+            'schedules_name'=>$schedules_name];
 
 
 

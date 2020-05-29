@@ -34,12 +34,12 @@
                 </thead>
                 <tbody>
                 @foreach($attraction as $attraction )
-                    @if($attraction->reservation=='1' && $attraction->status=='1')
+                    @if($attraction->reservation=='1' && $attraction->status=='1' )
                     <tr>
                         <td>
                             @foreach($schedule_match as $schedule )
-                                @if($schedule->attraction_id==$attraction->id)
-                                    {{$schedule->match_time}}
+                                @if($schedule->attraction_id==$attraction->id && strtotime($today)<strtotime($schedule->start))
+                                    {{$schedule->start}}
                                 @endif
                             @endforeach
 

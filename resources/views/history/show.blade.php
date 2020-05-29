@@ -54,7 +54,7 @@
                     <td>{{$b1->traffic}}</td>
                     <td>{{$b1->content}}</td>
                     <td>{{$b1->cost}}</td>
-                    </td>
+
                 </tr>
             @endforeach
         </table>

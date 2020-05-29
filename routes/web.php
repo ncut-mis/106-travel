@@ -47,7 +47,7 @@ Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit'])
 
 //顯示所有會員行程規劃
 Route::post('/schedules', 'ScheduleController@index')->name('schedules.index');
-Route::get('/reschedules/{id}', 'ScheduleController@reindex')->name('schedules.reindex');
+Route::get('/reschedules', 'ScheduleController@reindex')->name('schedules.reindex');
 Route::get('travels/{id}', 'TravelController@show')->name('travels.show');
 //會員新增行程
 Route::get('schedules/create/{id}', 'ScheduleController@create')->name('schedules.create');
