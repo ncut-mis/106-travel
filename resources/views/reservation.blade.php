@@ -15,6 +15,9 @@
                 <thead>
                 <tr>
                     <th>
+                        預約時間
+                    </th>
+                    <th>
                         景點名稱
                     </th>
                     <th>
@@ -30,9 +33,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($attraction as $attraction)
+                @foreach($attraction as $attraction )
                     @if($attraction->reservation=='1' && $attraction->status=='1')
                     <tr>
+                        <td>
+                            @foreach($schedule_match as $schedule )
+                                @if($schedule->attraction_id==$attraction->id)
+                                    {{$schedule->match_time}}
+                                @endif
+                            @endforeach
+
+                        </td>
                         <td>
                             {{$attraction->name}}
                         </td>

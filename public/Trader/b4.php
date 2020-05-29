@@ -57,20 +57,7 @@ $dates = region($_GET['region']);
                    var i = $('.dropdown-menu  a').click(function () { 
                         var text = $(this).text();
                         $(".dropdown-menu  a").attr("href","?region="+text);
-                       /* $.ajax({
-                            type: "GET",
-                            url: "php/b4_dropdown.php",
-                            data: '',
-                            dataType: 'html',
-                            error:function(){alert('Ajax request 發生錯誤');},
-                            success: function(res){alert('Ajax success!');}
-                           
-                            
-                        });*/
 
-                        
-                        
-                        
                     });
 
                     $('table #get_guide').click(function () { 
@@ -95,7 +82,7 @@ $dates = region($_GET['region']);
                         <th scope="col">花費</th>
                         <th scope="col">訂房</th>
                         <th scope="col">交通</th>
-                        <th scope="col">行程表</th>
+                       
                         <th scope="col">開始</th>
                         <th scope="col">結束</th>
                         <th scope="col">地圖</th>
@@ -112,7 +99,7 @@ $dates = region($_GET['region']);
                 <td><?php echo $Schedules['cost'] ; ?></td>
                 <td><?php echo $Schedules['room'] ; ?></td>
                 <td><?php echo $Schedules['traffic'] ; ?></td>
-                <td><?php echo $Schedules['travel_id'] ; ?></td>
+                
                 <td><?php echo $Schedules['start'] ; ?></td>
                 <td><?php echo $Schedules['end'] ; ?></td>
                 <td><a href="http://www.google.com.tw/maps/search/<?php echo $Schedules['region'] ; ?>" target="_blank"><img width ="50" height="50" src="pic/google.jpg" alt="圖片壞了"></a></td>

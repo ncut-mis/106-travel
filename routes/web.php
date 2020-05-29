@@ -90,6 +90,9 @@ Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('sched
 //會員取消媒合導遊
 Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');
 
+//會員觀看進行中的專長景點
+Route::post('schedules/attraction','ScheduleController@attraction')->name('schedules.attraction');
+
 //導遊目前所有專長景點
 Route::get('attractions', 'AttractionController@index')->name('attractions.index');
 //導遊新增專長景點
@@ -111,10 +114,26 @@ Route::delete('attractions/{attraction}', 'AttractionController@destroy')->name(
 
 //導遊顯示基本資料
 Route::get('guide', 'GuideController@index');
+//上傳導遊資料頁面
+Route::get('upload/index','UploadController@index')->name('upload.index');
+Route::Post('upload/index','UploadController@index')->name('upload.index');
+//上傳帶團經驗頁面
+Route::get('upload2/index','UploadController@index2')->name('upload2.index');
+Route::Post('upload2/index','UploadController@index2')->name('upload2.index');
+//儲存上傳導遊資料
+Route::Post('upload','UploadController@upload')->name('upload');
+//儲存帶團導遊資料
+Route::Post('upload2','UploadController@upload2')->name('experience');
 //導遊修改基本資料
 Route::post('guide', 'GuideController@edit')->name('edit');
+//導遊查看歷史紀錄
+Route::get('ghistory','GhistoryController@index')->name('ghistory.index');
 
 
+
+
+//導遊啟用專長景點
+//Route::get('Thome', 'AttractionController@open')->name('attractions.open');
 
 //導遊顯示目前被預約景點
 Route::get('reservation', 'ReservationController@index')->name('reservation.index');

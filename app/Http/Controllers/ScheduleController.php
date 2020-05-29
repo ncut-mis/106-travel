@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 
+use App\File;
 use Illuminate\Http\Request;
 use App\User;
 use App\Travel;
 use App\Schedule;
 use App\Member;
+use App\Guide;
 use Auth;
 use App\Attraction;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -23,7 +26,6 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
-
         $name=($request->input("name"));
         $start=($request->input("start"));
         $end=($request->input("end"));
@@ -165,6 +167,7 @@ class ScheduleController extends Controller
     $attraction->member_name="";
     $schedule->attraction_id="";
     $schedule->cost=0;
+    $schedule->match_time=NULL;
     $schedule->save();
     $attraction->save();
     //將專長景點的預約資料 $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
@@ -183,24 +186,42 @@ class ScheduleController extends Controller
 
 }
     public function show(Request $request)
-    {
+{
 //        $schedules=Schedule::orderBy('id','ASC')->get();
-        //     $a=Auth::user()->members->travels;
+    //     $a=Auth::user()->members->travels;
 //      dd($a);
 //        foreach ($a as $a){
 //            $b=$schedules;
 //            dd($b);
 //        }
 
-        $name=($request->input("name"));
-        $start=($request->input("start"));
-        $end=($request->input("end"));
-        $date=floor((strtotime($end)-strtotime($start))/86400+1);
-        $b=Travel::find($request->input("id"))->schedules;
-        $cc=($request->input("id"));
-        $travel_id=($request->input("id"));
-        $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,];
+    $name=($request->input("name"));
+    $start=($request->input("start"));
+    $end=($request->input("end"));
+    $date=floor((strtotime($end)-strtotime($start))/86400+1);
+    $b=Travel::find($request->input("id"))->schedules;
+    $cc=($request->input("id"));
+    $travel_id=($request->input("id"));
+//        $attraction_id=$b->attraction_id;
+//        dd($attraction_id);
+//        $attraction_select_attraction_id=$b->attraction_id;
+//        dd($attraction_select_attraction_id);
+//     $attraction=Attraction::find($attraction_id);
+    $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,];
 
-        return view('schedules.show',$data);
+    return view('schedules.show',$data);
+}
+    public function attraction(request $request)
+    {
+        $att_id=$request->input('att_id');
+        $file=File::where('attraction_id',$att_id)->get();
+        $attraction=Attraction::where('id',$att_id)->first();
+        $guide_id=$attraction->guide_id;
+        $guide=Guide::where('id',$guide_id)->first();
+        $user_id=$guide->user_id;
+        $user=User::where('id',$user_id)->first();
+        $files=File::Where('attraction_id',$att_id)->orderBy('created_at','DESC')->paginate(30);
+        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file];
+        return view('schedules.attraction',$data);
     }
 }

@@ -78,7 +78,7 @@
         </div>
 
 
-<div class="div-a"><b><font size="12">確認的旅遊記劃</font></b></div>
+<div class="div-a"><b><font size="12">確認的旅遊計畫</font></b></div>
 <table class="table table-bordered table-hover" >
     <thead>
     <tr>
@@ -216,6 +216,8 @@
                 $('#update_name').val(col6.trim());
                 $('#getstart').val(col1.trim());
                 $('#getend').val(col2.trim());
+                $('#update_start').val(col1.trim());
+                $('#update_end').val(col2.trim());
             });
         });
     </script>

@@ -8,6 +8,7 @@ use App\Travel;
 use App\Schedule;
 use App\Member;
 use Auth;
+use App\Attraction;
 use Illuminate\Support\Facades\DB;
 
 class TravelController extends Controller
@@ -174,8 +175,8 @@ class TravelController extends Controller
             $start= date("Y-m-d",$start);
 
         }
-//        $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
-//        $deltravel = Travel::where('id', $request->input("update_id"))->delete();
+       $delschedule = Schedule::where('travel_id', $request->input("update_id"))->delete();
+       $deltravel = Travel::where('id', $request->input("update_id"))->delete();
         return redirect('/travel');
     }
     public function update()
@@ -242,9 +243,19 @@ class TravelController extends Controller
         $canceltravel->pay=0;
         $canceltravel->save();
         $cancelschedules=Schedule::where('travel_id',$request->input("cancel_id"))->get();
+
         foreach($cancelschedules as $cancelschedules) {
+            $a=$cancelschedules->attraction_id;
+            $array = array($a);
             $cancelschedules->guide_id ='';
+            $cancelschedules->cost=0;
+            $cancelschedules->match_time=NULL;
+            $cancelschedules->attraction_id=NULL;
             $cancelschedules->save();
+            $cancelattraction=Attraction::where('id',$array)->first();
+            $cancelattraction->reservation='';
+            $cancelattraction->member_name='';
+            $cancelattraction->save();
         }
         return redirect('/travel');
     }
