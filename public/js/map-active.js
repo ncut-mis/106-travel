@@ -1,14 +1,14 @@
 var map;
-var latlng = new google.maps.LatLng(56.9496, 24.1052);
+var latlng = new google.maps.LatLng(34.0522, 118.2437);
 var stylez = [{
     featureType: "all",
     elementType: "all",
     stylers: [{
-        saturation: -25
+        saturation: 0
             }]
         }];
 var mapOptions = {
-    zoom: 15,
+    zoom: 13,
     center: latlng,
     scrollwheel: false,
     scaleControl: false,
@@ -19,7 +19,7 @@ var mapOptions = {
 };
 map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 var geocoder_map = new google.maps.Geocoder();
-var address = 'Riga';
+var address = 'Los Angeles';
 geocoder_map.geocode({
     'address': address
 }, function (results, status) {

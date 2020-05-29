@@ -10,74 +10,38 @@
         });
     });
 
-    // :: Fullscreen Active Code
-    $window.on('resizeEnd', function () {
-        $(".full_height").height($window.height());
-    });
+    // :: Nav Active Code
+    if ($.fn.classyNav) {
+        $('#originalNav').classyNav();
+        $('#footerNav').classyNav();
+    }
 
-    $window.on('resize', function () {
-        if (this.resizeTO) clearTimeout(this.resizeTO);
-        this.resizeTO = setTimeout(function () {
-            $(this).trigger('resizeEnd');
-        }, 300);
-    }).trigger("resize");
-
-    // :: Sticky Active Code
-    $window.on('scroll', function () {
-        if ($window.scrollTop() > 0) {
-            $('.header-area').addClass('sticky');
-        } else {
-            $('.header-area').removeClass('sticky');
-        }
-    });
-
-    // :: Menu Active Code
-    $('#menuIcon').on('click', function () {
-        $('body').toggleClass('menu-open');
-    });
-    $('.closeIcon').on('click', function () {
-        $('body').removeClass('menu-open');
-    });
-
-    // :: Tooltip Active Code
-    $('[data-toggle="tooltip"]').tooltip()
-
-    // :: Nicescroll Active Code
-    if ($.fn.niceScroll) {
-        $("body, textarea").niceScroll({
-            cursorcolor: "#151515",
-            cursorwidth: "6px",
-            background: "#f0f0f0"
+    // :: Newsticker Active Code
+    if ($.fn.simpleTicker) {
+        $.simpleTicker($("#breakingNewsTicker"), {
+            speed: 1000,
+            delay: 3500,
+            easing: 'swing',
+            effectType: 'roll'
         });
     }
 
+    // :: Tooltip Active Code
+    $('[data-toggle="tooltip"]').tooltip();
+
     // :: Owl Carousel Active Code
     if ($.fn.owlCarousel) {
-
         var welcomeSlide = $('.hero-slides');
-
-        $('.hero-slides').owlCarousel({
-            items: 4,
-            margin: 0,
+        welcomeSlide.owlCarousel({
+            items: 2,
+            margin: 30,
             loop: true,
-            dots: true,
+            center: true,
             autoplay: true,
-            autoplayTimeout: 5000,
-            smartSpeed: 1000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                576: {
-                    items: 2
-                },
-                992: {
-                    items: 3
-                },
-                1600: {
-                    items: 4
-                }
-            }
+            nav: true,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoplayTimeout: 5000, // Autoplay Timeout 1s = 1000ms
+            smartSpeed: 2000
         });
 
         welcomeSlide.on('translate.owl.carousel', function () {
@@ -106,84 +70,45 @@
             $(this).css('animation-duration', anim_dur);
         });
 
-        $('.testimonial-slides').owlCarousel({
-            items: 1,
+        $('.instagram-slides').owlCarousel({
+            items: 7,
             margin: 0,
             loop: true,
-            dots: true,
             autoplay: true,
-            autoplayTimeout: 5000,
-            smartSpeed: 1000
-        });
-    }
-
-    // :: Progress Bar Active Code
-    if ($.fn.barfiller) {
-        $('#bar1').barfiller({
-            tooltip: true,
-            duration: 1000,
-            barColor: '#1d1d1d',
-            animateOnResize: true
-        });
-        $('#bar2').barfiller({
-            tooltip: true,
-            duration: 1000,
-            barColor: '#1d1d1d',
-            animateOnResize: true
-        });
-        $('#bar3').barfiller({
-            tooltip: true,
-            duration: 1000,
-            barColor: '#1d1d1d',
-            animateOnResize: true
-        });
-        $('#bar4').barfiller({
-            tooltip: true,
-            duration: 1000,
-            barColor: '#1d1d1d',
-            animateOnResize: true
-        });
-    }
-
-    // :: Gallery Menu Style Active Code
-    $('.portfolio-menu button.btn').on('click', function () {
-        $('.portfolio-menu button.btn').removeClass('active');
-        $(this).addClass('active');
-    })
-
-    // :: Masonary Gallery Active Code
-    if ($.fn.imagesLoaded) {
-        $('.sonar-portfolio').imagesLoaded(function () {
-            // filter items on button click
-            $('.portfolio-menu').on('click', 'button', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({
-                    filter: filterValue
-                });
-            });
-            // init Isotope
-            var $grid = $('.sonar-portfolio').isotope({
-                itemSelector: '.single_gallery_item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.single_gallery_item'
+            autoplayHoverPause: true,
+            autoplayTimeout: 2000, // Autoplay Timeout 1s = 1000ms
+            smartSpeed: 2000,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                480: {
+                    items: 3
+                },
+                576: {
+                    items: 4
+                },
+                992: {
+                    items: 5
+                },
+                1500: {
+                    items: 7
                 }
-            });
+            }
         });
     }
 
-    // :: Magnific Popup Active Code
-    if ($.fn.magnificPopup) {
-        $('.gallery-img').magnificPopup({
-            type: 'image'
+    // :: Sticky Active Code
+    if ($.fn.sticky) {
+        $("#stickyNav").sticky({
+            topSpacing: 0
         });
     }
 
-    // :: MatchHeight Active Code
-    if ($.fn.matchHeight) {
-        $('.equalize').matchHeight({
-            byRow: true,
-            property: 'height'
+    // :: Countdown Active Code
+    if ($.fn.countdown) {
+        $('#clock').countdown('2020/10/10', function (event) {
+            $(this).html(event.strftime('<div>%D <span>Days</span></div> <div>%H <span>Hours</span></div> <div>%M <span>Minutes</span></div> <div>%S <span>Seconds</span></div>'));
         });
     }
 
@@ -200,7 +125,7 @@
         $.scrollUp({
             scrollSpeed: 1000,
             easingType: 'easeInOutQuart',
-            scrollText: '<i class="fa fa-angle-up" aria-hidden="true"></i>'
+            scrollText: 'Top'
         });
     }
 
@@ -209,7 +134,7 @@
         $.preventDefault();
     });
 
-    // :: wow Active Code
+    // :: WOW Active Code
     if ($window.width() > 767) {
         new WOW().init();
     }

@@ -1,20 +1,20 @@
+<head>
+    <!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Sonar - Photography Template</title>
 
-<!-- Title  -->
-<title>Sonar - Photography Template</title>
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
 
-<!-- Favicon  -->
-<link rel="icon" href="img/core-img/favicon.ico">
-
-<!-- Style CSS -->
-<link rel="stylesheet" href="style.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -54,6 +54,9 @@
     <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
         <nav>
             <ul>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('index') }}">修改基本資料</a>
                 </li>
@@ -61,7 +64,14 @@
                     <a class="nav-link" href="{{ url('travel') }}">規劃旅遊</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('history') }}">旅遊歷史記錄</a>
+                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
                 <li class="nav-item dropdown">
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
@@ -70,9 +80,9 @@
                     </a>
 
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -105,7 +115,11 @@
                     </div>
 
                     <div class="menu-content-area d-flex align-items-center">
-
+                        <!-- Header Social Area -->
+                        <div class="header-social-area d-flex align-items-center">
+                            <a  href="{{(route('register'))}}" title="註冊">註冊</a>
+                            <a  href="{{(route('login'))}}" title="登入">登入</a>
+                        </div>
                         <!-- Menu Icon -->
                         <span class="navbar-toggler-icon" id="menuIcon"></span>
                     </div>
