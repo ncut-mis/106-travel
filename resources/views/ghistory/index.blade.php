@@ -7,11 +7,19 @@
             <b>帶團歷史記錄</b>
         </font>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="{{url('home')}}" class="btn btn-secondary btn-sm">返回</a>
+        </div>
+
+    </div>
     <div class="col-12">
         <table class="table table-hover">
             <thead>
             <tr>
+                <th>
 
+                </th>
                 <th>
                     景點名稱
                 </th>
@@ -29,7 +37,7 @@
             </thead>
             <tbody>
             @foreach($attractions as $attraction)
-             @if($attraction->reservation=='1')
+             @if($attraction->reservation=='1' && $attraction->status=='1')
                  <tr>
             <td>
                {{$attraction->name}}
