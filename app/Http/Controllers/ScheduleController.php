@@ -39,7 +39,7 @@ class ScheduleController extends Controller
 
         return view('schedules.index',$data);
     }
-    public function reindex(Request $request,$id)
+    public function reindex(Request $request    )
     {
 //        $schedules=Schedule::orderBy('id','ASC')->get();
         //     $a=Auth::user()->members->travels;
@@ -48,12 +48,22 @@ class ScheduleController extends Controller
 //            $b=$schedules;
 //            dd($b);
 //        }
-dd($request->input("id"));
-        $b=Travel::find($id)->schedules;
-        $cc=($id);
-        $data=['b1'=>$b,'cc'=>$cc];
+//dd($request->input("id"));
+//        $b=Travel::find($id)->schedules;
+//        $cc=($id);
+//        $data=['b1'=>$b,'cc'=>$cc];
+//$b=Schedule::find($request->input('update_id'));
+        $name=($request->input('name'));
+        $start=($request->input('start'));
+        $b =Schedule::where('id', $request->input("update_id"))->first();
+        $travel_id=$b->travel_id;
+
+        $b=Travel::find($travel_id)->schedules;
+        $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
 //        dd($b);
+
         return view('schedules.index',$data);
     }
     public function create($id)
@@ -129,11 +139,10 @@ dd($request->input("id"));
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
 
-        $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
         $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
 
-        return view('schedules.index',$data);
+        return view('schedules.edit',$data);
     }
     public function destroy(request $request)
     {

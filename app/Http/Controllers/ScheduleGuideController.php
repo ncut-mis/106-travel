@@ -18,7 +18,6 @@ class ScheduleGuideController extends Controller
 {
     public function index(Request $request)
     {
-
         $schedule= Schedule::where('id', $request->input("id"))->first();
         $schedule_region=$schedule->region;
         $schedule_name=$schedule->name;
