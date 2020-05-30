@@ -35,10 +35,13 @@ class UploadController extends Controller
         $guide = Guide::where('user_id',$user_id)->first();
         $guide->id_card =$id_card;
         $guide->fontsize =$fontsize;
-        if(!empty($photo_name))
+        if(!empty($photo_name)){
         $guide->photo ='../storage/'.$request->file('photo')->store('image');//存檔&上傳檔名
+        }
         if(!empty($license_name))
+        {
         $guide->license ='../storage/'.$request->file('license')->store('image');
+        }
         $guide->motive =$motive;
         $guide->save();
         $request->input("t1");
@@ -68,16 +71,15 @@ class UploadController extends Controller
         $image_title =$request->input("image_title");
         $image_content =$request->input("image_content");
         $video_title =$request->input("video_title");
+        $video =$request->input("video");
         $video_content =$request->input("video_content");
         $image = $request->file('image');
-        $video = $request->file('video');
         $guide = Guide::where('user_id',$user_id)->first();
         $guide->image_title =$image_title;
         $guide->image_content =$image_content;
         if(!empty($image))
         $guide->image ='../storage/'.$request->file('image')->store('image');//存檔&上傳檔名
-        if(!empty($video))
-        $guide->video ='../storage/'.$request->file('video')->store('image');
+        $guide->video =$video;
         $guide->video_title =$video_title;
         $guide->video_content =$video_content;
         $guide->save();

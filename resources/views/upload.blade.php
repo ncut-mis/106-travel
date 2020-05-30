@@ -74,8 +74,6 @@
            $('#photo_name').attr("value", file_name);
         });
 
-           form_data_append("file",$(this)[0].files[0]);
-
         $("#license").on("change", function () {
             var i = $(this).val();
             str = i.split("\\")
