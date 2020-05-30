@@ -1,7 +1,7 @@
 <?php
 require_once 'php/db_connection.php';
 require_once 'php/sql.php';
-$dates = get_Schedules();
+$dates = get_travels();
 
 ?>
 <!DOCTYPE html>
@@ -23,33 +23,24 @@ $dates = get_Schedules();
             <table class=" table table-hover  shadow-lg text-center ">
                 <thead>
                     <tr>
-                    <th scope="col">交易紀錄編號</th>
-                    <th scope="col">地區</th>
-                    <th scope="col">內容</th>                   
-                    <th scope="col">花費</th>
-                    <th scope="col">訂房</th>
-                    <th scope="col">交通</th>
-                    <th scope="col">導遊編號</th>
-                    <th scope="col">行程表</th>
-                    <th scope="col">開始</th>
-                    <th scope="col">結束</th>
-                    
+                    <th scope="col">名稱</th>
+                    <th scope="col">開始時間</th>
+                    <th scope="col">結束時間</th>
+                    <th scope="col">總金額</th>
+                    <th scope="col">付款日期</th>
+                    <th scope="col">查看詳細資料</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php if(!empty($dates))
-             foreach ($dates as $Schedules):?>
+             foreach ($dates as $travels):?>
              <tr>
-            <th scope="row"><?php echo $Schedules['id'] ; ?></th>
-            <td><?php echo $Schedules['region'] ; ?></td>
-            <td><?php echo $Schedules['content'] ; ?></td>
-            <td><?php echo $Schedules['cost'] ; ?></td>
-            <td><?php echo $Schedules['room'] ; ?></td>
-            <td><?php echo $Schedules['traffic'] ; ?></td>
-            <td><a href=""><?php echo $Schedules['guide_id'] ; ?></a> </td>
-            <td><?php echo $Schedules['travel_id'] ; ?></td>
-            <td><?php echo $Schedules['start'] ; ?></td>
-            <td><?php echo $Schedules['end'] ; ?></td>
+            <th scope="row"><?php echo $travels['name'] ; ?></th>
+            <td><?php echo $travels['start'] ; ?></td>
+            <td><?php echo $travels['end'] ; ?></td>
+            <td><?php echo $travels['total'] ; ?></td>
+            <td><?php echo $travels['paytime'] ; ?></td>
+            <td><a href="b2a.php?travel_id=<?php echo $travels['member_id'] ; ?>"><img src="pic/magnifier.png" width="50" height = "50" alt=""></a></td>
             </tr>
             <?php endforeach; ?>
                  </tbody>
@@ -58,11 +49,35 @@ $dates = get_Schedules();
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script >
 
 
 
+</script>
 
 
+
+       
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
