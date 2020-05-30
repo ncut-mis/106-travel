@@ -96,6 +96,7 @@ $g20 =g20($_GET['date']);
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             日期
         </button>
+        <label class="ml-3 text-secondary" for="" id ="t"><?php echo $_GET['date']?></label>
         <div class="dropdown-menu" id="date" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#"><?php echo date("Y/m/d");?></a>
             <a class="dropdown-item" href="#"><?php echo date("Y/m/d", strtotime('+1 day'));?></a>
@@ -322,7 +323,6 @@ $g20 =g20($_GET['date']);
                 $(document).ready(function () {
                    var i = $('#date  a').click(function () { 
                         var text = $(this).text();
-                        
                         $(".dropdown-menu  a").attr("href","?date="+text);
                        /* $.ajax({
                             type: "GET",
