@@ -1,12 +1,20 @@
 <?php 
 require_once 'php/db_connection.php';
-require_once 'php/sql.php';
- $date1 = get_travels_total();
- $date2 = get_users_searchfor_member();
- $date3 = get_guides_total();
- $date4 = get_travels_order_total();
+require_once 'php/sqlb3.php';
+ $d1 =get_travels_total_year();
+ $d2 = get_travels_total_month(); 
+ $d3 = get_travels_total_today();
+ $d4 = get_users_searchfor_member();
+ $d5 =get_users_searchfor_member_month();
+ $d6 =get_users_searchfor_member_today();
+ $d7 = get_guides_total();
+ $d8 = get_guides_total_month();
+ $d9 = get_guides_total_today();
+ $d10 = get_travels_order_total();
+ $d11 = get_travels_order_total_month();
+ $d12 = get_travels_order_total_today();
  $date5 = get_travels_order_Month($_GET['paytime']);
- $date6 =get_travels_total_month($_GET['paytime']);
+ $date6 =get_travels_total_month2($_GET['paytime']);
 
 ?>
 <!DOCTYPE html>
@@ -24,121 +32,157 @@ require_once 'php/sql.php';
     
     <div class="container-fluit mx-4 mt-3">
         <div class="row">
-            <div class="col-12  col-sm-6 col-lg-3 ">
-                <div class="card  h-100">
-                     <div class="card-body d-flex align-items-center">
-                        <img src="pic/money.png" width="70" height="70" class ="img-fluid mr-3" alt="">
+            <div class="col-12  col-sm-6 col-lg-3  ">
+                <div class="card  h-100 ">
+                    <div class="card-body ">
+                        <div class="d-flex align-items-center border-bottom p-2">
+                            <img src="pic/money.png" width="70" height="70" class ="img-fluid mr-3" alt="">
                             <div class="text-center w-100"> 
-                                <h5><b>今日營收</b></h5>
-                                <h3>$<?php if($date1['total']==null) echo 0;
-                                    else echo $date1['total'] ?>
+                                <h5><b>年度營收</b></h5>
+                                <h3>$<?php if($d1['total']==null) echo 0;
+                                    else echo $d1['total'] ?>
                                  </h3>
                             </div>
+
+                        </div>
+
+                        <div class="row d-flex  align-items-center ">
+                            <div class="col-6 border-right">
+                                <div class="text-center mt-2 w-100"> 
+                                    <h5><b>月營收</b></h5>
+                                    <h2>$<?php if($d2['total']==null) echo 0;
+                                    else echo $d2['total'] ?>
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="col-6 ">
+                                <div class="text-center mt-2 w-100"> 
+                                    <h5><b>今日營收</b></h5>
+                                    <h2>$<?php if($d3['total']==null) echo 0;
+                                     else echo $d3['total'] ?>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>  
+
+                            
                            
-                     </div>
+                    </div>
                     
                     
                 </div>
             </div>
-            <div class="col-12  col-sm-6 col-lg-3 ">
-                <div class="card  ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/member.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
-                                <div class="text-center w-100"> 
-                                    <h5><b>所有會員數</b></h5>
-                                    <h2><?php if($date2['members_total']==null) echo 0;
-                                    else echo $date2['members_total'] ?>
-                                    </h2>
-                                </div>
-                            
-                        </div>
-                        
-                        
-                    </div>
-            </div>
+
             <div class="col-12  col-sm-6 col-lg-3 ">
                 <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/guide.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
+                        <div class="card-body ">
+                            <div class="d-flex  align-items-center border-bottom p-2">
+                                <img src="pic/member.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
+                                    <div class="text-center w-100"> 
+                                        <h5><b>所有會員數</b></h5>
+                                        <h2><?php if($d4['members_total']==null) echo 0;
+                                        else echo $d4['members_total'] ?>
+                                        </h2>
+                                    </div>
+                            </div>
+                            <div class="row d-flex  align-items-center ">
+                                <div class="col-6 border-right">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>當月會員增加</b></h5>
+                                        <h2><?php if($d5['members_total']==null) echo 0;
+                                        else echo $d5['members_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 ">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>今日會員增加</b></h5>
+                                        <h2><?php if($d6['members_total']==null) echo 0;
+                                        else echo $d6['members_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-12  col-sm-6 col-lg-3 ">
+                <div class="card ">
+                        <div class="card-body ">
+                            <div class="d-flex  align-items-center border-bottom p-2">
+                                <img src="pic/guide.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
                                 <div class="text-center w-100"> 
                                     <h5><b>所有導遊數</b></h5>
-                                    <h2><?php if($date3['guides_total']==null) echo 0;
-                                    else echo $date3['guides_total'] ?>
+                                    <h2><?php if($d7['guides_total']==null) echo 0;
+                                    else echo $d7['guides_total'] ?>
                                     </h2>
                                 </div>
+                            </div>    
+
+                            <div class="row d-flex  align-items-center ">
+                                <div class="col-6 border-right">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>月導遊增加</b></h5>
+                                        <h2><?php if($d8['guides_total']==null) echo 0;
+                                        else echo $d8['guides_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 ">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>今日出團導遊</b></h5>
+                                        <h2><?php if($d9['guides_total']==null) echo 0;
+                                        else echo $d9['guides_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>  
                         </div>                                               
                 </div>
             </div>
             
             <div class="col-12  col-sm-6 col-lg-3 ">
                 <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/order.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
+                        <div class="card-body ">
+                            <div class="d-flex  align-items-center border-bottom p-2">
+                                <img src="pic/order.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
                                  <div class="text-center w-100"> 
-                                    <h5><b>訂單進行數</b></h5>
-                                    <h2><?php if($date4['travels_order_total']==null) echo 0;
-                                    else echo $date4['travels_order_total'] ?>
+                                    <h5><b>總訂單數</b></h5>
+                                    <h2><?php if($d10['travels_order_total']==null) echo 0;
+                                    else echo $d10['travels_order_total'] ?>
                                     </h2>
                                 </div>
+                            </div>
+
+
+                            <div class="row d-flex  align-items-center ">
+                                <div class="col-6 border-right">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>月訂單數</b></h5>
+                                        <h2><?php if($d11['travels_order_total']==null) echo 0;
+                                        else echo $d11['travels_order_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 ">
+                                    <div class="text-center mt-2 w-100"> 
+                                        <h5><b>今日訂單數</b></h5>
+                                        <h2><?php if($d12['travels_order_total']==null) echo 0;
+                                        else echo $d12['travels_order_total'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>  
                         </div>                                               
                 </div>
             </div>
             
-            <div class="col-12  col-sm-6 col-lg-3 mt-2">
-                <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/money.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
-                                 <div class="text-center w-100"> 
-                                    <h5><b>年度營收</b></h5>
-                                    <h2><?php if($date4['travels_order_total']==null) echo 0;
-                                    else echo $date4['travels_order_total'] ?>
-                                    </h2>
-                                </div>
-                        </div>                                               
-                </div>
-            </div>
-
-            <div class="col-12  col-sm-6 col-lg-3 mt-2">
-                <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/member.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
-                                 <div class="text-center w-100"> 
-                                    <h5><b>1</b></h5>
-                                    <h2><?php if($date4['travels_order_total']==null) echo 0;
-                                    else echo $date4['travels_order_total'] ?>
-                                    </h2>
-                                </div>
-                        </div>                                               
-                </div>
-            </div>
-
-            <div class="col-12  col-sm-6 col-lg-3 mt-2">
-                <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/guide.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
-                                 <div class="text-center w-100"> 
-                                    <h5><b>2</b></h5>
-                                    <h2><?php if($date4['travels_order_total']==null) echo 0;
-                                    else echo $date4['travels_order_total'] ?>
-                                    </h2>
-                                </div>
-                        </div>                                               
-                </div>
-            </div>
-            
-            <div class="col-12  col-sm-6 col-lg-3 mt-2">
-                <div class="card ">
-                        <div class="card-body d-flex  align-items-center">
-                            <img src="pic/order.png" width="60"  class ="img-fluid mr-3 h-75 " alt="">
-                                 <div class="text-center w-100"> 
-                                    <h5><b>所有訂單數</b></h5>
-                                    <h2><?php if($date4['travels_order_total']==null) echo 0;
-                                    else echo $date4['travels_order_total'] ?>
-                                    </h2>
-                                </div>
-                        </div>                                               
-                </div>
-            </div>
+        
         
             
 

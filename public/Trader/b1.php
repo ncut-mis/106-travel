@@ -55,7 +55,7 @@ $date2 = get_pass1or2();
             <th scope="row"><?php echo $guides['name'] ; ?></th>
             <td><img style="width:100px;height:100px" src="<?php echo $guides['photo'] ; ?>" alt=""></td>
             <td><?php echo $guides['id_card'] ; ?></td>
-            <td><?php echo $guides['updated_at'] ; ?></td>
+            <td><?php echo $guides['pass_time'] ; ?></td>
             <td><?php if($guides['pass']=="1") echo "<font color = green >已通過</font>"; else if($guides['pass']=="2") echo "<font color = red >黑名單</font>"; ?></td>
             </tr>
 
@@ -112,7 +112,7 @@ $date2 = get_pass1or2();
             <th scope="row"><?php echo $guides['name'] ; ?></th>
             <td><img style="width:100px;height:100px" src="<?php echo $guides['photo'] ; ?>" alt=""></td>
             <td><?php echo $guides['id_card'] ; ?></td>
-            <td><?php echo $guides['updated_at'] ; ?></td>
+            <td><?php echo $guides['pass_time'] ; ?></td>
             <td>
             <form action="POST">
             <div class="">
