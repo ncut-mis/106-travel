@@ -67,19 +67,22 @@
                 <!-- Top Social Area -->
                 <div class="col-12 col-sm-4">
                     <div class="top-social-area">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
+                        <li class="nav-item ">
+
+                            <a id="navbarDropdown" class="nav-link " href="{{ route('logout') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            登出<span class="caret"></span>
-                        </a>
+                                登出<span class="caret"></span>
+                            </a>
 
 
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
                     </div>
                 </div>
             </div>
