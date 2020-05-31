@@ -22,11 +22,11 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-            <li class="nav-item"><a class="nav-link js-scroll-trigger"href="{{ url('home') }}">回首頁</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger"href="{{ url('travel') }}">旅遊歷史</a></li>
         </ul>
     </div>
+
 </nav>
+
 </body>
 
 <!-- Bootstrap core JS-->

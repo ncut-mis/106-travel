@@ -8,6 +8,8 @@ use App\Travel;
 use App\Schedule;
 use App\Member;
 use Auth;
+use App\Guide;
+use App\File;
 use App\Attraction;
 use Illuminate\Support\Facades\DB;
 
@@ -258,6 +260,19 @@ class TravelController extends Controller
             $cancelattraction->save();
         }
         return redirect('/travel');
+    }
+    public function attraction(Request $request)
+    {
+        $att_id=$request->input('att_id');
+        $file=File::where('attraction_id',$att_id)->get();
+        $attraction=Attraction::where('id',$att_id)->first();
+        $guide_id=$attraction->guide_id;
+        $guide=Guide::where('id',$guide_id)->first();
+        $user_id=$guide->user_id;
+        $user=User::where('id',$user_id)->first();
+        $files=File::Where('attraction_id',$att_id)->orderBy('created_at','DESC')->paginate(30);
+        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file];
+        return view('/newtravel',$data);
     }
 
 }

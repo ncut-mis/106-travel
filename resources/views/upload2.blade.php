@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">上傳審dd核資料</div>
+                    <div class="card-header text-center">上傳帶團資料</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -35,7 +35,7 @@
                                     <div  class="form-group" >
                                         <label class="control-label col-sm-2" for="image_content" >內容</label>
                                         <div class="col-sm-10">
-                                        <textarea name="image_content" id="image_content" cols="60" rows="6">{{$guide->image_content}}"</textarea>
+                                        <textarea name="image_content" id="image_content" cols="60" rows="6">{{$guide->image_content}}</textarea>
                                         </div>
                                     </div> 
                              

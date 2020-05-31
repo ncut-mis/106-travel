@@ -12,7 +12,7 @@
 
                     </div>
                     <div class="card-header">
-                        內容
+                        簡介
                     </div>
                     <div class="card-body">
                         {{$attraction->content}}
