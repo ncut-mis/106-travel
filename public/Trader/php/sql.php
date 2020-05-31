@@ -188,7 +188,7 @@ function show_guides_audit($id)
 function pass0to1($id)
 {
     $guides =array();
-    $sql = "update `guides` set `pass` = 1 , `updated_at` = now() where `id` = $id"  ;
+    $sql = "update `guides` set `pass` = 1 , `updated_at` = now() where `user_id` = $id"  ;
 
     $query = mysqli_query($_SESSION['link'],$sql);
 

@@ -10,6 +10,7 @@ $pass0 = get_pass0();
 print_r($pass0);*/
 $pass0 = get_pass0();
 $date2 = get_pass1or2();
+
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +85,7 @@ $date2 = get_pass1or2();
             <td><?php echo substr($i['birthday'],0,10); ?></td>
             <td><?php echo $i['phone'] ; ?></td>
             <td><?php echo $i['email'] ; ?></td>
-            <td><a class="btn btn-outline-danger" href="b1v.php?id=<?php echo $i['id'];?>" role="button">審核</a></td>
+            <td><a class="btn btn-outline-danger" href="b1v.php?user_id=<?php echo $i['user_id'];?>" role="button">審核</a></td>
             </tr>
 
                  <?php endforeach; ?>

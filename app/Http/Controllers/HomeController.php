@@ -89,7 +89,13 @@ class HomeController extends Controller
             //header("localhost:8000/Trader/index.php");
         }
 
-        //else
-            //return view('index');
+       // else
+            //return view('home');
+            else if(Auth::user()->guides->pass=="2")
+            {
+                $a=Auth::user();
+                return view('home',[ 'a' => $a]);
+            }
+            
     }
 }
