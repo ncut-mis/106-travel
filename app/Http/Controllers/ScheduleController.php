@@ -131,12 +131,13 @@ class ScheduleController extends Controller
     //dd($b1);
     //$b=Travel::schedules;
     $b=Schedule::find($request->input('schedule'));
+    $attraction_id=$b->attraction_id;
     $name=($request->input('name'));
     $start=($request->input('start'));
     $total=$request->input("total");
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total];
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total,'attraction'=>$attraction_id];
 
     return view('schedules.edit',$data);
 }
@@ -161,9 +162,9 @@ class ScheduleController extends Controller
 
         $b =Schedule::where('id', $request->input("update_id"))->first();
         $travel_id=$b->travel_id;
-
+        $attraction_id=$b->attraction_id;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
 
         return view('schedules.edit',$data);
     }
@@ -203,7 +204,10 @@ class ScheduleController extends Controller
     $start=($request->input('start'));
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,];
+
+    $attraction_id=$b->attraction_id;
+
+    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
 
     return view('schedules.edit',$data);
 

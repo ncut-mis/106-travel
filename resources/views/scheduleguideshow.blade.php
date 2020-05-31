@@ -4,7 +4,7 @@
 <div class="content">
     <div class="row">
         <div class="col-12">
-            <h2>{{$attraction->name}}</h2>
+            <h2><center>{{$attraction->name}}</h2>
             @if($schedule_guide_id==NULL)
                 <form action="{{route('scheduleguides.index2',$schedule_id)}}" method="post">
                     {{ csrf_field() }}
