@@ -45,10 +45,10 @@
                         </div>
                         <div class="card-body">
 
-                            @if($attraction_name->guide_id==$guide_name->id && $guide_name->user_id == $user_name->id)
-                                {{$user_name->name}}
-                            @endif
-{{--                            {{$attraction->content}}--}}
+{{--                            @if($attraction_name->guide_id==$guide_name->id && $guide_name->user_id == $user_name->id)--}}
+{{--                                {{$user_name->name}}--}}
+{{--                            @endif--}}
+                            {{$attraction->content}}
                         </div>
                         <div class="card-header" id="guide_price">
                             導遊費用

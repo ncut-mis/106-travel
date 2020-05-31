@@ -23,14 +23,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ '回首頁' }}
-                </a>
-            </div>
+{{--沒看到人用，所以我先注解--}}
+{{--    <div id="app">--}}
+{{--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">--}}
+{{--            <div class="container">--}}
+{{--                <a class="navbar-brand" href="{{ url('/home') }}">--}}
+{{--                    {{ '回首頁' }}--}}
+{{--                </a>--}}
+{{--            </div>--}}
         </nav>
 
 {{--    <div id="app">--}}

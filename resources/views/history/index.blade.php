@@ -1,11 +1,27 @@
 @extends('layouts.test')
-
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class=out1 style='text-align:center'>
         <font size="10">
             <b>旅遊歷史記錄</b>
         </font>
+    </div>
+    <style>
+        .div-b{ float:right;}
+        .div-c{ float:right;}
+
+    </style>
+    <div class="div-b">
+        <form  action="{{route('home')}}" method="get">
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-info">回首頁</button>
+        </form>
+    </div>
+    <div class="div-c">
+        <form  action="{{route('travel')}}" method="get">
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-danger">回旅遊規劃</button>
+        </form>
     </div>
     <div >
         <table class="table table-bordered table-hover" >
@@ -47,11 +63,7 @@
             </tbody>
         </table>
 {{--        {{$chgpage->links()}}--}}
-
     </div>
-    </div>
-    </div>
-    </h1>
     <!--'複製'彈出視窗的內容 Modal -->
     <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe8" aria-hidden="true">
         <div class="modal-dialog" role="document">

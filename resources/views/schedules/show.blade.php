@@ -4,6 +4,23 @@
             <b>{{$name}}</b>
         </font>
     </div>
+    <style>
+        .div-b{ float:right;}
+        .div-c{ float:right;}
+
+    </style>
+    <div class="div-b">
+        <form  action="{{route('home')}}" method="get">
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-info">回首頁</button>
+        </form>
+    </div>
+    <div class="div-c">
+        <form  action="{{route('travel')}}" method="get">
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-danger">回旅遊規劃</button>
+        </form>
+    </div>
     <div >
         <table class="table table-bordered table-hover" >
             <thead>
