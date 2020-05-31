@@ -202,18 +202,18 @@ require_once 'php/sqlb3.php';
                                     月份
                                     </button>
                                     <div class="dropdown-menu" id="month">
-                                        <a class="dropdown-item" href="#">1</a>
-                                        <a class="dropdown-item" href="#">2</a>
-                                        <a class="dropdown-item" href="#">3</a>
-                                        <a class="dropdown-item" href="#">4</a>
-                                        <a class="dropdown-item" href="#">5</a>
-                                        <a class="dropdown-item" href="#">6</a>
-                                        <a class="dropdown-item" href="#">7</a>
-                                        <a class="dropdown-item" href="#">8</a>
-                                        <a class="dropdown-item" href="#">9</a>
-                                        <a class="dropdown-item" href="#">10</a>
-                                        <a class="dropdown-item" href="#">11</a>
-                                        <a class="dropdown-item" href="#">12</a>
+                                        <a class="dropdown-item" href="">1</a>
+                                        <a class="dropdown-item" href="">2</a>
+                                        <a class="dropdown-item" href="">3</a>
+                                        <a class="dropdown-item" href="">4</a>
+                                        <a class="dropdown-item" href="">5</a>
+                                        <a class="dropdown-item" href="">6</a>
+                                        <a class="dropdown-item" href="">7</a>
+                                        <a class="dropdown-item" href="">8</a>
+                                        <a class="dropdown-item" href="">9</a>
+                                        <a class="dropdown-item" href="">10</a>
+                                        <a class="dropdown-item" href="">11</a>
+                                        <a class="dropdown-item" href="">12</a>
                                     </div>
                                     </div>
                         </button>
@@ -272,8 +272,9 @@ require_once 'php/sqlb3.php';
 
 
 <script type="text/javascript">
+
     $(document).ready(function () {
-$(selector).text(textString);
+
         $('#month a').click(function (e) { 
             var i = $(this).text();
             //$(location).attr('href',"?paytime="+i);
