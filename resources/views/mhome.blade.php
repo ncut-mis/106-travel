@@ -164,7 +164,11 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">{{$attraction->content}}</a></h2>
+                            <form action="{{route('travelguide.show')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction->content}}</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -180,7 +184,11 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">{{$attraction1->content}}</a></h2>
+                            <form action="{{route('travelguide.show')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction1->content}}</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -195,7 +203,11 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">{{$attraction2->content}}</a></h2>
+                            <form action="{{route('travelguide.show')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction2->content}}</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -210,7 +222,11 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">{{$attraction3->content}}</a></h2>
+                            <form action="{{route('travelguide.show')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction3->content}}</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>

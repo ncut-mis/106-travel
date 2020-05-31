@@ -67,7 +67,7 @@ class HomeController extends Controller
              }
 
 //             dd($photo,$photo1,$photo2,$photo3);
-             $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3];
+             $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id];
              //,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3
              return view('mhome', $data);
          }
@@ -96,6 +96,6 @@ class HomeController extends Controller
                 $a=Auth::user();
                 return view('home',[ 'a' => $a]);
             }
-            
+
     }
 }
