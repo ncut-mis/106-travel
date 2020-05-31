@@ -76,7 +76,7 @@ class ScheduleGuideController extends Controller
     $name=$request->input('name');
     $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
         ,'guide_id'=>$guide_id, 'travel_id' =>$travel_id,'name'=>$travel_name,'b1'=>$schedule,'start'=>$travel_start,'attraction_id'=>$attraction_id,
-        'reservation'=>$reservation,'name'=>$name];
+        'reservation'=>$reservation,'name'=>$name,'schedule'=>$schedule,'attraction'=>$schedule->attraction_id];
 
 
     return view('schedules.edit',$data);
@@ -95,23 +95,22 @@ class ScheduleGuideController extends Controller
         $attraction_id=$attraction->id;
         $reservation=$attraction->reservation;
         $guide_id=$attraction->guide_id;
-
+        $schedule_guide_id=$schedule->guide_id;
         $b = Attraction::where('id', $id)->first();
-
-        $user_name=DB::select('select  id,name from users');
-        $guide_name=DB::select('select  id,user_id from guides');
-        $attraction_name=DB::select('select  id,guide_id from attractions');
-        $schedules_name=DB::select('select  id,attraction_id from schedules');
+//        $user_name=DB::select('select  id,name from users');
+//        $guide_name=DB::select('select  id,user_id from guides');
+//        $attraction_name=DB::select('select  id,guide_id from attractions');
+//        $schedules_name=DB::select('select  id,attraction_id from schedules');
 
 
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
                 ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation,
-            'total'=>$total,'name'=>$name,'$user_name'=>$user_name,'guide_name'=>$guide_name,'attraction_name'=>$attraction_name,
-            'schedules_name'=>$schedules_name];
+            'total'=>$total,'name'=>$name,'guide_name'=>$guide_name,'schedule_guide_id'=>$schedule_guide_id];
 
 
 
         return view('scheduleguideshow',$data);
     }
+
 }

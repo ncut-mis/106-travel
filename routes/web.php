@@ -78,6 +78,9 @@ Route::post('confirm/edit','ConfirmController@edit')->name('confirm.edit');
 //會員觀看導遊的詳細資料
 Route::get('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
 Route::post('scheduleguides/{id}', 'ScheduleGuideController@show')->name('scheduleguides.show');
+//會員媒合後觀看導遊詳細資料
+Route::post('scheduleguides/show1', 'ScheduleGuideController@show1')->name('scheduleguides.show1');
+Route::get('scheduleguides/show1', 'ScheduleGuideController@show1')->name('scheduleguides.show1');
 //會員媒合導遊
 Route::post('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');
 Route::get('/scheduleguides', 'ScheduleGuideController@index')->name('scheduleguides.index');

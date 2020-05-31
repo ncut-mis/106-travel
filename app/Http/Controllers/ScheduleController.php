@@ -37,6 +37,27 @@ class ScheduleController extends Controller
         $total=($request->input("total"));
         $data=['b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
 
+
+//        $schedule=schedule::where('id', $request->input("id"))->first();
+        //$schedule_date=$b->start;
+//        $today = date('Y-m-d') ;
+//        dd(strtotime($start));
+//        for($start=0;strtotime($start)<=strtotime($end);strtotime($start)++){
+//            if(strtotime($today)<(strtotime($start)<=strtotime($end))){
+//                $schedule= Schedule::where('id', $request->input("id"))->first();
+//                $schedule->guide_id="";
+//                $attraction_id=$schedule->attraction_id;
+//                $attraction=Attraction::where('id',$attraction_id)->first();
+//                $attraction->reservation="";
+//                $attraction->member_name="";
+//                $schedule->attraction_id="";
+//                $schedule->cost=0;
+//                $schedule->match_time=NULL;
+//                $schedule->save();
+//                $attraction->save();
+//            }
+//        }
+
         return view('schedules.index',$data);
     }
     public function reindex(Request $request    )
@@ -91,14 +112,16 @@ class ScheduleController extends Controller
     public function edit(request $request)
     {
         //$b=Travel::schedules;
+
         $b=Schedule::find($request->input('update_id'));
+        $attraction_id=$b->attraction_id;
         $name=($request->input('name'));
         $start=($request->input('start'));
         $match_id= $request->input("match_id");
         $travel_id=$request->input("travel_id");
         $total=$request->input("total");
         $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total
-
+        ,'attraction'=>$attraction_id
         ];
 
         return view('schedules.edit',$data);

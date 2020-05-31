@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-            <label for="location">旅遊區域:</label>
+            <label for="location">&nbsp;&nbsp;&nbsp;&nbsp;旅遊區域： </label>
             <select type="text" class="selectpicker" name="select_region" id="select_region" style="width:100px; height:50px;" value="">
                 <option value="">請選擇縣市</option>
                 <option value="基隆市">基隆市</option>
@@ -55,9 +55,9 @@
                 })});
         </script>
             <div  class="form-group" >
-                <label class="control-label col-sm-2" >目前選擇的旅遊區域為:</label>
+                <label class="control-label col-sm-2" >目前選擇的旅遊區域為：</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="update_region" name="update_region" style="width:100px; height:50px;" readonly="readonly" value={{$b1->region}}>
+                    <input type="text" class="form-control" id="update_region" name="update_region" style="width:70px; height:50px;" readonly="readonly" value={{$b1->region}}>
                 </div>
             </div>
         <script type="text/javascript">
@@ -76,48 +76,125 @@
             <div  class="form-group" >
             <label class="control-label col-sm-2" >景點:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_name" name="update_name" style="width:600px; height:50px;" value={{$b1->name}}>
+                <input type="text" class="form-control" id="update_name" name="update_name" style="width:500px; height:50px;" value={{$b1->name}}>
             </div>
         </div>
         <div  class="form-group" >
-            <label class="control-label col-sm-2" >住宿:</label>
+            &nbsp;&nbsp;&nbsp;<label class="control-label" >住宿：</label>
+            <select type="text" class="selectpicker" name="select_room" id="select_room" style="width:120px; height:35px;" value="">
+                <option value="">選擇住宿形式</option>
+                <option value="民宿名稱為：">民宿</option>
+                <option value="飯店名稱為：">飯店</option>
+                <option value="旅館名稱為：">旅館</option>
+                <option value="露營地點為：">露營</option>
+                <option value="其他：">其他</option>
+            </select>
+            <script type="text/javascript">
+                //將下拉式選單的值抓出並顯示在inupt中
+                $(document).ready(function() {
+                    var i = $('#select_room').change(function () {
+                        $text=$('#select_room').val();
+                        document.getElementById("update_room").value=$text
+                    })});
+            </script>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_room" name="update_room" style="width:600px; height:50px;" value={{$b1->room}}>
+                <input type="text" class="form-control" id="update_room" name="update_room" style="width:300px; height:50px;" value={{$b1->room}}>
             </div>
         </div>
         <div  class="form-inline">
 
-              <label class="control-label">&emsp;早餐:</label>
-                <input type="text" class="form-control" id="update_breakfast" name="update_breakfast"  value={{$b1->breakfast}}>
-                <label class="control-label">&emsp;午餐:</label>
-                <input type="text" class="form-control" id="update_lunch" name="update_lunch"  value={{$b1->lunch}}>
-                <label class="control-label ">&emsp;晚餐:</label>
-                <input type="text" class="form-control" id="update_dinner" name="update_dinner"  value={{$b1->dinner}}>
+              <label class="control-label">&emsp;早餐：</label>
+            <select type="text" class="selectpicker" name="select_breakfast" id="select_breakfast" style="width:120px; height:35px;" value="">
+                <option value="">選擇餐點形式</option>
+                <option value="中式：">中式</option>
+                <option value="西式：">西式</option>
+                <option value="其他：">其他</option>
+            </select>
+            <script type="text/javascript">
+                //將下拉式選單的值抓出並顯示在inupt中
+                $(document).ready(function() {
+                    var i = $('#select_breakfast').change(function () {
+                        $text=$('#select_breakfast').val();
+                        document.getElementById("update_breakfast").value=$text
+                    })});
+            </script>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="update_breakfast" name="update_breakfast"  value={{$b1->breakfast}}>
+                <label class="control-label">&emsp;午餐：</label>
+            <select type="text" class="selectpicker" name="select_lunch" id="select_lunch" style="width:120px; height:35px;" value="">
+                <option value="">選擇餐點形式</option>
+                <option value="中式：">中式</option>
+                <option value="西式：">西式</option>
+                <option value="其他：">其他</option>
+            </select>
+            <script type="text/javascript">
+                //將下拉式選單的值抓出並顯示在inupt中
+                $(document).ready(function() {
+                    var i = $('#select_lunch').change(function () {
+                        $text=$('#select_lunch').val();
+                        document.getElementById("update_lunch").value=$text
+                    })});
+            </script>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="update_lunch" name="update_lunch"  value={{$b1->lunch}}>
+                <label class="control-label ">&emsp;晚餐：</label>
+            <select type="text" class="selectpicker" name="select_dinner" id="select_dinner" style="width:120px; height:35px;" value="">
+                <option value="">選擇餐點形式</option>
+                <option value="中式：">中式</option>
+                <option value="西式：">西式</option>
+                <option value="其他：">其他</option>
+            </select>
+            <script type="text/javascript">
+                //將下拉式選單的值抓出並顯示在inupt中
+                $(document).ready(function() {
+                    var i = $('#select_dinner').change(function () {
+                        $text=$('#select_dinner').val();
+                        document.getElementById("update_dinner").value=$text
+                    })});
+            </script>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="update_dinner" name="update_dinner"  value={{$b1->dinner}}>
         </div>
         <br>
         <div  class="form-group" >
-            <label class="control-label col-sm-2" >交通:</label>
+            <label class="control-label" >&nbsp;&nbsp;&nbsp;交通：</label>
+            <select type="text" class="selectpicker" name="select_traffic" id="select_traffic" style="width:120px; height:35px;" value="">
+                <option value="">選擇交通方式</option>
+                <option value="步行">步行</option>
+                <option value="開車">開車</option>
+            <option value="騎車">騎車</option>
+            <option value="火車">火車</option>
+            <option value="高鐵">高鐵</option>
+            <option value="腳踏車">腳踏車</option>
+            <option value="其他：">其他</option>
+            </select>
+            <script type="text/javascript">
+                //將下拉式選單的值抓出並顯示在inupt中
+                $(document).ready(function() {
+                    var i = $('#select_traffic').change(function () {
+                        $text=$('#select_traffic').val();
+                        document.getElementById("update_traffic").value=$text
+                    })});
+            </script>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_traffic" name="update_traffic" style="width:600px; height:50px;" value={{$b1->traffic}}>
+                <input type="text" class="form-control" id="update_traffic" name="update_traffic" style="width:300px; height:50px;" value={{$b1->traffic}}>
             </div>
         </div>
 
         <div  class="form-group" >
             <label class="control-label col-sm-2" >出發地點:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_going" name="update_going" style="width:1550px; height:50px;" value={{$b1->going}}>
+                <input type="text" class="form-control" id="update_going" name="update_going" style="width:300px; height:50px;" value={{$b1->going}}>
             </div>
         </div>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >目的地:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_arriving" name="update_arriving" style="width:1550px; height:50px;" value={{$b1->arriving}}>
+                <input type="text" class="form-control" id="update_arriving" name="update_arriving" style="width:300px; height:50px;" value={{$b1->arriving}}>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">內容描述:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="update_content" name="update_content" style="width:1550px; height:100px;" value={{$b1->content}}>
+                <textarea rows="5" type="text" name="update_content" id="update_content"  class="form-control" cols="20"  >{{$b1->content}}</textarea>
+{{--                <input type="text" class="form-control" id="update_content" name="update_content" style="width:1550px; height:100px;" value={{$b1->content}}>--}}
             </div>
         </div>
         <div class="form-group">
@@ -138,8 +215,16 @@
         <button type="submit" class="btn btn-danger">返回</button>
     </form>
     @if($b1->guide_id != "")
-        <label class="">目前已有媒合導遊</label>
+        <form action="{{route('scheduleguides.show1')}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction}}>
+            <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$b1->id}}>
+            <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+            <input type = "hidden" id = "schedule" name = "schedule" value ={{$b1->id}}>
+            <input type = "hidden" id="name" name="name" value = {{$name}}>
 
+            <button type="submit" class="btn btn-danger">查看目前媒合的導遊資訊</button>
+        </form>
         <form action="{{route('schedules.matchcancel')}}" method="post">
             {{ csrf_field() }}
             <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">

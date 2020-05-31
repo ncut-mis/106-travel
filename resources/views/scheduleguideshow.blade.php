@@ -5,15 +5,16 @@
     <div class="row">
         <div class="col-12">
             <h2>{{$attraction->name}}</h2>
-            <form action="{{route('scheduleguides.index2',$schedule_id)}}" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
-                <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
-                <input type = "hidden" id = "name" name = "name" value = {{$name}}>
-                <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
-                <button type="submit" class="btn btn-danger">返回</button>
-            </form>
-
+            @if($schedule_guide_id==NULL)
+                <form action="{{route('scheduleguides.index2',$schedule_id)}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+                    <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+                    <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+                    <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+                    <button type="submit" class="btn btn-danger">返回</button>
+                </form>
+            @endif
             <nav id="navbar-example2" class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#"></a>
                 <ul class="nav nav-pills">
@@ -39,16 +40,15 @@
                         <div class="card-header" id="guide_name">
                             導遊姓名
                         </div>
+{{--                            @if($attraction_name->guide_id==$guide_name->id && $guide_name->user_id == $user_name->id)--}}
+{{--                                {{$user_name->name}}--}}
+{{--                            @endif--}}
 
                         <div class="card-header" id="fat">
                             簡介
                         </div>
                         <div class="card-body">
-
-                            @if($attraction_name->guide_id==$guide_name->id && $guide_name->user_id == $user_name->id)
-                                {{$user_name->name}}
-                            @endif
-{{--                            {{$attraction->content}}--}}
+                            {{$attraction->content}}
                         </div>
                         <div class="card-header" id="guide_price">
                             導遊費用
@@ -93,17 +93,31 @@
                             </div>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
-                    {{ csrf_field() }}
-                    <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
-                    <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
-                    <input type="hidden" class="form-control" id="match_id" name="match_id" value={{$guide_id}}>
-                    <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
-                    <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
-                    <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
-                    <input type = "hidden" id = "name" name = "name" value = {{$name}}>
-                    <center><button type="submit" class="btn btn-danger">媒合導遊</button></center>
-                </form>
+                @if($schedule_guide_id==NULL)
+                    <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
+                        {{ csrf_field() }}
+                        <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
+                        <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+                        <input type="hidden" class="form-control" id="match_id" name="match_id" value={{$guide_id}}>
+                        <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+                        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+                        <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
+                        <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+                        <center><button type="submit" class="btn btn-danger">媒合導遊</button></center>
+                    </form>
+                @else
+                    <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
+                        {{ csrf_field() }}
+                        <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
+                        <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
+                        <input type="hidden" class="form-control" id="match_id" name="match_id" value={{$guide_id}}>
+                        <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
+                        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+                        <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
+                        <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+                        <center><button type="submit" class="btn btn-danger">返回</button></center>
+                    </form>
+                 @endif
             </div>
         </div>
     </div>
