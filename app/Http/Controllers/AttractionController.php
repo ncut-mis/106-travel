@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use http\Env\Response;
 use App\File;
 use App\Video;
+use App\Photo;
 
 
 class AttractionController extends Controller
@@ -56,7 +57,20 @@ class AttractionController extends Controller
         $attraction_last= Attraction::orderBy('id', 'DESC')->first();
         $attraction_id=$attraction_last->id;
 
+        //導遊專長景點的主圖片
+        $photos = $request->file('photo');
+        if (is_array($photos) || is_object($photos)) {
+            foreach ($photos as $photo) {
+                Photo::create([
+                    'attraction_id' => $attraction_id,
+                    'path' => $photo->store('storage1')
+                ]);
+            }
+        }
+
+        //導遊專長景點的圖片
         $files = $request->file('file');
+
         //$b['attraction_id']=auth()->user()->guides->id;
 
         if (is_array($files) || is_object($files)) {
