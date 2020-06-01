@@ -62,7 +62,6 @@
                                 <th>內容</th>
                                 <th>導遊費用</th>
                                 <th>操作鈕</th>
-                                <th>1</th>
                             </tr>
                             </thead>
                                     <div style="display:none">
@@ -82,32 +81,32 @@
                                     <td>{{$b1->traffic}}</td>
                                     <td>{{$b1->content}}</td>
                                     <td>{{$b1->cost}}</td>
-                                    <td>
-                                        <form action="{{ route('schedules.edit') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type = "hidden" id = "update_id" name = "update_id" value = "{{$b1->id}}">
-                                            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
-                                            <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
-                                            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
+{{--                                    <td>--}}
+{{--                                        <form action="{{ route('schedules.edit') }}" method="POST">--}}
+{{--                                            {{ csrf_field() }}--}}
+{{--                                            <input type = "hidden" id = "update_id" name = "update_id" value = "{{$b1->id}}">--}}
+{{--                                            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">--}}
+{{--                                            <input type = "hidden" id = "start" name = "start" value = "{{$start}}">--}}
+{{--                                            <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">--}}
 {{--                                            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">--}}
 
 {{--                                            <input type = "hidden" id = "region" name = "region" value = "{{$region}}">--}}
 
-                                            <button type="submit" class="btn btn-success" name="id" id="id">編輯</button>
+{{--                                            <button type="submit" class="btn btn-success" name="id" id="id">編輯</button>--}}
 {{--                                    <form action="{{ route('schedules.destroy') }}" method="POST">--}}
 {{--                                        {{ csrf_field() }}--}}
 {{--                                        {{ method_field('DELETE') }}--}}
 {{--                                        <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$cc}}>--}}
 {{--                                        <button type="submit" class="btn btn-success" name="a2" id="a2" value={{$b1->id}}>刪除</button>--}}
 {{--                                    </form>--}}
-                                        </form>
+{{--                                        </form>--}}
 
-                                    </td>
+{{--                                    </td>--}}
                                     <td><form action="{{ route('storechedule') }}" method="POST">
                                             {{ csrf_field() }}
-                                            <input type = "text" id = "att_id" name = "att_id" value = "{{$att_id}}">
-                                            <input type = "text" id = "this_id" name = "this_id" value = "{{$b1->id}}">
-                                            <input type = "text" id = "name" name = "name" value = "{{$name}}">
+                                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$att_id}}">
+                                            <input type = "hidden" id = "this_id" name = "this_id" value = "{{$b1->id}}">
+                                            <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
                                             <button type="submit" class="btn btn-danger" name="id" id="id">加入至這天</button>
                                         </form></td>
                                 </tr>

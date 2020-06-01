@@ -298,8 +298,12 @@ class ScheduleController extends Controller
 
         $id=$request->input('this_id');
         $schedule=Schedule::where('id',$id)->first();
-//        $travel_id=$schedule->travel_id;
-//        $b=Travel::find($travel_id)->schedules;
+        $travel_id=$schedule->travel_id;
+        $b=Travel::find($travel_id);
+        $travel_total=$b->total;
+        $total=$travel_total+$attraction->price;
+        $b->total=$total;
+        $b->save();
 //        $start=123;
 //        $end=123;
         $schedule->region=$attraction->location;

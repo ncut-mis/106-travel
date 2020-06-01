@@ -51,7 +51,7 @@
                                         <input type = "hidden" id = "start" name = "start" value = "{{$travels->start}}">
                                         <input type = "hidden" id = "end" name = "end" value = "{{$travels->end}}">
                                         <input type = "hidden" id = "total" name = "total" value = "{{$travels->total}}">
-                                        <input type = "text" id = "att_id" name = "att_id" value = "{{$att_id}}">
+                                        <input type = "hidden" id = "att_id" name = "att_id" value = "{{$att_id}}">
                                         <button type="submit" class="btn btn-link"><font color="blue">{{$travels->name}}</font></button>
                                     </form></td>
                                     <td>{{$travels->start}}</td>

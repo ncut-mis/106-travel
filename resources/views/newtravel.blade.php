@@ -74,6 +74,12 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         @endif
     </div>
+    <div class="card-header">
+        費用
+    </div>
+    <div class="card-body">
+        {{$attraction->price}}元
+    </div>
     <form action="{{route('hometomatch')}}" method="post">
         {{ csrf_field() }}
         <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction->id}}">
