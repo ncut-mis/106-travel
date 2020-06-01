@@ -48,8 +48,8 @@
                 document.getElementById("update_name").value=$text
             })});
         }
-
     </script>
+    {{$b1->start}}123
     <form name="myForm" class="form-horizontal" action="{{ route('schedules.update') }}" method="POST">
         {{ csrf_field() }}
         <input type="hidden" class="form-control" id="update_id" name="update_id" value={{$b1->id}}>
