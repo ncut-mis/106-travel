@@ -2,13 +2,13 @@
 
 @section('content')
     <?php $num=0;
-//        $num2=$last_attraction_id;
     ?>
     <table class="table table-hover">
         <thead>
         <tr>
             <th >編號</th>
             <th >導遊姓名</th>
+            <th >手機號碼</th>
             <th >旅遊區域</th>
             <th >景點名稱<br>(點選查看詳細資訊)</th>
             <th >導遊費用</th>
@@ -23,9 +23,12 @@
                                     <?php  $num=$num+1; ?>
                                     {{$num}}
                                 </td>
-                                    <td>
-                                        {{$c[$attraction->guide_id]}}
-                                    </td>
+                                <td>
+                                    {{$c[$attraction->guide_id]}}
+                                </td>
+                                <td>
+                                    {{$d[$attraction->guide_id]}}
+                                </td>
                                 <td>
                                     {{$attraction->location}}
                                 </td>
