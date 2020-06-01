@@ -1,10 +1,13 @@
 @extends('layouts.guide')
 
 @section('content')
-
+    <?php $num=0;
+//        $num2=$last_attraction_id;
+    ?>
     <table class="table table-hover">
         <thead>
         <tr>
+            <th >編號</th>
             <th >導遊姓名</th>
             <th >旅遊區域</th>
             <th >景點名稱<br>(點選查看詳細資訊)</th>
@@ -17,8 +20,12 @@
                                 && $attraction->status ==1 && $attraction->member_name=="")
                                 <tr>
                                 <td>
-                                    {{$attraction->guide_id}}
+                                    <?php  $num=$num+1; ?>
+                                    {{$num}}
                                 </td>
+                                    <td>
+                                        {{$c[$attraction->guide_id]}}
+                                    </td>
                                 <td>
                                     {{$attraction->location}}
                                 </td>
@@ -30,6 +37,7 @@
                                             <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                                             <input type = "hidden" id = "schedule" name = "schedule" value ={{$schedule->id}}>
                                             <input type = "hidden" id="name" name="name" value = {{$name}}>
+                                            <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                                             <button type="submit" class="btn btn-success" name="id" id="id">{{$attraction->name}}</button>
                                         </form>
 
@@ -49,6 +57,7 @@
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
         <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
         <input type = "hidden" id ="name" name="name" value = {{$name}}>
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <button type="submit" class="btn btn-danger">返回</button>
     </form>
         </div>
