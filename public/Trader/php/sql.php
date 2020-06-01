@@ -207,7 +207,7 @@ function pass0to1($id)
 function pass0to2($id)
 {
     $guides =array();
-    $sql = "update `guides` set `pass` = 2 ,`pass_time` = now() ,`updated_at` = now()  where `id` = $id"  ;
+    $sql = "update `guides` set `pass` = 2 ,`pass_time` = now() ,`updated_at` = now()  where `user_id` = $id"  ;
 
     $query = mysqli_query($_SESSION['link'],$sql);
 

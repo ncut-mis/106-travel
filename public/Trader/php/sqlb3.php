@@ -293,10 +293,18 @@ function get_travels_order_total_today()//判斷今日訂單數
     return $data ;
 }
 
-function get_travels_order_Month($paytime)//營收表單
+function get_travels_order_Month($year,$month)//營收表單
 {
     $data =array();
-    $sql = "SELECT `*`,sum(`total`) as 營業額 ,count(*) as 訂單數, ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels`   where `paytime` between '2020/$paytime/01' and '2020/$paytime/31' Group by paytime " ;
+    if(empty($month))
+    {
+        $sql = "SELECT `*`,sum(`total`) as 營業額 ,count(*) as 訂單數, ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels`   where `paytime` between '$year/01/01' and '$year/12/31' Group by paytime  " ;
+    }
+
+    else
+    {
+        $sql = "SELECT `*`,sum(`total`) as 營業額 ,count(*) as 訂單數, ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels`   where `paytime` between '$year/$month/01' and '$year/$month/31' Group by paytime " ;
+    }
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -316,13 +324,18 @@ function get_travels_order_Month($paytime)//營收表單
     return $data ;
 }
 
-function get_travels_total_month2($paytime)//判斷今天營收
+function get_travels_total_month2($year,$month)//判斷今天營收
 {
     $data =null;
-    $sql = "SELECT sum(total) as 營業額 ,  ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels` where `paytime`  between '2020/$paytime/01' and '2020/$paytime/31'
-    
-     " ;
+    if(empty($month))
+    {
+    $sql = "SELECT sum(total) as 營業額 ,  ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels` where `paytime`  between '$year/01/01' and '$year/12/31' " ;
+    }
 
+    else
+    {
+        $sql = "SELECT sum(total) as 營業額 ,  ROUND(sum(total*0.9), 0) as 淨利率 FROM `travels` where `paytime`  between '$year/$month/01' and '$year/$month/31' " ;
+    }
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
