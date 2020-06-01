@@ -17,8 +17,8 @@ class Attraction extends Model
     }
     public function photos()
     {
-        //一對多
-        return $this->hasMany(Photo::class);
+        //一對一
+        return $this->hasOne(Photo::class);
     }
     public function videos()
     {

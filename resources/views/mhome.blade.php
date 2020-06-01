@@ -156,8 +156,7 @@
     <!-- Hero Slides Area -->
     <div class="hero-slides owl-carousel">
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b2.jpg);">
-{{--            <img class="figure-img img-fluid rounded"  src="{{Storage::url($file->path)}}">--}}
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">
 
             <img class="figure-img img-fluid rounded"  >
             <div class="container h-100">
@@ -167,7 +166,7 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>
                             </div>
-                            <form action="{{route('travelguide.show')}}" method="post">
+                            <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
                                 <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction->content}}</font></button>
@@ -179,7 +178,7 @@
         </div>
 
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b1.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -187,7 +186,7 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
                             </div>
-                            <form action="{{route('travelguide.show')}}" method="post">
+                            <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
                                 <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction1->content}}</font></button>
@@ -199,7 +198,7 @@
         </div>
 
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b3.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -207,7 +206,7 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>
                             </div>
-                            <form action="{{route('travelguide.show')}}" method="post">
+                            <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
                                 <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction2->content}}</font></button>
@@ -218,7 +217,7 @@
             </div>
         </div>
         <!--再一個-->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b3.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
@@ -226,7 +225,7 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>
                             </div>
-                            <form action="{{route('travelguide.show')}}" method="post">
+                            <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
                                 <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction3->content}}</font></button>
@@ -623,50 +622,50 @@
     {{--</div>--}}
     {{--<!-- ##### Instagram Feed Area End ##### -->--}}
 
-    {{--<!-- ##### Footer Area Start ##### -->--}}
-    <footer class="footer-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+    {{--<!-- ##### Footer Area Start 從這裡開始是底部##### -->--}}
+{{--    <footer class="footer-area text-center">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
 
-                    <!-- Footer Nav Area -->
-                    <div class="classy-nav-container breakpoint-off">
-                        <!-- Classy Menu -->
-                        <nav class="classy-navbar justify-content-center">
+{{--                    <!-- Footer Nav Area -->--}}
+{{--                    <div class="classy-nav-container breakpoint-off">--}}
+{{--                        <!-- Classy Menu -->--}}
+{{--                        <nav class="classy-navbar justify-content-center">--}}
 
-                            <!-- Navbar Toggler -->
-                            <div class="classy-navbar-toggler">
-                                <span class="navbarToggler"><span></span><span></span><span></span></span>
-                            </div>
+{{--                            <!-- Navbar Toggler -->--}}
+{{--                            <div class="classy-navbar-toggler">--}}
+{{--                                <span class="navbarToggler"><span></span><span></span><span></span></span>--}}
+{{--                            </div>--}}
 
-                            <!-- Menu -->
-                            <div class="classy-menu">
+{{--                            <!-- Menu -->--}}
+{{--                            <div class="classy-menu">--}}
 
-                                <!-- close btn -->
-                                <div class="classycloseIcon">
-                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                                </div>
+{{--                                <!-- close btn -->--}}
+{{--                                <div class="classycloseIcon">--}}
+{{--                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>--}}
+{{--                                </div>--}}
 
-                                <!-- Nav Start -->
-                                <div class="classynav" >
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">travel</a></li>
-                                        <li><a href="#">Music</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Nav End -->
-                            </div>
-                        </nav>
-                    </div>
+{{--                                <!-- Nav Start -->--}}
+{{--                                <div class="classynav" >--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a href="#">Home</a></li>--}}
+{{--                                        <li><a href="#">About Us</a></li>--}}
+{{--                                        <li><a href="#">Lifestyle</a></li>--}}
+{{--                                        <li><a href="#">travel</a></li>--}}
+{{--                                        <li><a href="#">Music</a></li>--}}
+{{--                                        <li><a href="#">Contact</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                                <!-- Nav End -->--}}
+{{--                            </div>--}}
+{{--                        </nav>--}}
+{{--                    </div>--}}
 
 
-                </div>
-            </div>
-        </div>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     {{--    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>--}}
