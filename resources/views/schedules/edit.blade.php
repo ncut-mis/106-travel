@@ -49,7 +49,6 @@
                 document.getElementById("update_name").value=$text
             })});
         }
-
     </script>
     <form name="myForm" class="form-horizontal" action="{{ route('schedules.update') }}" method="POST">
         {{ csrf_field() }}

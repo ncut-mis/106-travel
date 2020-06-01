@@ -260,4 +260,70 @@ class ScheduleController extends Controller
         $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file];
         return view('schedules.attraction',$data);
     }
+    public function hometomatch(request $request)
+    {
+        $att_id=$request->input('att_id');
+        $travels=Auth::user()->members->travels;
+        $travels1=Auth::user()->members->travels;
+        $chgpage=Auth::user()->members->travels()->paginate(3);
+        $chgpage1=Auth::user()->members->travels()->paginate(3);
+        $today = date('Y-m-d') ;
+
+        $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1,'att_id'=>$att_id];
+        return view('/hometomatch',$data);
+    }
+    public function showschedule(request $request)
+    {
+        $name=($request->input("name"));
+        $start=($request->input("start"));
+        $end=($request->input("end"));
+        $date=floor((strtotime($end)-strtotime($start))/86400+1);
+        $b=Travel::find($request->input("id"))->schedules;
+
+        $cc=($request->input("id"));
+        $travel_id=($request->input("id"));
+        $total=($request->input("total"));
+        $att_id=$request->input('att_id');
+        $travels=Auth::user()->members->travels;
+        $travels1=Auth::user()->members->travels;
+        $chgpage=Auth::user()->members->travels()->paginate(3);
+        $chgpage1=Auth::user()->members->travels()->paginate(3);
+        $today = date('Y-m-d') ;
+
+        $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1,'att_id'=>$att_id,
+            'b1'=>$b,'cc'=>$cc,'date'=>$date,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id,'name'=>$name,'total'=>$total];
+        return view('/schedulehometomatch',$data);
+    }
+
+    public function storechedule(request $request)
+    {
+        $user_name=Auth::user()->name;
+        $nowtime=Carbon::now();
+//        $name=$request->input('name');
+        $att_id=$request->input('att_id');
+        $attraction=Attraction::where('id',$att_id)->first();
+        $attraction->reservation=1;
+        $attraction->member_name=$user_name;
+
+        $id=$request->input('this_id');
+        $schedule=Schedule::where('id',$id)->first();
+        $travel_id=$schedule->travel_id;
+        $b=Travel::find($travel_id);
+        $travel_total=$b->total;
+        $total=$travel_total+$attraction->price;
+        $b->total=$total;
+        $b->save();
+//        $start=123;
+//        $end=123;
+        $schedule->region=$attraction->location;
+        $schedule->name=$attraction->name;
+        $schedule->match_time=$nowtime;
+        $schedule->attraction_id=$att_id;
+        $schedule->cost=$attraction->price;
+        $schedule->guide_id=$attraction->guide_id;
+        $schedule->save();
+        $attraction->save();
+//        $data=['name'=>$name,'b1'=>$b,'start'=>$start,'end'=>$end,'travel_id'=>$travel_id];
+        return redirect('/travel');
+    }
 }

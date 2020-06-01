@@ -55,7 +55,7 @@ $date2 = get_pass1or2();
             <th scope="row"><?php echo $guides['name'] ; ?></th>
             <td><img style="width:100px;height:100px" src="<?php echo $guides['photo'] ; ?>" alt=""></td>
             <td><?php echo $guides['id_card'] ; ?></td>
-            <td><?php echo $guides['updated_at'] ; ?></td>
+            <td><?php echo $guides['pass_time'] ; ?></td>
             <td><?php if($guides['pass']=="1") echo "<font color = green >已通過</font>"; else if($guides['pass']=="2") echo "<font color = red >黑名單</font>"; ?></td>
             </tr>
 
@@ -112,11 +112,11 @@ $date2 = get_pass1or2();
             <th scope="row"><?php echo $guides['name'] ; ?></th>
             <td><img style="width:100px;height:100px" src="<?php echo $guides['photo'] ; ?>" alt=""></td>
             <td><?php echo $guides['id_card'] ; ?></td>
-            <td><?php echo $guides['updated_at'] ; ?></td>
+            <td><?php echo $guides['pass_time'] ; ?></td>
             <td>
             <form action="POST">
             <div class="">
-            <button type="button" class="btn btn-outline-dark" data-id="<?php echo $guides['id']?>" data-name="<?php echo $guides['name']?>" data-toggle="modal" data-target="#exampleModal">黑名單</button>
+            <button type="button" class="btn btn-outline-dark" data-user_id="<?php echo $guides['user_id']?>" data-name="<?php echo $guides['name']?>" data-toggle="modal" data-target="#exampleModal">黑名單</button>
             </div>
             
             </form>
@@ -182,10 +182,10 @@ $date2 = get_pass1or2();
     $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) 
   var name = button.data('name') 
-  var id = button.data('id') 
+  var id = button.data('user_id') 
   var modal = $(this)
   modal.find('.modal-title').text("確定要把'"+name+"'導遊加入黑名單嗎?")
-  modal.find('#check').attr("action","php/blacklist.php?id="+id)
+  modal.find('#check').attr("action","php/blacklist.php?user_id="+id)
 })
  });
 </script>

@@ -47,6 +47,7 @@ Route::post('travel/edit',['as'=>'travel.edit','uses'=>'TravelController@edit'])
 
 //顯示所有會員行程規劃
 Route::post('/schedules', 'ScheduleController@index')->name('schedules.index');
+Route::get('/schedules', 'ScheduleController@index')->name('schedules.index');
 Route::get('/reschedules', 'ScheduleController@reindex')->name('schedules.reindex');
 Route::get('travels/{id}', 'TravelController@show')->name('travels.show');
 //會員新增行程
@@ -96,7 +97,13 @@ Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('sc
 //會員觀看進行中的專長景點
 Route::post('schedules/attraction','ScheduleController@attraction')->name('schedules.attraction');
 //會員從首頁直接觀看導遊景點
-Route::post('travel/attraction','TravelController@attraction')->name('travelguide.show');
+Route::post('travel/attraction','TravelController@attraction')->name('travelguide.attraction');
+//會員從首頁觀看導遊後從已有旅遊規畫新增導遊
+Route::post('schedule/hometomatch','ScheduleController@hometomatch')->name('hometomatch');
+//會員首頁觀看規劃中後跳轉至schedule頁面
+Route::post('schedule/showschedule','ScheduleController@showschedule')->name('showschedule');
+//會員首頁首頁觀看規劃中後跳轉至schedule頁面裡加入導遊
+Route::post('schedule/storechedule','ScheduleController@storechedule')->name('storechedule');
 
 
 //導遊目前所有專長景點

@@ -271,7 +271,7 @@ class TravelController extends Controller
         $user_id=$guide->user_id;
         $user=User::where('id',$user_id)->first();
         $files=File::Where('attraction_id',$att_id)->orderBy('created_at','DESC')->paginate(30);
-        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file];
+        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file,'att_id'=>$att_id];
         return view('/newtravel',$data);
     }
 

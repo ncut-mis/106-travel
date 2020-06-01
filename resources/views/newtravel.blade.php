@@ -8,8 +8,25 @@
             <font size="10">
                 <b>{{$attraction->name}}</b>
             </font>
-        </div>
+            <style>
+                .div-a{ float:left;width:49%;border:1px}
+                .div-b{ float:right;}
+                .div-c{ float:right;}
 
+            </style>
+        </div>
+        <div class="div-b">
+            <form  action="{{route('home')}}" method="get">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-info">回首頁</button>
+            </form>
+        </div>
+        <div class="card-header">
+            導遊資訊
+        </div>
+        <div class="card-body">
+            導遊名稱:{{$user->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊電話:{{$user->phone}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊信箱:{{$user->email}}
+        </div>
     </div>
     <div class="card-header">
         簡介
@@ -56,14 +73,18 @@
         @if($file!=NULL)
             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         @endif
-        <br><br>
-        <div class="card-header">
-            導遊資訊
-        </div>
-        <div class="card-body">
-            導遊名稱:{{$user->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊電話:{{$user->phone}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊信箱:{{$user->email}}
-        </div>
     </div>
+    <div class="card-header">
+        費用
+    </div>
+    <div class="card-body">
+        {{$attraction->price}}元
+    </div>
+    <form action="{{route('hometomatch')}}" method="post">
+        {{ csrf_field() }}
+        <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction->id}}">
+        <button type="submit" class="btn btn-danger">加入該導遊至規畫中旅遊</button>
+    </form>
     <script>
         function SubmitForm(frm){
 //      document.("表单的name值").action

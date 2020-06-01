@@ -57,7 +57,7 @@ $file_name =  basename($file_path);
         <a class="nav-link <?php  echo ($index==2)?"active":""; ?> " href="b2.php">查詢每筆交易紀錄</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link <?php  echo ($index==3)?"active":""; ?>" href="b3.php?paytime=01" >營運統計</a>
+        <a class="nav-link <?php  echo ($index==3)?"active":""; ?>" href="b3.php?year=2020&month=06" >營運統計</a>
       </li>
       <li class="nav-item">
         <a class="nav-link <?php  echo ($index==4)?"active":""; ?>" href="b4.php?date=<?php echo date("Y/m/d");?>" >營運監控</a>

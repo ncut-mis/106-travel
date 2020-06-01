@@ -1,26 +1,6 @@
 <?php
 require_once 'php/db_connection.php';
 require_once 'php/sqlb4.php';
-$r1 = r1($_GET['date']);
-$r2 = r2($_GET['date']);
-$r3 = r3($_GET['date']);
-$r4 = r4($_GET['date']);
-$r5 = r5($_GET['date']);
-$r6 = r6($_GET['date']);
-$r7 = r7($_GET['date']);
-$r8 = r8($_GET['date']);
-$r9 = r9($_GET['date']);
-$r10 = r10($_GET['date']);
-$r11= r11($_GET['date']);
-$r12= r12($_GET['date']);
-$r13= r13($_GET['date']);
-$r14= r14($_GET['date']);
-$r15 = r15($_GET['date']);
-$r16 = r16($_GET['date']);
-$r17 = r17($_GET['date']);
-$r18 = r18($_GET['date']);
-$r19 = r19($_GET['date']);
-$r20 = r20($_GET['date']);
 $g1 =g1($_GET['date']);
 $g2 =g2($_GET['date']);
 $g3 =g3($_GET['date']);
@@ -114,126 +94,116 @@ $g20 =g20($_GET['date']);
                     <thead>
                     <th scope="col">縣市</th>
                     <th scope="col">出團數</th>
-                    <th scope="col">已出團導遊</th>
                     </thead>
                 
                     <tbody>
                         <tr>
                             <th scope="row">基隆</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=基隆"><?php echo $r1['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=基隆"><?php echo $g1['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=基隆"><?php echo $g1['g']?></a></td>
                             
                         </tr>
                         <tr>
                             <th scope="row">台北</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=台北"><?php echo $r2['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台北"><?php echo $g2['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台北"><?php echo $g2['g']?></a></td>
                         </tr>
                         <tr>
                             <th scope="row">新北</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=新北"><?php echo $r3['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=新北"><?php echo $g3['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=新北"><?php echo $g3['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">桃園</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=桃園"><?php echo $r4['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=桃園"><?php echo $g4['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=桃園"><?php echo $g4['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">新竹</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=新竹"><?php echo $r5['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=新竹"><?php echo $g5['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=新竹"><?php echo $g5['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">苗栗</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=苗栗"><?php echo $r6['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=苗栗"><?php echo $g6['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=苗栗"><?php echo $g6['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">台中</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=台中"><?php echo $r7['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台中"><?php echo $g7['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台中"><?php echo $g7['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">彰化</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=彰化"><?php echo $r8['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=彰化"><?php echo $g8['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=彰化"><?php echo $g8['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">南投</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=南投"><?php echo $r9['r']?></a></td>
-                            <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=南投"><?php echo $g9['g']?></a></td>
+                                                    <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=南投"><?php echo $g9['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">雲林</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=雲林"><?php echo $r10['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=雲林"><?php echo $g10['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">嘉義</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=嘉義"><?php echo $r11['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=嘉義"><?php echo $g11['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">台南</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=台南"><?php echo $r12['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台南"><?php echo $g12['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">高雄</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=高雄"><?php echo $r13['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=高雄"><?php echo $g13['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">屏東</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=屏東"><?php echo $r14['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=屏東"><?php echo $g14['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">台東</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=台東"><?php echo $r15['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=台東"><?php echo $g15['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">花蓮</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=花蓮"><?php echo $r16['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=花蓮"><?php echo $g16['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">宜蘭</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=宜蘭"><?php echo $r17['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=宜蘭"><?php echo $g17['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">澎湖</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=澎湖"><?php echo $r18['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=澎湖"><?php echo $g18['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">金門</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=金門"><?php echo $r19['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=金門"><?php echo $g19['g']?></a></td>
                         </tr>
                         <tr>
          
                             <th scope="row">連江</th>
-                            <td><a href="b4a.php?date=<?php echo $_GET['date']?>&region=連江"><?php echo $r20['r']?></a></td>
+                        
                             <td><a href="b4b.php?date=<?php echo $_GET['date']?>&region=連江"><?php echo $g20['g']?></a></td>
                         </tr>
                     </tbody>

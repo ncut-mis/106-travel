@@ -2,412 +2,12 @@
 @session_start();
 date_default_timezone_set("Asia/Taipei");
 
-function r1($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%基隆%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
 
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-
-function r2($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台北%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r3($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新北%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r4($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%桃園%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r5($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新竹%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r6($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%苗栗%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r7($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台中%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r8($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%彰化%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r9($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%南投%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r10($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%雲林%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r11($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%嘉義%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r12($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台南%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r13($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%高雄%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r14($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%屏東%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r15($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台東%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r16($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%花蓮%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r17($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%宜蘭%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r18($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%澎湖%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r19($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%金門%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
-function r20($date)//
-{
-    $data =null;
-    $sql = "SELECT count(id) as r FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%連江%') " ;
-    $query = mysqli_query($_SESSION['link'],$sql);
-
-    if($query)
-    {
-        if(mysqli_num_rows($query)==1)
-        {
-            $data =mysqli_fetch_assoc($query);
-        }
-    }
-
-    else
-    {
-        echo "{$sql}語法請求失敗 <br>" . mysqli_error($_SESSION['link']);
-    }
-    return $data ;
-}
 
 function g1($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%基隆%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%基隆%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -428,7 +28,7 @@ function g1($date)//
 function g2($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台北%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台北%') and(trim(`guide_id`) !='') " ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -449,7 +49,7 @@ function g2($date)//
 function g3($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新北%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新北%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -470,7 +70,7 @@ function g3($date)//
 function g4($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%桃園%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%桃園%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -491,7 +91,7 @@ function g4($date)//
 function g5($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新竹%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%新竹%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -512,7 +112,7 @@ function g5($date)//
 function g6($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%苗栗%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%苗栗%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -533,7 +133,7 @@ function g6($date)//
 function g7($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台中%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台中%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -554,7 +154,7 @@ function g7($date)//
 function g8($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%彰化%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%彰化%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -575,7 +175,7 @@ function g8($date)//
 function g9($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%南投%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%南投%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -596,7 +196,7 @@ function g9($date)//
 function g10($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%雲林%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%雲林%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -617,7 +217,7 @@ function g10($date)//
 function g11($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%嘉義%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%嘉義%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -638,7 +238,7 @@ function g11($date)//
 function g12($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台南%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台南%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -659,7 +259,7 @@ function g12($date)//
 function g13($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%高雄%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%高雄%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -680,7 +280,7 @@ function g13($date)//
 function g14($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%屏東%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%屏東%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -701,7 +301,7 @@ function g14($date)//
 function g15($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台東%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%台東%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -722,7 +322,7 @@ function g15($date)//
 function g16($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%花蓮%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%花蓮%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -743,7 +343,7 @@ function g16($date)//
 function g17($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%宜蘭%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%宜蘭%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -764,7 +364,7 @@ function g17($date)//
 function g18($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%澎湖%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%澎湖%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -785,7 +385,7 @@ function g18($date)//
 function g19($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%金門%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%金門%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -806,7 +406,7 @@ function g19($date)//
 function g20($date)//
 {
     $data =null;
-    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%連江%') " ;
+    $sql = "SELECT count(guide_id) as g FROM `schedules` where ( '$date' between `start` and `end`)and(`region` like '%連江%') and(trim(`guide_id`) !='')" ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)
@@ -851,7 +451,7 @@ function ra($date,$region)//
 function ga($date,$region)//
 {
     $data =array();
-    $sql = "SELECT `*`,`schedules`.`name` as 'name2' FROM `schedules`  inner join `users` on `schedules`.`guide_id`  = `users`.`id` where ( '$date' between `start` and `end`)and(`region` like '%$region%') " ;
+    $sql = "SELECT `*`,`schedules`.`name` as 'name2' FROM `schedules` inner join `guides` on `schedules`.`guide_id`  = `guides`.`id` inner join `users` on `guides`.`user_id`  = `users`.`id` where ( '$date' between `start` and `end`)and(`region` like '%$region%') " ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)

@@ -46,14 +46,16 @@
                             {{$attraction->price}}
                         </td>
                         <td>
+                            <a href="{{route('attractions.open',$attraction->id)}}" class="btn btn-success btn-xl" >啟用</a>
+                            <a href="{{route('attractions.stop',$attraction->id)}}" class="btn btn-warning btn btn-danger btn-xl">停用</a>
+
                             @if($attraction->status== "0")
                                 未啟用
+
                             @elseif($attraction->status== "1")
                                 啟用
                             @endif
                         </td>
-
-
                     </tr>
                     @endforeach
                 </tbody>

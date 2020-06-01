@@ -17,9 +17,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>
 
-                </th>
                 <th>
                     景點名稱
                 </th>

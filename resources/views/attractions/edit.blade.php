@@ -88,6 +88,14 @@
                 <br>
                 <br>
                 <div class="form-group">
+                    <label for="photos">主圖片上傳</label>
+                    <div class="form-group">
+                        <input type="file" name="photo[]" multiple >
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
                     <label for="files">圖片上傳</label>
                     <div class="form-group">
                         <input type="file" name="file[]" multiple>

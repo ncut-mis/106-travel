@@ -36,14 +36,11 @@
                 @foreach($attraction as $attraction )
                     @if($attraction->reservation=='1' && $attraction->status=='1' )
                     <tr>
-                        <td>
-                            @foreach($schedule_match as $schedule )
-                                @if($schedule->attraction_id==$attraction->id && strtotime($today)<strtotime($schedule->start))
+                        @foreach($schedule_match as $schedule )
+                            @if($schedule->attraction_id==$attraction->id && strtotime($today)<strtotime($schedule->start))
+                                <td>
                                     {{$schedule->start}}
-                                @endif
-                            @endforeach
-
-                        </td>
+                                </td>
                         <td>
                             {{$attraction->name}}
                         </td>
@@ -56,7 +53,8 @@
                         <td>
                             {{$attraction->member_name}}
                         </td>
-
+                             @endif
+                        @endforeach
                     </tr>
                     @endif
                 @endforeach

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\user;
 use Auth;
 use App\Attraction;
-use App\file;
+use App\Photo;
 
 class HomeController extends Controller
 {
@@ -54,21 +54,22 @@ class HomeController extends Controller
                      $attraction3 = Attraction::where('id', $random5[3])->first();
                      if ($attraction3 != NULL)
                          $attraction_id3 = $attraction3->id;
-
-                 if ($attraction != NULL &&$attraction1 != NULL &&$attraction2 != NULL &&$attraction3 != NULL && $attraction->resservation!=1 && $attraction1->resservation!=1 && $attraction2->resservation!=1 && $attraction3->resservation!=1)
+                 if ($attraction != NULL &&$attraction1 != NULL &&$attraction2 != NULL &&$attraction3 != NULL && $attraction->reservation!=1 && $attraction1->reservation!=1 && $attraction2->reservation!=1 && $attraction3->reservation!=1)
                  {
-//                     $photo=File::where('attraction_id',$attraction)->get();
-//                     $photo1=File::where('attraction_id',$attraction_id1)->get();
-//                     $photo2=File::where('attraction_id',$attraction_id2)->get();
-//                     $photo3=File::where('attraction_id',$attraction_id3)->get();
                      break;
                  }
-
              }
+                 $photo=Photo::where('attraction_id',$attraction_id)->first();
+                 $photo1=Photo::where('attraction_id',$attraction_id1)->first();
+                 $photo2=Photo::where('attraction_id',$attraction_id2)->first();
+                 $photo3=Photo::where('attraction_id',$attraction_id3)->first();
 
 //             dd($photo,$photo1,$photo2,$photo3);
-             $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id];
-             //,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3
+             $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
+                 'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
+                 ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3
+             ];
+
              return view('mhome', $data);
          }
          else if(Auth::user()->guides->pass==0)
