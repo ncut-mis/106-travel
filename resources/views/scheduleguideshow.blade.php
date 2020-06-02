@@ -26,6 +26,9 @@
                         <a class="nav-link" href="#guide_phone">聯絡電話</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#guide_email">信箱</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#fat">簡介</a>
                     </li>
                     <li class="nav-item">
@@ -52,6 +55,12 @@
                         </div>
                         <div class="card-body">
                             {{$guide_phone}}
+                        </div>
+                        <div class="card-header" id="guide_email">
+                            信箱
+                        </div>
+                        <div class="card-body">
+                            {{$guide_email}}
                         </div>
                         <div class="card-header" id="fat">
                             簡介

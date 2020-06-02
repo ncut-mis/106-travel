@@ -196,6 +196,7 @@ class ScheduleGuideController extends Controller
         $user_id=Guide::find($guide_id)->user_id;
         $guide_name=User::find($user_id)->name;
         $guide_phone=User::find($user_id)->phone;
+        $guide_email=User::find($user_id)->email;
         $schedule_guide_id=$schedule->guide_id;
         $b = Attraction::where('id', $id)->first();
 //        $user_name=DB::select('select  id,name from users');
@@ -207,7 +208,7 @@ class ScheduleGuideController extends Controller
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
         $data=['schedule_region'=>$schedule_region,'attraction'=>$attraction,'schedule_name'=>$schedule_name,'schedule_id'=>$schedule_id
                 ,'files' =>$files,'guide_id'=>$guide_id,'travel_id'=>$travel_id,'schedule'=>$schedule,'reservation'=>$reservation,
-            'total'=>$total,'name'=>$name,'guide_name'=>$guide_name,'schedule_guide_id'=>$schedule_guide_id,'guide_phone'=>$guide_phone];
+            'total'=>$total,'name'=>$name,'guide_name'=>$guide_name,'schedule_guide_id'=>$schedule_guide_id,'guide_phone'=>$guide_phone,'guide_email'=>$guide_email];
 
 
 
