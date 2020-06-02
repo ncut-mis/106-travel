@@ -12,6 +12,7 @@
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">返回</button>
     </form>
     <script>
@@ -55,6 +56,7 @@
         <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
         <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
         <div  class="form-group" >
             <label class="control-label col-sm-2" >日期：</label>
             <div class="col-sm-10">
@@ -263,6 +265,7 @@
                 <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                 <input type = "hidden" id = "schedule" name = "schedule" value ={{$b1->id}}>
                 <input type = "hidden" id="name" name="name" value = {{$name}}>
+                <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                 &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">查看目前媒合的導遊資訊</button>
             </form>
             <form action="{{route('schedules.matchcancel')}}" method="post">
@@ -271,6 +274,7 @@
                 <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
                 <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
                 <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
+                <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                 &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">取消目前媒合的導遊</button>
             </form>
         <table>
@@ -281,6 +285,7 @@
                 <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
                 <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
                 <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
+                <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-danger" name="match" id="match" value="媒合導遊">
             </form>
             <script>
@@ -304,6 +309,7 @@
                     <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
                     <input type = "hidden" id = "travel_id" name = "travel_id" value = "{{$travel_id}}">
                     <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
+                    <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-danger" name="match" id="match" value="媒合導遊">
                 </form>
             @endif

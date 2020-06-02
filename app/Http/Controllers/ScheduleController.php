@@ -74,6 +74,7 @@ class ScheduleController extends Controller
 //        $cc=($id);
 //        $data=['b1'=>$b,'cc'=>$cc];
 //$b=Schedule::find($request->input('update_id'));
+        $total=$request->input("total");
         $name=($request->input('name'));
         $start=($request->input('start'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
@@ -81,7 +82,7 @@ class ScheduleController extends Controller
 
         $b=Travel::find($travel_id)->schedules;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id];
+        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'total'=>$total];
 
 //        dd($b);
 
@@ -112,7 +113,6 @@ class ScheduleController extends Controller
     public function edit(request $request)
     {
         //$b=Travel::schedules;
-
         $b=Schedule::find($request->input('update_id'));
         $attraction_id=$b->attraction_id;
         $name=($request->input('name'));
@@ -128,8 +128,7 @@ class ScheduleController extends Controller
     } public function reedit(request $request)
 {
 
-    //dd($b1);
-    //$b=Travel::schedules;
+    $total=$request->input("total");
     $b=Schedule::find($request->input('schedule'));
     $attraction_id=$b->attraction_id;
     $name=($request->input('name'));
@@ -137,13 +136,14 @@ class ScheduleController extends Controller
     $total=$request->input("total");
     $match_id= $request->input("match_id");
     $travel_id=$request->input("travel_id");
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total,'attraction'=>$attraction_id];
+    $data=['total'=>$total,'b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'total'=>$total,'attraction'=>$attraction_id];
 
     return view('schedules.edit',$data);
 }
 
     public function update(request $request)
     {
+        $total=$request->input("total");
         $name=($request->input('name'));
         $start=($request->input('start'));
         $b =Schedule::where('id', $request->input("update_id"))->first();
@@ -164,7 +164,7 @@ class ScheduleController extends Controller
         $travel_id=$b->travel_id;
         $attraction_id=$b->attraction_id;
         $cc=($travel_id);//$b為屬於哪個travel_id 的所有行程  $cc為travel_id
-        $data=['b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
+        $data=['total'=>$total,'b1'=>$b,'cc'=>$cc,'name'=>$name,'start'=>$start,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
 
         return view('schedules.edit',$data);
     }
@@ -180,20 +180,29 @@ class ScheduleController extends Controller
     }
     public function matchcancel(request $request)
 {
+    $total=$request->input("total");
     //這是將導遊id變為空值的步驟
     $schedule= Schedule::where('id', $request->input("id"))->first();
     $schedule->guide_id="";
+    //將總費用扣除
+    $travel=Travel::where('id', $request->input("travel_id"))->first();
 
     //將專長景點的id找到後把專長景點內的判斷式設為空值
     $attraction_id=$schedule->attraction_id;
     $attraction=Attraction::where('id',$attraction_id)->first();
     $attraction->reservation="";
     $attraction->member_name="";
+
+    $travel->total=$travel->total-$attraction->price;
+    $travel->save();
+
     $schedule->attraction_id="";
     $schedule->cost=0;
     $schedule->match_time=NULL;
     $schedule->save();
     $attraction->save();
+
+
     //將專長景點的預約資料 $attraction_id=Attraction::where('id', $request->input("attraction_id"))->first();
     //////    dd($attraction_id);
     //////    $attraction_id->reservation="";變為空值
@@ -207,7 +216,7 @@ class ScheduleController extends Controller
 
     $attraction_id=$b->attraction_id;
 
-    $data=['b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
+    $data=['total'=>$total,'b1'=>$b,'name'=>$name,'start'=>$start,'match_id'=>$match_id,'travel_id'=>$travel_id,'attraction'=>$attraction_id];
 
     return view('schedules.edit',$data);
 

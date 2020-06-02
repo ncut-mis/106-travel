@@ -59,8 +59,6 @@
                                              <input type = "hidden" id = "file_id" name = "file_id" value = "{{$file->id}}">
                                              <button  type="submit" class="btn btn-primary btn-sm" onclick="return SubmitForm(this.form)" name="attraction_id" id="attraction_id" value="{{$attraction_id}}">儲存文字</button>
                                              &nbsp;&nbsp;&nbsp;&nbsp;
-{{--                                             <button type="submit" class="btn btn-danger btn-sm" name="delete_button" id="delete_button" value="{{$attraction_id}}">刪除圖片</button>--}}
-
                                              <!DOCTYPE html>
                                              <html>
                                              <head>

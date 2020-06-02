@@ -12,6 +12,7 @@
                     <input type="hidden" class="form-control" id="attraction_id" name="attraction_id" value={{$attraction->id}}>
                     <input type = "hidden" id = "name" name = "name" value = {{$name}}>
                     <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
+                    <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                     <button type="submit" class="btn btn-danger">返回</button>
                 </form>
             @endif
@@ -20,6 +21,9 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link" href="#guide_name">導遊姓名</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guide_phone">聯絡電話</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#fat">簡介</a>
@@ -40,10 +44,15 @@
                         <div class="card-header" id="guide_name">
                             導遊姓名
                         </div>
-{{--                            @if($attraction_name->guide_id==$guide_name->id && $guide_name->user_id == $user_name->id)--}}
-{{--                                {{$user_name->name}}--}}
-{{--                            @endif--}}
-
+                        <div class="card-body">
+                            {{$guide_name}}
+                        </div>
+                        <div class="card-header" id="guide_phone">
+                            聯絡電話
+                        </div>
+                        <div class="card-body">
+                            {{$guide_phone}}
+                        </div>
                         <div class="card-header" id="fat">
                             簡介
                         </div>
@@ -91,7 +100,7 @@
                             <div class="card-header" id="video">
                                 影片
                             </div>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <center><iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                 @if($schedule_guide_id==NULL)
                     <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
@@ -103,6 +112,7 @@
                         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                         <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
                         <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+                        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                         <center><button type="submit" class="btn btn-danger">媒合導遊</button></center>
                     </form>
                 @else
@@ -115,6 +125,7 @@
                         <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                         <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
                         <input type = "hidden" id = "name" name = "name" value = {{$name}}>
+                        <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
                         <center><button type="submit" class="btn btn-danger">返回</button></center>
                     </form>
                  @endif
