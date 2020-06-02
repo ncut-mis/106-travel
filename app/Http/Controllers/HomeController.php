@@ -63,7 +63,6 @@ class HomeController extends Controller
                  $photo1=Photo::where('attraction_id',$attraction_id1)->first();
                  $photo2=Photo::where('attraction_id',$attraction_id2)->first();
                  $photo3=Photo::where('attraction_id',$attraction_id3)->first();
-
 //             dd($photo,$photo1,$photo2,$photo3);
              $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
                  'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id

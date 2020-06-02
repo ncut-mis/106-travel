@@ -91,6 +91,8 @@ Route::post('schedules/reedit','ScheduleController@reedit')->name('schedules.ree
 Route::post('/rescheduleguides/index2', 'ScheduleGuideController@index2')->name('scheduleguides.index2');
 //會員按下媒合導遊鈕
 Route::post('/rescheduleguides', 'ScheduleGuideController@reindex')->name('scheduleguides.reindex');
+//會員查看導遊資訊後按下返回鈕
+Route::post('/rescheduleguides/rreindex', 'ScheduleGuideController@rreindex')->name('scheduleguides.rreindex');
 //會員取消媒合導遊
 Route::post('schedules/matchcancel', 'ScheduleController@matchcancel')->name('schedules.matchcancel');
 

@@ -116,7 +116,7 @@
                         <center><button type="submit" class="btn btn-danger">媒合導遊</button></center>
                     </form>
                 @else
-                    <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
+                    <form action="{{route('scheduleguides.rreindex',$schedule_id)}}" method="post">
                         {{ csrf_field() }}
                         <input type = "hidden" id = "reservation" name = "reservation" value = "{{$reservation}}">
                         <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
