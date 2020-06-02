@@ -169,7 +169,7 @@
                             <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction->content}}</font></button>
+                                <button type="submit" class="btn btn-link" width=10pxheight=10px style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction->content}}</font></button>
                             </form>
                         </div>
                     </div>
