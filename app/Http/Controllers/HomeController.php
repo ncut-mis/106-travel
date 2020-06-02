@@ -63,10 +63,22 @@ class HomeController extends Controller
                  $photo1=Photo::where('attraction_id',$attraction_id1)->first();
                  $photo2=Photo::where('attraction_id',$attraction_id2)->first();
                  $photo3=Photo::where('attraction_id',$attraction_id3)->first();
+
 //             dd($photo,$photo1,$photo2,$photo3);
+
+                 $content=$attraction->content;
+             $content1=$attraction1->content;
+             $content2=$attraction2->content;
+             $content3=$attraction3->content;
+             $content4=mb_substr( $content, 0 , 20,"utf-8");
+             $content5=mb_substr( $content1, 0 , 20,"utf-8" );
+             $content6=mb_substr( $content2, 0 , 20 ,"utf-8");
+             $content7=mb_substr( $content3, 0 , 20,"utf-8" );
+
              $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
                  'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
-                 ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3
+                 ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'content4'=>$content4
+                 ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7
              ];
 
              return view('mhome', $data);

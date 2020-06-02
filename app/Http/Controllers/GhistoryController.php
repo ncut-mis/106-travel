@@ -12,6 +12,7 @@ use http\Env\Response;
 use App\File;
 use App\Video;
 
+
 class GhistoryController extends Controller
 {
     /**
@@ -19,12 +20,24 @@ class GhistoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $attractions=Auth::user()->guides->attractions;
+        $attraction=Auth::user()->guides->attractions;
+
+        $schedule_match1=DB::select("select  start,attraction_id from schedules");
+        if(!empty($_GET['date'])) {
+            $t = $_GET['date'];
+            $date1 = date("Y-$t-01");
+
+            $date2 = date("Y-$t-31");
+            $schedule_match1=DB::select("select  start,attraction_id from schedules where start between '$date1' and '$date2'");
+        }
+
+
         $today = date('Y-m-d') ;
-        $data=['attractions'=>$attractions,'today'=>$today];
+
+        $data=['attraction'=>$attraction,'today'=>$today,'schedule_match1'=>$schedule_match1];
         return view('ghistory.index',$data);
     }
 
