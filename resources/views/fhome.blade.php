@@ -129,19 +129,23 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('guide') }}">修改基本資料</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('attractions.index') }}">編輯專長景點</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('reservation.index') }}">顯示目前被預約行程</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('ghistory.index') }}">查詢帶團歷史紀錄</a>
-                                </li>
+                                <form class="form-horizontal" action="{{ route('upload.index') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id"  >
+                                    <input type="hidden" class="form-control" id="user_name" value={{$a->name}} name="user_name"  >
+                                    <input type="hidden" class="form-control" id="a" value={{$a}} name="a"  >
+                                    <button type="submit" name="t1" class="btn btn-link  ">導遊證照審核</button><br>
 
+                                </form>
+                            </ul>
+
+                            <ul>
+                            <form class="form-horizontal" action="{{ route('upload2.index') }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" class="form-control" id="user_id" value={{$a->id}} name="user_id" >
+                                <button type="submit" class="btn btn-link ">帶團經驗</button><br>
+
+                            </form>
                             </ul>
 
                             <!-- Search Form  -->
