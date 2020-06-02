@@ -51,6 +51,9 @@ $file_name =  basename($file_path);
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item <?php if($index==1) echo "active"; ?>" >
+        <a class="nav-link"  href="php/loginout.php"> <small class = "text-secondary">登出</small> </a>
+      </li>
+      <li class="nav-item <?php if($index==1) echo "active"; ?>" >
         <a class="nav-link"  href="b1.php"> 導遊資訊</a>
       </li>
       <li class="nav-item" >
