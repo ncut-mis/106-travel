@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Original - Lifestyle Blog Template</title>
+    <title>自助旅行</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -57,11 +57,10 @@
                     <div class="breaking-news-area">
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
-                                <li><a href="#">Hello World!</a></li>
-                                <li><a href="#">Hello Universe!</a></li>
-                                <li><a href="#">Hello Original!</a></li>
-                                <li><a href="#">Hello Earth!</a></li>
-                                <li><a href="#">Hello Colorlib!</a></li>
+                                <li><a href="#">歡迎!!</a></li>
+                                <li><a href="#">來場自助旅行吧!</a></li>
+                                <li><a href="#">盡情的揮灑吧!</a></li>
+                                <li><a href="#">快樂的出遊吧!</a></li>
                             </ul>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <a href="index.html" class="original-logo"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="home" class="original-logo" ><font size="6">let'go Travel!</font></a>
                 </div>
             </div>
         </div>
@@ -112,92 +111,92 @@
                         </div>
 
                         <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="single-post.html">Single Post</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Catagory</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Catagory 1</a></li>
-                                        <li><a href="#">Catagory 1</a></li>
-                                        <li><a href="#">Catagory 1</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Catagory 2</a></li>
-                                                <li><a href="#">Catagory 2</a></li>
-                                                <li><a href="#">Catagory 2</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="#">Catagory 3</a></li>
-                                                        <li><a href="#">Catagory 3</a></li>
-                                                        <li><a href="#">Catagory 3</a></li>
-                                                        <li><a href="#">Catagory 3</a></li>
-                                                        <li><a href="#">Catagory 3</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Catagory 2</a></li>
-                                                <li><a href="#">Catagory 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Catagory 1</a></li>
-                                        <li><a href="#">Catagory 1</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="#">Megamenu</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 1</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 2</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 3</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 4</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
+{{--                        <div class="classynav">--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="index.html">Home</a></li>--}}
+{{--                                <li><a href="#">Pages</a>--}}
+{{--                                    <ul class="dropdown">--}}
+{{--                                        <li><a href="index.html">Home</a></li>--}}
+{{--                                        <li><a href="about-us.html">About Us</a></li>--}}
+{{--                                        <li><a href="single-post.html">Single Post</a></li>--}}
+{{--                                        <li><a href="contact.html">Contact</a></li>--}}
+{{--                                        <li><a href="coming-soon.html">Coming Soon</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                                <li><a href="#">Catagory</a>--}}
+{{--                                    <ul class="dropdown">--}}
+{{--                                        <li><a href="#">Catagory 1</a></li>--}}
+{{--                                        <li><a href="#">Catagory 1</a></li>--}}
+{{--                                        <li><a href="#">Catagory 1</a>--}}
+{{--                                            <ul class="dropdown">--}}
+{{--                                                <li><a href="#">Catagory 2</a></li>--}}
+{{--                                                <li><a href="#">Catagory 2</a></li>--}}
+{{--                                                <li><a href="#">Catagory 2</a>--}}
+{{--                                                    <ul class="dropdown">--}}
+{{--                                                        <li><a href="#">Catagory 3</a></li>--}}
+{{--                                                        <li><a href="#">Catagory 3</a></li>--}}
+{{--                                                        <li><a href="#">Catagory 3</a></li>--}}
+{{--                                                        <li><a href="#">Catagory 3</a></li>--}}
+{{--                                                        <li><a href="#">Catagory 3</a></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </li>--}}
+{{--                                                <li><a href="#">Catagory 2</a></li>--}}
+{{--                                                <li><a href="#">Catagory 2</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </li>--}}
+{{--                                        <li><a href="#">Catagory 1</a></li>--}}
+{{--                                        <li><a href="#">Catagory 1</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                                <li><a href="about-us.html">About Us</a></li>--}}
+{{--                                <li><a href="#">Megamenu</a>--}}
+{{--                                    <div class="megamenu">--}}
+{{--                                        <ul class="single-mega cn-col-4">--}}
+{{--                                            <li class="title">Headline 1</li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 1</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 2</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 3</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 4</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 5</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <ul class="single-mega cn-col-4">--}}
+{{--                                            <li class="title">Headline 2</li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 1</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 2</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 3</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 4</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 5</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <ul class="single-mega cn-col-4">--}}
+{{--                                            <li class="title">Headline 3</li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 1</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 2</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 3</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 4</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 5</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                        <ul class="single-mega cn-col-4">--}}
+{{--                                            <li class="title">Headline 4</li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 1</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 2</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 3</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 4</a></li>--}}
+{{--                                            <li><a href="#">Mega Menu Item 5</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                                <li><a href="contact.html">Contact</a></li>--}}
+{{--                            </ul>--}}
 
-                            <!-- Search Form  -->
-                            <div id="search-wrapper">
-                                <form action="#">
-                                    <input type="text" id="search" placeholder="Search something...">
-                                    <div id="close-icon"></div>
-                                    <input class="d-none" type="submit" value="">
-                                </form>
-                            </div>
-                        </div>
+{{--                            <!-- Search Form  -->--}}
+{{--                            <div id="search-wrapper">--}}
+{{--                                <form action="#">--}}
+{{--                                    <input type="text" id="search" placeholder="Search something...">--}}
+{{--                                    <div id="close-icon"></div>--}}
+{{--                                    <input class="d-none" type="submit" value="">--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <!-- Nav End -->
                     </div>
                 </nav>
