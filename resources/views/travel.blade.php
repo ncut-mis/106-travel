@@ -14,7 +14,7 @@
 </style>
 <div class="div-a"><b><font size="12">規劃中</font></b></div>
 <div class="div-b">
-    <form  action="{{route('vishome')}}" method="get">
+    <form  action="{{route('home')}}" method="get">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-info">回首頁</button>
     </form>
