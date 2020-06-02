@@ -263,6 +263,7 @@ class TravelController extends Controller
     }
     public function attraction(Request $request)
     {
+        $visuser= Auth::user();
         $att_id=$request->input('att_id');
         $file=File::where('attraction_id',$att_id)->get();
         $attraction=Attraction::where('id',$att_id)->first();
@@ -271,7 +272,7 @@ class TravelController extends Controller
         $user_id=$guide->user_id;
         $user=User::where('id',$user_id)->first();
         $files=File::Where('attraction_id',$att_id)->orderBy('created_at','DESC')->paginate(30);
-        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file,'att_id'=>$att_id];
+        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file,'att_id'=>$att_id,'visuser'=>$visuser];
         return view('/newtravel',$data);
     }
 

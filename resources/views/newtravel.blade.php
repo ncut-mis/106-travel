@@ -16,10 +16,14 @@
             </style>
         </div>
         <div class="div-b">
-            <form  action="{{route('home')}}" method="get">
-                {{ csrf_field() }}
-                <button type="submit" class="btn btn-info">回首頁</button>
-            </form>
+            @if($visuser==NUll)
+                <a href="/" class="btn btn-info">回首頁</a>
+            @else
+                <form  action="{{route('home')}}" method="get">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-info">回首頁</button>
+                </form>
+            @endif
         </div>
         <div class="card-header">
             導遊資訊

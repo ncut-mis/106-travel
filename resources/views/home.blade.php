@@ -211,45 +211,81 @@
     <!-- Hero Slides Area -->
     <div class="hero-slides owl-carousel">
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b2.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">
+
+            <img class="figure-img img-fluid rounded"  >
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="slide-content text-center">
                             <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            <form action="{{route('travelguide.attraction')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}..</font></button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b1.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="slide-content text-center">
                             <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            <form action="{{route('travelguide.attraction')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}..</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b3.jpg);">
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="slide-content text-center">
                             <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>
                             </div>
-                            <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            <form action="{{route('travelguide.attraction')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}..</font></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--再一個-->
+        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <div class="slide-content text-center">
+                            <div class="post-tag">
+                                <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>
+                            </div>
+                            <form action="{{route('travelguide.attraction')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}..</font></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -257,6 +293,7 @@
         </div>
     </div>
 </div>
+
 <!-- ##### Hero Area End ##### -->
 
 <!-- ##### Blog Wrapper Start ##### -->
@@ -666,16 +703,16 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav" >
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Lifestyle</a></li>
-                                    <li><a href="#">travel</a></li>
-                                    <li><a href="#">Music</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
+{{--                            <div class="classynav" >--}}
+{{--                                <ul>--}}
+{{--                                    <li><a href="#">Home</a></li>--}}
+{{--                                    <li><a href="#">About Us</a></li>--}}
+{{--                                    <li><a href="#">Lifestyle</a></li>--}}
+{{--                                    <li><a href="#">travel</a></li>--}}
+{{--                                    <li><a href="#">Music</a></li>--}}
+{{--                                    <li><a href="#">Contact</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
                             <!-- Nav End -->
                         </div>
                     </nav>

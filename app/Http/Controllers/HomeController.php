@@ -109,5 +109,7 @@ class HomeController extends Controller
                 return view('home',[ 'a' => $a]);
             }
 
+        return view('home');
     }
+
 }
