@@ -7,24 +7,65 @@
     <title>平台業者畫面</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body class = "bgc">
+<body class = "bgc index" style="background-image: url('pic/b7.jpeg');
+background-size: cover;background-attachment: fixed;background-position: center;">
     
-<?php require_once 'php/menu.php'?>
+    <nav class="navbar   navbar-light bg-white   " style= "background-color:#000000" >
+ 
+    <a class="navbar-brand" href="index.php">
+        <img src="pic/cat.jpg" width="30" height="30" class="d-inline-block align-top  " alt="">
+        平台業者
+        </a>
+    
+     <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+     <ul class="navbar-nav">
+       
+     </ul>
+   </div>
+ </nav>
 
 <div class="container">
 
 
-    <!-- <div class="row align-items-center text-center ">
-        <div class="col-12"><a  class="btn btn-primary" href="b1.php">導遊審核</a></div></br></br></br>
-        <div class="col-12"><a  class="btn btn-secondary" href="b2.php">查詢每筆交易紀錄</a></div></br></br></br>
-        <div class="col-12"><a  class="btn btn-success" href="b3.php">黑名單</a></div></br></br></br>
-        <div class="col-12"><a  class="btn btn btn-danger" href="b4.php">營收監控</a></div></br></br></br>
-        <div class="col-12"><a  class="btn btn-info" href="b5.php">內部資訊監控</a></div></br></br></br>
-        
-    </div> -->
+<form method="post" action="" class=" w-50 h-50" style ="transform: translate(50%,50%);color: #fff;
+ border-radius: 10px;padding: 30px;font-size: 20px;
+">
+  <div class="form-group  " >
+    <label for="exampleInputEmail1" >帳號</label>
+    <input name="t1" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密碼</label>
+    <input name="t2" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button style="font-size: 20px;" type="submit" class="btn btn-primary  mt-3">登入</button>
+</form>
+
 </div>
 
+<?php 
+session_start();
+if(isset($_POST['t1']))
+{
+    $_SESSION['t1'] = $_POST['t1'];
+}
+if(isset($_POST['t2']))
+{
+    $_SESSION['t2'] = $_POST['t2'];
+}
+if(isset($_SESSION['t1'])&&$_SESSION['t2'])
+{
+    if($_SESSION['t1']=="root1234"&&$_SESSION['t2']=="root4321")
+    {
+        header("Location: b1.php"); 
+    }
+}
 
+
+
+//session_destroy();登出session用
+
+?>
 
 
 

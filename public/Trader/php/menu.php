@@ -51,11 +51,12 @@ $file_name =  basename($file_path);
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item <?php if($index==1) echo "active"; ?>" >
+        <a class="nav-link"  href="php/loginout.php"> <small class = "text-secondary">登出</small> </a>
+      </li>
+      <li class="nav-item <?php if($index==1) echo "active"; ?>" >
         <a class="nav-link"  href="b1.php"> 導遊資訊</a>
       </li>
-      <li class="nav-item" >
-        <a class="nav-link <?php  echo ($index==2)?"active":""; ?> " href="b2.php">查詢每筆交易紀錄</a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link <?php  echo ($index==3)?"active":""; ?>" href="b3.php?year=2020&month=06" >營運統計</a>
       </li>
