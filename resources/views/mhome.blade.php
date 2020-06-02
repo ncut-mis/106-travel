@@ -169,7 +169,7 @@
                             <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction->content}}</font></button>
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}..</font></button>
                             </form>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                             <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction1->content}}</font></button>
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}..</font></button>
                             </form>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                             <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction2->content}}</font></button>
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}..</font></button>
                             </form>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                             <form action="{{route('travelguide.attraction')}}" method="post">
                                 {{ csrf_field() }}
                                 <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$attraction3->content}}</font></button>
+                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}..</font></button>
                             </form>
                         </div>
                     </div>
