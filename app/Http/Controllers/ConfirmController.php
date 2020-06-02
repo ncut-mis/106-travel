@@ -26,7 +26,6 @@ class ConfirmController extends Controller
 
     {
         $howtopay=$request->input('paymethods');
-        dd($howtopay);
         $total=$request->input('total');
         $today= date ("Y-m-d H:i:s" , mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'))) ;
         $needconfirmtravel=Travel::find($request->input('travel_id'));
