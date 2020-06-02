@@ -10,15 +10,13 @@
 <body class = "bgc index" style="background-image: url('pic/b7.jpeg');
 background-size: cover;background-attachment: fixed;background-position: center;">
     
-    <nav class="navbar navbar-expand-lg  navbar-light bg-white   " style= "background-color:#000000" >
+    <nav class="navbar   navbar-light bg-white   " style= "background-color:#000000" >
  
     <a class="navbar-brand" href="index.php">
         <img src="pic/cat.jpg" width="30" height="30" class="d-inline-block align-top  " alt="">
         平台業者
         </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    
      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
      <ul class="navbar-nav">
        
