@@ -60,7 +60,7 @@ class ScheduleController extends Controller
 
         return view('schedules.index',$data);
     }
-    public function reindex(Request $request    )
+    public function reindex(Request $request)
     {
 //        $schedules=Schedule::orderBy('id','ASC')->get();
         //     $a=Auth::user()->members->travels;

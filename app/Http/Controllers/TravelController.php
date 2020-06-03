@@ -254,10 +254,12 @@ class TravelController extends Controller
             $cancelschedules->match_time=NULL;
             $cancelschedules->attraction_id=NULL;
             $cancelschedules->save();
-            $cancelattraction=Attraction::where('id',$array)->first();
-            $cancelattraction->reservation='';
-            $cancelattraction->member_name='';
-            $cancelattraction->save();
+            if($array [0]=Null) {
+                $cancelattraction = Attraction::where('id', $array)->first();
+                $cancelattraction->reservation = '';
+                $cancelattraction->member_name = '';
+                $cancelattraction->save();
+            }
         }
         return redirect('/travel');
     }
