@@ -249,6 +249,8 @@ class ScheduleController extends Controller
 }
     public function attraction(request $request)
     {
+        $id=$request->input('id');
+        $schedule=Schedule::where('id',$id)->first();
         $att_id=$request->input('att_id');
         $file=File::where('attraction_id',$att_id)->get();
         $attraction=Attraction::where('id',$att_id)->first();
@@ -257,7 +259,7 @@ class ScheduleController extends Controller
         $user_id=$guide->user_id;
         $user=User::where('id',$user_id)->first();
         $files=File::Where('attraction_id',$att_id)->orderBy('created_at','DESC')->paginate(30);
-        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file];
+        $data=['files'=>$files,'attraction'=>$attraction,'user'=>$user,'file'=>$file,'id'=>$id,'schedule'=>$schedule];
         return view('schedules.attraction',$data);
     }
     public function hometomatch(request $request)

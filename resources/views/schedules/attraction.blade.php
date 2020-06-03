@@ -9,7 +9,6 @@
                             <b>{{$attraction->name}}</b>
                         </font>
                     </div>
-
                     </div>
                     <div class="card-header">
                         簡介
@@ -64,6 +63,14 @@
                             導遊名稱:{{$user->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊電話:{{$user->phone}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;導遊信箱:{{$user->email}}
                         </div>
                     </div>
+                <form action="{{route('schedules.show')}}" method="post">
+                    {{ csrf_field() }}
+                                            <input type="hidden" class="form-control" id="id" name="id" value={{$schedule->travel_id}}>
+                                            <input type="hidden" class="form-control" id="name" name="name" value={{$schedule->name}}>
+                                            <input type="hidden" class="form-control" id="start" name="start" value={{$schedule->start}}>
+                                            <input type="hidden" class="form-control" id="end" name="end" value={{$schedule->end}}>
+                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">返回</button>
+                </form>
                 <script>
                     function SubmitForm(frm){
 //      document.("表单的name值").action

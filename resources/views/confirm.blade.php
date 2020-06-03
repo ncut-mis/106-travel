@@ -8,6 +8,19 @@
                 <b>確認旅遊規劃~</b>
             </font>
         </div>
+
+        <div>
+            <form  action="{{route('schedules.index')}}" method="get">
+                {{ csrf_field() }}
+                <input type="hidden" class="form-control" id="name" name="name" value={{$name}}>
+                <input type="hidden" class="form-control" id="start" name="start" value={{$start}}>
+                <input type="hidden" class="form-control" id="end" name="end" value={{$start}}>
+                <input type="hidden" class="form-control" id="id" name="id" value={{$travel_id}}>
+                <input type = "hidden" id = "total" name = "total" value = "{{$sum_total}}">
+
+                <button type="submit" class="btn btn-danger">返回</button>
+            </form>
+        </div>
         <div  class="form-group" >
             <label class="control-label col-sm-2" >旅遊名稱:</label>
             <div class="col-sm-10">

@@ -25,7 +25,6 @@
         <table class="table table-bordered table-hover" >
             <thead>
             <tr>
-
                 <th>出遊日期</th>
                 <th>區域</th>
                 <th>飯店</th>
@@ -37,7 +36,7 @@
                 <th>交通</th>
                 <th>內容</th>
                 <th>導遊費用</th>
-                <th>已媒合導遊的景點</th>
+                <th>已媒合導遊資訊</th>
             </tr>
             </thead>
             <div style="display:none">
@@ -60,7 +59,8 @@
                         <form action="{{route('schedules.attraction')}}" method="post">
                             {{ csrf_field() }}
                             <input type = "hidden" id = "att_id" name = "att_id" value = "{{$b1->attraction_id}}">
-                            <button type="submit" class="btn btn-danger">觀看媒合的景點</button>
+                            <input type = "hidden" id = "id" name = "id" value = "{{$b1->id}}">
+                            <button type="submit" class="btn btn-danger">觀看媒合的導遊資訊</button>
                         </form>
                         @endif
                     </td>
