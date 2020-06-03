@@ -38,8 +38,9 @@ class HistoryController extends Controller
         $Travels->end=$request->input('end');
         $Travels->total=0;
         $Travels->pay=0;
-        $Travels->member_id=auth()->user()->id;
-        $Travels->save();
+        $member_id=auth::user()->members->id;
+         $Travels->member_id=$member_id;
+         $Travels->save();
         $travels_id=Travel::orderBy('id', 'desc')->first();
         $travels_id11=$travels_id->id;
        $cont=0;
