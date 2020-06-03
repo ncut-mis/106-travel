@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @guest
-                        <li><a class="nav-link" href="{{route('view.file')}}">File</a> </li>
+                        <li><a class="nav-link" href="{{route('view.file')}}"></a> </li>
 
                         @endguest
 
