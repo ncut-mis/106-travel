@@ -186,6 +186,9 @@ class TravelController extends Controller
 
 
     }
+    public function create(Request $request)
+    {
+    }
     public function store(Request $request)
     {
 //        $lastid=0;
@@ -238,6 +241,46 @@ class TravelController extends Controller
         }
 
         return redirect()->route('travel');
+    }
+    public function hometomatchstore(Request $request)
+    {
+        $start=($request->input("start"));
+        $end=($request->input("end"));
+        $date=floor((strtotime($end)-strtotime($start))/86400+1);
+
+        //新增旅遊
+        $Travels=new \App\Travel();
+        $Travels->name=$request->input('name');
+        $Travels->start=$request->input('start');
+        $Travels->end=$request->input('end');
+        $Travels->total=0;
+        $Travels->pay=0;
+        $Travels->member_id=auth()->user()->members->id;
+        $Travels->save();
+        $att_id=$request->input('att_id');
+        for($i=0;$i<$date;$i++) {
+            $schedules = [
+                [
+                    'start' => $start,'end'=>$start]
+            ];
+
+            foreach($schedules as $schedule) {
+                $Travels->schedules()->create(($schedule));
+            };
+
+            $start = strtotime($start);
+            $start = strtotime("+1 day",$start);
+            $start= date("Y-m-d",$start);
+
+
+        }
+        $travels=Auth::user()->members->travels;
+        $travels1=Auth::user()->members->travels;
+        $chgpage=Auth::user()->members->travels()->paginate(3);
+        $chgpage1=Auth::user()->members->travels()->paginate(3);
+        $today = date('Y-m-d') ;
+        $data=['travels'=>$travels,'chgpage'=>$chgpage,'today'=>$today,'travels1'=>$travels1,'chgpage1'=>$chgpage1,'att_id'=>$att_id];
+        return View('hometomatch',$data);
     }
     public function cancel(Request $request)
     {

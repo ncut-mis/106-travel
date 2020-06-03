@@ -88,6 +88,9 @@ Route::get('/travel','TravelController@index')->name('travel');
 
 //新增旅遊計畫
 Route::post('travel/store','TravelController@store')->name('travel.store');
+Route::post('hometomatch/store','TravelController@hometomatchstore')->name('hometomatch.store');
+
+
 //刪除旅遊計畫
 //Route::delete('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
 Route::post('/travel/destroy' , ['as' => 'travel.destroy' , 'uses' => 'TravelController@destroy']);
@@ -154,10 +157,12 @@ Route::post('schedules/attraction','ScheduleController@attraction')->name('sched
 Route::post('travel/attraction','TravelController@attraction')->name('travelguide.attraction');
 //會員從首頁觀看導遊後從已有旅遊規畫新增導遊
 Route::post('schedule/hometomatch','ScheduleController@hometomatch')->name('hometomatch');
+Route::get('schedule/hometomatch','ScheduleController@hometomatch')->name('hometomatch');
 //會員首頁觀看規劃中後跳轉至schedule頁面
 Route::post('schedule/showschedule','ScheduleController@showschedule')->name('showschedule');
 //會員首頁首頁觀看規劃中後跳轉至schedule頁面裡加入導遊
 Route::post('schedule/storechedule','ScheduleController@storechedule')->name('storechedule');
+
 
 
 //導遊目前所有專長景點
