@@ -7,12 +7,12 @@
     </font>
 </div>
 <style>
-    .div-a{ float:left;width:49%;border:1px}
+    .div-a{ float:left;width:80%;}
     .div-b{ float:right;}
     .div-c{ float:right;}
 
 </style>
-<div class="div-a"><b><font size="12">規劃中</font></b></div>
+<div class="div-a"><b><font size="12">&nbsp;&nbsp;規劃中</font></b></div>
 <div class="div-b">
     <form  action="{{route('home')}}" method="get">
         {{ csrf_field() }}
@@ -26,7 +26,7 @@
     </form>
 </div>
 <!-- 資料表-->
-                    <table class="table table-bordered table-hover" >
+                    <table class="table table-hover"  style="border-top:3px #FFD382 solid;" cellpadding="10" border='0'>
                         <thead>
                         <tr>
                             <th>&nbsp;&nbsp;名稱</th>
@@ -78,8 +78,8 @@
         </div>
 
 
-<div class="div-a"><b><font size="12">確認的旅遊計畫</font></b></div>
-<table class="table table-bordered table-hover" >
+<div class="div-a"><b><font size="12">&nbsp;&nbsp;確認的旅遊計畫</font></b></div>
+<table class="table table-hover"   style="border-top:3px #FFD382 solid;" cellpadding="10" border='0'>
     <thead>
     <tr>
 
