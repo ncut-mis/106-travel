@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="content">
-    <div class="row">
+    <div class="form-group">
         <div class="col-12">
             <h2>{{$attraction->name}}</h2>
             <a href="{{route('attractions.index')}}" class="btn btn-secondary btn-xl">返回</a>

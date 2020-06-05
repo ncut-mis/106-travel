@@ -4,7 +4,7 @@
 $host = "localhost:33060";
 $name = "root";
 $password = "root";
-$dbname = "topic106";
+$dbname = "106_travel";
 
 $_SESSION['link'] =  mysqli_connect($host,$name,$password,$dbname);
 

@@ -81,7 +81,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <a href="home" class="original-logo" ><font size="6">let'go Travel!</font></a>
+                    <a href="home" class="original-logo" ><font size="6">Let's go Travel!</font></a>
                 </div>
             </div>
         </div>
@@ -237,7 +237,7 @@
                             <div class="post-tag">
                                 <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
                             </div>
-                        
+
                             <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content5}}..</font></a>
 
                         </div>

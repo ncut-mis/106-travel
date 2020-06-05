@@ -1,8 +1,9 @@
 @extends('layouts.guide')
 
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="content">
-    <div class="row">
+    <div class="form-group">
         <div class="col-12">
             <h2>修改專長景點</h2>
             <a href="{{url('attractions')}}" class="btn btn-secondary btn-sm">返回</a>
@@ -18,9 +19,9 @@
                 <br>
                 <br>
                 <div class="form-group">
-                    <label for="location">地點</label>
-                    <select type="text" class="selectpicker" name="location" id="location" value="{{$attraction->location}}" >
-                        class="selectpicker">
+                    <label for="location">旅遊區域：</label>
+                    <select type="text" class="selectpicker"  onChange="renew(this.selectedIndex);" name="location" id="location" style="width:100px; height:50px;" value="" >
+                        <option value="{{$attraction->location}}">請選擇縣市</option>
                         <option value="基隆市">基隆市</option>
                         <option value="台北市">台北市</option>
                         <option value="新北市">新北市</option>
@@ -32,7 +33,7 @@
                         <option value="彰化縣">彰化縣</option>
                         <option value="南投縣">南投縣</option>
                         <option value="雲林縣">雲林縣</option>
-                        <option value="嘉 義市">嘉義市</option>
+                        <option value="嘉義市">嘉義市</option>
                         <option value="嘉義縣">嘉義縣</option>
                         <option value="台南市">台南市</option>
                         <option value="高雄市">高雄市</option>
@@ -43,9 +44,35 @@
                         <option value="澎湖縣">澎湖縣</option>
                         <option value="金門縣">金門縣</option>
                         <option value="連江縣">連江縣</option>
-
                     </select>
                 </div>
+
+                <script type="text/javascript">
+                    //將下拉式選單的值抓出並顯示在inupt中
+                    $(document).ready(function() {
+                        var i = $('#location').change(function () {
+                            $text=$('#location').val();
+                            document.getElementById("update_location").value=$text
+                        })});
+                </script>
+
+                <div  class="form-group" >
+                    <label class="control-label col-sm-2" >目前選擇的旅遊區域為：</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="update_location" name="update_location" style="width:70px; height:50px;" readonly="readonly" value={{$attraction->location}}>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    //取值再設值
+                    $(document).ready(function() {
+
+                        $(".click").click(function(){
+                            ($("#update_location").val());
+                            $("#location").val($("#update_location").val())
+                        })
+                    });
+                </script>
+
                 <br>
                 <br>
                 <div class="form-group ">

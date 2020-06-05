@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="content">
-    <div class="row">
+    <div class="form-group">
         <div class="col-12">
             <h2>導遊目前景點總覽</h2>
             <a href="{{route('attractions.create')}}" class="btn btn-success btn-sm">新增專長景點</a>
