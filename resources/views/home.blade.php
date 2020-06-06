@@ -81,7 +81,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <a href="home" class="original-logo" ><font size="6">Let's go Travel!</font></a>
+                    <a href="home" class="original-logo" ><font size="6">Let's go Deep Travel!</font></a>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
                             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
 
-                        <!-- Nav Start -->
+{{--                        <!-- Nav Start -->--}}
 {{--                        <div class="classynav">--}}
 {{--                            <ul>--}}
 {{--                                <li><a href="index.html">Home</a></li>--}}
@@ -189,14 +189,14 @@
 {{--                            </ul>--}}
 
 {{--                            <!-- Search Form  -->--}}
-{{--                            <div id="search-wrapper">--}}
-{{--                                <form action="#">--}}
-{{--                                    <input type="text" id="search" placeholder="Search something...">--}}
-{{--                                    <div id="close-icon"></div>--}}
-{{--                                    <input class="d-none" type="submit" value="">--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                    {{--                            <div id="search-wrapper">--}}
+                    {{--                                <form action="#">--}}
+                    {{--                                    <input type="text" id="search" placeholder="Search something...">--}}
+                    {{--                                    <div id="close-icon"></div>--}}
+                    {{--                                    <input class="d-none" type="submit" value="">--}}
+                    {{--                                </form>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
                         <!-- Nav End -->
                     </div>
                 </nav>
@@ -282,51 +282,87 @@
 
 <!-- ##### Hero Area End ##### -->
 
-<!-- ##### Blog Wrapper Start ##### -->
+<!-- ##### 開始修改 ##### -->
 <div class="blog-wrapper section-padding-100 clearfix">
     <div class="container">
         <div class="row align-items-end">
+{{--            <!-- Single Blog Area -->--}}
+                    <div class="col-12 col-lg-4">
+                        <div class="single-blog-area clearfix mb-100">
+                            <!-- Blog Content -->
+                            <div class="single-blog-content">
+                                <div class="line"></div>
+                                <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo->path)}}">
+                                <a href="#">{{$attraction->name}}</a>
+                                <h4><a href="#" class="post-headline"></a></h4>
+                                <p>{{$content}}</p>
+                            </div>
+                        </div>
+                    </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        <a href="#" class="post-tag">Lifestyle</a>
+                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                        <a href="#" class="btn original-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        <a href="#" class="post-tag">Lifestyle</a>
+                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                        <a href="#" class="btn original-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        <a href="#" class="post-tag">Lifestyle</a>
+                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                        <a href="#" class="btn original-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
             <!-- Single Blog Area -->
-{{--            <div class="col-12 col-lg-4">--}}
-{{--                <div class="single-blog-area clearfix mb-100">--}}
-{{--                    <!-- Blog Content -->--}}
-{{--                    <div class="single-blog-content">--}}
-{{--                        <div class="line"></div>--}}
-{{--                        <a href="#" class="post-tag">Lifestyle</a>--}}
-{{--                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>--}}
-{{--                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>--}}
-{{--                        <a href="#" class="btn original-btn">Read More</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-catagory-area clearfix mb-100">
+                    <img src="img/blog-img/1.jpg" alt="">
+                    <!-- Catagory Title -->
+                    <div class="catagory-title">
+                        <a href="#">Lifestyle posts</a>
+                    </div>
+                </div>
+            </div>
             <!-- Single Blog Area -->
-{{--            <div class="col-12 col-md-6 col-lg-4">--}}
-{{--                <div class="single-catagory-area clearfix mb-100">--}}
-{{--                    <img src="img/blog-img/1.jpg" alt="">--}}
-{{--                    <!-- Catagory Title -->--}}
-{{--                    <div class="catagory-title">--}}
-{{--                        <a href="#">Lifestyle posts</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <!-- Single Blog Area -->
-{{--            <div class="col-12 col-md-6 col-lg-4">--}}
-{{--                <div class="single-catagory-area clearfix mb-100">--}}
-{{--                    <img src="img/blog-img/2.jpg" alt="">--}}
-{{--                    <!-- Catagory Title -->--}}
-{{--                    <div class="catagory-title">--}}
-{{--                        <a href="#">latest posts</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-catagory-area clearfix mb-100">
+                    <img src="img/blog-img/2.jpg" alt="">
+                    <!-- Catagory Title -->
+                    <div class="catagory-title">
+                        <a href="#">latest posts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-12 col-lg-9">--}}
+        <div class="row">
+            <div class="col-12 col-lg-9">
 
-{{--                <!-- Single Blog Area  -->--}}
+                <!-- Single Blog Area  -->
 {{--                <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms">--}}
 {{--                    <div class="row align-items-center">--}}
 {{--                        <div class="col-12 col-md-6">--}}
@@ -392,7 +428,7 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 {{--                        <div class="col-12">--}}
-{{--                            <!-- Blog Content -->--}}
+                            <!-- Blog Content -->
 {{--                            <div class="single-blog-content mt-50">--}}
 {{--                                <div class="line"></div>--}}
 {{--                                <a href="#" class="post-tag">Lifestyle</a>--}}
@@ -521,74 +557,51 @@
                             <!-- Single Blog Post -->
                             <div class="single-blog-post d-flex align-items-center widget-post">
                                 <!-- Post Thumbnail -->
-{{--                                <div class="post-thumbnail">--}}
-{{--                                    <img src="img/blog-img/lp2.jpg" alt="">--}}
-{{--                                </div>--}}
-{{--                                <!-- Post Content -->--}}
-{{--                                <div class="post-content">--}}
-{{--                                    <a href="#" class="post-tag">Lifestyle</a>--}}
-{{--                                    <h4><a href="#" class="post-headline">A sunday in the park</a></h4>--}}
-{{--                                    <div class="post-meta">--}}
-{{--                                        <p><a href="#">12 March</a></p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="post-thumbnail">
+                                </div>
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Single Blog Post -->
                             <div class="single-blog-post d-flex align-items-center widget-post">
                                 <!-- Post Thumbnail -->
-{{--                                <div class="post-thumbnail">--}}
-{{--                                    <img src="img/blog-img/lp3.jpg" alt="">--}}
-{{--                                </div>--}}
-{{--                                <!-- Post Content -->--}}
-{{--                                <div class="post-content">--}}
-{{--                                    <a href="#" class="post-tag">Lifestyle</a>--}}
-{{--                                    <h4><a href="#" class="post-headline">Party people in the house</a></h4>--}}
-{{--                                    <div class="post-meta">--}}
-{{--                                        <p><a href="#">12 March</a></p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="post-thumbnail">
+                                </div>
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Single Blog Post -->
                             <div class="single-blog-post d-flex align-items-center widget-post">
                                 <!-- Post Thumbnail -->
-{{--                                <div class="post-thumbnail">--}}
-{{--                                    <img src="img/blog-img/lp4.jpg" alt="">--}}
-{{--                                </div>--}}
-{{--                                <!-- Post Content -->--}}
-{{--                                <div class="post-content">--}}
-{{--                                    <a href="#" class="post-tag">Lifestyle</a>--}}
-{{--                                    <h4><a href="#" class="post-headline">A sunday in the park</a></h4>--}}
-{{--                                    <div class="post-meta">--}}
-{{--                                        <p><a href="#">12 March</a></p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="post-thumbnail">
+                                </div>
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-{{--                    <!-- Widget Area -->--}}
-{{--                    <div class="sidebar-widget-area">--}}
-{{--                        <h5 class="title">Tags</h5>--}}
-{{--                        <div class="widget-content">--}}
-{{--                            <ul class="tags">--}}
-{{--                                <li><a href="#">design</a></li>--}}
-{{--                                <li><a href="#">fashion</a></li>--}}
-{{--                                <li><a href="#">travel</a></li>--}}
-{{--                                <li><a href="#">music</a></li>--}}
-{{--                                <li><a href="#">party</a></li>--}}
-{{--                                <li><a href="#">video</a></li>--}}
-{{--                                <li><a href="#">photography</a></li>--}}
-{{--                                <li><a href="#">adventure</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+                    <!-- Widget Area -->
+                    <div class="sidebar-widget-area">
+                        <div class="widget-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ##### Blog Wrapper End ##### -->
 
 <!-- ##### Instagram Feed Area Start ##### -->
@@ -602,7 +615,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-{{--    <!-- Instagram Slides -->--}}
+    <!-- Instagram Slides -->
 {{--    <div class="instagram-slides owl-carousel">--}}
 {{--        <!-- Single Insta Feed -->--}}
 {{--        <div class="single-insta-feed">--}}
@@ -620,7 +633,7 @@
 {{--                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-{{--        <!-- Single Insta Feed -->--}}
+        <!-- Single Insta Feed -->
 {{--        <div class="single-insta-feed">--}}
 {{--            <img src="img/instagram-img/3.png" alt="">--}}
 {{--            <!-- Hover Effects -->--}}
@@ -628,7 +641,7 @@
 {{--                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-{{--        <!-- Single Insta Feed -->--}}
+        <!-- Single Insta Feed -->
 {{--        <div class="single-insta-feed">--}}
 {{--            <img src="img/instagram-img/4.png" alt="">--}}
 {{--            <!-- Hover Effects -->--}}
@@ -636,7 +649,7 @@
 {{--                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-{{--        <!-- Single Insta Feed -->--}}
+        <!-- Single Insta Feed -->
 {{--        <div class="single-insta-feed">--}}
 {{--            <img src="img/instagram-img/5.png" alt="">--}}
 {{--            <!-- Hover Effects -->--}}
@@ -644,7 +657,7 @@
 {{--                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-{{--        <!-- Single Insta Feed -->--}}
+        <!-- Single Insta Feed -->
 {{--        <div class="single-insta-feed">--}}
 {{--            <img src="img/instagram-img/6.png" alt="">--}}
 {{--            <!-- Hover Effects -->--}}
@@ -652,7 +665,7 @@
 {{--                <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-{{--        <!-- Single Insta Feed -->--}}
+        <!-- Single Insta Feed -->
 {{--        <div class="single-insta-feed">--}}
 {{--            <img src="img/instagram-img/7.png" alt="">--}}
 {{--            <!-- Hover Effects -->--}}
@@ -670,35 +683,35 @@
         <div class="row">
             <div class="col-12">
 
-                <!-- Footer Nav Area -->
-                <div class="classy-nav-container breakpoint-off">
+{{--                <!-- Footer Nav Area -->--}}
+{{--                <div class="classy-nav-container breakpoint-off">--}}
                     <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-center">
+{{--                        <nav class="classy-navbar justify-content-center">--}}
 
                         <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
+{{--                        <div class="classy-navbar-toggler">--}}
+{{--                            <span class="navbarToggler"><span></span><span></span><span></span></span>--}}
+{{--                        </div>--}}
 
                         <!-- Menu -->
-                        <div class="classy-menu">
+{{--                        <div class="classy-menu">--}}
 
                             <!-- close btn -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-{{--                            <div class="classynav" >--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="#">Home</a></li>--}}
-{{--                                    <li><a href="#">About Us</a></li>--}}
-{{--                                    <li><a href="#">Lifestyle</a></li>--}}
-{{--                                    <li><a href="#">travel</a></li>--}}
-{{--                                    <li><a href="#">Music</a></li>--}}
-{{--                                    <li><a href="#">Contact</a></li>--}}
-{{--                                </ul>--}}
+{{--                            <div class="classycloseIcon">--}}
+{{--                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>--}}
 {{--                            </div>--}}
+
+                            <!-- 底部 -->
+                            <div class="classynav" >
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Lifestyle</a></li>
+                                    <li><a href="#">travel</a></li>
+                                    <li><a href="#">Music</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
                             <!-- Nav End -->
                         </div>
                     </nav>

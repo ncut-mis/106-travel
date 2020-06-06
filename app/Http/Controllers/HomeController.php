@@ -78,7 +78,7 @@ class HomeController extends Controller
              $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
                  'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
                  ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'content4'=>$content4
-                 ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7
+                 ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content'=>$content
              ];
 
              return view('mhome', $data);
