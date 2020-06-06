@@ -106,10 +106,19 @@
 
                         </div>
                         <div class="card">
+                            @if($attraction->video_path==NULL)
                             <div class="card-header" id="video">
                                 影片
                             </div>
-                            <center><iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                    無
+                                </div>
+                            @else
+                                <div class="card-header" id="video">
+                                    影片
+                                </div>
+                                <center><iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            @endif
                         </div>
                 @if($schedule_guide_id==NULL)
                     <form action="{{route('scheduleguides.reindex',$schedule_id)}}" method="post">
