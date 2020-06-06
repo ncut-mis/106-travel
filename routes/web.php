@@ -209,6 +209,7 @@ Route::get('ghistory','GhistoryController@index')->name('ghistory.index');
 
 //導遊顯示目前被預約景點
 Route::get('reservation', 'ReservationController@index')->name('reservation.index');
+//導遊檔案
 Route::post('/file/update','FileController@update_descr')->name('update.file');
 Route::get('/file','FileController@index')->name('view.file');
 Route::get('/file/upload','FileController@create')->name('form.file');

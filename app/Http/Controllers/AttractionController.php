@@ -108,12 +108,7 @@ class AttractionController extends Controller
 
         $attraction = Attraction::Where('id',$attraction_id)->first();
 
-
-
         $files=File::Where('attraction_id',$attraction_id)->orderBy('created_at','DESC')->paginate(30);
-
-
-
 
        $data=[
            'attraction'=>$attraction,'attraction_id'=>$attraction_id,
@@ -152,8 +147,14 @@ class AttractionController extends Controller
 //            [$a['name'],$a['location'],$a['content'],$a['price'],$id]);
         $attraction->update($a);
 
-        $attraction_last= Attraction::orderBy('id', 'DESC')->first();
-        $attraction_id=$attraction_last->id;
+        $attraction_id=$attraction->id;
+
+
+//        //新增主圖片
+//        $photos=new \App\Photo();
+//        $photos->attraction_id=auth()->user()->guides->attraction->id;
+//        $photos->path=$request->input('path');
+//        $photos->save();
 
         //導遊專長景點的主圖片
         $photos = $request->file('photo');

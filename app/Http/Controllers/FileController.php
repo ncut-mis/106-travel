@@ -93,12 +93,12 @@ class FileController extends Controller
     public function update_descr(Request $request)
     {
         //
-        
+
         $attraction_id=$request->input('attraction_id');
-        $file=File::where('id', $request->input("file_id"))->first(); 
+        $file=File::where('id', $request->input("file_id"))->first();
         $file->description = $request->input("content");
         $file->save();
-        
+
         return redirect('/attractions/'.$attraction_id);
     }
 
@@ -110,9 +110,11 @@ class FileController extends Controller
      */
     public function destroy($id,Request $request)
     {
-        $attraction_id=$request->input('delete_button');
 
+        $attraction_id=$request->input('delete_button');
         $del=File::find($id);
+
+//        dd($id,$request->input('delete_button'),$del);
         Storage::delete($del->path);
         $del->delete();
         return redirect('/attractions/'.$attraction_id);

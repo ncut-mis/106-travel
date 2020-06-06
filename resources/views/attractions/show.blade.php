@@ -43,7 +43,7 @@
                      <div class="card-header" id="mdo">
                          行程介紹
                      </div>
-                     <div class="row">
+                     <div class="row" id="row" name="row">
                          @foreach($files as $file)
                              <div class="col-md-4">
                                  <div class="card">
@@ -53,7 +53,7 @@
                                          <strong class="card-title"> <?php echo str_replace(".jpg","",$file->title);?> </strong>
                                          <p class="card-text">{{$file->created_at->diffForHumans()}}</p>
                                      <!-- <form action="{{route('delete.file',$file->id)}}" name="pay" id="pay" method="post"> -->
-                                         <form action="{{route('delete.file',$file->id)}}"  method="post">
+                                         <form action="{{route('delete.file',$file->id)}}" id="cancel" name="cancel" method="post">
                                              @csrf
                                              <textarea rows="3" type="text" name="content" id="content"  class="form-control" cols="20">{{$file->description}}</textarea>
                                              <input type = "hidden" id = "file_id" name = "file_id" value = "{{$file->id}}">
@@ -66,19 +66,22 @@
                                                  <title>導遊</title>
                                              </head>
                                              <body>
-                                             <button onclick="myFunction()"  class="btn btn-danger btn-sm" type="submit" name="delete_button" id="delete_button" >刪除照片</button>
+                                             <button onclick="myFunction(this)" class="btn btn-danger btn-sm "  type="button" name="delete_button" id="delete_button" value="{{$attraction_id}}" >刪除照片</button>
                                              <p id="demo"></p>
                                              <script>
-                                                 function myFunction(){
+                                                 function myFunction(myobj){
                                                      var x;
                                                      var r=confirm("是否刪除此張照片");
                                                      if (r==true){
                                                          x="你按下了\"确定\"按钮!";
+                                                         // console.log(myobj.value);
+                                                         myobj.type='submit';
                                                      }
                                                      else{
                                                          x="你按下了\"取消\"按钮!";
+                                                         myobj.type='button';
                                                      }
-                                                     document.getElementById("demo").innerHTML=x;
+                                                     // document.getElementById("demo").innerHTML=x;
                                                  }
                                              </script>
 
@@ -97,10 +100,11 @@
                    <div class="card-header" id="video">
                        影片
                    </div>
-
-
+                   @if($attraction->video_path==NULL)
+                       @else
                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                @endif
+               </div>
         </div>
     </div>
 </div>
@@ -109,12 +113,15 @@
 
 <script>
     function SubmitForm(frm){
-//      document.("表单的name值").action
-//      document.("表单的name值").submit
-//      frm.submit();
         frm.action="{{route('update.file')}}";
     }
 </script>
+
+
+
     </div>
 </div>
 </div>
+
+
+
