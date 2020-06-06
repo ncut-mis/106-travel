@@ -292,10 +292,11 @@
                             <!-- Blog Content -->
                             <div class="single-blog-content">
                                 <div class="line"></div>
+                                {{$attraction->name}}
                                 <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo->path)}}">
-                                <a href="#">{{$attraction->name}}</a>
+                                <a href="#"></a>
                                 <h4><a href="#" class="post-headline"></a></h4>
-                                <p>{{$content}}</p>
+                                <p>{{$content4}}</p>
                             </div>
                         </div>
                     </div>
@@ -304,10 +305,11 @@
                     <!-- Blog Content -->
                     <div class="single-blog-content">
                         <div class="line"></div>
-                        <a href="#" class="post-tag">Lifestyle</a>
-                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
-                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                        <a href="#" class="btn original-btn">Read More</a>
+                        {{$attraction1->name}}
+                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo1->path)}}">
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a></h4>
+                        <p>{{$content5}}</p>
                     </div>
                 </div>
             </div>
@@ -316,10 +318,11 @@
                     <!-- Blog Content -->
                     <div class="single-blog-content">
                         <div class="line"></div>
-                        <a href="#" class="post-tag">Lifestyle</a>
-                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
-                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                        <a href="#" class="btn original-btn">Read More</a>
+                        {{$attraction2->name}}
+                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo2->path)}}">
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a></h4>
+                        <p>{{$content6}}</p>
                     </div>
                 </div>
             </div>
@@ -328,10 +331,11 @@
                     <!-- Blog Content -->
                     <div class="single-blog-content">
                         <div class="line"></div>
-                        <a href="#" class="post-tag">Lifestyle</a>
-                        <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
-                        <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                        <a href="#" class="btn original-btn">Read More</a>
+                        {{$attraction3->name}}
+                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo3->path)}}">
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a></h4>
+                        <p>{{$content7}}</p>
                     </div>
                 </div>
             </div>

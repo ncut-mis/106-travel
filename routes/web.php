@@ -58,10 +58,10 @@ Route::get('/', function () {
         $content1=$attraction1->content;
         $content2=$attraction2->content;
         $content3=$attraction3->content;
-        $content4=mb_substr( $content, 0 , 20,"utf-8");
-        $content5=mb_substr( $content1, 0 , 20,"utf-8" );
-        $content6=mb_substr( $content2, 0 , 20 ,"utf-8");
-        $content7=mb_substr( $content3, 0 , 20,"utf-8" );
+        $content4=mb_substr( $content, 0 , 30,"utf-8");
+        $content5=mb_substr( $content1, 0 , 30,"utf-8" );
+        $content6=mb_substr( $content2, 0 , 30 ,"utf-8");
+        $content7=mb_substr( $content3, 0 , 30,"utf-8" );
 
         $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
             'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
