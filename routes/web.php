@@ -24,7 +24,7 @@ Route::get('/', function () {
             $attractionalastid = Attraction::all()->last()->id;
             $begin=1;
             $end=$attractionalastid;
-            $limit=4;
+            $limit=9;
             $rand_array = range($begin, $end);
             shuffle($rand_array);//呼叫現成的陣列隨機排列函式
             $random5=array_slice($rand_array, 0, $limit);//擷取前$limit個
@@ -92,15 +92,17 @@ Route::get('/', function () {
         $content5=mb_substr( $content1, 0 , 30,"utf-8" );
         $content6=mb_substr( $content2, 0 , 30 ,"utf-8");
         $content7=mb_substr( $content3, 0 , 30,"utf-8" );
-        $content8=mb_substr( $content, 0 , 30,"utf-8");
-        $content9=mb_substr( $content1, 0 , 30,"utf-8" );
-        $content10=mb_substr( $content2, 0 , 30 ,"utf-8");
-        $content11=mb_substr( $content3, 0 , 30,"utf-8" );
-        $content12=mb_substr( $content3, 0 , 30,"utf-8" );
-        $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
+        $content8=mb_substr( $content4, 0 , 30,"utf-8");
+        $content9=mb_substr( $content5, 0 , 30,"utf-8" );
+        $content10=mb_substr( $content6, 0 , 30 ,"utf-8");
+        $content11=mb_substr( $content7, 0 , 30,"utf-8" );
+        $content12=mb_substr( $content8, 0 , 30,"utf-8" );
+        $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,'attraction4'=>$attraction4,
+            'attraction5'=>$attraction5,'attraction6'=>$attraction6,'attraction7'=>$attraction7,'attraction8'=>$attraction8,'attraction_id4'=>$attraction_id4,
+            'attraction_id5'=>$attraction_id5,'attraction_id6'=>$attraction_id6,'attraction_id7'=>$attraction_id7,'attraction_id8'=>$attraction_id8,
             'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
-            ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'content4'=>$content4
-            ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content8'=>$content8,'content9'=>$content9,
+            ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'photo4'=>$photo4,'photo5'=>$photo5,'photo6'=>$photo6,'photo7'=>$photo7,
+            'content4'=>$content4,'photo8'=>$photo8, 'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content8'=>$content8,'content9'=>$content9,
             'content10'=>$content10,'content11'=>$content11,'content12'=>$content12,
         ];
 

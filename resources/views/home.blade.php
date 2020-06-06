@@ -87,28 +87,28 @@
         </div>
     </div>
 
-    <!-- Nav Area -->
-    <div class="original-nav-area" id="stickyNav">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="container">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between">
+{{--    <!-- Nav Area -->--}}
+{{--    <div class="original-nav-area" id="stickyNav">--}}
+{{--        <div class="classy-nav-container breakpoint-off">--}}
+{{--            <div class="container">--}}
+{{--                <!-- Classy Menu -->--}}
+{{--                <nav class="classy-navbar justify-content-between">--}}
 
-                    <!-- Subscribe btn -->
-                    <div class="subscribe-btn">
-                    </div>
+{{--                    <!-- Subscribe btn -->--}}
+{{--                    <div class="subscribe-btn">--}}
+{{--                    </div>--}}
 
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu" id="originalNav">
-                        <!-- close btn -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
+{{--                    <!-- Navbar Toggler -->--}}
+{{--                    <div class="classy-navbar-toggler">--}}
+{{--                        <span class="navbarToggler"><span></span><span></span><span></span></span>--}}
+{{--                    </div>--}}
+{{--123--}}
+{{--                    <!-- Menu -->--}}
+{{--                    <div class="classy-menu" id="originalNav">--}}
+{{--                        <!-- close btn -->--}}
+{{--                        <div class="classycloseIcon">--}}
+{{--                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>--}}
+{{--                        </div>--}}
 
 {{--                        <!-- Nav Start -->--}}
 {{--                        <div class="classynav">--}}
@@ -189,21 +189,21 @@
 {{--                            </ul>--}}
 
 {{--                            <!-- Search Form  -->--}}
-                    {{--                            <div id="search-wrapper">--}}
-                    {{--                                <form action="#">--}}
-                    {{--                                    <input type="text" id="search" placeholder="Search something...">--}}
-                    {{--                                    <div id="close-icon"></div>--}}
-                    {{--                                    <input class="d-none" type="submit" value="">--}}
-                    {{--                                </form>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
+{{--                    --}}{{--                            <div id="search-wrapper">--}}
+{{--                    --}}{{--                                <form action="#">--}}
+{{--                    --}}{{--                                    <input type="text" id="search" placeholder="Search something...">--}}
+{{--                    --}}{{--                                    <div id="close-icon"></div>--}}
+{{--                    --}}{{--                                    <input class="d-none" type="submit" value="">--}}
+{{--                    --}}{{--                                </form>--}}
+{{--                    --}}{{--                            </div>--}}
+{{--                    --}}{{--                        </div>--}}
+{{--                        <!-- Nav End -->--}}
+{{--                    </div>--}}
+{{--                </nav>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</header>--}}
 <!-- ##### Header Area End ##### -->
 
 <!-- ##### 註解部分 ##### -->
@@ -293,7 +293,7 @@
                             <div class="single-blog-content">
                                 <div class="line"></div>
                                 {{$attraction->name}}
-                                <img class="figure-img "  src="{{Storage::url($photo->path)}}">
+                                <img class="figure-img "  src="{{Storage::url($photo->path)}}" width="1000">
                                 <a href="#"></a>
                                 <h4><a href="#" class="post-headline"></a>{{$content4}}</h4>
                                 <p></p>
@@ -306,7 +306,7 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         {{$attraction1->name}}
-                        <img class="figure-img "  src="{{Storage::url($photo1->path)}}" >
+                        <img class="figure-img "  src="{{Storage::url($photo1->path)}}" width="1000" >
                         <a href="#"></a>
                         <h4><a href="#" class="post-headline"></a>{{$content5}}</h4>
                         <p></p>
@@ -319,7 +319,7 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         {{$attraction2->name}}
-                        <img class="figure-img "  src="{{Storage::url($photo2->path)}}" >
+                        <img class="figure-img "  src="{{Storage::url($photo2->path)}}" width="1000">
                         <a href="#"></a>
                         <h4><a href="#" class="post-headline"></a>{{$content6}}</h4>
                         <p></p>
