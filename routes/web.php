@@ -42,7 +42,27 @@ Route::get('/', function () {
             $attraction3 = Attraction::where('id', $random5[3])->first();
             if ($attraction3 != NULL)
                 $attraction_id3 = $attraction3->id;
-            if ($attraction != NULL &&$attraction1 != NULL &&$attraction2 != NULL &&$attraction3 != NULL && $attraction->reservation!=1 && $attraction1->reservation!=1 && $attraction2->reservation!=1 && $attraction3->reservation!=1)
+            $attraction4 = Attraction::where('id', $random5[4])->first();
+            if ($attraction4 != NULL)
+                $attraction_id4 = $attraction4->id;
+            $attraction5 = Attraction::where('id', $random5[5])->first();
+            if ($attraction5 != NULL)
+                $attraction_id5 = $attraction5->id;
+            $attraction6 = Attraction::where('id', $random5[6])->first();
+            if ($attraction6 != NULL)
+                $attraction_id6 = $attraction6->id;
+            $attraction7 = Attraction::where('id', $random5[7])->first();
+            if ($attraction7 != NULL)
+                $attraction_id7 = $attraction7->id;
+            $attraction8 = Attraction::where('id', $random5[8])->first();
+            if ($attraction8 != NULL)
+                $attraction_id8 = $attraction8->id;
+            if ($attraction != NULL &&$attraction1 != NULL &&$attraction2 != NULL &&$attraction3 != NULL
+                && $attraction4 != NULL && $attraction5 != NULL && $attraction6 != NULL && $attraction7 != NULL &&
+                $attraction8 != NULL  &&$attraction->reservation!=1 && $attraction1->reservation!=1 && $attraction2->reservation!=1
+                && $attraction3->reservation!=1 && $attraction4->reservation!=1 && $attraction5->reservation!=1
+                && $attraction6->reservation!=1 && $attraction7->reservation!=1 && $attraction8->reservation!=1
+               )
             {
                 break;
             }
@@ -51,6 +71,11 @@ Route::get('/', function () {
         $photo1=Photo::where('attraction_id',$attraction_id1)->first();
         $photo2=Photo::where('attraction_id',$attraction_id2)->first();
         $photo3=Photo::where('attraction_id',$attraction_id3)->first();
+        $photo4=Photo::where('attraction_id',$attraction_id4)->first();
+        $photo5=Photo::where('attraction_id',$attraction_id5)->first();
+        $photo6=Photo::where('attraction_id',$attraction_id6)->first();
+        $photo7=Photo::where('attraction_id',$attraction_id7)->first();
+        $photo8=Photo::where('attraction_id',$attraction_id8)->first();
 
 //             dd($photo,$photo1,$photo2,$photo3);
 
@@ -58,15 +83,25 @@ Route::get('/', function () {
         $content1=$attraction1->content;
         $content2=$attraction2->content;
         $content3=$attraction3->content;
+        $content4=$attraction->content;
+        $content5=$attraction1->content;
+        $content6=$attraction2->content;
+        $content7=$attraction3->content;
+        $content8=$attraction3->content;
         $content4=mb_substr( $content, 0 , 30,"utf-8");
         $content5=mb_substr( $content1, 0 , 30,"utf-8" );
         $content6=mb_substr( $content2, 0 , 30 ,"utf-8");
         $content7=mb_substr( $content3, 0 , 30,"utf-8" );
-
+        $content8=mb_substr( $content, 0 , 30,"utf-8");
+        $content9=mb_substr( $content1, 0 , 30,"utf-8" );
+        $content10=mb_substr( $content2, 0 , 30 ,"utf-8");
+        $content11=mb_substr( $content3, 0 , 30,"utf-8" );
+        $content12=mb_substr( $content3, 0 , 30,"utf-8" );
         $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,
             'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
             ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'content4'=>$content4
-            ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content'=>$content
+            ,'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content8'=>$content8,'content9'=>$content9,
+            'content10'=>$content10,'content11'=>$content11,'content12'=>$content12,
         ];
 
         return view('home', $data);

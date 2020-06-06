@@ -206,79 +206,79 @@
 </header>
 <!-- ##### Header Area End ##### -->
 
-<!-- ##### Hero Area Start ##### -->
-<div class="hero-area">
-    <!-- Hero Slides Area -->
-    <div class="hero-slides owl-carousel">
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">
+<!-- ##### 註解部分 ##### -->
+{{--<div class="hero-area">--}}
+{{--    <!-- Hero Slides Area -->--}}
+{{--    <div class="hero-slides owl-carousel">--}}
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">--}}
 
-            <img class="figure-img img-fluid rounded"  >
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>
-                            </div>
-                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content4}}..</font></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--            <img class="figure-img img-fluid rounded"  >--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content4}}..</font></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
-                            </div>
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>--}}
+{{--                            </div>--}}
 
-                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content5}}..</font></a>
+{{--                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content5}}..</font></a>--}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>
-                            </div>
-                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content6}}..</font></a>
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content6}}..</font></a>--}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--再一個-->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>
-                            </div>
-                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content7}}..</font></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <!--再一個-->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <a href="{{route('login')}}" class="btn btn-link"style="background-color:#FFF0D4"data-animation="fadeInUp" ><font color="black">{{$content7}}..</font></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <!-- ##### Hero Area End ##### -->
 
@@ -293,10 +293,10 @@
                             <div class="single-blog-content">
                                 <div class="line"></div>
                                 {{$attraction->name}}
-                                <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo->path)}}">
+                                <img class="figure-img "  src="{{Storage::url($photo->path)}}">
                                 <a href="#"></a>
-                                <h4><a href="#" class="post-headline"></a></h4>
-                                <p>{{$content4}}</p>
+                                <h4><a href="#" class="post-headline"></a>{{$content4}}</h4>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -306,10 +306,10 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         {{$attraction1->name}}
-                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo1->path)}}">
+                        <img class="figure-img "  src="{{Storage::url($photo1->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a></h4>
-                        <p>{{$content5}}</p>
+                        <h4><a href="#" class="post-headline"></a>{{$content5}}</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -319,10 +319,10 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         {{$attraction2->name}}
-                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo2->path)}}">
+                        <img class="figure-img "  src="{{Storage::url($photo2->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a></h4>
-                        <p>{{$content6}}</p>
+                        <h4><a href="#" class="post-headline"></a>{{$content6}}</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -332,36 +332,80 @@
                     <div class="single-blog-content">
                         <div class="line"></div>
                         {{$attraction3->name}}
-                        <img class="figure-img img-fluid rounded"  src="{{Storage::url($photo3->path)}}">
+                        <img class="figure-img "  src="{{Storage::url($photo3->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a></h4>
-                        <p>{{$content7}}</p>
+                        <h4><a href="#" class="post-headline"></a>{{$content7}}</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
             <!-- Single Blog Area -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-catagory-area clearfix mb-100">
-                    <img src="img/blog-img/1.jpg" alt="">
-                    <!-- Catagory Title -->
-                    <div class="catagory-title">
-                        <a href="#">Lifestyle posts</a>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction4->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo4->path)}}" >
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a>{{$content8}}</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
             <!-- Single Blog Area -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="single-catagory-area clearfix mb-100">
-                    <img src="img/blog-img/2.jpg" alt="">
-                    <!-- Catagory Title -->
-                    <div class="catagory-title">
-                        <a href="#">latest posts</a>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction5->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo5->path)}}" >
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a>{{$content9}}</h4>
+                        <p></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction6->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo6->path)}}" >
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a>{{$content10}}</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction7->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo7->path)}}" >
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a>{{$content11}}</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction8->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo8->path)}}" >
+                        <a href="#"></a>
+                        <h4><a href="#" class="post-headline"></a>{{$content12}}</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
 {{--    <div class="container">--}}
         <div class="row">
             <div class="col-12 col-lg-9">
