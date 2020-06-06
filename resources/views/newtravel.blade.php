@@ -74,7 +74,8 @@
         <div class="card-header">
             影片
         </div>
-        @if($file!=NULL)
+        @if($attraction->video_path==NULL)
+            @else
             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$attraction->video_path}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         @endif
     </div>
