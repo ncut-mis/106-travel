@@ -13,27 +13,48 @@ class guides_test extends Seeder
     {
         DB::table('guides') -> insert([
             [
-                'user_id' => rand(1,10),
+                'id' => 99,
+                'user_id' => 99,
                 'id_card' => 'A178333348',
-                'name' => 'nike',
-                'pass' => '0',
-                'photo' => 'mb_pic/頭貼1.jpg',
+                'pass' => '1',
+                'photo' => 'mb_pic/頭貼01.jpg',
+                'pass_time' => '2020/04/15 00:00:00',
                 'created_at' => now()
             ],
             [
-                'user_id' => rand(1,10),
+                'id' => 100,
+                'user_id' => 100,
                 'id_card' => 'E246775390',
-                'name' => 'danny',
-                'pass' => '0',
-                'photo' => 'mb_pic/頭貼2.jpg',
+                'pass' => '1',
+                'photo' => 'mb_pic/頭貼02.jpg',
+                'pass_time' => '2020/04/15 00:00:00',
                 'created_at' => now()
             ],
             [
-                'user_id' => rand(1,10),
+                'id' => 101,
+                'user_id' => 101,
                 'id_card' => 'U786765890',
-                'name' => 'jake',
-                'pass' => '0',
-                'photo' => 'mb_pic/頭貼3.jpg',
+                'pass' => '1',
+                'photo' => 'mb_pic/頭貼03.jpg',
+                'pass_time' => '2020/04/15 00:00:00',
+                'created_at' => now()
+            ],
+            [
+                'id' => 102,
+                'user_id' => 102,
+                'id_card' => 'U786765890',
+                'pass' => '1',
+                'photo' => 'mb_pic/頭貼04.jpg',
+                'pass_time' => '2020/06/15 00:00:00',
+                'created_at' => now()
+            ],
+            [
+                'id' => 103,
+                'user_id' => 103,
+                'id_card' => 'U786765890',
+                'pass' => '1',
+                'photo' => 'mb_pic/頭貼05.jpg',
+                'pass_time' => now(),
                 'created_at' => now()
             ],
             
@@ -41,189 +62,478 @@ class guides_test extends Seeder
             
         ]);
 
-
-
-        DB::table('guides_audit') -> insert([
+        DB::table('users') -> insert([
             [
-                'guide_id' => 1,
-                'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明.jpg',
-                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
-
-雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
-
-另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
-               
+                'id' => 99,
+                'name' => 'tony',
+                'sex' => '男',
+                'email' => 'A12345678@gmail.com',
+                'type' => '導遊',
+                'phone' => '0988456321',
+                'password' => '87654321',
+                'birthday' => '1996-09-09 00:00:00',
+                'created_at' => '2020/04/15 00:00:00',
             ],
             [
-                'guide_id' => 2,
-                'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明.jpg',
-                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作。
-
-雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
-
-另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
+                'id' => 100,
+                'name' => 'Alsa',
+                'sex' => '女',
+                'email' => 'B12345678@gmail.com ',
+                'type' => '導遊',
+                'phone' => '0955426621',
+                'password' => '87654321',
+                'birthday' => '1997-04-11 00:00:00',
+                'created_at' => '2020/04/15 00:00:00',
             ],
             [
-                'guide_id' => 3,
-                'license_intro' => '我的旅遊照片',
-                'license' => 'mb_pic/證明.jpg',
-                'motive' => '在剛上大學的時候曾經進入某旅行社擔任兼職實習領隊，從此對旅遊業懷抱著憧憬，希望未來退伍後能從事領隊導遊工作
-
-雖然旅遊業工作辛苦但隨時都能學到新的觀念，帶團的過程中能接觸到來自四面八方的人群，也能透過工作認識更寬廣的世界。
-
-另一方面也是因為原本科系的出路起薪較低，也希望透過旅遊業的工作讓自己薪資可以更優渥讓生活可以更好。'
+                'id' => 101,
+                'name' => 'Denny',
+                'sex' => '男',
+                'email' => 'C12345678@gmail.com',
+                'type' => '導遊',
+                'phone' => '0926456995',
+                'password' => '87654321',
+                'birthday' => '1982-02-18 00:00:00',
+                'created_at' => '2020/04/15 00:00:00',
             ],
             [
-                'guide_id' => 1,
-                'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照.jpg',
-                'motive' => ''
-               
+                'id' => 102,
+                'name' => 'jake',
+                'sex' => '男',
+                'email' => 'D12345678@gmail.com',
+                'type' => '導遊',
+                'phone' => '0977456995',
+                'password' => '87654321',
+                'birthday' => '1989-05-18 00:00:00',
+                'created_at' => '2020/05/15 00:00:00',
             ],
             [
-                'guide_id' => 2,
-                'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照.jpg',
-                'motive' => ''
+                'id' => 103,
+                'name' => 'Ella',
+                'sex' => '女',
+                'email' => 'E12345678@gmail.com',
+                'type' => '導遊',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/05/15 00:00:00',
             ],
             [
-                'guide_id' => 3,
-                'license_intro' => '我的證照',
-                'license' => 'mb_pic/證照.jpg',
-                'motive' => ''
+                'id' => 104,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'Z12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/05/15 00:00:00',
+            ],
+            [
+                'id' => 105,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'X12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/05/15 00:00:00',
+            ],
+            [
+                'id' => 106,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'Y12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/05/15 00:00:00',
+            ],
+            [
+                'id' => 107,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'ZZ12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/06/03 00:00:00',
+            ],
+            [
+                'id' => 108,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'XX12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => '2020/06/03 00:00:00',
+            ],
+            [
+                'id' => 109,
+                'name' => '453453',
+                'sex' => '女',
+                'email' => 'YY12345678@gmail.com',
+                'type' => '會員',
+                'phone' => '0921156995',
+                'password' => '87654321',
+                'birthday' => '1993-10-22 00:00:00',
+                'created_at' => now(),
             ],
             
-           
+            
         ]);
 
-        DB::table('schedules') -> insert([
-            [
-                'region' => '700台南市中西區民族路二段212號',
-                'start' => '2020/06/10',
-                'end' => '2020/06/11',
-                'content' => '拍照打卡',
-                'name' => '赤崁樓一日遊',
-                'room' => '710台南市永康區中正北路159號',
-                'traffic' => '導遊開車',
-                'cost' => 1200,
-                'guide_id' => 1,
-                'travel_id' => 1,
-                'created_at' => now(),
-            ],
-            [
-                'region' => '台北市',
-                'start' => '2020/05/10',
-                'end' => '2020/05/11',
-                'content' => '逛101',
-                'name' => '台北101一日遊',
-                'room' => '寒舍艾麗酒店',
-                'traffic' => '搭火車',
-                'cost' => 1300,
-                'guide_id' => 2,
-                'travel_id' => 2,
-                'created_at' => now(),
-            ],
-            [
-                'region' => '高雄市',
-                'start' => '2020/07/10',
-                'end' => '2020/07/11',
-                'content' => '參觀85大樓，逛愛河',
-                'name' => '高雄一日遊',
-                'room' => '德立莊博愛館',
-                'traffic' => '導遊開車',
-                'cost' => 1400,
-                'guide_id' => 3,
-                'travel_id' => 3,
-                'created_at' => now(),
-            ],
-            
-            
-        ]);
+
+
+        
 
 
         DB::table('travels') -> insert([
             [
-                'start' => '2020/02/10',
-                'end' => '2020/02/21',
+                'id' => 99,
+                'start' => '2020/06/07',
+                'end' => '2020/06/21',
                 'name' => 'test',
                 'total' => 15263,
                 'pay' => 1,
-                'member_id' => 1,
-                'paytime' =>'2020/02/15',
+                'member_id' => 107,
+                'paytime' =>'2020/06/07',
+            ],
+            [
+                'id' => 100,
+                'start' => '2020/06/07',
+                'end' => '2020/06/21',
+                'name' => 'test',
+                'total' => 2513,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2020/06/07',
+            ],
+            [
+                'id' => 101,
+                'start' => '2020/06/07',
+                'end' => '2020/06/21',
+                'name' => 'test',
+                'total' => 7000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2020/06/07',
+            ],
+            [
+                'id' => 102,
+                'start' => '2020/06/07',
+                'end' => '2020/06/21',
+                'name' => 'test',
+                'total' => 9000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>now(),
+            ],
+            [
+                'id' => 103,
+                'start' => '2020/06/07',
+                'end' => '2020/06/21',
+                'name' => 'test',
+                'total' => 4000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>now(),
             ],
             
             [
+                'id' => 104,
                 'start' => '2020/02/11',
                 'end' => '2020/02/13',
                 'name' => 'test',
                 'total' => 200,
                 'pay' => 1,
-                'member_id' => 1,
-                'paytime' =>'2020/02/18',
+                'member_id' => 107,
+                'paytime' =>'2020/02/11',
             ],
 
             [
+                'id' => 105,
                 'start' => '2020/02/18',
                 'end' => '2020/02/27',
                 'name' => 'test',
                 'total' => 2000,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/02/15',
             ],
            
             [
+                'id' => 106,
                 'start' => '2020/02/15',
                 'end' => '2020/02/23',
                 'name' => 'test',
                 'total' => 36200,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/02/16',
             ],
 
             [
+                'id' => 107,
                 'start' => '2020/05/20',
                 'end' => '2020/05/23',
                 'name' => 'test',
                 'total' => 5000,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/05/20',
             ],
 
             [
+                'id' => 108,
                 'start' => '2020/05/15',
                 'end' => '2020/05/21',
                 'name' => 'test',
                 'total' => 7800,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/05/15',
             ],
 
             [
+                'id' => 109,
                 'start' => '2020/05/15',
                 'end' => '2020/05/17',
                 'name' => 'test',
                 'total' => 3000,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/05/15',
             ],
 
             [
+                'id' => 110,
                 'start' => '2020/05/26',
                 'end' => '2020/05/26',
                 'name' => 'test',
                 'total' => 800,
                 'pay' => 1,
-                'member_id' => 1,
+                'member_id' => 107,
                 'paytime' =>'2020/05/26',
             ],
+
+            [
+                'id' => 111,
+                'start' => '2019/05/27',
+                'end' => '2019/05/27',
+                'name' => 'test',
+                'total' => 9000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2019/05/27',
+            ],
+
+            [
+                'id' => 112,
+                'start' => '2019/04/26',
+                'end' => '2019/04/26',
+                'name' => 'test',
+                'total' => 6000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2019/04/26',
+            ],
+            [
+                'id' => 113,
+                'start' => '2019/03/26',
+                'end' => '2019/03/26',
+                'name' => 'test',
+                'total' => 16000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2019/03/26',
+            ],
+
+            [
+                'id' => 114,
+                'start' => '2018/05/27',
+                'end' => '2018/05/27',
+                'name' => 'test',
+                'total' => 20000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2018/05/27',
+            ],
+
+            [
+                'id' => 115,
+                'start' => '2018/04/26',
+                'end' => '2018/04/26',
+                'name' => 'test',
+                'total' => 30000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2018/04/26',
+            ],
+            [
+                'id' => 116,
+                'start' => '2018/03/26',
+                'end' => '2018/03/26',
+                'name' => 'test',
+                'total' => 5000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2018/03/26',
+            ],
+            [
+                'id' => 117,
+                'start' => '2020/06/01',
+                'end' => '2020/06/30',
+                'name' => 'test',
+                'total' => 30000,
+                'pay' => 1,
+                'member_id' => 107,
+                'paytime' =>'2018/06/01',
+            ],
+
+
             ]);
+
+
+            DB::table('schedules') -> insert([
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' => date('y/m/d', strtotime('+1 day')),
+                'region' => '台北',
+                'name' => '台北二日遊',
+                'going' => '九如公園',
+                'traffic' => '導遊開車',
+                'arriving' => '淡水漁人碼頭',
+                'cost' =>1500,
+                'guide_id' =>99,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d', strtotime('+2 day')),
+                'region' => '台北',
+                'name' => '陽明山之旅',
+                'going' => '文化大學',
+                'traffic' => '導遊開車',
+                'arriving' => '陽明山國家公園',
+                'cost' =>1500,
+                'guide_id' =>100,
+            ],
+
             
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d', strtotime('+1 day')),
+                'end' =>date('y/m/d', strtotime('+3 day')),
+                'region' => '台南',
+                'name' => '九份&淡水&平溪&烏來三日遊',
+                'going' => '黃金瀑布',
+                'traffic' => '導遊開車',
+                'arriving' => '烏來溫泉',
+                'cost' =>3000,
+                'guide_id' =>102,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d'),
+                'region' => '台北',
+                'name' => '北投溫泉一日遊',
+                'going' => '北投市場',
+                'traffic' => '導遊開車',
+                'arriving' => '北投溫泉飯店泡湯',
+                'cost' =>1000,
+                'guide_id' =>101,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d'),
+                'region' => '台中',
+                'name' => '東海、逢甲一日遊',
+                'going' => '勤益科大',
+                'traffic' => '導遊開車',
+                'arriving' => '逢甲',
+                'cost' =>1000,
+                'guide_id' =>103,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' => date('y/m/d', strtotime('+1 day')),
+                'region' => '台中',
+                'name' => '台中二日遊',
+                'going' => '新社花海',
+                'traffic' => '導遊開車',
+                'arriving' => '高美濕地',
+                'cost' =>2000,
+                'guide_id' =>99,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d', strtotime('+2 day')),
+                'region' => '台中',
+                'name' => '台中三日遊',
+                'going' => '后里車站',
+                'traffic' => '導遊開車',
+                'arriving' => '霧峰車站',
+                'cost' =>3000,
+                'guide_id' =>100,
+            ],
+
+            
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d', strtotime('+1 day')),
+                'end' =>date('y/m/d', strtotime('+3 day')),
+                'region' => '台北',
+                'name' => '台南三日遊',
+                'going' => '台南車站',
+                'traffic' => '導遊開車',
+                'arriving' => '關子嶺溫泉',
+                'cost' =>3000,
+                'guide_id' =>102,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d'),
+                'region' => '花蓮',
+                'name' => '花蓮一日遊',
+                'going' => '吉安國小',
+                'traffic' => '導遊開車',
+                'arriving' => '太魯閣國家公園',
+                'cost' =>1000,
+                'guide_id' =>101,
+            ],
+
+            [
+                'travel_id' => 107,
+                'start' => date('y/m/d'),
+                'end' =>date('y/m/d'),
+                'region' => '高雄',
+                'name' => '高雄一日遊',
+                'going' => '大東濕地',
+                'traffic' => '導遊開車',
+                'arriving' => '六合夜市',
+                'cost' =>1000,
+                'guide_id' =>103,
+            ],
+          
+
+            ]);
     }
 }
