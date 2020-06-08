@@ -13,7 +13,7 @@
                     <input type = "hidden" id = "name" name = "name" value = {{$name}}>
                     <input type="hidden" class="form-control" id="travel_id" name="travel_id" value={{$travel_id}}>
                     <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
-                    <button type="submit" class="btn btn-danger">返回</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">返回</button>
                 </form>
             @endif
             <nav id="navbar-example2" class="navbar navbar-light bg-light">

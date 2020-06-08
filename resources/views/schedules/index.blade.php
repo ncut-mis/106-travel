@@ -33,13 +33,13 @@
 <div class="div-b">
     <form  action="{{route('home')}}" method="get">
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-info">回首頁</button>
+        <button type="submit" class="btn btn-info">回首頁</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </div>
 <div class="div-c">
     <form  action="{{route('travel')}}" method="get">
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-danger">回旅遊規劃</button>
+        <button type="submit" class="btn btn-danger">回旅遊規劃</button>&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </div>
 
@@ -113,7 +113,7 @@
                             <input type = "hidden" id = "name" name = "name" value = "{{$name}}">
                             <input type = "hidden" id = "start" name = "start" value = "{{$start}}">
                             <input type = "hidden" id = "sum_total" name = "sum_total" value = "{{$sum_total}}">
-                            <button type="submit" class="btn btn-danger" name="id" id="id">確認旅遊規劃</button>
+                            &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger" name="id" id="id">確認旅遊規劃</button>
                         </form>
                     </div>
 

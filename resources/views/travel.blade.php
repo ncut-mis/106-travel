@@ -16,13 +16,13 @@
 <div class="div-b">
     <form  action="{{route('home')}}" method="get">
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-info">回首頁</button>
+        <button type="submit" class="btn btn-info">回首頁</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </div>
 <div class="div-c">
     <form  action="{{route('history')}}" method="get">
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-danger">旅遊歷史記錄</button>
+        <button type="submit" class="btn btn-danger">旅遊歷史記錄</button>&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </div>
 <!-- 資料表-->

@@ -3,6 +3,7 @@
 @section('content')
     <?php $num=0;
     ?>
+    <div class="form-group">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -53,6 +54,7 @@
                 @endforeach
                 </tbody>
             </table>
+    </div>
     <form action="{{route('schedules.reedit',$schedule_id)}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" class="form-control" id="schedule_id" name="schedule_id" value={{$schedule_id}}>
@@ -61,7 +63,7 @@
         <input type = "hidden" id = "schedule" name = "schedule" value = "{{$schedule->id}}">
         <input type = "hidden" id ="name" name="name" value = {{$name}}>
         <input type = "hidden" id = "total" name = "total" value = "{{$total}}">
-        <button type="submit" class="btn btn-danger">返回</button>
+        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-danger">返回</button>
     </form>
         </div>
     </div>
