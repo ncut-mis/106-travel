@@ -152,93 +152,241 @@
     </div>
 </header>
 <!-- ##### Hero Area Start ##### -->
-<div class="hero-area">
-    <!-- Hero Slides Area -->
-    <div class="hero-slides owl-carousel">
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">
+{{--<div class="hero-area">--}}
+{{--    <!-- Hero Slides Area -->--}}
+{{--    <div class="hero-slides owl-carousel">--}}
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo->path)}});">--}}
 
-            <img class="figure-img img-fluid rounded"  >
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>
-                            </div>
-                            <form action="{{route('travelguide.attraction')}}" method="post">
-                                {{ csrf_field() }}
-                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}..</font></button>
+{{--            <img class="figure-img img-fluid rounded"  >--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <form action="{{route('travelguide.attraction')}}" method="post">--}}
+{{--                                {{ csrf_field() }}--}}
+{{--                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">--}}
+{{--                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}..</font></button>--}}
 
-                            </form>
-                        </div>
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <form action="{{route('travelguide.attraction')}}" method="post">--}}
+{{--                                {{ csrf_field() }}--}}
+{{--                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">--}}
+{{--                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}..</font></button>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <!-- Single Slide -->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <form action="{{route('travelguide.attraction')}}" method="post">--}}
+{{--                                {{ csrf_field() }}--}}
+{{--                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">--}}
+{{--                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}..</font></button>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <!--再一個-->--}}
+{{--        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">--}}
+{{--            <div class="container h-100">--}}
+{{--                <div class="row h-100 align-items-center">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="slide-content text-center">--}}
+{{--                            <div class="post-tag">--}}
+{{--                                <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>--}}
+{{--                            </div>--}}
+{{--                            <form action="{{route('travelguide.attraction')}}" method="post">--}}
+{{--                                {{ csrf_field() }}--}}
+{{--                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">--}}
+{{--                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}..</font></button>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+
+<div class="blog-wrapper section-padding-100 clearfix">
+    <div class="container">
+        <div class="row align-items-end">
+            {{--            <!-- Single Blog Area -->--}}
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo->path)}}" width="1000">
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo1->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction1->name}}</a>
-                            </div>
-                            <form action="{{route('travelguide.attraction')}}" method="post">
-                                {{ csrf_field() }}
-                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}..</font></button>
-                            </form>
-                        </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction1->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo1->path)}}" width="1000" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Single Slide -->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo2->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction2->name}}</a>
-                            </div>
-                            <form action="{{route('travelguide.attraction')}}" method="post">
-                                {{ csrf_field() }}
-                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}..</font></button>
-                            </form>
-                        </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction2->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo2->path)}}" width="1000">
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--再一個-->
-        <div class="single-hero-slide bg-img" style="background-image: url({{Storage::url($photo3->path)}});">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <div class="slide-content text-center">
-                            <div class="post-tag">
-                                <a href="#" data-animation="fadeInUp">{{$attraction3->name}}</a>
-                            </div>
-                            <form action="{{route('travelguide.attraction')}}" method="post">
-                                {{ csrf_field() }}
-                                <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
-                                <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}..</font></button>
-                            </form>
-                        </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction3->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo3->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction4->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo4->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id4}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content8}}</font></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction5->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo5->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id5}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content9}}</font></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction6->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo6->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id6}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content10}}</font></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction7->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo7->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id7}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content11}}</font></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="single-blog-area clearfix mb-100">
+                    <!-- Blog Content -->
+                    <div class="single-blog-content">
+                        <div class="line"></div>
+                        {{$attraction8->name}}
+                        <img class="figure-img "  src="{{Storage::url($photo8->path)}}" >
+                        <a href="#"></a>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id8}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content12}}</font></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 <!-- ##### Hero Area End ##### -->
 
 <!-- ##### Blog Wrapper Start ##### -->

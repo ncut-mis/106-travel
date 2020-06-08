@@ -30,11 +30,11 @@ $file_name =  basename($file_path);
     $index = 4;
     break;
     case 'b4a.php':
-      $index = 4;
-      break;
-      case 'b4b.php':
-        $index = 4;
-        break;
+    $index = 4;
+    break;
+    case 'b4b.php':
+    $index = 4;
+    break;
 
 }
 ?>

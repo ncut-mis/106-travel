@@ -204,11 +204,13 @@ function get_guides_total_month()//判斷月導遊數
     return $data ;
 }
 
-function get_guides_total_today()//判斷今日出團導遊數
+function get_guides_total_today()//判斷今日導遊
 {
     $data =null;
-    $date = date('Y/m/d');
-    $sql = "SELECT count(guide_id) as guides_total FROM `schedules` where ( '$date' between `start` and `end`) and(trim(`guide_id`) !='')" ;
+    $date1 = date('Y-m-d 00:00:00');
+    $date2 = date('Y-m-d 23:59:59');
+    $sql = "SELECT count(id) as guides_total FROM `guides` where `pass` =1
+    and (`pass_time` between '$date1' and '$date2')"  ;
     $query = mysqli_query($_SESSION['link'],$sql);
 
     if($query)

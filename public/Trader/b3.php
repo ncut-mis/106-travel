@@ -89,7 +89,7 @@ require_once 'php/sqlb3.php';
                             <div class="row d-flex  align-items-center ">
                                 <div class="col-6 border-right">
                                     <div class="text-center mt-2 w-100"> 
-                                        <h5><b>當月會員增加</b></h5>
+                                        <h5><b>月會員增加</b></h5>
                                         <h2><?php if($d5['members_total']==null) echo 0;
                                         else echo $d5['members_total'] ?>
                                         </h2>
@@ -134,7 +134,7 @@ require_once 'php/sqlb3.php';
 
                                 <div class="col-6 ">
                                     <div class="text-center mt-2 w-100"> 
-                                        <h5><b>今日出團導遊</b></h5>
+                                        <h5><b>今日導遊增加</b></h5>
                                         <h2><?php if($d9['guides_total']==null) echo 0;
                                         else echo $d9['guides_total'] ?>
                                         </h2>

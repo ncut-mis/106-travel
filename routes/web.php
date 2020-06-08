@@ -103,7 +103,7 @@ Route::get('/', function () {
             'attraction_id3'=>$attraction_id3,'attraction_id2'=>$attraction_id2,'attraction_id1'=>$attraction_id1,'attraction_id'=>$attraction_id
             ,'photo'=>$photo,'photo1'=>$photo1,'photo2'=>$photo2,'photo3'=>$photo3,'photo4'=>$photo4,'photo5'=>$photo5,'photo6'=>$photo6,'photo7'=>$photo7,
             'content4'=>$content4,'photo8'=>$photo8, 'content5'=>$content5,'content6'=>$content6,'content7'=>$content7,'content8'=>$content8,'content9'=>$content9,
-            'content10'=>$content10,'content11'=>$content11,'content12'=>$content12,
+            'content10'=>$content10,'content11'=>$content11,'content12'=>$content12
         ];
 
         return view('home', $data);
