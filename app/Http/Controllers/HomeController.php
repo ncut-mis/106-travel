@@ -99,15 +99,11 @@ class HomeController extends Controller
              $content5=mb_substr( $content1, 0 , 20,"utf-8" );
              $content6=mb_substr( $content2, 0 , 20 ,"utf-8");
              $content7=mb_substr( $content3, 0 , 20,"utf-8" );
-             $content4=mb_substr( $content, 0 , 30,"utf-8");
-             $content5=mb_substr( $content1, 0 , 30,"utf-8" );
-             $content6=mb_substr( $content2, 0 , 30 ,"utf-8");
-             $content7=mb_substr( $content3, 0 , 30,"utf-8" );
-             $content8=mb_substr( $content4, 0 , 30,"utf-8");
-             $content9=mb_substr( $content5, 0 , 30,"utf-8" );
-             $content10=mb_substr( $content6, 0 , 30 ,"utf-8");
-             $content11=mb_substr( $content7, 0 , 30,"utf-8" );
-             $content12=mb_substr( $content8, 0 , 30,"utf-8" );
+             $content8=mb_substr( $content4, 0 , 20,"utf-8");
+             $content9=mb_substr( $content5, 0 , 20,"utf-8" );
+             $content10=mb_substr( $content6, 0 , 20 ,"utf-8");
+             $content11=mb_substr( $content7, 0 , 20,"utf-8" );
+             $content12=mb_substr( $content8, 0 , 20,"utf-8" );
 
              $data=['user'=>$user,'attraction'=>$attraction,'attraction1'=>$attraction1,'attraction2'=>$attraction2,'attraction3'=>$attraction3,'attraction4'=>$attraction4,
                  'attraction5'=>$attraction5,'attraction6'=>$attraction6,'attraction7'=>$attraction7,'attraction8'=>$attraction8,'attraction_id4'=>$attraction_id4,

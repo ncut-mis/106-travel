@@ -251,8 +251,11 @@
                         {{$attraction->name}}
                         <img class="figure-img "  src="{{Storage::url($photo->path)}}" width="1000">
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content4}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content4}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -264,8 +267,11 @@
                         {{$attraction1->name}}
                         <img class="figure-img "  src="{{Storage::url($photo1->path)}}" width="1000" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content5}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id1}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content5}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -277,8 +283,11 @@
                         {{$attraction2->name}}
                         <img class="figure-img "  src="{{Storage::url($photo2->path)}}" width="1000">
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content6}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id2}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content6}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -290,8 +299,11 @@
                         {{$attraction3->name}}
                         <img class="figure-img "  src="{{Storage::url($photo3->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content7}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id3}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content7}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -303,8 +315,11 @@
                         {{$attraction4->name}}
                         <img class="figure-img "  src="{{Storage::url($photo4->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content8}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id4}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content8}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -316,8 +331,11 @@
                         {{$attraction5->name}}
                         <img class="figure-img "  src="{{Storage::url($photo5->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content9}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id5}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content9}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -329,8 +347,11 @@
                         {{$attraction6->name}}
                         <img class="figure-img "  src="{{Storage::url($photo6->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content10}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id6}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content10}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -342,8 +363,11 @@
                         {{$attraction7->name}}
                         <img class="figure-img "  src="{{Storage::url($photo7->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content11}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id7}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content11}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -355,8 +379,11 @@
                         {{$attraction8->name}}
                         <img class="figure-img "  src="{{Storage::url($photo8->path)}}" >
                         <a href="#"></a>
-                        <h4><a href="#" class="post-headline"></a>{{$content12}}</h4>
-                        <p></p>
+                        <form action="{{route('travelguide.attraction')}}" method="post">
+                            {{ csrf_field() }}
+                            <input type = "hidden" id = "att_id" name = "att_id" value = "{{$attraction_id8}}">
+                            <button type="submit" class="btn btn-link" style="background-color:#FFF0D4"data-animation="fadeInUp"><font color="black">{{$content12}}</font></button>
+                        </form>
                     </div>
                 </div>
             </div>
