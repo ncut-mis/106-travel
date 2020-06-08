@@ -128,6 +128,7 @@ class HomeController extends Controller
         else if(Auth::user()->guides->pass=="1")
         {
             $a=Auth::user();
+
             return view('ghome',[ 'a' => $a]);
         }
 
