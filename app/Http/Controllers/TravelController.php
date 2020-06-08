@@ -103,7 +103,8 @@ class TravelController extends Controller
         $Travels->end=$request->input('update_end');
         $Travels->total=0;
         $Travels->pay=0;
-        $Travels->member_id=auth()->user()->id;
+        $member_id=auth::user()->members->id;
+        $Travels->member_id=$member_id;
         $Travels->save();
         $travels=Travel::orderBy('id', 'desc')->first();
         $travels_id_new=$travels->id;
