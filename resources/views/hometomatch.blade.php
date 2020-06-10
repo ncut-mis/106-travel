@@ -83,7 +83,7 @@
             </div>
             <form action="{{ route('hometomatch.store') }}" method="post">
                 {{ csrf_field() }}
-                <input type = "text" id = "att_id" name = "att_id" value =  "{{$att_id}}">
+                <input type = "hidden" id = "att_id" name = "att_id" value =  "{{$att_id}}">
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('旅遊名稱:') }}</label>
 

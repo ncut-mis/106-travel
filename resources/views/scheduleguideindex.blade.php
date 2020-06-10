@@ -25,10 +25,10 @@
                                     {{$num}}
                                 </td>
                                 <td>
-                                    {{$c[$attraction->guide_id]}}
+                                    {{$c[($attraction->id)-1]}}
                                 </td>
                                 <td>
-                                    {{$d[$attraction->guide_id]}}
+                                    {{$d[($attraction->id)-1]}}
                                 </td>
                                 <td>
                                     {{$attraction->location}}
