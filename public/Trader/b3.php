@@ -212,7 +212,6 @@ require_once 'php/sqlb3.php';
                     <div class="form-group">
                         <label for="month" class="mr-2">月份</label>
                             <select name="month" class="mr-3" id="">
-                            <option value="">all</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -230,7 +229,7 @@ require_once 'php/sqlb3.php';
                     </div>
 
                     <button type="submit" class="btn btn-secondary btn-sm mr-3">送出</button>
-                    <label for=""><?php if (empty($_GET['month'])) echo $_GET['year']." 1~12月"; else echo $_GET['year']."年".$_GET['month']."月" ?></label>
+                    <label for=""><?php /*if (empty($_GET['month'])) echo $_GET['year']." 1~12月"; else*/ echo $_GET['year']."年".$_GET['month']."月" ?></label>
                     <!--<div class="ml-auto">
                         <button type="button" class="btn btn-outline-secondary">導遊增加狀態</button>
                         <button type="button" class="btn btn-outline-secondary">會員增加狀態</button>
